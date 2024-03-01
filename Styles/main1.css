@@ -1,0 +1,142 @@
+@import url(/Styles/reset.css);
+* {
+  box-sizing: border-box;
+}
+:root {
+    --picton-blue-50: #effaff;
+    --picton-blue-100: #def4ff;
+    --picton-blue-200: #b6ebff;
+    --picton-blue-300: #75deff;
+    --picton-blue-400: #2dcdff;
+    --picton-blue-500: #01b0ec;
+    --picton-blue-600: #0094d3;
+    --picton-blue-700: #0075aa;
+    --picton-blue-800: #00638c;
+    --picton-blue-900: #065274;
+    --picton-blue-950: #04344d;
+    
+    
+
+  --butterfly-bush-50: #f9f7fd;
+  --butterfly-bush-100: #f1eef9;
+  --butterfly-bush-200: #e5dff5;
+  --butterfly-bush-300: #d1c6ec;
+  --butterfly-bush-400: #b5a1df;
+  --butterfly-bush-500: #987cd0;
+  --butterfly-bush-600: #805fbe;
+  --butterfly-bush-700: #6b4ca4;
+  --butterfly-bush-800: #644894;
+  --butterfly-bush-900: #4b366d;
+  --butterfly-bush-950: #301e4d;
+  --french-rose-50: #fef1f6;
+  --french-rose-100: #fee5f0;
+  --french-rose-200: #ffcbe2;
+  --french-rose-300: #ffa1c8;
+  --french-rose-400: #ff5496;
+  --french-rose-500: #fa3a7f;
+  --french-rose-600: #ea1858;
+  --french-rose-700: #cc0a40;
+  --french-rose-800: #a80c36;
+  --french-rose-900: #8c0f30;
+  --french-rose-950: #560117;
+  --mine-shaft-50: #f6f6f6;
+  --mine-shaft-100: #e7e7e7;
+  --mine-shaft-200: #d1d1d1;
+  --mine-shaft-300: #b0b0b0;
+  --mine-shaft-400: #888888;
+  --mine-shaft-500: #6d6d6d;
+  --mine-shaft-600: #5d5d5d;
+  --mine-shaft-700: #4f4f4f;
+  --mine-shaft-800: #454545;
+  --mine-shaft-900: #3d3d3d;
+  --mine-shaft-950: #292929;
+}
+
+header {
+  height: 100vh;
+  background-image: url(/media/images/dreamy-girl-looking-logo-showing-plastic-credit-card-holding-shopping-bags-standing-blue-b.jpg);
+  background-size: cover;
+
+  background-position: center center;
+background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+header ul {
+ padding: 2em 1em 1em 1em;
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ grid-template-rows: repeat(2, auto);
+ align-items: center;
+ row-gap: 1em;
+ position: fixed;
+
+}
+
+.search {
+  grid-column: auto;
+  grid-row: 2;
+  justify-self: center;
+  flex-basis: 0.2rem;
+  display: flex;
+  align-items: center;
+  background-color: var(--picton-blue-100);
+  padding: 0.4rem;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+
+}
+.search input {
+  border: transparent;
+  background-color: transparent;
+}
+#search {
+  grid-column: span 2;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+#logo img {
+  width: 1.6rem;
+}
+#logo a {
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+}
+#logo {
+  grid-column: 1/2;
+  grid-row: 1;
+  display: flex;
+  gap: 0.3em;
+}
+#logo h1 {
+  font-size: 1.7rem;
+}
+.sides {
+  grid-column: 2/3;
+  grid-row: 1;
+}
+#account {
+  justify-self: end;
+}
+#cart {
+  justify-self: center;
+  margin-right: 0.1em;
+}
+@media screen and (min-width: 440px) {
+  header ul {
+    display: flex;
+    flex-flow: row wrap;
+
+    justify-content: space-between;
+    align-items: center;
+  }
+}
