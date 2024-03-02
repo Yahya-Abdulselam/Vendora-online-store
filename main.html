@@ -6,14 +6,16 @@
     <title>Vendora</title>
     <script src="/main1.js"></script>
     <link rel="stylesheet" href="/Styles/main1.css" />
-    <link rel="icon" type="image/x-icon" href="/media/images/FullLogo_Transparent_NoBuffer(1).png" />
-
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/media/images/FullLogo_Transparent_NoBuffer(1).png"
+    />
   </head>
 
   <body>
     <header>
-        
-      <nav  class="navv">
+      <nav class="navv">
         <ul>
           <li id="first">
             <a href=""><img src="/media/icons/list.svg" alt="" /></a>
@@ -25,191 +27,227 @@
               <h1>Vendora</h1></a
             >
           </li>
+
           <li id="search">
-            <form  class="search" method="pget">
-             <label for="sv"> <img src="/media/icons/search.svg"  alt="" /></label>
+            <form class="search" method="pget">
+              <label for="sv">
+                <img src="/media/icons/search.svg" alt=""
+              /></label>
               <input type="search" id="sv" placeholder="Search Vendora" />
             </form>
           </li>
-          <li class="sides" id="cart">
-            <a href=""
-              ><img src="/media/icons/shopping-cart(1).svg" alt=""
-            /></a>
-          </li>
-          <li class="sides" id="account">
-            <a href=""><img src="/media/icons/user.svg" alt="" /></a>
+          <li>
+            <ul class="links">
+              <li class="sides" id="cart">
+                <a href=""
+                  ><img src="/media/icons/shopping-cart(1).svg" alt=""
+                /></a>
+              </li>
+              <li class="sides" id="account">
+                <a href=""><img src="/media/icons/user.svg" alt="" /></a>
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>
     </header>
- <main>
-    <div id="trending-catagories">
-      <ul><li>  <a href="">  <img src="/media/prod/woman-2564660_640.jpg" 
-         alt="">
-         <section>
-          <h2 >Shop for clothes</h2>
-          <h4 id="cloths-desc">Explore the trending fashion</h4>
-        </section>
-      </a>
+    <main>
+      <div id="trending-catagories">
+        <ul>
+          <li class="hidden">
+            <a href="">
+              <img src="/media/prod/woman-2564660_640.jpg" alt="" />
+              <section>
+                <button><h2>Shop for clothes</h2></button>
+                <h4 id="cloths-desc">Explore the trending fashion</h4>
+              </section>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <img src="/media/prod/pen-4337521_640.jpg" alt="" />
+              <section>
+                <button><h2>Shop for tech</h2></button>
+                <h4 id="tech-desc">
+                  Immerse yourself in the latest technologies
+                </h4>
+              </section>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <img src="/media/prod/living-room-2569325_640.jpg" alt="" />
+              <section>
+                <button><h2>Shop for furniture</h2></button>
+                <h4 id="furniture-desc">
+                  Discover modern furniture and house items
+                </h4>
+              </section>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <img src="/media/prod/books-1867168_640.jpg" alt="" />
+              <section>
+                <button><h2>Shop for books</h2></button>
+                <h4 id="book-desc">
+                  broaden your horizon with the world's knowledge.
+                </h4>
+              </section>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <section id="trending-apple">
+        <div class="product">
+          <img
+            src="/media/prod/giorgio-trovato-8krX0HkXw8c-unsplash.jpg"
+            alt=""
+          />
 
-     </li>
-      <li>
-        <a href="">
-          <img src="/media/prod/pen-4337521_640.jpg" alt="">
-          <section>
-            <h2 >Shop for tech</h2>
-               <h4 id="tech-desc">Immerse yourself in the latest technologies</h4>
-               </section>
-        </a>
-       </li>
-      <li>   <a href="">
-        <img src="/media/prod/living-room-2569325_640.jpg" alt="">
-        <section>
-          <h2 >Shop for furniture</h2>
-             <h4 id="furniture-desc">Discover modern furniture and house items</h4>
-             </section>
-      </a></li>
-      <li>   <a href="">
-        <img src="/media/prod/books-1867168_640.jpg" alt="">
-        <section>
-          <h2 >Shop for books</h2>
-             <h4 id="book-desc">broaden your horizon with the world's knowledge.</h4>
-             </section>
-      </a></li>
-      
+          <div class="info">
+            <h1>macbook pro</h1>
+            <h3>
+              <em>Think</em> <em>Different</em><br />
+              only for 2000$
+            </h3>
+            <button>Buy now</button>
+          </div>
+        </div>
+      </section>
+
+      <div id="slider">
+        <div>
+          <h1 id="special">Special offers</h1>
+          <h2>30% OFF!!!</h2>
+        </div>
+
+        <div id="offers">
+          <aside id="left">
+            <img src="media/icons/chevron-left.svg" alt="" />
+          </aside>
+          <ul id="img-list">
+            <li>
+              <img src="/media/prod/pexels-pixabay-256450.jpg" alt="" />
+            </li>
+            <li>
+              <img src="/media/prod/pexels-lil-artsy-1159670.jpg" alt="" />
+            </li>
+            <li>
+              <img src="/media/prod/pexels-antony-trivet-9979199.jpg" alt="" />
+            </li>
+            <li>
+              <img src="/media/prod/pexels-mateusz-taciak-7334396.jpg" alt="" />
+            </li>
+            <li>
+              <img src="/media/prod/pexels-umut-sarıalan-17921993.jpg" alt="" />
+            </li>
+            <li>
+              <img src="/media/prod/old-813814_1280.jpg" alt="" />
+            </li>
+          </ul>
+          <aside id="right">
+            <img src="media/icons/chevron-right.svg" alt="" />
+          </aside>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <ul>
+        <li>
+          <a href="example.com">
+            <picture id="x">
+              <source
+                srcset="/media/icons/brand-x.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img src="/media/icons/brand-x.svg" width="40px" />
+            </picture>
+          </a>
+        </li>
+        <li>
+          <a href="example.com">
+            <picture id="insta">
+              <source
+                srcset="/media/icons/brand-instagram.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img
+                src="/media/icons/brand-instagram.svg"
+                width="40px"
+              /> </picture
+          ></a>
+        </li>
+        <li>
+          <a href="example.com">
+            <picture id="dis">
+              <source
+                srcset="/media/icons/brand-discord.svgc:\Users\Yahya\OneDrive\Desktop\Cmps350\b04-ya2205057-yahya\assignments\01-html-css\01-content-presentation\media\icons\brand-discord.svg c:\Users\Yahya\OneDrive\Desktop\Cmps350\b04-ya2205057-yahya\assignments\01-html-css\01-content-presentation\media\icons\brand-x.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img
+                src="/media/icons/brand-discord.svg"
+                width="40px"
+              /> </picture
+          ></a>
+        </li>
+        <li>
+          <a href="example.com">
+            <picture id="linked">
+              <source
+                srcset="/media/icons/brand-linkedin.svg"
+                width="40px"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                src="/media/icons/brand-linkedin.svg"
+                width="40px"
+              /> </picture
+          ></a>
+        </li>
+        <li>
+          <a href="example.com">
+            <picture id="reddit">
+              <source
+                srcset="/media/icons/brand-reddit.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img src="/media/icons/brand-reddit.svg" width="40px" /> </picture
+          ></a>
+        </li>
+        <li>
+          <a href="example.com">
+            <picture id="face">
+              <source
+                srcset="
+                /media/icons/brand-facebook copy.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img
+                src="/media/icons/brand-facebook copy.svg"
+                width="40px"
+              /> </picture
+          ></a>
+        </li>
       </ul>
-    
-
-   
-
-
-
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
-      blanditiis sequi, vero rerum doloremque hic, natus quisquam sit illum
-      veritatis molestias soluta laboriosam doloribus praesentium deleniti
-      tempora debitis amet voluptates! Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Pariatur doloremque aspernatur sequi fugit consectetur,
-      eius unde accusantium ipsam dolores atque nihil nostrum nesciunt repellat,
-      debitis laudantium? Sapiente velit excepturi exercitationem!Lorem
-    </div>
- </main> </body>
+      <p id="foot1">
+        Ready to fortify your digital realm? CyberGuardian Solutions isn't just
+        a website; it's your gateway to unparalleled cybersecurity resilience.
+        Here, safeguarding your digital assets becomes second nature, and peace
+        of mind in the digital world is your constant companion.
+      </p>
+      <p #id="footer2">
+        Remember, the journey to comprehensive cybersecurity begins with a
+        single step. Secure yours today with CyberGuardian Solutions.
+      </p>
+      <p id="copyright">
+        copyright &copy; 2022-2024 CyberGuardian Solutions, inc.
+      </p>
+    </footer>
+  </body>
 </html>
