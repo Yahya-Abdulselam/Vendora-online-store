@@ -93,7 +93,7 @@ header nav > ul {
   -o-transform: translateY(-100%);
 }
 
-nav.navv:hover {
+nav.navv:hover, #search:hover {
   background-color: var(--picton-blue-700);
 }
 
