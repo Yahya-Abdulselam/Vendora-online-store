@@ -30,7 +30,7 @@
         </li>
         <li>
           <ul class="links">
-            <li class="sides" id="catagories">
+            <li class="extra" id="catagories">
               <a href=""
                 ><img src="/media/icons/category.svg" alt="" />
                 <p>catagories</p></a
@@ -53,7 +53,7 @@
       </ul>
       <form class="search" method="post">
         <label for="sv"> <img src="/media/icons/search.svg" alt="" /></label>
-        <input type="search" placeholder="Search Vendora" />
+        <input type="search" id="sv" placeholder="Search Vendora" />
       </form>
     </nav>
   </section>
@@ -64,7 +64,11 @@
     <ul>
       <li class="hidden">
         <a href="">
-          <img src="/media/prod/woman-2564660_640.jpg" alt="" />
+          <img
+            src="/media/prod/woman-2564660_640.jpg"
+            class="catagory"
+            alt=""
+          />
           <section>
             <button><h2>Shop for clothes</h2></button>
             <h4 id="cloths-desc">Explore the trending fashion</h4>
@@ -73,7 +77,7 @@
       </li>
       <li>
         <a href="">
-          <img src="/media/prod/pen-4337521_640.jpg" alt="" />
+          <img src="/media/prod/pen-4337521_640.jpg" class="catagory" alt="" />
           <section>
             <button><h2>Shop for tech</h2></button>
             <h4 id="tech-desc">Immerse yourself in the latest technologies</h4>
@@ -82,7 +86,11 @@
       </li>
       <li>
         <a href="">
-          <img src="/media/prod/living-room-2569325_640.jpg" alt="" />
+          <img
+            src="/media/prod/living-room-2569325_640.jpg"
+            class="catagory"
+            alt=""
+          />
           <section>
             <button><h2>Shop for furniture</h2></button>
             <h4 id="furniture-desc">
@@ -93,7 +101,11 @@
       </li>
       <li>
         <a href="">
-          <img src="/media/prod/books-1867168_640.jpg" alt="" />
+          <img
+            src="/media/prod/books-1867168_640.jpg"
+            class="catagory"
+            alt=""
+          />
           <section>
             <button><h2>Shop for books</h2></button>
             <h4 id="book-desc">
@@ -104,15 +116,58 @@
       </li>
     </ul>
   </div>
-  <section id="trending-apple">
+
+  <section id="trending-products">
     <div class="product">
       <img src="/media/prod/giorgio-trovato-8krX0HkXw8c-unsplash.jpg" alt="" />
 
       <div class="info">
         <h1>macbook pro</h1>
         <h3>
-          <em>Think</em> <em>Different</em><br />
-          only for 2000$
+          <em>Think Different</em><br />
+          only for <em class="price">1499.99$</em>
+        </h3>
+        <button>Buy now</button>
+      </div>
+    </div>
+    <div class="product">
+      <video autoplay muted loop>
+        <source
+          src="media/prod/pexels-quang-viet-nguyen-17197594 (2160p).mp4"
+        />
+      </video>
+
+      <div class="info">
+        <h1>Rolex Oyster</h1>
+        <h3>
+          <em>A Crown for Every Achievement</em><br />
+          only for <em class="price">10000$</em>
+        </h3>
+        <button>Buy now</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="/media/prod/pexels-hamza-nouasria-12611637.jpg" alt="" />
+
+      <div class="info">
+        <h1>Air Force 1</h1>
+        <h3>
+          <em>Just Do It</em><br />
+          only for <em class="price">200$</em>
+        </h3>
+        <button>Buy now</button>
+      </div>
+    </div>
+    <div class="product">
+      <video autoplay muted loop>
+        <source src="/media/prod/pexels-eren-li-7240999 (2160p).mp4" />
+      </video>
+
+      <div class="info">
+        <h1>Meta Quest 3</h1>
+        <h3>
+          <em>Expand your world</em><br />
+          only for <em class="price">499.99$</em>
         </h3>
         <button>Buy now</button>
       </div>
