@@ -71,11 +71,13 @@ h3 {
   line-height: 2rem;
 }
 
+
 header {
   height: 100vh;
   background-image: url(/media/images/dreamy-girl-looking-logo-showing-plastic-credit-card-holding-shopping-bags-standing-blue-b.jpg);
   background-size: cover;
   display: grid;
+ 
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   background-position: center center;
