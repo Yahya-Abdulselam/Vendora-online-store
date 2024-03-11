@@ -53,6 +53,19 @@
   --storm-dust-900: #3d3d3d;
   --storm-dust-950: #262626;
 }
+body {
+  /* background-color: var(--mine-shaft-950); */
+  background-color: black;
+  font-family: sans-serif;
+  font-size: 1.4rem;
+
+}
+p {
+  line-height: 2rem;
+}
+h3 {
+  line-height: 2rem;
+}
 
 header {
   height: 100vh;
@@ -224,18 +237,6 @@ header nav .links a:hover:after {
 .extra {
   display: none;
 }
-body {
-  background-color: var(--mine-shaft-950);
-  font-family: sans-serif;
-  font-size: 1.6rem;
-  color: var(--french-rose-400);
-}
-p {
-  line-height: 2rem;
-}
-h3 {
-  line-height: 2rem;
-}
 
 ul.links a p {
   display: none;
@@ -371,7 +372,6 @@ section #cloths-desc {
   -o-border-radius: 15px;
 }
 #trending-products video {
-  
   display: block;
   object-fit: cover;
   object-position: center center;
@@ -483,10 +483,125 @@ section #cloths-desc {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
 }
-#trending-products div{
+#trending-products div {
   height: 80%;
 }
+
+#offers .img-list {
+  display: grid;
+  position: relative;
+  grid-auto-flow: column;
+  grid-auto-columns: 33%;
+  overflow: auto;
+  gap: 0.5em;
+  left: 1rem;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+}
+.img-list > * {
+  scroll-snap-align: start;
+}
+
+#offers img {
+  width: 100%;
+  object-fit: cover;
+  height: 96%;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+#offers .img-list span {
+  height: 100%;
+  width: 90%;
+  display: flex;
+}
+
+#offers .img-list div h3 {
+  line-height: 2rem;
+}
+
+#offers .img-list div {
+  position: absolute;
+
+  display: flex;
+  flex-flow: column;
+
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  justify-content: flex-end;
+  text-align: left;
+  padding-left: 1rem;
+
+  height: 100%;
+  width: 30%;
+  top: -4%;
+}
+.img-list button {
+  width: 40%;
+
+  margin: 1rem 1rem 1rem 0px;
+  background-color: var(--french-rose-950);
+  color: white;
+}
+
+.img-list button:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+  border: solid var(--french-rose-950);
+  color: var(--french-rose-950);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+.img-list h3 {
+  border-radius: 20px;
+  opacity: 0.8;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.slider #special {
+  margin: 1.5rem;
+  margin-left: 3rem;
+
+  color: var(--butterfly-bush-800);
+}
+.slider #special h1 {
+  display: inline;
+
+  padding: 0.6rem;
+  background-color: white;
+  color: var(--butterfly-bush-800);
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
 @media screen and (max-width: 596px) {
+  .slider h1 {
+    font-size: 1.4rem;
+  }
+  .slider h2,
+  .slider h3 {
+    font-size: 0.7rem;
+  }
+  .slider div {
+    top: 0;
+  }
+  .slider button {
+    margin: 0;
+    width: 70%;
+    height: 15%;
+    font-size: 0.5rem;
+  }
   #trending-products .info h1 {
     padding-top: 0.8rem;
     font-size: 1.4rem;
@@ -499,7 +614,7 @@ section #cloths-desc {
     height: 2rem;
     width: 60%;
     grid-row: 6;
- 
+
     grid-column: 4/6;
     justify-self: center;
     align-self: start;
@@ -513,6 +628,22 @@ section #cloths-desc {
 }
 
 @media screen and (max-width: 370px) {
+  .slider h1 {
+    font-size: 1.4rem;
+  }
+  .slider h2,
+  .slider h3 {
+    font-size: 0.7rem;
+  }
+  .slider div {
+    top: 0;
+  }
+  .slider button {
+    margin: 0;
+    width: 70%;
+    height: 20%;
+    font-size: 0.5rem;
+  }
   #trending-products .info h1 {
     padding-top: 0.8rem;
     font-size: 1.4rem;
@@ -525,10 +656,9 @@ section #cloths-desc {
     height: 2rem;
     width: 60%;
     grid-row: 4;
- 
+
     grid-column: 4/6;
     justify-self: center;
-   
   }
   body {
     min-width: 320px;
@@ -537,7 +667,6 @@ section #cloths-desc {
     line-height: 1.2rem;
   }
 }
-
 
 @media screen and (min-width: 750px) {
   h3 {
