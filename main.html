@@ -4,250 +4,322 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vendora</title>
-    <script src="/main1.js"></script>
-    <link rel="stylesheet" href="/Styles/main1.css" />
+    <script src="/main.js"></script>
+    <link rel="stylesheet" href="/Styles/main.css" />
+    =
+
     <link
       rel="icon"
       type="image/x-icon"
       href="/media/images/FullLogo_Transparent_NoBuffer(1).png"
     />
   </head>
-
-  <body>
-    <header>
-      <nav class="navv">
-        <ul>
-          <li id="first">
-            <a href=""><img src="/media/icons/list.svg" alt="" /></a>
-            <a href="" id="logo">
-              <img
-                src="/media/images/FullLogo_Transparent_NoBuffer(1).png"
-                alt="vendora logo"
-              />
-              <h1>Vendora</h1></a
-            >
-          </li>
-
-          <li id="search">
-            <form class="search" method="pget">
-              <label for="sv">
-                <img src="/media/icons/search.svg" alt=""
-              /></label>
-              <input type="search" id="sv" placeholder="Search Vendora" />
-            </form>
-          </li>
-          <li>
-            <ul class="links">
-              <li class="sides" id="cart">
-                <a href=""
-                  ><img src="/media/icons/shopping-cart(1).svg" alt=""
-                /></a>
-              </li>
-              <li class="sides" id="account">
-                <a href=""><img src="/media/icons/user.svg" alt="" /></a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <div id="trending-catagories">
-        <ul>
-          <li class="hidden">
-            <a href="">
-              <img src="/media/prod/woman-2564660_640.jpg" alt="" />
-              <section>
-                <button><h2>Shop for clothes</h2></button>
-                <h4 id="cloths-desc">Explore the trending fashion</h4>
-              </section>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <img src="/media/prod/pen-4337521_640.jpg" alt="" />
-              <section>
-                <button><h2>Shop for tech</h2></button>
-                <h4 id="tech-desc">
-                  Immerse yourself in the latest technologies
-                </h4>
-              </section>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <img src="/media/prod/living-room-2569325_640.jpg" alt="" />
-              <section>
-                <button><h2>Shop for furniture</h2></button>
-                <h4 id="furniture-desc">
-                  Discover modern furniture and house items
-                </h4>
-              </section>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <img src="/media/prod/books-1867168_640.jpg" alt="" />
-              <section>
-                <button><h2>Shop for books</h2></button>
-                <h4 id="book-desc">
-                  broaden your horizon with the world's knowledge.
-                </h4>
-              </section>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <section id="trending-apple">
-        <div class="product">
-          <img
-            src="/media/prod/giorgio-trovato-8krX0HkXw8c-unsplash.jpg"
-            alt=""
-          />
-
-          <div class="info">
-            <h1>macbook pro</h1>
-            <h3>
-              <em>Think</em> <em>Different</em><br />
-              only for 2000$
-            </h3>
-            <button>Buy now</button>
-          </div>
-        </div>
-      </section>
-
-      <div id="slider">
-        <div>
-          <h1 id="special">Special offers</h1>
-          <h2>30% OFF!!!</h2>
-        </div>
-
-        <div id="offers">
-          <aside id="left">
-            <img src="media/icons/chevron-left.svg" alt="" />
-          </aside>
-          <ul id="img-list">
-            <li>
-              <img src="/media/prod/pexels-pixabay-256450.jpg" alt="" />
+</html>
+<header>
+  <section class="navsec">
+    <nav class="navv">
+      <ul>
+        <li id="first">
+          <a href="" id="list"><img src="/media/icons/list.svg" alt="" /></a>
+          <script src="/main2.js"></script>
+          <a href="" id="logo">
+            <img
+              src="/media/images/FullLogo_Transparent_NoBuffer(1).png"
+              alt="vendora logo"
+            />
+            <h1>Vendora</h1></a
+          >
+        </li>
+        <li>
+          <ul class="links">
+            <li class="extra">
+              <a href=""
+                ><img src="/media/icons/building-store.svg" alt="" />
+                <p>Sell</p></a
+              >
             </li>
-            <li>
-              <img src="/media/prod/pexels-lil-artsy-1159670.jpg" alt="" />
+            <li class="extra">
+              <a href=""
+                ><img src="/media/icons/help.svg" alt="" />
+                <p>Customer Service</p></a
+              >
             </li>
-            <li>
-              <img src="/media/prod/pexels-antony-trivet-9979199.jpg" alt="" />
+            <li class="extra">
+              <a href=""
+                ><img src="/media/icons/category.svg" alt="" />
+                <p>catagories</p></a
+              >
             </li>
-            <li>
-              <img src="/media/prod/pexels-mateusz-taciak-7334396.jpg" alt="" />
+
+            <li class="sides" id="cart">
+              <a href=""
+                ><img src="/media/icons/shopping-cart(1).svg" alt="" />
+                <p>cart</p></a
+              >
             </li>
-            <li>
-              <img src="/media/prod/pexels-umut-sarıalan-17921993.jpg" alt="" />
-            </li>
-            <li>
-              <img src="/media/prod/old-813814_1280.jpg" alt="" />
+            <li class="sides" id="account">
+              <a href="">
+                <img src="/media/icons/user.svg" alt="" />
+                <p>account</p></a
+              >
             </li>
           </ul>
-          <aside id="right">
-            <img src="media/icons/chevron-right.svg" alt="" />
-          </aside>
-        </div>
-      </div>
-    </main>
-    <footer>
-      <ul>
-        <li>
-          <a href="example.com">
-            <picture id="x">
-              <source
-                srcset="/media/icons/brand-x.svg"
-                media="(prefers-color-scheme: dark)"
-                width="40px"
-              />
-              <img src="/media/icons/brand-x.svg" width="40px" />
-            </picture>
-          </a>
-        </li>
-        <li>
-          <a href="example.com">
-            <picture id="insta">
-              <source
-                srcset="/media/icons/brand-instagram.svg"
-                media="(prefers-color-scheme: dark)"
-                width="40px"
-              />
-              <img
-                src="/media/icons/brand-instagram.svg"
-                width="40px"
-              /> </picture
-          ></a>
-        </li>
-        <li>
-          <a href="example.com">
-            <picture id="dis">
-              <source
-                srcset="/media/icons/brand-discord.svgc:\Users\Yahya\OneDrive\Desktop\Cmps350\b04-ya2205057-yahya\assignments\01-html-css\01-content-presentation\media\icons\brand-discord.svg c:\Users\Yahya\OneDrive\Desktop\Cmps350\b04-ya2205057-yahya\assignments\01-html-css\01-content-presentation\media\icons\brand-x.svg"
-                media="(prefers-color-scheme: dark)"
-                width="40px"
-              />
-              <img
-                src="/media/icons/brand-discord.svg"
-                width="40px"
-              /> </picture
-          ></a>
-        </li>
-        <li>
-          <a href="example.com">
-            <picture id="linked">
-              <source
-                srcset="/media/icons/brand-linkedin.svg"
-                width="40px"
-                media="(prefers-color-scheme: dark)"
-              />
-              <img
-                src="/media/icons/brand-linkedin.svg"
-                width="40px"
-              /> </picture
-          ></a>
-        </li>
-        <li>
-          <a href="example.com">
-            <picture id="reddit">
-              <source
-                srcset="/media/icons/brand-reddit.svg"
-                media="(prefers-color-scheme: dark)"
-                width="40px"
-              />
-              <img src="/media/icons/brand-reddit.svg" width="40px" /> </picture
-          ></a>
-        </li>
-        <li>
-          <a href="example.com">
-            <picture id="face">
-              <source
-                srcset="
-                /media/icons/brand-facebook copy.svg"
-                media="(prefers-color-scheme: dark)"
-                width="40px"
-              />
-              <img
-                src="/media/icons/brand-facebook copy.svg"
-                width="40px"
-              /> </picture
-          ></a>
         </li>
       </ul>
-      <p id="foot1">
-        Ready to fortify your digital realm? CyberGuardian Solutions isn't just
-        a website; it's your gateway to unparalleled cybersecurity resilience.
-        Here, safeguarding your digital assets becomes second nature, and peace
-        of mind in the digital world is your constant companion.
-      </p>
-      <p #id="footer2">
-        Remember, the journey to comprehensive cybersecurity begins with a
-        single step. Secure yours today with CyberGuardian Solutions.
-      </p>
-      <p id="copyright">
-        copyright &copy; 2022-2024 CyberGuardian Solutions, inc.
-      </p>
-    </footer>
-  </body>
-</html>
+      <form class="search" method="post">
+        <label for="sv"> <img src="/media/icons/search.svg" alt="" /></label>
+        <input type="search" id="sv" placeholder="Search Vendora" />
+      </form>
+    </nav>
+  </section>
+  <h2 id="slogan">
+    Infinite Choices,<br />
+    One Destination
+  </h2>
+</header>
+
+<main>
+  <div id="trending-catagories">
+    <ul>
+      <li class="hidden">
+        <a href="">
+          <img
+            src="/media/prod/woman-2564660_640.jpg"
+            class="catagory"
+            alt=""
+          />
+          <section>
+            <button><h2>Shop for clothes</h2></button>
+            <h4 id="cloths-desc">Explore the trending fashion</h4>
+          </section>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <img src="/media/prod/pen-4337521_640.jpg" class="catagory" alt="" />
+          <section>
+            <button><h2>Shop for tech</h2></button>
+            <h4 id="tech-desc">Immerse yourself in the latest technologies</h4>
+          </section>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <img
+            src="/media/prod/living-room-2569325_640.jpg"
+            class="catagory"
+            alt=""
+          />
+          <section>
+            <button><h2>Shop for furniture</h2></button>
+            <h4 id="furniture-desc">
+              Discover modern furniture and house items
+            </h4>
+          </section>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <img
+            src="/media/prod/books-1867168_640.jpg"
+            class="catagory"
+            alt=""
+          />
+          <section>
+            <button><h2>Shop for books</h2></button>
+            <h4 id="book-desc">
+              broaden your horizon with the world's knowledge.
+            </h4>
+          </section>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <section id="trending-products">
+    <div class="product">
+      <img src="/media/prod/giorgio-trovato-8krX0HkXw8c-unsplash.jpg" alt="" />
+
+      <div class="info">
+        <h1>macbook pro</h1>
+        <h3>
+          <em>Think Different</em><br />
+          only for <em class="price">1499.99$</em>
+        </h3>
+        <button>Buy now</button>
+      </div>
+    </div>
+    <div class="product">
+      <video autoplay muted loop>
+        <source
+          src="media/prod/pexels-quang-viet-nguyen-17197594 (2160p).mp4"
+        />
+      </video>
+
+      <div class="info">
+        <h1>Rolex Oyster</h1>
+        <h3>
+          <em>A Crown for Every Achievement</em><br />
+          only for <em class="price">10000$</em>
+        </h3>
+        <button>Buy now</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="/media/prod/pexels-hamza-nouasria-12611637.jpg" alt="" />
+
+      <div class="info">
+        <h1>Air Force 1</h1>
+        <h3>
+          <em>Just Do It</em><br />
+          only for <em class="price">200$</em>
+        </h3>
+        <button>Buy now</button>
+      </div>
+    </div>
+    <div class="product">
+      <video autoplay muted loop>
+        <source src="/media/prod/pexels-eren-li-7240999 (2160p).mp4" />
+      </video>
+
+      <div class="info">
+        <h1>Meta Quest 3</h1>
+        <h3>
+          <em>Expand your world</em><br />
+          only for <em class="price">499.99$</em>
+        </h3>
+        <button>Buy now</button>
+      </div>
+    </div>
+  </section>
+  <div class="slider">
+    <div id="special">
+      <h1>Special offers!!</h1>
+    </div>
+
+    <div id="offers">
+      <div class="img-list">
+        <span>
+          <img src="/media/prod/pexels-pixabay-256450.jpg" alt="" />
+
+          <div>
+            <h2>book</h2>
+            <h3>100$</h3>
+            <button>Buy now</button>
+          </div>
+        </span>
+        <span>
+          <img src="/media/prod/pexels-lil-artsy-1159670.jpg" alt="" />
+
+          <div>
+            <h2>Dr.martena boots</h2>
+            <h3>179.99$</h3>
+            <button>Buy now</button>
+          </div></span
+        >
+        <span>
+          <img src="/media/prod/pexels-antony-trivet-9979199.jpg" alt="" />
+
+          <div>
+            <h2>brown watch</h2>
+            <h3>73$</h3>
+            <button>Buy now</button>
+          </div></span
+        >
+
+        <span>
+          <img src="/media/prod/pexels-mateusz-taciak-7334396.jpg" alt="" />
+
+          <div>
+            <h2>guitar</h2>
+            <h3>400$</h3>
+            <button>Buy now</button>
+          </div></span
+        >
+        <span>
+          <img src="/media/prod/pexels-umut-sarıalan-17921993.jpg" alt="" />
+
+          <div>
+            <h2>headset</h2>
+            <h3>145.4$</h3>
+            <button>Buy now</button>
+          </div></span
+        >
+      </div>
+    </div>
+  </div>
+  <footer>
+    <ul id="socials">
+      <li>
+        <a href="example.com">
+          <picture id="x">
+            <source
+              srcset="\media\icons\darktheme-icons\brand-x.svg"
+              media="(prefers-color-scheme: dark)"
+              width="40px"
+            />
+            <img src="/media/icons/brand-x.svg" width="40px" />
+          </picture>
+        </a>
+      </li>
+      <li>
+        <a href="example.com">
+          <picture id="insta">
+            <source
+              srcset="media\icons\darktheme-icons\brand-instagram.svg"
+              media="(prefers-color-scheme: dark)"
+              width="40px"
+            />
+            <img
+              src="/media/icons/brand-instagram.svg"
+              width="40px"
+            /> </picture
+        ></a>
+      </li>
+
+      <li>
+        <a href="example.com">
+          <picture id="reddit">
+            <source
+              srcset="media\icons\darktheme-icons\brand-reddit.svg"
+              media="(prefers-color-scheme: dark)"
+              width="40px"
+            />
+            <img src="/media/icons/brand-reddit.svg" width="40px" /> </picture
+        ></a>
+      </li>
+      <li>
+        <a href="example.com">
+          <picture id="face">
+            <source
+              srcset="media\icons\darktheme-icons\brand-facebook.svg"
+              media="(prefers-color-scheme: dark)"
+              width="40px"
+            />
+            <img src="/media/icons/brand-facebook.svg" width="40px" /> </picture
+        ></a>
+      </li>
+    </ul>
+    <ul id="links">
+      <li><a href="">Become a seller</a></li>
+      <li><a href="">About us</a></li>
+      <li><a href="">Contact us</a></li>
+      <li><a href="">FAQs</a></li>
+      <li><a href="">Terms & Conditions</a></li>
+      <li><a href="">Customer Reviews</a></li>
+    </ul>
+    <p>
+      Welcome to Vendora, your ultimate e-commerce destination where you can
+      find anything your heart desires. With our vast selection of products and
+      services, we strive to be your one-stop shop for all your needs. Our
+      motto, "Infinite Choices, One Destination," encapsulates our commitment to
+      providing you with endless options while simplifying your shopping
+      experience. Whether you're searching for the latest tech gadgets, trendy
+      fashion pieces, home essentials, or unique gifts, Vendora has you covered.
+      Shop with confidence knowing that quality, convenience, and customer
+      satisfaction are at the core of everything we do. Join us on this exciting
+      journey of discovery and let Vendora be your go-to destination for all
+      your shopping desires.
+    </p>
+  </footer>
+</main>
