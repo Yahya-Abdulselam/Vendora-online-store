@@ -1,0 +1,66 @@
+:root {
+    --picton-blue-50: #effaff;
+    --picton-blue-100: #def4ff;
+    --picton-blue-200: #b6ebff;
+    --picton-blue-300: #75deff;
+    --picton-blue-400: #2dcdff;
+    --picton-blue-500: #01b0ec;
+    --picton-blue-600: #0094d3;
+    --picton-blue-700: #0075aa;
+    --picton-blue-800: #00638c;
+    --picton-blue-900: #065274;
+    --picton-blue-950: #04344d;
+}
+header{
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5rem;
+
+    background-color: rgb(250, 250, 250);
+}
+
+main>section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--picton-blue-100);
+    border-radius: 0.4rem;
+    box-shadow: 0.1rem 0.1rem 0.1rem var(--picton-blue-50);
+    margin: 1rem;
+}
+
+section>div{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+}
+
+input[type="text"]{
+    border-radius: 0.7rem;
+    height: 2rem;
+    width: 90%;
+    margin: 1rem;
+    border: none;
+    box-shadow: 0.1rem 0.1rem 0.1rem var(--picton-blue-100);
+}
+
+hr {
+    width: 90%;
+}
+
+section>button{
+    margin: 1rem;
+    width: 80%;
+    height: 2rem;
+    border-radius: 1rem;
+    border: none;
+}
