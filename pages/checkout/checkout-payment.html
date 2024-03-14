@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/Styles/checkout-payment.css">
+    <script src="js/checkout.js"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="/pages/checkout/checkout.html"> < Payment Method</a></h1>
+    </header>
+    <main id="swup" class="transition-fade">
+        <section>
+            <div>
+                <p>Card Holder</p>
+                <input type="text" placeholder="Name On Card">
+            </div>
+
+            <div>
+                <p>Card Number</p>
+                <input type="text" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="0123-4567-8901-2345">
+            </div>
+
+            <div>
+                <div>
+                    <p>Expiration Date</p>
+                    <input type="text" placeholder="10/24">
+                </div>
+                <div>
+                    <p>CVC</p>
+                    <input type="text" placeholder="123">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <a href="checkout.html">
+                <button>
+                    Save
+                </button>
+            </a>
+        </section>
+    </main>    
+</body>
+</html>

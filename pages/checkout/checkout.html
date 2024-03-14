@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/Styles/checkout.css">
+    <script src="js/checkout.js"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="/pages/main.html">< Checkout</a></h1>
+    </header>
+    <main>
+        <section class="order-info">
+            <div>
+                <img src="/media/prod/pexels-lil-artsy-1159670.jpg" alt="">
+            </div>
+
+            <div class="order-information">
+                <div>
+                    <h5>{Product Name}</h5>
+                </div>
+                
+                <div>
+                    <p>{Price}</p>
+                    <p>{Attribute}</p>
+                </div>
+
+                <div>
+                    <p>In Stock</p>
+                </div>
+
+                <div>
+                    <p>Edit</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="shipping-information">
+            <h1>1. Shipping Information</h1>
+            <p>{Name}</p>
+            <div><p>{Street Address}</p> <a href="checkout-address.html">Edit ></a></div>
+            <p>{House Number}</p>
+            <p>{Area Info}</p>
+        </section>
+
+        <section class="payment-method">
+            <h1>2. Payment Method</h1>
+            <p>{Name}</p>
+            <div><p>{Card Type}</p> <a href="checkout-payment.html">Edit ></a></div>
+            <p>{Card Number}</p>
+            <p>{Exp Date}</p>
+        </section>
+
+        <section class="order-summary">
+            <h1>Order Summary</h1>
+            <div><p>Subtotal</p> <p>{Price}</p></div>
+            <div><p>Shipping</p> <p>{Price}</p></div>
+            <div><p>Total</p> <p>{Price}</p></div>
+        </section>
+
+        <button>
+            Confirm Order
+        </button>
+    </main>
+
+    
+</body>
+</html>
