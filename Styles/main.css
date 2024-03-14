@@ -71,24 +71,25 @@ h3 {
   line-height: 2rem;
 }
 
-
+/* a header with grid layout to organize nav bar and  slogan sentence*/
 header {
   height: 100vh;
   background-image: url(/media/images/dreamy-girl-looking-logo-showing-plastic-credit-card-holding-shopping-bags-standing-blue-b.jpg);
   background-size: cover;
   display: grid;
- 
+
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+/*placing the nav bar with search on top of header*/
 header section {
   grid-column: span 7;
   grid-row: 1;
 }
-
+/* spacing between logo and links by flex*/
 header nav > ul {
   display: flex;
   justify-content: space-between;
@@ -97,9 +98,13 @@ header nav > ul {
 body {
   transition: all ease 250ms;
 }
+
+/*.oscroll and .hide are use to control the nav bar appearance while scrolling using java 
+script which has an event when scrolling to add scroll and hide classes
+*/
 .oScroll {
   background-color: var(--picton-blue-700);
-
+  /* return nav bar to 0 position*/
   transform: translateY(0);
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
@@ -117,6 +122,7 @@ body {
   color: var(--butterfly-bush-950);
 }
 .hide {
+  /* hide nav bar to -100 position*/
   transform: translateY(-100%);
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
@@ -124,13 +130,15 @@ body {
   -o-transform: translateY(-100%);
 }
 
+/*turn p to purple when hovering*/
 header nav:hover p {
   color: var(--butterfly-bush-950);
 }
 header nav:hover {
   background-color: var(--picton-blue-700);
 }
-
+/*displaying nav bar correctly as flex with appropriate padding and transition
+ and z index 1 to make it appear on top*/
 header nav {
   padding-right: 2rem;
   padding-left: 2rem;
@@ -148,7 +156,7 @@ header nav {
   -ms-transition: 0.5s ease-in-out;
   -o-transition: 0.5s ease-in-out;
 }
-
+/*change how logo look like when being hovered*/
 header #first a:hover {
   opacity: 60%;
 }
@@ -157,9 +165,12 @@ header div {
   margin-left: 2rem;
   cursor: pointer;
 }
+/*the slogan does not appear in small screens*/
 #slogan {
   display: none;
 }
+
+/*search box with search icon in flex combined */
 .search {
   z-index: 1;
 
@@ -207,10 +218,11 @@ a {
   gap: 0.2em;
 }
 .links {
-  display: flex;
+  display: flex; /*appropriately positioning  links in nav bar to  the side*/
   flex-flow: row;
   justify-content: end;
 }
+/*combine logo name with icon*/
 #first {
   display: flex;
   margin-inline-start: 0px;
@@ -230,6 +242,8 @@ header a {
   padding-left: 0.7rem;
   padding-bottom: 0.2rem;
 }
+
+/*place a line under anchor when being hovered*/
 /* header nav .links a::after {
   transition: all 0.2s;
   content: "";
@@ -248,14 +262,18 @@ header a {
 header nav .links a:hover:after {
   opacity: 1;
 } */
+
+/*extra links are not displayed in small screens*/
 .extra {
   display: none;
 }
 
+/*words in links are  not displayed in small screen*/
 ul.links a p {
   display: none;
 }
-#trending-catagories ul {
+/*catagoriex are flexed in column in small screen*/
+#trending-categories ul {
   display: flex;
   gap: 1em;
   flex-flow: column nowrap;
@@ -263,7 +281,7 @@ ul.links a p {
   align-items: center;
 }
 
-#trending-catagories ul li {
+#trending-categories ul li {
   overflow: hidden;
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -271,7 +289,7 @@ ul.links a p {
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
-#trending-catagories a img {
+#trending-categories a img {
   width: 100%;
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -279,15 +297,16 @@ ul.links a p {
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
-#trending-catagories ul li a {
+#trending-categories ul li a {
   display: block;
   position: relative;
 }
-#trending-catagories ul li a img {
+#trending-categories ul li a img {
   display: block;
   margin: auto;
 }
-#trending-catagories ul li a section {
+/*placed relative to ancestor a  so it appears on top of it*/
+#trending-categories ul li a section {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -303,7 +322,7 @@ ul.links a p {
   background-color: rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease-in-out;
   font-weight: bolder;
-  justify-content: center;
+  justify-content: center; /*using flex to place the section in the middle of the image*/
   text-align: center;
   align-items: center;
   overflow: hidden;
@@ -335,7 +354,9 @@ button {
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
 }
+
 button:hover {
+  /*a transition on button when hovering to remove background color*/
   transition: all 0.3s ease-in-out;
   background-color: transparent;
   border: solid white;
@@ -345,7 +366,7 @@ button:hover {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
 }
-#trending-catagories {
+#trending-categories {
   margin: 1em 1em 1em 1em;
 }
 section #cloths-desc {
@@ -368,7 +389,7 @@ section #cloths-desc {
   object-fit: cover;
   object-position: center center;
   width: 100%;
-
+  /*polygon crop the picture in a good looking way using "clippy" website*/
   clip-path: polygon(
     30% 0%,
     70% 0%,
@@ -385,6 +406,7 @@ section #cloths-desc {
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
 }
+/*apply same style for video as was in image*/
 #trending-products video {
   display: block;
   object-fit: cover;
@@ -414,8 +436,9 @@ section #cloths-desc {
   display: block;
 }
 
+/*put the info of trending products info on top of the page*/
 #trending-products .info {
-  position: absolute;
+  position: absolute; /*position now is relative too the ancestor the image*/
   width: 100%;
   height: 100%;
   top: 0;
@@ -428,7 +451,7 @@ section #cloths-desc {
   color: var(--mine-shaft-700);
 
   row-gap: 1rem;
-
+  /*make a grid to organize the info on the image*/
   transition: all 0.2s ease-in-out;
   font-weight: bolder;
   grid-template-columns: repeat(5, 1fr);
@@ -448,7 +471,7 @@ section #cloths-desc {
 }
 #trending-products .info h1 {
   grid-column: 1 / span 3;
-
+  /*name of product on top left*/
   padding-top: 3rem;
   grid-row: 1;
   justify-self: center;
@@ -456,6 +479,7 @@ section #cloths-desc {
   font-size: 3rem;
 }
 #trending-products .info h3 {
+  /*slogan and price of product beneath name*/
   grid-row: 2;
   grid-column: 1 / span 3;
   justify-self: center;
@@ -464,6 +488,8 @@ section #cloths-desc {
   color: var(--butterfly-bush-800);
 }
 #trending-products .info h3 em.price {
+  /*color the price with a background
+ and a semi circled  border*/
   color: var(--butterfly-bush-400);
   padding: 0.2rem;
   margin-top: 3em;
@@ -482,6 +508,7 @@ section #cloths-desc {
   justify-self: start;
   grid-row: 6;
   grid-column: 5/5;
+  /*place button on bottom right of product grid*/
   margin-bottom: 1rem;
   background-color: var(--french-rose-950);
   color: white;
@@ -498,7 +525,7 @@ section #cloths-desc {
   -o-transition: all 0.3s ease-in-out;
 }
 #trending-products div {
-  height: 80%;
+  height: 80%; /*take 80% of the div*/
 }
 .slider {
   margin: 1.5rem;
@@ -507,11 +534,14 @@ section #cloths-desc {
   display: grid;
   position: relative;
   grid-auto-flow: column;
+  /*generate as much needed columns with around 33% size for each to cover 1/3 of the page*/
   grid-auto-columns: 33.7%;
+  /*create a slider using the overflow of  a grid*/
   overflow: auto;
   gap: 0.5em;
   left: 1.4rem;
   overscroll-behavior-inline: contain;
+  /*scroll anap to to help complete the slide to the picture*/
   scroll-snap-type: inline mandatory;
 }
 .img-list > * {
@@ -520,7 +550,7 @@ section #cloths-desc {
 
 #offers img {
   width: 100%;
-  object-fit: cover;
+  object-fit: cover; /*fill the entire content box*/
   height: 96%;
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -531,7 +561,7 @@ section #cloths-desc {
 
 #offers .img-list span {
   height: 100%;
-  width: 90%;
+  width: 90%; /*each image width is reduced for only 90%*/
   display: flex;
 }
 
@@ -540,11 +570,11 @@ section #cloths-desc {
 }
 
 #offers .img-list div {
-  position: absolute;
+  position: absolute; /* element  positioned relative to its closest positioned ancestor */
 
   display: flex;
   flex-flow: column;
-
+  /*info of product displayed on the product*/
   color: white;
   font-weight: bold;
   text-transform: uppercase;
@@ -556,8 +586,9 @@ section #cloths-desc {
   width: 30%;
   top: -4%;
 }
+/*uses same button idea used in trending products*/
 .img-list button {
-  width: 40%;
+  width: 40%; /*width modified to avoid overflow*/
 
   margin: 1rem 1rem 1rem 0px;
   background-color: var(--french-rose-950);
@@ -576,7 +607,7 @@ section #cloths-desc {
 }
 .img-list h3 {
   border-radius: 20px;
-  opacity: 0.8;
+  opacity: 0.8; /*to give some contrast*/
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
@@ -584,6 +615,7 @@ section #cloths-desc {
 }
 .slider #special {
   margin: 1.5rem;
+  /*align the slider with this sub header*/
   margin-left: 3rem;
 
   color: var(--butterfly-bush-800);
@@ -601,6 +633,7 @@ section #cloths-desc {
   -o-border-radius: 20px;
 }
 footer {
+  /*grid inside footer layout content as required*/
   margin: 5rem 1.5rem 1rem 1.5rem;
   display: grid;
 
@@ -610,6 +643,7 @@ footer {
   align-content: center;
 }
 #socials {
+  /*social media links on top of footer flexed as row*/
   display: flex;
   margin-bottom: 1rem;
   grid-row: 1;
@@ -618,16 +652,17 @@ footer {
   gap: 1em;
 }
 #links {
+  /*other links below socials row wrapped*/
   display: flex;
 
   grid-row: 2;
 
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: center; /*in the middle of the grid*/
   gap: 1rem;
 }
 #links a {
-  text-decoration-line: underline;
+  text-decoration-line: underline; /*make a line beneath th other links*/
 
   -moz-text-decoration-line: underline;
 }
@@ -640,6 +675,7 @@ footer #links a:hover {
   color: var(--picton-blue-600);
 }
 footer #socials a:hover {
+  /*a blue border bottom line for socials when hovering*/
   border-bottom: solid var(--picton-blue-500);
   width: 1px;
   transition: 0.1s;
@@ -648,8 +684,13 @@ footer #socials a:hover {
   -ms-transition: 0.1s;
   -o-transition: 0.1s;
 }
-
+/*small sizes before reaching 596px*/
 @media screen and (max-width: 596px) {
+  /*
+reducing the font size 
+of everything
+ for a specific degree*/
+
   .slider h1 {
     font-size: 1.4rem;
   }
@@ -662,6 +703,7 @@ footer #socials a:hover {
   }
   .slider button {
     margin: 0;
+    /*reduce size*/
     width: 70%;
     height: 15%;
     font-size: 0.5rem;
@@ -670,6 +712,7 @@ footer #socials a:hover {
     padding-top: 0.8rem;
     font-size: 1.4rem;
     align-self: start;
+    /*making size suitable for the container*/
   }
   #trending-products .info h3 {
     font-size: 0.9rem;
@@ -678,10 +721,11 @@ footer #socials a:hover {
     height: 2rem;
     width: 60%;
     grid-row: 6;
-
+    /*raising button little bit upward and reducing iys size*/
     grid-column: 4/6;
     justify-self: center;
     align-self: start;
+    /*fix button overflow caused by small size*/
   }
   body {
     min-width: 320px;
@@ -690,7 +734,7 @@ footer #socials a:hover {
     line-height: 1.2rem;
   }
 }
-
+/*small sizes before reaching 370px*/
 @media screen and (max-width: 370px) {
   .slider h1 {
     font-size: 1.4rem;
@@ -731,12 +775,14 @@ footer #socials a:hover {
     line-height: 1.2rem;
   }
 }
-
+/*big screen sizes */
 @media screen and (min-width: 750px) {
+  /*make slogan visible */
   #slogan {
     display: inline;
     grid-row: 2;
     grid-column: 1/3;
+    /*place it beneath nav bar in the header*/
     padding-left: 2rem;
     font-weight: bolder;
     font-size: 3rem;
@@ -746,7 +792,7 @@ footer #socials a:hover {
   h3 {
     line-height: 5rem;
   }
-
+  /*make the other links visible*/
   .extra {
     display: inline;
   }
@@ -755,7 +801,7 @@ footer #socials a:hover {
   }
   ul.links {
     gap: 0.8rem;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /*wrap links in case no enough space*/
   }
   ul.links a {
     display: flex;
@@ -784,25 +830,28 @@ footer #socials a:hover {
   header nav > ul {
     grid-column: 1/4;
     justify-self: stretch;
-    grid-row: 1;
+    grid-row: 1; /*change size of nav bar*/
   }
   header .search {
     grid-row: 2;
   }
-  #trending-catagories ul {
+  #trending-categories ul {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /*grid layout for trending categories 2 each line*/
   }
 
-  #trending-catagories ul li a section {
+  #trending-categories ul li a section {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 100%;
-
+    /*hiding info on image of category*/
     opacity: 0;
 
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /*dimming the light of the section*/
     transition: all 0.2s ease-in-out;
 
     -webkit-transition: all 0.2s ease-in-out;
@@ -815,8 +864,8 @@ footer #socials a:hover {
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
   }
-
-  #trending-catagories ul li:hover section {
+  /*on hover animation to display info*/
+  #trending-categories ul li:hover section {
     top: 0%;
 
     opacity: 1;
@@ -828,6 +877,8 @@ footer #socials a:hover {
     font-size: 4rem;
   }
 }
+
+/*ligh and dark themed page*/
 @media screen and (prefers-color-scheme: light) {
   body {
     background-color: white;
@@ -842,7 +893,7 @@ footer #socials a:hover {
 }
 
 @media screen and (prefers-color-scheme: dark) {
-body{
-  background-color: black;
-}
+  body {
+    background-color: black;
+  }
 }

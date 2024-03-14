@@ -219,14 +219,14 @@ p {
 main {
   margin: 1em 1em 1em 1em;
 }
-#trending-catagories ul {
+#trending-categories ul {
   display: flex;
   gap: 1em;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
 }
-#trending-catagories ul li {
+#trending-categories ul li {
   overflow: hidden;
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -234,7 +234,7 @@ main {
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
-#trending-catagories a img {
+#trending-categories a img {
   width: 100%;
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -242,15 +242,15 @@ main {
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
-#trending-catagories ul li a {
+#trending-categories ul li a {
   display: block;
   position: relative;
 }
-#trending-catagories ul li a img {
+#trending-categories ul li a img {
   display: block;
   margin: auto;
 }
-#trending-catagories ul li a section {
+#trending-categories ul li a section {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -418,7 +418,7 @@ footer img {
   } */
 
 @media screen and(min-width: 600px) {
-  #trending-catagories ul li a section {
+  #trending-categories ul li a section {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -458,7 +458,7 @@ footer img {
     color: var(--picton-blue-800);
   }
 
-  #trending-catagories ul li:hover section {
+  #trending-categories ul li:hover section {
     top: 0%;
 
     opacity: 1;

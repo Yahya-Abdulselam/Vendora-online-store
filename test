@@ -52,7 +52,7 @@
       </nav>
     </header>
     <main>
-      <div id="trending-catagories">
+      <div id="trending-categories">
         <ul>
           <li class="hidden">
             <a href="">
@@ -309,16 +309,16 @@ position: absolute; -webkit-transition: all 0.2s; -moz-transition: all 0.2s;
 -ms-transition: all 0.2s; -o-transition: all 0.2s; } #cart a:hover::after,
 #account a:hover::after { opacity: 1; } body { background-color:
 var(--mine-shaft-950); font-family: sans-serif; font-size: 1.6rem; color:
-var(--french-rose-400); } p { line-height: 2rem; } #trending-catagories ul {
+var(--french-rose-400); } p { line-height: 2rem; } #trending-categories ul {
 display: flex; gap: 1em; flex-flow: column nowrap; justify-content: center;
-align-items: center; } #trending-catagories ul li { overflow: hidden;
+align-items: center; } #trending-categories ul li { overflow: hidden;
 border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px;
--ms-border-radius: 20px; -o-border-radius: 20px; } #trending-catagories a img {
+-ms-border-radius: 20px; -o-border-radius: 20px; } #trending-categories a img {
 width: 100%; border-radius: 20px; -webkit-border-radius: 20px;
 -moz-border-radius: 20px; -ms-border-radius: 20px; -o-border-radius: 20px; }
-#trending-catagories ul li a { display: block; position: relative; }
-#trending-catagories ul li a img { display: block; margin: auto; }
-#trending-catagories ul li a section { position: absolute; width: 100%; height:
+#trending-categories ul li a { display: block; position: relative; }
+#trending-categories ul li a img { display: block; margin: auto; }
+#trending-categories ul li a section { position: absolute; width: 100%; height:
 100%; top: 0; bottom: 0; left: 0; right: 0; display: flex; flex-flow: column;
 opacity: 1; color: var(--butterfly-bush-700); row-gap: 1rem; background-color:
 rgba(0, 0, 0, 0.3); transition: all 0.2s ease-in-out; font-weight: bolder;
@@ -335,7 +335,7 @@ box-shadow: none; outline: none; text-align: center; cursor: pointer; width:
 background-color: transparent; border: solid white; color: white;
 -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out;
 -ms-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; }
-#trending-catagories { margin: 1em 1em 1em 1em; } section #cloths-desc { color:
+#trending-categories { margin: 1em 1em 1em 1em; } section #cloths-desc { color:
 var(--french-rose-600); } #tech-desc, #book-desc { color: var(--mine-shaft-200);
 } #furniture-desc { color: var(--picton-blue-600); } #trending-apple img {
 display: block; object-fit: cover; object-position: center center; width: 100%;
@@ -403,7 +403,7 @@ visible; font-size: 3rem; margin: 1rem; text-align: left; } } */ /* @media
 screen and (min-width: 470px) { header ul { display: flex; flex-flow: row
 nowrap; justify-content: space-between; align-items: baseline; } header nav {
 height: 5rem; } } */ /* @media screen and(min-width: 600px) { */ /*
-#trending-catagories ul li a section { position: absolute; width: 100%; height:
+#trending-categories ul li a section { position: absolute; width: 100%; height:
 100%; top: 100%; bottom: 0; left: 0; right: 0; display: flex; flex-flow: column;
 opacity: 0; color: var(--butterfly-bush-700); row-gap: 1rem; background-color:
 rgba(0, 0, 0, 0.7); transition: all 0.2s ease-in-out; font-weight: bolder;
@@ -413,5 +413,5 @@ justify-content: center; align-items: center; overflow: hidden;
 border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px;
 -ms-border-radius: 20px; -o-border-radius: 20px; } section #cloths-desc { color:
 var(--french-rose-600); } #tech-desc, #book-desc { color: var(--mine-shaft-400);
-} #furniture-desc { color: var(--picton-blue-800); } #trending-catagories ul
+} #furniture-desc { color: var(--picton-blue-800); } #trending-categories ul
 li:hover section { top: 0%; opacity: 1; } */ /* } */
