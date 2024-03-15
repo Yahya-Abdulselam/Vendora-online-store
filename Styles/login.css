@@ -54,6 +54,38 @@
   --storm-dust-900: #3d3d3d;
   --storm-dust-950: #262626;
 }
+
+.login{
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10%;
+  height: 50vh;
+  max-height: 100%;
+  width: 60vh;
+
+  h1{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .input{
+    width: 100%;
+    height: 1.5rem;
+  }
+  .label{
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .button{
+    background-color: var(--picton-blue-600);
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    font-size: 1.2rem;
+    color: white;
+  }
+}
 body {
   /* background-color: var(--mine-shaft-950); */
 
@@ -71,15 +103,11 @@ h3 {
   line-height: 2rem;
 }
 
-
 header {
   height: 100vh;
-  background-image: url(/media/images/dreamy-girl-looking-logo-showing-plastic-credit-card-holding-shopping-bags-standing-blue-b.jpg);
   background-size: cover;
   display: grid;
- 
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  background-color: var(--picton-blue-600);
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -155,7 +183,6 @@ header #first a:hover {
 header div {
   margin-right: 2rem;
   margin-left: 2rem;
-  cursor: pointer;
 }
 #slogan {
   display: none;
@@ -842,7 +869,7 @@ footer #socials a:hover {
 }
 
 @media screen and (prefers-color-scheme: dark) {
-body{
-  background-color: black;
-}
+  body {
+    background-color: black;
+  }
 }
