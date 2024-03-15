@@ -482,6 +482,58 @@ td {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
 }
+footer {
+  /*grid inside footer layout content as required*/
+  margin: 5rem 1.5rem 1rem 1.5rem;
+  display: grid;
+
+  grid-row: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+#socials {
+  /*social media links on top of footer flexed as row*/
+  display: flex;
+  margin-bottom: 1rem;
+  grid-row: 1;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1em;
+}
+#links {
+  /*other links below socials row wrapped*/
+  display: flex;
+
+  grid-row: 2;
+
+  flex-flow: row wrap;
+  justify-content: center; /*in the middle of the grid*/
+  gap: 1rem;
+}
+#links a {
+  text-decoration-line: underline; /*make a line beneath th other links*/
+
+  -moz-text-decoration-line: underline;
+}
+footer p {
+  padding-top: 1rem;
+  font-size: 1rem;
+  font-style: oblique;
+}
+footer #links a:hover {
+  color: var(--picton-blue-600);
+}
+footer #socials a:hover {
+  /*a blue border bottom line for socials when hovering*/
+  border-bottom: solid var(--picton-blue-500);
+  width: 1px;
+  transition: 0.1s;
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -ms-transition: 0.1s;
+  -o-transition: 0.1s;
+}
 /*-------------------------*/
 /*big screen sizes */
 @media screen and (min-width: 750px) {
