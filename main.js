@@ -17,3 +17,12 @@ window.addEventListener("scroll", () => {
     nav.classList.remove("oScroll");
   }
 });
+const popup = document.querySelector(".pop-up");
+const open_popup = document.querySelector(".open-popup");
+const close_popup = document.querySelector(".close-popup");
+open_popup.addEventListener("click", () => {
+  popup.showModal();
+});
+close_popup.addEventListener("click", () => {
+  popup.close();
+});

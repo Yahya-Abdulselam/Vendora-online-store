@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vendora seller</title>
-    <script src="/main.js"></script>
+    <script defer src="/main.js"></script>
     <link rel="stylesheet" href="/Styles/seller.css" />
 
     <link
@@ -88,29 +88,14 @@
             <img src="/media/prod/pen-4337521_640.jpg" alt="" />
 
             <table>
-              <tr class="item-name">
-                <td>laptop</td>
+              <tr>
+                <td class="item-name">laptop</td>
               </tr>
-              <tr class="price">
-                <td>100$</td>
+              <tr>
+                <td class="price">100$</td>
               </tr>
-              <tr class="status">
-                <td>available</td>
-              </tr>
-            </table>
-          </div>
-          <div class="itemssale">
-            <img src="/media/prod/pen-4337521_640.jpg" alt="" />
-
-            <table>
-              <tr class="item-name">
-                <td>laptop</td>
-              </tr>
-              <tr class="price">
-                <td>100$</td>
-              </tr>
-              <tr class="status">
-                <td>available</td>
+              <tr>
+                <td class="status">available</td>
               </tr>
             </table>
           </div>
@@ -118,29 +103,14 @@
             <img src="/media/prod/pen-4337521_640.jpg" alt="" />
 
             <table>
-              <tr class="item-name">
-                <td>laptop</td>
+              <tr>
+                <td class="item-name">laptop</td>
               </tr>
-              <tr class="price">
-                <td>100$</td>
+              <tr>
+                <td class="price">100$</td>
               </tr>
-              <tr class="status">
-                <td>available</td>
-              </tr>
-            </table>
-          </div>
-          <div class="itemssale">
-            <img src="/media/prod/pen-4337521_640.jpg" alt="" />
-
-            <table>
-              <tr class="item-name">
-                <td>laptop</td>
-              </tr>
-              <tr class="price">
-                <td>100$</td>
-              </tr>
-              <tr class="status">
-                <td>available</td>
+              <tr>
+                <td class="status">available</td>
               </tr>
             </table>
           </div>
@@ -148,19 +118,68 @@
             <img src="/media/prod/pen-4337521_640.jpg" alt="" />
 
             <table>
-              <tr class="item-name">
-                <td>laptop</td>
+              <tr>
+                <td class="item-name">laptop</td>
               </tr>
-              <tr class="price">
-                <td>100$</td>
+              <tr>
+                <td class="price">100$</td>
               </tr>
-              <tr class="status">
-                <td>available</td>
+              <tr>
+                <td class="status">available</td>
+              </tr>
+            </table>
+          </div>
+          <div class="itemssale">
+            <img src="/media/prod/pen-4337521_640.jpg" alt="" />
+
+            <table>
+              <tr>
+                <td class="item-name">laptop</td>
+              </tr>
+              <tr>
+                <td class="price">100$</td>
+              </tr>
+              <tr>
+                <td class="status">available</td>
               </tr>
             </table>
           </div>
         </div>
       </section>
+
+      <section id="sold-history">
+        <h2>Items you have on sale</h2>
+        <div id="list-of-sold">
+          <div class="itemssold">
+            <img
+              src="/media/prod/pen-4337521_640.jpg"
+              class="open-popup"
+              alt=""
+            />
+
+            <h3 class="itemname">laptop</h3>
+            <dialog  class="pop-up">
+              <ul>
+                <picture class="close-popup">
+                  <source
+                    srcset="media/icons/darktheme-icons/square-rounded-x.svg"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <img src="media/icons/darktheme-icons/square-rounded-x.svg" />
+                </picture>
+                <li class="buyer">ahmad</li>
+                <li class="price">price</li>
+
+                <li class="quantity-sold">32</li>
+                <li class="quantity-left">2</li>
+              </ul>
+            </dialog>
+          </div>
+        </div>
+      </section>
     </main>
+    <footer>
+      
+    </footer>
   </body>
 </html>
