@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --picton-blue-50: #effaff;
+    --picton-blue-100: #def4ff;
+    --picton-blue-200: #b6ebff;
+    --picton-blue-300: #75deff;
+    --picton-blue-400: #2dcdff;
+    --picton-blue-500: #01b0ec;
+    --picton-blue-600: #0094d3;
+    --picton-blue-700: #0075aa;
+    --picton-blue-800: #00638c;
+    --picton-blue-900: #065274;
+    --picton-blue-950: #04344d;
+}
+
+body {
+    display: grid;
+    grid-template-areas: 
+    "header header "
+    "main main"
+    "main main"
+    ;
+    background-color: var(--picton-blue-50);
+}
+
+header {
+    display: flex;
+    grid-area: header;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.1rem 5rem;
+
+    background-color: var(--picton-blue-200);
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    grid-area: main;
+    flex-wrap: wrap;
+}
+
+.upload-image {
+    display: flex;
+    flex-direction: column;
+}
