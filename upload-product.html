@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
-    <link rel="stylesheet" href="/Styles/checkout.css">
-    <script src="js/checkout.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="Styles/upload-item.css">
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/media/images/FullLogo_Transparent_NoBuffer(1).png"
+    />
 </head>
 <body>
     <header>
@@ -54,59 +59,29 @@
     </header>
 
     <main>
-        <section class="order-info">
-            <div>
-                <img src="/media/prod/pexels-lil-artsy-1159670.jpg" alt="">
-            </div>
-
-            <div class="order-information">
-                <div>
-                    <h5>{Product Name}</h5>
-                </div>
-                
-                <div>
-                    <p>{Price}</p>
-                    <p>{Attribute}</p>
-                </div>
-
-                <div>
-                    <p>In Stock</p>
-                </div>
-
-                <div>
-                    <p>Edit</p>
-                </div>
-            </div>
+        <section class="select-image section-margin flex-center">
+            <img src="/media/images/no-image-icon-6.png" alt="">
+            <button>Select Image</button>
         </section>
 
-        <section class="shipping-information">
-            <h1>1. Shipping Information</h1>
-            <p>{Name}</p>
-            <div class="button-text"><p>{Street Address}</p> <button><a href="checkout-address.html">Edit ></a></button></div>
-            <p>{House Number}</p>
-            <p>{Area Info}</p>
+        <section class="product-name section-margin input-setup flex-center flex-center">
+            <p>Product Name</p>
+            <input type="text">
         </section>
 
-        <section class="payment-method">
-            <h1>2. Payment Method</h1>
-            <p>{Name}</p>
-            <div class="button-text"><p>{Card Type}</p> <button><a href="checkout-payment.html">Edit ></a></button></div>
-            <p>{Card Number}</p>
-            <p>{Exp Date}</p>
+        <section class="price section-margin input-setup flex-center">
+            <p>Price (QAR)</p>
+            <input type="text">
         </section>
 
-        <section class="order-summary">
-            <h1>Order Summary</h1>
-            <div><p>Subtotal</p> <p>{Price}</p></div>
-            <div><p>Shipping</p> <p>{Price}</p></div>
-            <div><p>Total</p> <p>{Price}</p></div>
+        <section class="product-description section-margin input-setup flex-center">
+            <p>Product Description</p>
+            <input type="text" class="product-description">
         </section>
 
         <button>
-            Confirm Order
+          Upload Item
         </button>
     </main>
-
-    
 </body>
 </html>

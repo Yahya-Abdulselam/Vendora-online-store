@@ -5,48 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <link rel="stylesheet" href="/Styles/checkout-payment.css">
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="/media/images/FullLogo_Transparent_NoBuffer(1).png"
-    />
     <script src="js/checkout.js"></script>
 </head>
 <body>
     <header>
-        <h1><a href="/pages/checkout/checkout.html"> < Payment Method</a></h1>
+        <section class="navsec">
+            <nav class="navv">
+              <ul>
+                <li id="first">
+                  <a href="" id="list"
+                    ><img src="/media/icons/list.svg" alt=""
+                  /></a>
+                  <script src="/main2.js"></script>
+                  <a href="" id="logo">
+                    <img
+                      src="/media/images/FullLogo_Transparent_NoBuffer(1).png"
+                      alt="vendora logo"
+                    />
+                    <h1>Vendora</h1></a
+                  >
+                </li>
+                <li>
+                  <ul class="links">
+                    <li class="extra">
+                      <a href=""
+                        ><img src="/media/icons/shopping-bag.svg" alt="" />
+                        <p>Buy</p></a
+                      >
+                    </li>
+                    <li class="extra">
+                      <a href=""
+                        ><img src="/media/icons/help.svg" alt="" />
+                        <p>Customer Service</p></a
+                      >
+                    </li>
+    
+                    <li class="sides" id="account">
+                      <a href="">
+                        <img src="/media/icons/user.svg" alt="" />
+                        <p>account</p></a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </section>
     </header>
-    <main id="swup" class="transition-fade">
+    <main>
         <section>
-            <div>
+            <div class="input-setup section-margin">
                 <p>Card Holder</p>
                 <input type="text" placeholder="Name On Card">
             </div>
 
-            <div>
+            <div class="input-setup section-margin">
                 <p>Card Number</p>
                 <input type="text" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="0123-4567-8901-2345">
             </div>
 
-            <div>
-                <div>
+            <div class="exp-cvc">
+                <div class="input-setup section-margin">
                     <p>Expiration Date</p>
                     <input type="text" placeholder="10/24">
                 </div>
-                <div>
+                <div class="input-setup section-margin">
                     <p>CVC</p>
                     <input type="text" placeholder="123">
                 </div>
             </div>
         </section>
-
-        <section>
-            <a href="checkout.html">
-                <button>
-                    Save
-                </button>
-            </a>
-        </section>
+        <a href="checkout.html">
+            <button>
+                Save
+            </button>
+        </a>
     </main>    
 </body>
 </html>
