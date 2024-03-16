@@ -63,10 +63,10 @@ body {
   /* background-color: var(--mine-shaft-950); */
 
   font-family: sans-serif;
-  font-size: 1rem;
+  font-size: 1.4rem;
 }
 p {
-  color: black;
+  color: white;
   line-height: 1.9rem;
 }
 header p {
@@ -93,12 +93,9 @@ header nav > ul {
   justify-content: space-between;
   align-items: center;
 }
+
 body {
   transition: all ease 250ms;
-
-  display: flex;
-  flex-direction: column;
-
   background-color: var(--picton-blue-100);
 }
 
@@ -219,11 +216,34 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    align-items: center;
+}
+
+.flex-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .section-margin {
     margin: 0.5rem 0rem;
+}
+
+.select-image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+        margin-top: 0.5rem;
+        width: 10rem;
+    }
+
+    img {
+        height: 12rem;
+        width: 14rem;
+    }
 }
 
 .input-setup{
@@ -235,45 +255,66 @@ main {
 
     p {
         font-size: 1rem;
+        margin-left: 1rem;
         color: black;
         font-weight: bold;
         align-self: flex-start;
-        margin-left: 0.75rem;
+        margin-left: 1.5rem;
     }
 }
 
-main>section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0rem 0.1rem 0rem rgb(241, 241, 241);
-    background-color: var(--picton-blue-200);
-    padding: 1rem 0rem;
-}
-
-section>div{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
 input[type="text"]{
-    border-radius: 0.7rem;
+    border-radius: 0.5rem;
     height: 1.75rem;
     width: 90%;
-    margin: 0.5rem;
+    margin: 0.25rem;
     border: none;
     box-shadow: 0.1rem 0.1rem 0.1rem var(--picton-blue-100);
 }
 
-button{
+input[type="text"].product-description{
+    border-radius: 0.5rem;
+    height: 5rem;
+    width: 90%;
+    margin: 0.25rem;
+    border: none;
+    box-shadow: 0.1rem 0.1rem 0.1rem var(--picton-blue-100);
+}
+
+main>button{
     margin: 1rem 2rem;
-    width: 80%;
+    width: 50%;
     height: 2rem;
     border-radius: 1rem;
     border: none;
     background-color: var(--picton-blue-300);
 
     font-weight: bold;
+}
+
+
+@media  (min-width: 596px) {
+    main {
+        display: grid;
+    }
+
+    .select-image {
+        grid-row: 1fr 2fr auto;
+    }
+
+    .product-name{
+        grid-area: "product-name";
+    }
+
+    .price {
+        grid-area: "price";
+    }
+
+    .product-description {
+        grid-area: "product-desc";
+    }
+
+    main>button{
+        grid-area: "button";
+    }
 }
