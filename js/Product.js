@@ -1,4 +1,5 @@
 class product {
+  sellerId;
   constructor(name, price, quantity, picture, details, category) {
     this.name = name;
     price(price);
@@ -6,6 +7,13 @@ class product {
     this.picture = picture;
     this.details = details;
     this.category = category;
+  }
+  get sellerId() {
+    return this.sellerId;
+  }
+
+  set sellerId(id) {
+    this.sellerId = id;
   }
 
   get name() {
@@ -33,6 +41,10 @@ class product {
     if (this.q > 0) {
       this.quantity = this.quantity;
     }
+  }
+
+  addQuantity(q) {
+    this.quantity += q;
   }
   increment() {
     this.quantity++;

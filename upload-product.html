@@ -1,87 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="Styles/upload-product.css">
+    <link rel="stylesheet" href="Styles/upload-product.css" />
 
     <link
       rel="icon"
       type="image/x-icon"
       href="/media/images/FullLogo_Transparent_NoBuffer(1).png"
     />
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <section class="navsec">
-            <nav class="navv">
-              <ul>
-                <li id="first">
-                  <a href="" id="list"
-                    ><img src="/media/icons/list.svg" alt=""
-                  /></a>
-                  <script src="/main2.js"></script>
-                  <a href="" id="logo">
-                    <img
-                      src="/media/images/FullLogo_Transparent_NoBuffer(1).png"
-                      alt="vendora logo"
-                    />
-                    <h1>Vendora</h1></a
+      <section class="navsec">
+        <nav class="navv">
+          <ul>
+            <li id="first">
+              <a href="" id="list"
+                ><img src="/media/icons/list.svg" alt=""
+              /></a>
+              <script src="/main2.js"></script>
+              <a href="" id="logo">
+                <img
+                  src="/media/images/FullLogo_Transparent_NoBuffer(1).png"
+                  alt="vendora logo"
+                />
+                <h1>Vendora</h1></a
+              >
+            </li>
+            <li>
+              <ul class="links">
+                <li class="extra">
+                  <a href=""
+                    ><img src="/media/icons/shopping-bag.svg" alt="" />
+                    <p>Buy</p></a
                   >
                 </li>
-                <li>
-                  <ul class="links">
-                    <li class="extra">
-                      <a href=""
-                        ><img src="/media/icons/shopping-bag.svg" alt="" />
-                        <p>Buy</p></a
-                      >
-                    </li>
-                    <li class="extra">
-                      <a href=""
-                        ><img src="/media/icons/help.svg" alt="" />
-                        <p>Customer Service</p></a
-                      >
-                    </li>
-    
-                    <li class="sides" id="account">
-                      <a href="">
-                        <img src="/media/icons/user.svg" alt="" />
-                        <p>account</p></a
-                      >
-                    </li>
-                  </ul>
+                <li class="extra">
+                  <a href=""
+                    ><img src="/media/icons/help.svg" alt="" />
+                    <p>Customer Service</p></a
+                  >
+                </li>
+
+                <li class="sides" id="account">
+                  <a href="">
+                    <img src="/media/icons/user.svg" alt="" />
+                    <p>account</p></a
+                  >
                 </li>
               </ul>
-            </nav>
-          </section>
+            </li>
+          </ul>
+        </nav>
+      </section>
     </header>
 
     <main>
-        <section class="select-image section-margin flex-center">
-            <img src="/media/images/no-image-icon-6.png" alt="">
-            <button>Select Image</button>
-        </section>
+      <section class="select-image section-margin flex-center">
+        <img src="/media/images/no-image-icon-6.png" alt=""  id="prod-image"/>
+        <button>Select Image</button>
+      </section>
 
-        <section class="product-name section-margin input-setup flex-center flex-center">
-            <p>Product Name</p>
-            <input type="text">
-        </section>
+      <section
+        class="product-name section-margin input-setup flex-center flex-center"
+      >
+        <p>Product Name</p >
+        <input type="text" id="prod-name"/>
+      </section>
 
-        <section class="price section-margin input-setup flex-center">
-            <p>Price (QAR)</p>
-            <input type="text">
-        </section>
+      <section class="price section-margin input-setup flex-center">
+        <p>Price (QAR)</p>
+        <input type="text" id="prod-price" />
+      </section>
 
-        <section class="product-description section-margin input-setup flex-center">
-            <p>Product Description</p>
-            <input type="text" class="product-description">
-        </section>
+      <section
+        class="product-description section-margin input-setup flex-center"
+      >
+        <p>Product Description</p>
+        <input type="text"  class="product-description" />
+      </section>
 
-        <button>
-          Upload Item
-        </button>
+      <button id="upload-item">Upload Item</button>
     </main>
-</body>
+  </body>
 </html>

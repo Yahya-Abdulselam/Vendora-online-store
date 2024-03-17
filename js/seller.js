@@ -10,10 +10,14 @@ class Seller extends User {
   get products() {
     return this.products;
   }
-  addProduct(product) {
-    this.products.find((p) => p.name === product.name)
-      ? product.increment()
-      : this.products.push;
+  addProduct(product, quantity) {
+    if (this.products.find((p) => p.name === product.name))
+      product.addQuantity(quantity);
+    else {
+      this.products.push(product);
+      product.quantity(quantity);
+    }
+    product.sellerId(this.id);
   }
   removeProduct(product) {
     const index = this.products.findIndex((p) => p.name === product.name);
