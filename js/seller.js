@@ -1,11 +1,32 @@
-import User from "./user.js"
+import User from "./user.js";
 
 class Seller extends User {
-    constructor(username, password, userId, address, offeredItem){
-        super(username, password, userId)
-        this.address = address
-        this.cart = cart
-        this.paymentMethods = paymentMethods
-        this.offeredItem = offeredItem
+  products = [];
+
+  constructor(username, password) {
+    super(username, password);
+  }
+
+  get products() {
+    return this.products;
+  }
+  addProduct(product, quantity) {
+    if (this.products.find((p) => p.name === product.name))
+      product.addQuantity(quantity);
+    else {
+      this.products.push(product);
+      product.quantity(quantity);
     }
+    product.sellerId(this.id);
+  }
+  removeProduct(product) {
+    const index = this.products.findIndex((p) => p.name === product.name);
+    this.products.splice(index, 1);
+  }
+  toJSON() {
+    return { ...super.toJSON(), product: this.products };
+  }
+  static fromJSON(object) {
+    return new Seller();
+  }
 }
