@@ -48,4 +48,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     localStorage.setItem("products", JSON.stringify(products));
   };
+
+
+  // <div class="itemssold">
+  // <img
+  //   src="/media/prod/pen-4337521_640.jpg"
+  //   class="open-popup"
+  //   alt=""
+  // />
+
+  // <h3 class="itemname">laptop</h3>
+  // <dialog class="pop-up">
+  //   <ul>
+  //     <picture class="close-popup">
+  //       <source
+  //         srcset="media/icons/darktheme-icons/square-rounded-x.svg"
+  //         media="(prefers-color-scheme: dark)"
+  //       />
+  //       <img src="media/icons/darktheme-icons/square-rounded-x.svg" />
+  //     </picture>
+  //     <li class="buyer">ahmad</li>
+  //     <li class="price">price</li>
+
+  //     <li class="quantity-sold">32</li>
+  //     <li class="quantity-left">2</li>
+  //   </ul>
+  // </dialog>
 });

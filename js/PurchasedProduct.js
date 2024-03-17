@@ -1,9 +1,13 @@
-class product {
+class PurchasedProduct {
   sellerId;
-  constructor(name, price, quantity, picture, details, category) {
+  buyerId;
+  time;
+  date;
+
+  constructor(name, price, picture, details, category) {
     this.name = name;
     price(price);
-    quantity(quantity);
+
     this.picture = picture;
     this.details = details;
     this.category = category;
@@ -15,6 +19,13 @@ class product {
   set sellerId(id) {
     this.sellerId = id;
   }
+  get buyerId() {
+    return this.buyerId;
+  }
+
+  set buyer(Id) {
+    this.buyerId = id;
+  }
 
   get name() {
     return this.name;
@@ -23,9 +34,7 @@ class product {
   get price() {
     return this.price;
   }
-  get quantity() {
-    return this.price;
-  }
+
   get picture() {
     return this.picture;
   }
@@ -37,20 +46,19 @@ class product {
       this.price = this.price;
     }
   }
-  set quantity(q) {
-    if (this.q > 0) {
-      this.quantity = this.quantity;
-    }
+  get time() {
+    return this.time;
   }
 
-  addQuantity(q) {
-    this.quantity += q;
+  set time(time) {
+    return this.time;
   }
-  increment() {
-    this.quantity++;
+  get date() {
+    return this.date;
   }
-  decrement() {
-    this.quantity--;
+
+  set date(d) {
+    this.date = d;
   }
   static fromJSON(object) {
     return new product();
@@ -60,10 +68,11 @@ class product {
       picture: this.picture,
       name: this.name,
       price: this.price,
-      quantity: this.quantity,
+
       details: this.details,
       category: this.category,
       sellerId: this.sellerId,
+      buyerId: this.buyerId,
     };
   }
   static fromJSON(object) {
