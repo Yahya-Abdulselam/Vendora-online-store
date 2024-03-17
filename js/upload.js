@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   imageChoice.addEventListener("change", () => {
     let img = imageChoice.files[0];
     imgShowed.src = URL.createObjectURL(img);
+    imgShowed.style.width = "40%";
   });
   uploadButton.addEventListener("click", () => {
     const pName = document.querySelector("#prod-name").value.trim();

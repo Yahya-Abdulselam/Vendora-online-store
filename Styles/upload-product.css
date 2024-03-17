@@ -231,7 +231,7 @@ main {
   }
 }
 #show-prod {
-  width: 40%;
+  padding-top: 1.5rem;
 }
 .upload-image {
   display: flex;
