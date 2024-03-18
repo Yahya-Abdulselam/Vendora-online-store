@@ -1,18 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
+  let purchasedProducts = JSON.parse(
+    localStorage.getItem("purchasedProducts") ?? "[]"
+  );
   let seller = JSON.parse(localStorage.getItem("seller") ?? "[]"); //when the user log in we store his data(current seller)
-  const renderProduct = (product) => {
+  const renderProductSale = (product) => {
     const productDiv = document.createElement("div");
+    productDiv.classList.add("itemsale");
     const image = document.createElement("img");
     const table = document.createElement("table");
     const row1 = document.createElement("tr");
     const name = document.createElement("td");
+    name.classList.add("item-name");
 
     const row2 = document.createElement("tr");
     const price = document.createElement("td");
+    price.classList.add("price");
 
     const row3 = document.createElement("tr");
     const status = document.createElement("table");
+    status.classList.add("status");
 
     productDiv.appendChild(image);
     productDiv.appendChild(table);
@@ -29,15 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
     status.textContent =
       product.quantity === 0 ? "sold out" : `${quantity} left`;
   };
-  const renderProducts = () => {
+
+  const renderProductsSale = () => {
     const productsDiv = document.querySelector("#list-of-sold");
 
     productsDiv.replaceChildren();
-    const productsForSeller = products.filter(
-      (item = item.sellerId === seller.id)
-    );
+    const productsForSeller = products.filter((item) => {
+      item.sellerId === seller.id;
+    });
     productsForSeller.forEach((item) =>
-      productsDiv.appendChild(renderProduct(item))
+      productsDiv.appendChild(renderProductSale(item))
     );
     const sectionSale = document.querySelector("#items-on-sale");
     if (productsForSeller.length) {
@@ -49,29 +57,81 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("products", JSON.stringify(products));
   };
 
+  const renderProductHistory = (product) => {
+    const productDiv = document.createElement("div");
+    productDiv.classList.add("itemssold");
+    const image = document.createElement("img");
+    image.classList.add("open-up");
 
-  // <div class="itemssold">
-  // <img
-  //   src="/media/prod/pen-4337521_640.jpg"
-  //   class="open-popup"
-  //   alt=""
-  // />
+    const name = document.createElement("h3");
+    name.classList.add("itemname");
 
-  // <h3 class="itemname">laptop</h3>
-  // <dialog class="pop-up">
-  //   <ul>
-  //     <picture class="close-popup">
-  //       <source
-  //         srcset="media/icons/darktheme-icons/square-rounded-x.svg"
-  //         media="(prefers-color-scheme: dark)"
-  //       />
-  //       <img src="media/icons/darktheme-icons/square-rounded-x.svg" />
-  //     </picture>
-  //     <li class="buyer">ahmad</li>
-  //     <li class="price">price</li>
+    const popup = document.createElement("dialog");
+    popup.classList.add("pop-up");
 
-  //     <li class="quantity-sold">32</li>
-  //     <li class="quantity-left">2</li>
-  //   </ul>
-  // </dialog>
+    const list = document.createElement("ul");
+    const closeimage = document.createElement("picture");
+    closeimage.classList.add("close-popup");
+    const closeimgDark = document.createElement("source");
+    closeimgDark.srcset = "media/icons/darktheme-icons/square-rounded-x.svg";
+    closeimgDark.media = "(prefers-color-scheme: dark)";
+    const closeImg = document.createElement("img");
+    closeImg.src = "media/icons/darktheme-icons/square-rounded-x.svg";
+    const buyerLi = document.createElement("li");
+    buyerLi.classList.add("buyer");
+    const priceLi = document.createElement("li");
+    priceLi.classList.add("price");
+    const quantitySoldLi = document.createElement("li");
+    quantitySoldLi.classList.add("quantity-sold");
+    const quantityLeftLi = document.createElement("li");
+    quantityLeftLi.classList.add("quantity-left");
+
+    closeimage.appendChild(closeImgDark);
+    closeimage.appendChild(closeImg);
+
+    ul.appendChild(closeButton);
+    ul.appendChild(buyerLi);
+    ul.appendChild(priceLi);
+    ul.appendChild(quantitySoldLi);
+    ul.appendChild(quantityLeftLi);
+    dialog.appendChild(ul);
+
+    productDiv.appendChild(image);
+    productDiv.appendChild(name);
+    productDiv.appendChild(dialog);
+
+    name.textContent = product.name;
+    buyerLi.textContent = buyer.username;
+    priceLi.textContent = product.price;
+    quantityLeftLi.textContent = product.quantity;
+    quantitySoldLi.textContent = (product) => {
+      const tempProducts = purchasedProducts.filter(
+        (p) => p.name === product.name
+      );
+      return tempProducts.length;
+    };
+  };
+  const renderProductsHistory = () => {
+    const productsDiv = document.querySelector("list-of-sold");
+
+    productsDiv.replaceChildren();
+    const productsHistory = purchasedProducts.filter((item) => {
+      item.sellerId === seller.id;
+    });
+    productsHistory.forEach((item) =>
+      productsDiv.appendChild(renderProductSale(item))
+    );
+    const soldHistory = document.querySelector("#sold-history");
+    if (productsForSeller.length) {
+      divHistory.style.visibility = "visible";
+    } else {
+      divHistory.style.visibility = "hidden";
+    }
+
+    localStorage.setItem("products", JSON.stringify(products));
+    localStorage.setItem(
+      "purchasedProducts",
+      JSON.stringify(purchasedProducts)
+    );
+  };
 });
