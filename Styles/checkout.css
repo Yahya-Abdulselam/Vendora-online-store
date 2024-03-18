@@ -99,7 +99,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  background-color: var(--picton-blue-200);
+  background-color: var(--picton-blue-100);
 }
 
 header nav {
@@ -227,7 +227,7 @@ main>section{
     align-items: center;
     background-color: white;
     box-shadow: 0rem 0.1rem 0rem rgb(241, 241, 241);
-    background-color: var(--picton-blue-100);
+    background-color: var(--picton-blue-200);
     margin: 0.1rem 0rem;
     border-radius: 0.25rem;
 
@@ -383,7 +383,7 @@ button{
     font-weight: bold;
 }
 
-h1 {
+section>h1 {
     font-weight: bold;
 }
 
@@ -399,6 +399,7 @@ h1 {
 
     .order-info {
         width: 40rem;
+        height: 15rem;
         margin: 0.5rem;
 
         img {
