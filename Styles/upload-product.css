@@ -218,6 +218,7 @@ ul.links a p {
 main {
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   button {
     margin: 1rem 2rem;
@@ -269,5 +270,110 @@ input[type="text"] {
     font-weight: bold;
     align-self: flex-start;
     margin-left: 1.5rem;
+  }
+}
+
+.upload-image {
+  input[type="file"] {
+    display: none;
+    
+  }
+
+  .select-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 2rem;
+    width: 10rem;
+    height: 2rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: var(--picton-blue-300);
+  
+    font-weight: bold;
+  }
+  
+}
+
+#upload-item {
+  width: 10rem;
+  font-weight: bold;
+}
+
+.prod-quantity{
+  border-radius: 0.7rem;
+  height: 1.75rem;
+  width: 10rem;
+  margin: 0.5rem;
+  border: none;
+  box-shadow: 0.1rem 0.1rem 0.1rem var(--picton-blue-100);
+}
+
+@media only screen and (min-width: 600px) {
+  main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      margin: 1rem;
+  }
+
+  .input-setup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40rem;
+    margin: 0rem 1rem;
+  
+    p {
+      font-size: 1rem;
+      color: black;
+      font-weight: bold;
+      align-self: flex-start;
+      margin-left: 1.5rem;
+    }
+  }
+
+  .order-info {
+      width: 40rem;
+      height: 15rem;
+      margin: 0.5rem;
+
+      img {
+          width: 8rem;
+          height: 9rem;
+      }
+  }
+
+  .shipping-information {
+      width: 40rem;
+      margin: 0.5rem;
+  }
+
+  .payment-method {
+      width: 40rem;
+      margin: 0.5rem;
+  }
+
+  .order-summary{
+      width: 40rem;
+      margin: 0.5rem;
+  }
+
+  button {
+      width: 15rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  section.prod-quanatity{
+    width: 14rem;
+    margin: 0.5rem;
+  }
+
+  section.prod-category {
+    width: 14rem;
+    margin: 0.5rem;
   }
 }

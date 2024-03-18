@@ -11,13 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   uploadButton.addEventListener("click", () => {
     const pName = document.querySelector("#prod-name").value.trim();
-    const pPrice = document.querySelector("prod-price").value.trim();
+    const pPrice = document.querySelector("#prod-price").value.trim();
     const pDetails = document
-      .querySelector(".product-description")
+      .querySelector("#prod-desc")
       .value.trim();
-    const pImage = document.querySelector("prod-image").value.trim();
-    const pQuantity = document.querySelector("prod-quantity").value.trim();
-    const pCategory = document.querySelector("prod-category").value.trim();
+    const pImage = document.querySelector("#prod-image").value.trim();
+    const pQuantity = document.querySelector("#prod-quantity").value.trim();
+    const pCategory = document.querySelector("#prod-category").value.trim();
     const product = new product(
       pName,
       pPrice,
