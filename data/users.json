@@ -1,0 +1,22 @@
+{
+    "user1": {
+        "username": "iLikeProducts",
+        "password": "products_1234",
+        "id": "1"
+    },
+    "user2": {
+        "username": "iEnjoyProducts",
+        "password": "products-4321",
+        "id": "2"
+    },
+    "user3": {
+        "username": "Products_Interest",
+        "password": "chair-mayor",
+        "id": "3"
+    },
+    "user4": {
+        "username": "Interested-user",
+        "password": "QuIsMyFoe",
+        "id": "4"
+    }
+}
