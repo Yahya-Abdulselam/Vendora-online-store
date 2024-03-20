@@ -1,3 +1,29 @@
 {
-
+    "product1": {
+        "name": "Haryy Potter",
+        "price": 100,
+        "quantity": 20,
+        "picture": "",
+        "details": "Book about a wizard boy who fights a noseless man.",
+        "category": "Books",
+        "productId": 0
+    },
+    "product2": {
+        "name": "Macbook",
+        "price": 5000,
+        "quantity": 5,
+        "picture": "",
+        "details": "Expensive computer.",
+        "category": "Electronics",
+        "productId": 0
+    },
+    "product3": {
+        "name": "Brown Chair",
+        "price": 0,
+        "quantity": 0,
+        "picture": "",
+        "details": "Chair that's brown.",
+        "category": "Furniture",
+        "productId": 0
+    }
 }

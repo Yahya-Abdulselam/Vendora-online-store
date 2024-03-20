@@ -1,13 +1,15 @@
 class product {
   sellerId;
-  constructor(name, price, quantity, picture, details, category) {
+  constructor(name, price, quantity, picture, details, category, productId) {
     this.name = name;
     price(price);
     quantity(quantity);
     this.picture = picture;
     this.details = details;
     this.category = category;
+    this.productId = productId;
   }
+
   get sellerId() {
     return this.sellerId;
   }
