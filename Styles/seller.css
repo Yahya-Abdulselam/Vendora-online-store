@@ -433,12 +433,16 @@ td {
   content: "quantity sold : ";
   color: var(--butterfly-bush-500);
 }
+.quantity-purchased::before {
+  content: "quantity purchased : ";
+  color: var(--butterfly-bush-500);
+}
 .quantity-left::before {
   content: "quantity left : ";
   color: var(--butterfly-bush-500);
 }
 .quantity-left::after {
-  content: " left";
+  content: "in total from  this item";
   color: var(--picton-blue-300);
 }
 .quantity-left,
@@ -668,7 +672,8 @@ footer #socials a:hover {
   .status td::before,
   .buyer::before,
   .quantity-left::before,
-  .quantity-sold::before {
+  .quantity-sold::before,
+  .quantity-purchased::before {
     color: var(--butterfly-bush-700);
   }
   .pop-up {

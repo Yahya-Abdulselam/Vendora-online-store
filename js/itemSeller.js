@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let purchasedProducts = JSON.parse(
     localStorage.getItem("purchasedProducts") ?? "[]"
   );
-  let seller = JSON.parse(localStorage.getItem("seller") ?? "[]"); //when the user log in we store his data(current seller)
+  let sellerParsed = JSON.parse(localStorage.getItem("seller")); //when the user log in we store his data(current seller)
+  let seller = Seller.fromJson(sellerParsed);
   const renderProductSale = (product) => {
     const productDiv = document.createElement("div");
     productDiv.classList.add("itemsale");
@@ -28,22 +29,23 @@ document.addEventListener("DOMContentLoaded", () => {
     table.appendChild(row3);
     row1.appendChild(name);
     row2.appendChild(price);
-    row3.appendChild(price);
+    row3.appendChild(status);
 
-    image.src = URL.createObjectURL(product.image);
+    image.src = product.image;
     name.textContent = product.name;
     price.textContent = product.price;
     status.textContent =
-      product.quantity === 0 ? "sold out" : `${quantity} left`;
+      product.quantity === 0 ? "sold out" : `${product.quantity} left`;
+    return productDiv;
   };
-
+  const productsForSeller = products.filter((item) => {
+    return item.sellerId === seller.id;
+  });
   const renderProductsSale = () => {
-    const productsDiv = document.querySelector("#list-of-sold");
+    const productsDiv = document.querySelector("#list-of-sale");
 
     productsDiv.replaceChildren();
-    const productsForSeller = products.filter((item) => {
-      item.sellerId === seller.id;
-    });
+
     productsForSeller.forEach((item) =>
       productsDiv.appendChild(renderProductSale(item))
     );
@@ -88,10 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closeimage.appendChild(closeImgDark);
     closeimage.appendChild(closeImg);
+    const quantityPurchasedLi = document.createElement("li");
+    quantityPurchasedLi.classList.add("quantity-purchased");
 
     ul.appendChild(closeButton);
     ul.appendChild(buyerLi);
     ul.appendChild(priceLi);
+    ul.appendChild(quantityPurchasedLi);
     ul.appendChild(quantitySoldLi);
     ul.appendChild(quantityLeftLi);
     dialog.appendChild(ul);
@@ -101,7 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
     productDiv.appendChild(dialog);
 
     name.textContent = product.name;
-    buyerLi.textContent = buyer.username;
+    buyerLi.textContent = product.buyer;
+    quantityPurchasedLi.textContent =  product.quantityPurchased;
     priceLi.textContent = product.price;
     quantityLeftLi.textContent = product.quantity;
     quantitySoldLi.textContent = (product) => {
@@ -110,22 +116,23 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       return tempProducts.length;
     };
+    return productDiv;
   };
   const renderProductsHistory = () => {
-    const productsDiv = document.querySelector("list-of-sold");
+    const productsDiv = document.querySelector("#list-of-sold");
 
     productsDiv.replaceChildren();
     const productsHistory = purchasedProducts.filter((item) => {
       item.sellerId === seller.id;
     });
     productsHistory.forEach((item) =>
-      productsDiv.appendChild(renderProductSale(item))
+      productsDiv.appendChild(renderProductsHistory(item))
     );
     const soldHistory = document.querySelector("#sold-history");
     if (productsForSeller.length) {
-      divHistory.style.visibility = "visible";
+      soldHistory.style.visibility = "visible";
     } else {
-      divHistory.style.visibility = "hidden";
+      soldHistory.style.visibility = "hidden";
     }
 
     localStorage.setItem("products", JSON.stringify(products));
