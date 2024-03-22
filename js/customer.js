@@ -1,6 +1,6 @@
 import User from "./user.js";
 
-class Customer extends User {
+export default class Customer extends User {
   cart = [];
   address;
   paymentMethods;

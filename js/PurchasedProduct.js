@@ -1,4 +1,4 @@
-class PurchasedProduct {
+export default class PurchasedProduct {
   sellerId;
   buyer;
   time;
