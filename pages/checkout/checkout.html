@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <link rel="stylesheet" href="/Styles/checkout.css">
-    <script src="js/checkout.js"></script>
+    
 </head>
 <body>
     <header>
@@ -61,12 +61,12 @@
 
             <div class="order-information">
                 <div>
-                    <h5>{Product Name}</h5>
+                    <h5 id="order-name">{Product Name}</h5>
                 </div>
                 
                 <div>
-                    <p>{Price}</p>
-                    <p>{Attribute}</p>
+                    <p id="information-product-price">{Price}</p>
+                    <p id="product-attribute">{Attribute}</p>
                 </div>
 
                 <div>
@@ -82,27 +82,16 @@
             </div>
         </section>
 
-        <section class="shipping-information">
-            <h1>1. Shipping Information</h1>
-            <p>{Name}</p>
-            <div class="button-text"><p>{Street Address}</p> <button><a href="checkout-address.html">Edit ></a></button></div>
-            <p>{House Number}</p>
-            <p>{Area Info}</p>
-        </section>
-
         <section class="payment-method">
-            <h1>2. Payment Method</h1>
-            <p>{Name}</p>
-            <div class="button-text"><p>{Card Type}</p> <button><a href="checkout-payment.html">Edit ></a></button></div>
-            <p>{Card Number}</p>
-            <p>{Exp Date}</p>
+            <h1>Balance</h1>
+            <p id="customer-balance">{Customer Balance}</p>
         </section>
 
         <section class="order-summary">
             <h1>Order Summary</h1>
-            <div><p>Subtotal</p> <p>{Price}</p></div>
-            <div><p>Shipping</p> <p>{Price}</p></div>
-            <div><p>Total</p> <p>{Price}</p></div>
+            <div><p>Subtotal: </p> <p id="summary-product-price">{Price}</p></div>
+            <div><p>Shipping: </p> <p id="shipping-price">{Price}</p></div>
+            <div><p>Total: </p> <p id="total-price">{Price}</p></div>
         </section>
 
         <button>
@@ -110,6 +99,6 @@
         </button>
     </main>
 
-    
+    <script src="../../js/checkout.js"></script>
 </body>
 </html>
