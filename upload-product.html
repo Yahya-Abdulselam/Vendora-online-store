@@ -22,7 +22,7 @@
               <a href="" id="list"
                 ><img src="/media/icons/list.svg" alt=""
               /></a>
-              <script src="/main2.js"></script>
+
               <a href="" id="logo">
                 <img
                   src="/media/images/FullLogo_Transparent_NoBuffer(1).png"
@@ -61,16 +61,11 @@
 
     <main>
       <section class="upload-image section-margin flex-center">
-        <img
-          src="/media/images/no-image-icon-6.png"
-          id="show-prod"
-          alt=""
-        />
+        <img src="/media/images/no-image-icon-6.png" id="show-prod" alt="" />
         <label for="prod-image" class="select-image">Upload Image</label>
         <input
-        required
+          required
           type="file"
-          placeholder="select image"
           accept=".png, .jpg, .jpeg"
           id="prod-image"
         />
@@ -92,26 +87,35 @@
         class="product-description section-margin input-setup flex-center"
       >
         <p>Product Description</p>
-        <input type="text" required class="product-description" id="prod-desc"/>
+        <input
+          type="text"
+          required
+          class="product-description"
+          id="prod-desc"
+        />
       </section>
 
       <section class="prod-category section-margin input-setup flex-center">
         <p>Category</p>
         <select name="" required id="prod-category">
-          <option value="none" selected></option>
-          <option value="elecotrnics">Electronics</option>
-          <option value="elecotrnics">Books</option>
-          <option value="elecotrnics">Clothing</option>
+          <option value="" disabled="">—</option>
+          <option value="tech">Electronics</option>
+          <option value="book">Books</option>
+          <option value="clothing">Clothing</option>
           <option value="furniture">Furniture</option>
         </select>
       </section>
 
-      <section
-        class="prod-quanatity section-margin input-setup flex-center">
+      <section class="prod-quanatity section-margin input-setup flex-center">
         <p>Quantity</p>
-        <input type="number" required class="prod-quantity" id="prod-quantity" min="0"/>
+        <input
+          type="number"
+          required
+          class="prod-quantity"
+          id="prod-quantity"
+          min="0"
+        />
       </section>
-      
 
       <button id="upload-item">Upload Item</button>
     </main>

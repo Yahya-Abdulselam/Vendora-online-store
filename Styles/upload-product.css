@@ -276,7 +276,6 @@ input[type="text"] {
 .upload-image {
   input[type="file"] {
     display: none;
-    
   }
 
   .select-image {
@@ -289,10 +288,9 @@ input[type="text"] {
     border-radius: 1rem;
     border: none;
     background-color: var(--picton-blue-300);
-  
+
     font-weight: bold;
   }
-  
 }
 
 #upload-item {
@@ -300,7 +298,7 @@ input[type="text"] {
   font-weight: bold;
 }
 
-.prod-quantity{
+.prod-quantity {
   border-radius: 0.7rem;
   height: 1.75rem;
   width: 10rem;
@@ -311,12 +309,12 @@ input[type="text"] {
 
 @media only screen and (min-width: 600px) {
   main {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      
-      margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 1rem;
   }
 
   .input-setup {
@@ -325,7 +323,7 @@ input[type="text"] {
     justify-content: center;
     width: 40rem;
     margin: 0rem 1rem;
-  
+
     p {
       font-size: 1rem;
       color: black;
@@ -336,38 +334,40 @@ input[type="text"] {
   }
 
   .order-info {
-      width: 40rem;
-      height: 15rem;
-      margin: 0.5rem;
+    width: 40rem;
+    height: 15rem;
+    margin: 0.5rem;
 
-      img {
-          width: 8rem;
-          height: 9rem;
-      }
+    img {
+      width: 8rem;
+      height: 9rem;
+    }
   }
 
   .shipping-information {
-      width: 40rem;
-      margin: 0.5rem;
+    width: 40rem;
+    margin: 0.5rem;
   }
 
   .payment-method {
-      width: 40rem;
-      margin: 0.5rem;
+    width: 40rem;
+    margin: 0.5rem;
   }
 
-  .order-summary{
-      width: 40rem;
-      margin: 0.5rem;
+  .order-summary {
+    width: 40rem;
+    margin: 0.5rem;
   }
 
-  button {
-      width: 15rem;
+  button,
+  .select-image {
+    width: 15rem;
+    cursor: pointer;
   }
 }
 
 @media only screen and (min-width: 600px) {
-  section.prod-quanatity{
+  section.prod-quanatity {
     width: 14rem;
     margin: 0.5rem;
   }

@@ -1,13 +1,14 @@
-class product {
-  sellerId;
-  constructor(name, price, quantity, picture, details, category, productId) {
+export default class Product {
+
+  constructor(name, price, quantity, picture, details, category) {
     this.name = name;
-    price(price);
-    quantity(quantity);
+this.price=Number(price);
+  this.quantity=Number(quantity);
     this.picture = picture;
     this.details = details;
     this.category = category;
-    this.productId = productId;
+    this.sellerId=null;
+  
   }
 
   get sellerId() {
@@ -26,7 +27,7 @@ class product {
     return this.price;
   }
   get quantity() {
-    return this.price;
+    return this.quantity;
   }
   get picture() {
     return this.picture;
@@ -69,6 +70,6 @@ class product {
     };
   }
   static fromJSON(object) {
-    return new product();
+    return new Product(object.name, object.price, object.quantity, object.picture, object.details, object.category);
   }
 }

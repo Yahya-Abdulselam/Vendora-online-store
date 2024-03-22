@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-class User {
+export default class User {
   #id;
   #username;
   #password;

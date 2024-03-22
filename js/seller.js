@@ -1,6 +1,6 @@
 import User from "./user.js";
 
-class Seller extends User {
+export default class Seller extends User {
   products = [];
 
   constructor(username, password) {
