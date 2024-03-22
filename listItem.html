@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="" href="/Styles/listing.css" />
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vendora</title>
+        <link rel="stylesheet" href="/Styles/listing.css" />
+
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/media/images/FullLogo_Transparent_NoBuffer(1).png"
+        />
+      </head>
+    </html>
+    <header>
+      <!-- header with a nav bar  and search-->
+      <section class="navsec">
+        <nav class="navv">
+          <ul>
+            <li id="first">
+              <a href="" id="list"
+                ><img src="/media/icons/list.svg" alt=""
+              /></a>
+              <script src="/main2.js"></script>
+              <a href="" id="logo">
+                <img
+                  src="/media/images/FullLogo_Transparent_NoBuffer(1).png"
+                  alt="vendora logo"
+                />
+                <h1>Vendora</h1></a
+              >
+            </li>
+            <li>
+              <ul class="links">
+                <li class="extra">
+                  <a href="/pages/seller.html"
+                    ><img src="/media/icons/building-store.svg" alt="" />
+                    <p>Sell</p></a
+                  >
+                </li>
+                <li class="extra">
+                  <a href=""
+                    ><img src="/media/icons/help.svg" alt="" />
+                    <p>Customer Service</p></a
+                  >
+                </li>
+                <li class="extra">
+                  <a href=""
+                    ><img src="/media/icons/category.svg" alt="" />
+                    <p>categories</p></a
+                  >
+                </li>
+
+                <li class="sides" id="cart">
+                  <a href="/pages/checkout/checkout.html"
+                    ><img src="/media/icons/shopping-cart(1).svg" alt="" />
+                    <p>cart</p></a
+                  >
+                </li>
+                <li class="sides" id="account">
+                  <a href="/login.html">
+                    <img src="/media/icons/user.svg" alt="" />
+                    <p>account</p></a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="search" method="post">
+            <label for="sv">
+              <img src="/media/icons/search.svg" alt=""
+            /></label>
+            <input type="search" id="sv" placeholder="Search Vendora" />
+          </form>
+        </nav>
+      </section>
+    </header>
+    <main>
+      <section id="list-items">
+        <div class="item">
+          <img
+            class="image"
+            src="/media/prod/klim-musalimov-gCBLPOD9eoc-unsplash.jpg"
+            alt=""
+          />
+          <div class="info">
+            <h2 class="name">name</h2>
+            <h3 class="price">100$</h3>
+            <p class="desc">desc</p>
+            <div class="buy-item">
+              <div class="cart-add">
+                <picture class="minus">
+                  <source
+                    srcset="media/icons/darktheme-icons/square-minus(1).svg"
+                    media="(prefers-color-scheme: dark)"
+                    width="20px"
+                  />
+                  <img src="/media/icons/square-minus.svg" width="20px" />
+                </picture>
+                <p class="quantity">2</p>
+                <picture class="plus">
+                  <source
+                    srcset="media/icons/darktheme-icons/square-plus(1).svg"
+                    media="(prefers-color-scheme: dark)"
+                    width="20px"
+                  />
+                  <img src="/media/icons/square-plus.svg" width="20px" />
+                </picture>
+              </div>
+            </div>
+            <button class="buy">Buy now</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
