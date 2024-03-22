@@ -40,7 +40,8 @@ export default class Customer extends User {
     this.products.splice(index, 1);
   }
   static fromJSON(object) {
-    return new Customer();
+    return new Customer(object.username,object.password);
+    
   }
   toJSON() {
     return {

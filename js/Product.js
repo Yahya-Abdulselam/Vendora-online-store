@@ -1,75 +1,114 @@
-export default class Product {
+export class Product {
+  #_name;
+  #_price;
+  #_quantity;
+  #_picture;
+  #_details;
+  #_category;
+  #_sellerId;
 
   constructor(name, price, quantity, picture, details, category) {
     this.name = name;
-this.price=Number(price);
-  this.quantity=Number(quantity);
+    this.price = Number(price);
+    this.quantity = Number(quantity);
     this.picture = picture;
     this.details = details;
     this.category = category;
-    this.sellerId=null;
-  
+    this.#_sellerId = null;
   }
 
   get sellerId() {
-    return this.sellerId;
+    return this.#_sellerId;
   }
 
   set sellerId(id) {
-    this.sellerId = id;
+    this.#_sellerId = id;
   }
 
   get name() {
-    return this.name;
+    return this.#_name;
+  }
+  set name(n) {
+    this.#_name = n;
   }
 
   get price() {
-    return this.price;
+    return this.#_price;
   }
-  get quantity() {
-    return this.quantity;
-  }
-  get picture() {
-    return this.picture;
-  }
-  get details() {
-    return this.details;
-  }
-  set price(price) {
-    if (this.price >= 0) {
-      this.price = this.price;
-    }
-  }
-  set quantity(q) {
-    if (this.q > 0) {
-      this.quantity = this.quantity;
+  set price(p) {
+    let priceValue = Number(p);
+    if (priceValue >= 0) {
+      this.#_price = priceValue;
     }
   }
 
+  get quantity() {
+    return this.#_quantity;
+  }
+  set quantity(q) {
+    let quantityValue = Number(q);
+    if (quantityValue > 0) {
+      this.#_quantity = quantityValue;
+    }
+  }
+
+  get picture() {
+    return this.#_picture;
+  }
+  set picture(p) {
+    this.#_picture = p;
+  }
+
+  get details() {
+    return this.#_details;
+  }
+  set details(d) {
+    this.#_details = d;
+  }
+
+  get category() {
+    return this.#_category;
+  }
+  set category(c) {
+    this.#_category = c;
+  }
+
   addQuantity(q) {
-    this.quantity += q;
+    this.#_quantity += Number(q);
   }
+
   increment() {
-    this.quantity++;
+    this.#_quantity++;
   }
+
   decrement() {
-    this.quantity--;
+    if (this.#_quantity > 0) {
+      this.#_quantity--;
+    }
   }
-  static fromJSON(object) {
-    return new product();
-  }
+
   toJSON() {
     return {
-      picture: this.picture,
       name: this.name,
       price: this.price,
       quantity: this.quantity,
+      picture: this.picture,
       details: this.details,
       category: this.category,
       sellerId: this.sellerId,
     };
   }
+
   static fromJSON(object) {
-    return new Product(object.name, object.price, object.quantity, object.picture, object.details, object.category);
+    const product = new Product(
+      object.name,
+      object.price,
+      object.quantity,
+      object.picture,
+      object.details,
+      object.category
+    );
+    product.sellerId = object.sellerId;
+    return product;
   }
 }

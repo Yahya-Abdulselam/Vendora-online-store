@@ -6,7 +6,7 @@ export default class User {
   constructor(username, password) {
     this.#username = username;
     this.#password = password;
-    this.#id = generateid();
+    this.#id = User.generateId();
   }
   get id() {
     return this.#id;
@@ -19,7 +19,6 @@ export default class User {
   get usename() {
     return this.#username;
   }
-  
 
   toJSON() {
     return {
