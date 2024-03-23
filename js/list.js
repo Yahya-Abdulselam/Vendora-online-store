@@ -1,11 +1,16 @@
-import Product from "../js/Product.js";
-
 document.addEventListener("DOMContentLoaded", () => {
+  let search = document.querySelector("#sv");
+  search.value = "";
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get("search")?.toLowerCase() || "";
+  console.log(searchQuery);
 
-  products.forEach((element) => {
-    Product.fromJson(element);
-  });
+  search.value = searchQuery;
+  if (search) {
+    search.focus();
+  }
+  const category = localStorage.getItem("selectedCategory" ?? "any");
 
   const renderProduct = (product) => {
     const itemDiv = document.createElement("div");
@@ -92,17 +97,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return itemDiv;
   };
+
   const renderProducts = () => {
     const container = document.querySelector("#list-items");
     container.replaceChildren();
-    if (products.length) {
+    if (products.length && category !== "any") {
       products
         .filter((p) => p.quantity > 0 && p.category === category)
         .forEach((p) => {
           container.appendChild(renderProduct(p));
         });
+    } else if (products.length) {
+      const value = search.value.trim().toLowerCase();
+      products
+        .filter(
+          (p) =>
+            (p.quantity > 0 && p.name.toLowerCase().includes(value)) ||
+            p.category?.toLowerCase().includes(value) ||
+            p.details?.toLowerCase().includes(value)
+        )
+        .forEach((p) => {
+          container.appendChild(renderProduct(p));
+        });
     }
   };
+  search.addEventListener("input", () => {
+    const value = search.value.trim().toLowerCase();
+    products = products.filter((p) => {
+      return products.length
+        ? (p.quantity > 0 && p.name.toLowerCase().includes(value)) ||
+            p.category.toLowerCase().includes(value) ||
+            p.details.toLowerCase().includes(value)
+        : false;
+    });
+    renderProducts();
+  });
 
   renderProducts();
 });

@@ -8,24 +8,24 @@ document.addEventListener("DOMContentLoaded", () => {
   clothingButton.addEventListener("click", (event) => {
     event.preventDefault();
     localStorage.setItem("selectedCategory", "clothing");
-    window.location.href = "https://github.com/Yahya-Abdulselam/Vendora-online-store/blob/274f7693247602d0e1e83679829cefafd7dd665d/pages/seller.html";
+    window.location.href = "/listItem.html";
   });
 
   techButton.addEventListener("click", (event) => {
     event.preventDefault();
     localStorage.setItem("selectedCategory", "tech");
-    window.location.href = "/listing.html";
+    window.location.href = "/listItem.html";
   });
 
   bookButton.addEventListener("click", (event) => {
     event.preventDefault();
     localStorage.setItem("selectedCategory", "book");
-    window.location.href = "/listing.html";
+    window.location.href = "/listItem.html";
   });
 
   furnitureButton.addEventListener("click", (event) => {
     event.preventDefault();
     localStorage.setItem("selectedCategory", "furniture");
-    window.location.href = "/listing.html";
+    window.location.href = "/listItem.html";
   });
 });

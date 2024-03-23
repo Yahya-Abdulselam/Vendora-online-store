@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#prod-image").value = "";
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
   let sellerParsed = JSON.parse(localStorage.getItem("seller")); //when the user log in we store his data
-  
+
   let seller = Seller.fromJson(sellerParsed);
 
   const uploadButton = document.querySelector("#upload-item");

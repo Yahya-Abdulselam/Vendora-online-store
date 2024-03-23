@@ -276,7 +276,7 @@ button:hover {
 }
 
 @media screen and (min-width: 750px) {
-  .login {
+   .login {
     margin-top: 3%;
     position: absolute;
     top: 50%;
