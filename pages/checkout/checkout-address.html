@@ -55,42 +55,48 @@
 
     <main>
         <section class="address-information">
+          <section>
             <div class="full-name input-setup section-margin">
                 <p>Full Name</p>
-                <input type="text" placeholder="Full Name">
+                <input type="text" placeholder="Full Name" id="full_name">
             </div>
 
             <div class="address-line-1 input-setup section-margin">
-                <p>Address Line 1</p>
-                <input type="text" placeholder="Address Line 1">
+                <p>Address Line</p>
+                <input type="text" placeholder="Address Line" id="address-line">
             </div>
-
-            <div class="address-line-1 input-setup section-margin">
-                <p>Address Line 2</p>
-                <input type="text" placeholder="Address Line 2">
-            </div>
-
             <div class="city input-setup section-margin">
-                <p>City</p>
-                <input type="text" placeholder="City">
+              <p>City</p>
+              <input type="text" placeholder="City" id="city">
             </div>
 
+          </section>
+          <section>
             <div class="zip-code input-setup section-margin">
                 <p>Zip Code</p>
-                <input type="text" placeholder="Zip Code">
+                <input type="text" placeholder="Zip Code" id="zip-code">
             </div>
 
             <div class="phone-number input-setup section-margin">
                 <p>Phone Number</p>
-                <input type="text" pattern="[0-9]{4}-[0-9]{4}" placeholder="XXXX-XXXX">
+                <input type="text" pattern="[0-9]{4}-[0-9]{4}" placeholder="XXXX-XXXX" id="mobile">
             </div>
+
+            <div class="input-setup section-margin">
+              <p>Quantity</p>
+              <input type="number" min="0" placeholder="0">
+            </div>
+          </section>
+            
         </section>
 
-        <a href="checkout.html">
+        <a href="checkout.html" id="save-address">
             <button>
                 Save
             </button>
         </a>
-    </main>    
+    </main>
+
+    <script src="../../js/checkout-address.js"></script>
 </body>
 </html>

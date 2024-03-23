@@ -267,6 +267,15 @@ input[type="text"]{
     box-shadow: 0.1rem 0.1rem 0.1rem var(--picton-blue-100);
 }
 
+input[type="number"]{
+    border-radius: 0.7rem;
+    height: 1.75rem;
+    width: 90%;
+    margin: 0.5rem;
+    border: none;
+    box-shadow: 0.1rem 0.1rem 0.1rem var(--picton-blue-100);
+}
+
 button{
     margin: 1rem 2rem;
     width: 80%;
@@ -279,6 +288,10 @@ button{
 }
 
 @media only screen and (min-width: 600px) {
+    body {
+        display: grid;
+        grid-template: 1fr;
+    }
     main {
         display: flex;
         flex-direction: column;
@@ -289,6 +302,8 @@ button{
     }
 
     .address-information {
+        display: flex;
+        flex-direction: row;
         width: 30rem;
         border-radius: 0.5rem;
     }

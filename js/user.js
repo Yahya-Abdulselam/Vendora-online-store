@@ -1,4 +1,5 @@
-import { nanoid } from "nanoid";
+import { nanoid } from 'nanoid';
+
 export default class User {
   #id;
   #username;
@@ -6,7 +7,7 @@ export default class User {
   constructor(username, password) {
     this.#username = username;
     this.#password = password;
-    this.#id = User.generateId;
+    this.#id = User.#generateId();
   }
   get id() {
     return this.#id;

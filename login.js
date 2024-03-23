@@ -9,6 +9,7 @@ function handleLogin() {
         (user) => user.username === username && user.password === password
       );
       if (user) {
+        localStorage.setItem("loggeduser", JSON.stringify(user));
         window.location.href = "main.html";
       } else {
         alert("Invalid username or password. Please try again.");

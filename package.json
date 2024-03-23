@@ -1,7 +1,7 @@
 {
   "type": "module",
   "dependencies": {
-    "nanoid": "^5.0.6",
+    "nanoid": "^3.3.7",
     "prompt-sync": "^4.2.0",
     "swup": "^4.6.0"
   }
