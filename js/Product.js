@@ -1,4 +1,4 @@
-export class Product {
+export default class Product {
   #_name;
   #_price;
   #_quantity;
@@ -99,7 +99,7 @@ export class Product {
     };
   }
 
-  static fromJSON(object) {
+static fromJSON(object) {
     const product = new Product(
       object.name,
       object.price,

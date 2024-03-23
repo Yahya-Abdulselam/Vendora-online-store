@@ -1,13 +1,12 @@
 import User from "./user.js";
 import { Product } from "./Product.js";
 
-export default class Seller extends User {
+export class Seller extends User {
   #_products;
 
   constructor(username, password) {
     super(username, password);
     this.products = [];
-
   }
 
   get products() {
