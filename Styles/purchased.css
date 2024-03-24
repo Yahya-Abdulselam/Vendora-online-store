@@ -391,6 +391,9 @@ main {
 #list-items .prod-quantity::before {
   content: "Qty:";
 }
+.prod-price::before {
+  content: "$";
+}
 @media screen and (min-width: 750px) {
   h3 {
     line-height: 5rem;
