@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
     productDiv.appendChild(dialog);
 
     name.textContent = product.name;
-    buyerLi.textContent = product.buyer;
+    buyerLi.textContent = product.buyer.username;
     quantityPurchasedLi.textContent =  product.quantityPurchased;
     priceLi.textContent = product.price;
     quantityLeftLi.textContent = product.quantity;

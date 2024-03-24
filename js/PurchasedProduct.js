@@ -1,28 +1,26 @@
-export default class PurchasedProduct {
-  sellerId;
-  buyer;
-  time;
-  date;
-  quantity;
+import { Product } from "./Product.js";
+import { Buyer } from "./buyer.js";
+export default class PurchasedProduct extends Product {
+  _buyer;
+  _time;
+  _date;
 
-  constructor(name, price, picture, details, category) {
-    this.name = name;
-    price(price);
-
-    this.picture = picture;
-    this.details = details;
-    this.category = category;
-  }
-  set quantity(q) {
-    if (this.q > 0) {
-      this.quantity = this.quantity;
-    }
-  }
-  get quantity() {
-    return this.price;
-  }
-  get sellerId() {
-    return this.sellerId;
+  constructor(
+    name,
+    price,
+    quantity,
+    picture,
+    details,
+    category,
+    sellerId,
+    date,
+    time,
+    buyer
+  ) {
+    super(name, price, quantity, picture, details, category);
+    this.sellerId = sellerId;
+    this.date = date;
+    this.buyer = buyer;
   }
 
   set sellerId(id) {
@@ -32,29 +30,13 @@ export default class PurchasedProduct {
     return this.buyer;
   }
 
-  set buyer(Id) {
-    this.buyer = id;
-  }
-
-  get name() {
-    return this.name;
-  }
-
-  get price() {
-    return this.price;
-  }
-
-  get picture() {
-    return this.picture;
-  }
-  get details() {
-    return this.details;
-  }
-  set price(price) {
-    if (this.price >= 0) {
-      this.price = this.price;
+  set buyer(buyer) {
+    if (!(buyer instanceof Buyer)) {
+      throw new Error("buyer must be an instance of Buyer");
     }
+    this._buyer = buyer;
   }
+
   get time() {
     return this.time;
   }
@@ -69,22 +51,27 @@ export default class PurchasedProduct {
   set date(d) {
     this.date = d;
   }
-  static fromJSON(object) {
-    return new product();
-  }
+
   toJSON() {
     return {
-      picture: this.picture,
-      name: this.name,
-      price: this.price,
-
-      details: this.details,
-      category: this.category,
-      sellerId: this.sellerId,
+      ...super.toJSON(),
       buyer: this.buyer,
+      date: this.date,
+      time: this.time,
     };
   }
   static fromJSON(object) {
-    return new product();
+    return new product(
+      name,
+      price,
+      quantity,
+      picture,
+      details,
+      category,
+      sellerId,
+      date,
+      time,
+      buyer
+    );
   }
 }
