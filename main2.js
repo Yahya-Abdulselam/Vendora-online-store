@@ -19,19 +19,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  document.getElementById("cart-button").addEventListener("click", () => {
-    if (localStorage.getItem("loggeduser") != null) {
-      window.location.href = "/pages/checkout/checkout.html"
-    } else {
-      window.location.href = "./login.html"
-    }
-  })
+  // document.getElementById("cart-button").addEventListener("click", () => {
+  //   if (localStorage.getItem("loggeduser") != null) {
+  //     window.location.href = "/pages/checkout/checkout.html"
+  //   } else {
+  //     window.location.href = "./login.html"
+  //   }
+  // })
 
-  document.getElementById("account-button").addEventListener("click", () => {
-    if (localStorage.getItem("loggeduser") != null) {
-      window.location.href = "/pages/checkout/checkout.html"
-    } else {
-      window.location.href = "./login.html"
-    }
-  })
+  // document.getElementById("account-button").addEventListener("click", () => {
+  //   if (localStorage.getItem("loggeduser") != null) {
+  //     window.location.href = "/pages/checkout/checkout.html"
+  //   } else {
+  //     window.location.href = "./login.html"
+  //   }
+  // })
 });

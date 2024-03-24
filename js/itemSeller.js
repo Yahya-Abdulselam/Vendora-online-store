@@ -1,3 +1,4 @@
+import { Seller } from "./seller";
 document.addEventListener("DOMContentLoaded", () => {
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
   let purchasedProducts = JSON.parse(
@@ -107,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     name.textContent = product.name;
     buyerLi.textContent = product.buyer.username;
-    quantityPurchasedLi.textContent =  product.quantityPurchased;
+    quantityPurchasedLi.textContent = product.quantityPurchased;
     priceLi.textContent = product.price;
     quantityLeftLi.textContent = product.quantity;
     quantitySoldLi.textContent = (product) => {

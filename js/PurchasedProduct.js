@@ -2,7 +2,7 @@ import { Product } from "./Product.js";
 import { Buyer } from "./buyer.js";
 export default class PurchasedProduct extends Product {
   _buyer;
-  _time;
+
   _date;
 
   constructor(
@@ -37,13 +37,6 @@ export default class PurchasedProduct extends Product {
     this._buyer = buyer;
   }
 
-  get time() {
-    return this.time;
-  }
-
-  set time(time) {
-    return this.time;
-  }
   get date() {
     return this.date;
   }
@@ -57,7 +50,6 @@ export default class PurchasedProduct extends Product {
       ...super.toJSON(),
       buyer: this.buyer,
       date: this.date,
-      time: this.time,
     };
   }
   static fromJSON(object) {
@@ -70,7 +62,7 @@ export default class PurchasedProduct extends Product {
       category,
       sellerId,
       date,
-      time,
+
       buyer
     );
   }
