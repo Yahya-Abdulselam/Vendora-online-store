@@ -367,6 +367,65 @@ button:hover {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
 }
+
+#account {
+  position: relative;
+
+  #dropdown-menu {
+    z-index: 2;
+    position: absolute;
+    left: 0rem;
+    top: calc(100% + 0.25rem);
+    background-color:#0094d3;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+
+    a {
+      color: black;
+      font-size: 0.75rem;
+    }
+  }
+
+  a:hover + #dropdown-menu {
+    opacity: 1;
+  }
+
+  #dropdown-menu:hover {
+    opacity: 1;
+  }
+}
+
+#categories {
+  position: relative;
+
+  #dropdown-menu {
+    z-index: 2;
+    position: absolute;
+    left: 0rem;
+    top: calc(100% + 0.25rem);
+    background-color:#0094d3;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+
+    a {
+      color: black;
+      font-size: 0.75rem;
+    }
+  }
+
+  a:hover + #dropdown-menu {
+    opacity: 1;
+  }
+
+  #dropdown-menu:hover {
+    opacity: 1;
+  }
+}
+
 #trending-categories {
   margin: 1em 1em 1em 1em;
 }
@@ -878,6 +937,14 @@ of everything
   #trending-products .info h1 {
     font-size: 4rem;
   }
+}
+
+#cart-button {
+  cursor: pointer;
+}
+
+#account-button {
+  cursor: pointer;
 }
 
 /*ligh and dark themed page*/
