@@ -16,7 +16,7 @@ export default class User {
     return this.#password;
   }
 
-  get usename() {
+  get username() {
     return this.#username;
   }
 
