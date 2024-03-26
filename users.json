@@ -5,10 +5,10 @@
     "id": 1,
     "customer_balance": 200,
     "address": {
-      "full_name": "Yousef",
-      "zip_code": "1",
+      "full_name": "Yousef Mohamed",
+      "zip_code": "32",
       "address_line": "House 98 Street 300",
-      "phone_number": "3366 4621",
+      "phone_number": "3918 2033",
       "location": "Doha"
     }
   },
@@ -18,10 +18,10 @@
     "id": 2,
     "customer_balance": 200,
     "address": {
-      "full_name": "Yousef",
-      "zip_code": "1",
-      "address_line": "House 98 Street 300",
-      "phone_number": "3366 4621",
+      "full_name": "Mohammed Al-Adbi",
+      "zip_code": "45",
+      "address_line": "House 49 Street 180",
+      "phone_number": "5591 3027",
       "City": "Doha"
     }
   },
@@ -31,10 +31,10 @@
     "id": 3,
     "customer_balance": 200,
     "address": {
-      "full_name": "Yousef",
-      "zip_code": "1",
-      "address_line": "House 98 Street 300",
-      "phone_number": "3366 4621",
+      "full_name": "Yahya Abdulselam",
+      "zip_code": "24",
+      "address_line": "House 31 Street 230",
+      "phone_number": "6631 3085",
       "City": "Doha"
     }
   }

@@ -35,3 +35,18 @@ document
       handleLogin();
     }
   });
+
+function toggleIcon() {
+  let password = document.getElementById("password");
+  let eyeicon = document.getElementById("eye-icon");
+
+  if (password.type === "password") {
+    password.type = "text";
+    eyeicon.src = "media/icons/eye-open.jpg";
+    eyeicon.alt = "eye-open";
+  } else {
+    password.type = "password";
+    eyeicon.src = "media/icons/eye-close.jpg";
+    eyeicon.alt = "eye-close";
+  }
+}

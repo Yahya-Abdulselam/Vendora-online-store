@@ -3,6 +3,8 @@
   box-sizing: border-box;
 }
 
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"); */
+
 :root {
   --picton-blue-50: #effaff;
   --picton-blue-100: #def4ff;
@@ -55,11 +57,20 @@
   --storm-dust-950: #262626;
 }
 
+.eye-icon {
+  width: 10%;
+}
+
+.password-container {
+  display: flex;
+  gap: 1rem;
+}
+
 .login {
   background-color: white;
   border: 1px solid black;
   border-radius: 10%;
-  height: 60vh;
+  height: 65vh;
   max-height: 100%;
   width: 62vh;
   position: absolute;
@@ -276,7 +287,7 @@ button:hover {
 }
 
 @media screen and (min-width: 750px) {
-   .login {
+  .login {
     margin-top: 3%;
     position: absolute;
     top: 50%;
