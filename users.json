@@ -16,7 +16,7 @@
     "username": "mohammed",
     "password": "mohammed",
     "id": 2,
-    "customer_balance": 200,
+    "customer_balance": 5000,
     "address": {
       "full_name": "Mohammed Al-Adbi",
       "zip_code": "45",

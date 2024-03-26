@@ -1,4 +1,7 @@
+
+
 document.addEventListener("DOMContentLoaded", () =>{
+    const productInCart = JSON.parse(localStorage.getItem("itemInCart"))
     let productName = document.getElementById("order-name");
     let informationProductPrice = document.getElementById("information-product-price");
     let productAttribute = document.getElementById("product-attribute");
@@ -16,9 +19,9 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     
 
-    const product_name = localStorage.getItem("productName") != null ? JSON.parse(localStorage.getItem("loggeduser")).address.full_name : productName.innerText;
-    const product_price = localStorage.getItem("productPrice") != null ? localStorage.getItem("productPrice") : subtotal.innerText;
-    const attribute = localStorage.getItem("productAttribute") != null ? localStorage.getItem("productAttribute") : productAttribute.innerText;
+    const product_name = productInCart != null ? productInCart.name : productName.innerText;
+    const product_price = productInCart != null ? productInCart.price * productInCart.quantity : subtotal.innerText;
+    const attribute = productInCart != null ? productInCart.category : productAttribute.innerText;
 
     const shipping_full_name = localStorage.getItem("loggeduser") != null ? JSON.parse(localStorage.getItem("loggeduser")).address.full_name : productName.innerText;
     const shipping_address = localStorage.getItem("loggeduser") != null ? JSON.parse(localStorage.getItem("loggeduser")).address.address_line : productName.innerText;
@@ -45,4 +48,13 @@ document.addEventListener("DOMContentLoaded", () =>{
     subtotal.innerText = product_price;
     shipping.innerText = shipping_price;
     total.innerText = total_price;
+
+    document.querySelector(".confirmButton").addEventListener("click", () => {
+        let user = JSON.parse(localStorage.getItem("loggeduser"))
+        if (user.customer_balance >= total_price) {
+            user.customer_balance = user.customer_balance - total_price
+            localStorage.setItem("loggeduser", JSON.stringify(user))
+            location.replace("../../main.html")
+        }
+    })
 })
