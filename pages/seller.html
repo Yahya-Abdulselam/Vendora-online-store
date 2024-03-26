@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vendora seller</title>
-    <script defer src="/main2.js"></script>
     <link rel="stylesheet" href="/Styles/seller.css" />
 
     <link
@@ -52,6 +51,12 @@
                     <img src="/media/icons/user.svg" alt="" />
                     <p>account</p></a
                   >
+
+                  <div id="dropdown-menu">
+                    <a href="login.html">Login</a>
+                    <a href="login.html">Sale History</a>
+                    <a href="login.html">Account Details</a>
+                  </div>
                 </li>
               </ul>
             </li>
@@ -76,7 +81,7 @@
             share your unique products with the world. Click 'Upload a Product'
             now and start selling!
           </p>
-          <button><a href="../upload-product.html">upload a product</a></button>
+          <button onclick="handleUpload()">upload a product</button>
         </article>
       </div>
     </header>
@@ -255,5 +260,6 @@
         destination for all your shopping desires.
       </p>
     </footer>
+    <script defer src="/main2.js"></script>
   </body>
 </html>

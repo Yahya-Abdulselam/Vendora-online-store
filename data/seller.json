@@ -1,22 +1,20 @@
-{
-    "seller1": {
-        "username": "iSellFurniture",
-        "password": "furniture-enthusiast",
-        "id": "1",
-        "product": {}
-    },
-
-    "seller2": {
-        "username": "iSellElecontrics",
-        "password": "electronics-enthusiast",
-        "id": "2",
-        "product": {}
-    },
-
-    "seller3": {
-        "username": "iSellBooks",
-        "password": "books-enthusiast",
-        "id": "3",
-        "product": {}
-    }
-}
+[
+  {
+    "username": "iSellFurniture",
+    "password": "furniture-enthusiast",
+    "id": "1",
+    "product": {}
+  },
+  {
+    "username": "iSellElecontrics",
+    "password": "electronics-enthusiast",
+    "id": "2",
+    "product": {}
+  },
+  {
+    "username": "iSellBooks",
+    "password": "books-enthusiast",
+    "id": "3",
+    "product": {}
+  }
+]

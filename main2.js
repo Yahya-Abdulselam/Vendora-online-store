@@ -18,6 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
       nav.classList.remove("oScroll");
     }
   });
-
-  
 });
+
+function handleUpload() {
+  if (!localStorage.getItem("loggedseller")) {
+    window.location.href = "../sellerlogin.html";
+  }
+  else{
+    window.location.href = "../upload-product.html"
+  }
+}
