@@ -1,6 +1,9 @@
 function handleLogin() {
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
+  var form = document.querySelector("form");
+  var u = document.getElementById("username");
+  var l = localStorage.getItem("uploadDestination");
 
   fetch("data/seller.json")
     .then((response) => response.json())
@@ -10,9 +13,15 @@ function handleLogin() {
       );
       if (user) {
         localStorage.setItem("loggedseller", JSON.stringify(user));
-        window.location.href = "pages/seller.html";
+        if (!l) {
+          window.location.href = "pages/seller.html";
+        } else {
+          window.location.href = "upload-product.html";
+        }
       } else {
         alert("Invalid username or password. Please try again.");
+        form.reset();
+        u.focus();
       }
     })
     .catch((error) => console.error("Error:", error));

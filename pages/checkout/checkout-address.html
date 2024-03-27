@@ -1,101 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout</title>
-    <link rel="stylesheet" href="/Styles/checkout-address.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/Styles/checkout-address.css" />
+  </head>
+  <body>
     <header>
-        <section class="navsec">
-            <nav class="navv">
-              <ul>
-                <li id="first">
-                  <a href="" id="list"
-                    ><img src="/media/icons/list.svg" alt=""
-                  /></a>
-                  <script src="/main2.js"></script>
-                  <a href="../../main.html" id="logo">
-                    <img
-                      src="/media/images/FullLogo_Transparent_NoBuffer(1).png"
-                      alt="vendora logo"
-                    />
-                    <h1>Vendora</h1></a
+      <section class="navsec">
+        <nav class="navv">
+          <ul>
+            <li id="first">
+              <a href="" id="list"
+                ><img src="/media/icons/list.svg" alt=""
+              /></a>
+              <script src="/main2.js"></script>
+              <a href="../../main.html" id="logo">
+                <img
+                  src="/media/images/FullLogo_Transparent_NoBuffer(1).png"
+                  alt="vendora logo"
+                />
+                <h1>Vendora</h1></a
+              >
+            </li>
+            <li>
+              <ul class="links">
+                <li class="extra">
+                  <a href=""
+                    ><img src="/media/icons/shopping-bag.svg" alt="" />
+                    <p>Buy</p></a
                   >
                 </li>
-                <li>
-                  <ul class="links">
-                    <li class="extra">
-                      <a href=""
-                        ><img src="/media/icons/shopping-bag.svg" alt="" />
-                        <p>Buy</p></a
-                      >
-                    </li>
-                    <li class="extra">
-                      <a href=""
-                        ><img src="/media/icons/help.svg" alt="" />
-                        <p>Customer Service</p></a
-                      >
-                    </li>
-    
-                    <li class="sides" id="account">
-                      <a href="">
-                        <img src="/media/icons/user.svg" alt="" />
-                        <p>account</p></a
-                      >
-                    </li>
-                  </ul>
+                <li class="extra">
+                  <a href=""
+                    ><img src="/media/icons/help.svg" alt="" />
+                    <p>Customer Service</p></a
+                  >
+                </li>
+
+                <li class="sides" id="account">
+                  <a href="">
+                    <img src="/media/icons/user.svg" alt="" />
+                    <p>account</p></a
+                  >
                 </li>
               </ul>
-            </nav>
-          </section>
+            </li>
+          </ul>
+        </nav>
+      </section>
     </header>
 
     <main>
-        <section class="address-information">
-          <section>
-            <div class="full-name input-setup section-margin">
-                <p>Full Name</p>
-                <input type="text" placeholder="Full Name" id="full_name">
-            </div>
+      <section class="address-information">
+        <section>
+          <div class="full-name input-setup section-margin">
+            <p>Full Name</p>
+            <input type="text" placeholder="Full Name" id="full_name" />
+          </div>
 
-            <div class="address-line-1 input-setup section-margin">
-                <p>Address Line</p>
-                <input type="text" placeholder="Address Line" id="address-line">
-            </div>
-            <div class="city input-setup section-margin">
-              <p>City</p>
-              <input type="text" placeholder="City" id="city">
-            </div>
-
-          </section>
-          <section>
-            <div class="zip-code input-setup section-margin">
-                <p>Zip Code</p>
-                <input type="text" placeholder="Zip Code" id="zip-code">
-            </div>
-
-            <div class="phone-number input-setup section-margin">
-                <p>Phone Number</p>
-                <input type="text" pattern="[0-9]{4}-[0-9]{4}" placeholder="XXXX-XXXX" id="mobile">
-            </div>
-
-            <div class="input-setup section-margin">
-              <p>Quantity</p>
-              <input type="number" min="0" class="quantityInput">
-            </div>
-          </section>
-            
+          <div class="address-line-1 input-setup section-margin">
+            <p>Address Line</p>
+            <input type="text" placeholder="Address Line" id="address-line" />
+          </div>
+          <div class="city input-setup section-margin">
+            <p>City</p>
+            <input type="text" placeholder="City" id="city" />
+          </div>
         </section>
+        <section>
+          <div class="zip-code input-setup section-margin">
+            <p>Zip Code</p>
+            <input type="text" placeholder="Zip Code" id="zip-code" />
+          </div>
 
-        <a href="checkout.html">
-            <button class="save-address">
-                Save
-            </button>
-        </a>
+          <div class="phone-number input-setup section-margin">
+            <p>Phone Number</p>
+            <input
+              type="text"
+              pattern="[0-9]{4}-[0-9]{4}"
+              placeholder="XXXX-XXXX"
+              id="mobile"
+            />
+          </div>
+
+          <div class="input-setup section-margin">
+            <p>Quantity</p>
+            <input type="number" min="0" class="quantityInput" />
+          </div>
+        </section>
+      </section>
+
+      <a href="checkout.html">
+        <button class="save-address">Save</button>
+      </a>
     </main>
 
     <script src="../../js/checkout-address.js"></script>
-</body>
+  </body>
 </html>

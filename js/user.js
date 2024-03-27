@@ -33,3 +33,6 @@ export default class User {
     return nanoid(10);
   }
 }
+
+const user1 = new User("hello123","hello123");
+console.log(user1);

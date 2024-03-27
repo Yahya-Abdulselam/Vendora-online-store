@@ -42,25 +42,6 @@
                 <p>Customer Service</p></a
               >
             </li>
-            <!-- <li class="extra" id="categories">
-              <a href=""
-                ><img src="/media/icons/category.svg" alt="" />
-                <p>categories</p></a
-              >
-              <div id="dropdown-menu">
-                <a href="login.html">Books</a>
-                <a href="login.html">Electronics</a>
-                <a href="login.html">Furniture</a>
-                <a href="login.html">Clothing</a>
-              </div>
-            </li> -->
-
-            <!-- <li class="sides" id="cart">
-              <a href="/pages/checkout/checkout.html"
-                ><img src="/media/icons/shopping-cart(1).svg" alt="" />
-                <p>cart</p></a
-              >
-            </li> -->
             <li class="sides" id="account">
               <a href="">
                 <img src="/media/icons/user.svg" alt="" />
@@ -79,45 +60,47 @@
   </section>
   <main class="main">
     <div class="login">
-      <br />
-      <h1>Seller Login</h1>
-      <br />
-      <br />
-      <div>
-        <label for="username" class="label">Username:</label>
-      </div>
-      <div>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          class="input"
-          placeholder="Username"
-          autofocus
-          required
-        />
-      </div>
-      <br />
-      <div>
-        <label for="password" class="label">Password:</label>
-      </div>
-      <div class="password-container">
-        <input
-          type="password"
-          id="password"
-          name="password"
-          class="input"
-          placeholder="Password"
-          required
-        />
-        <img
-          src="media/icons/eye-close.jpg"
-          alt="eye-close"
-          class="eye-icon"
-          id="eye-icon"
-          onclick="toggleIcon()"
-        />
-      </div>
+      <form>
+        <br />
+        <h1>Seller Login</h1>
+        <br />
+        <br />
+        <div>
+          <label for="username" class="label">Username:</label>
+        </div>
+        <div>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="input"
+            placeholder="Username"
+            autofocus
+            required
+          />
+        </div>
+        <br />
+        <div>
+          <label for="password" class="label">Password:</label>
+        </div>
+        <div class="password-container">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="input"
+            placeholder="Password"
+            required
+          />
+          <img
+            src="media/icons/eye-close.jpg"
+            alt="eye-close"
+            class="eye-icon"
+            id="eye-icon"
+            onclick="toggleIcon()"
+          />
+        </div>
+      </form>
       <br />
       <br />
       <button type="button" class="button">Continue</button>

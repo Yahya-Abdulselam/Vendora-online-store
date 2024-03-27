@@ -80,45 +80,47 @@
   </section>
   <main class="main">
     <div class="login">
-      <br />
-      <h1>Login</h1>
-      <br />
-      <br />
-      <div>
-        <label for="username" class="label">Username:</label>
-      </div>
-      <div>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          class="input"
-          placeholder="Username"
-          autofocus
-          required
-        />
-      </div>
-      <br />
-      <div>
-        <label for="password" class="label">Password:</label>
-      </div>
-      <div class="password-container">
-        <input
-          type="password"
-          id="password"
-          name="password"
-          class="input"
-          placeholder="Password"
-          required
-        />
-        <img
-          src="media/icons/eye-close.jpg"
-          alt="eye-close"
-          class="eye-icon"
-          id="eye-icon"
-          onclick="toggleIcon()"
-        />
-      </div>
+      <form>
+        <br />
+        <h1>Login</h1>
+        <br />
+        <br />
+        <div>
+          <label for="username" class="label">Username:</label>
+        </div>
+        <div>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="input"
+            placeholder="Username"
+            autofocus
+            required
+          />
+        </div>
+        <br />
+        <div>
+          <label for="password" class="label">Password:</label>
+        </div>
+        <div class="password-container">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="input"
+            placeholder="Password"
+            required
+          />
+          <img
+            src="media/icons/eye-close.jpg"
+            alt="eye-close"
+            class="eye-icon"
+            id="eye-icon"
+            onclick="toggleIcon()"
+          />
+        </div>
+      </form>
       <br />
       <br />
       <button type="button" class="button">Continue</button>

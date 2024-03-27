@@ -1,6 +1,8 @@
 function handleLogin() {
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
+  var form = document.querySelector("form");
+  var u = document.getElementById("username");
 
   fetch("/users.json")
     .then((response) => response.json())
@@ -13,6 +15,8 @@ function handleLogin() {
         window.location.href = "main.html";
       } else {
         alert("Invalid username or password. Please try again.");
+        form.reset();
+        u.focus();
       }
     })
     .catch((error) => console.error("Error:", error));
