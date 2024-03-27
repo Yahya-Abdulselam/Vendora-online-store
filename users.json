@@ -10,6 +10,9 @@
       "address_line": "House 98 Street 300",
       "phone_number": "3918 2033",
       "location": "Doha"
+    },
+    "purchaseHistory": {
+
     }
   },
   {
@@ -23,6 +26,9 @@
       "address_line": "House 49 Street 180",
       "phone_number": "5591 3027",
       "City": "Doha"
+    },
+    "purchaseHistory": {
+
     }
   },
   {
@@ -36,6 +42,9 @@
       "address_line": "House 31 Street 230",
       "phone_number": "6631 3085",
       "City": "Doha"
+    },
+    "purchaseHistory": {
+
     }
   }
 ]

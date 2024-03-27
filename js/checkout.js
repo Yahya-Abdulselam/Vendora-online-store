@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         let user = JSON.parse(localStorage.getItem("loggeduser"))
         if (user.customer_balance >= total_price) {
             user.customer_balance = user.customer_balance - total_price
+            user.purchaseHistory[Object.keys(user.purchaseHistory).length] = JSON.stringify(productInCart)
             localStorage.setItem("loggeduser", JSON.stringify(user))
             location.replace("../../main.html")
         }
