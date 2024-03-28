@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const renderProductSale = (product) => {
     const productDiv = document.createElement("div");
-    productDiv.classList.add("itemsale");
+    productDiv.classList.add("itemssale");
     const image = document.createElement("img");
     const table = document.createElement("table");
     const row1 = document.createElement("tr");
@@ -23,17 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
     status.classList.add("status");
 
     productDiv.appendChild(image);
-    productDiv.appendChild(table);
     table.appendChild(row1);
     table.appendChild(row2);
     table.appendChild(row3);
     row1.appendChild(name);
     row2.appendChild(price);
     row3.appendChild(status);
+    productDiv.appendChild(table);
 
     image.src = product.picture;
-    // console.log("Image source: ", product.image);
-    // console.log("Product", product);
+ 
+    console.log("Image source: ", product.picture);
+    console.log("Product", product);
     name.textContent = product.name;
     price.textContent = product.price;
     status.textContent =
