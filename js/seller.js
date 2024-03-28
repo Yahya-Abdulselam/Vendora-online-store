@@ -1,7 +1,7 @@
 import User from "./user.js";
-import { Product } from "./Product.js";
+import Product from "./Product.js";
 
-export class Seller extends User {
+export default class Seller extends User {
   #_products;
 
   constructor(username, password) {

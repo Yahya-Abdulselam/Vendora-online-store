@@ -1,4 +1,5 @@
-import { Seller } from "./seller";
+import { Seller } from "./seller.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
   let purchasedProducts = JSON.parse(
@@ -42,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const productsForSeller = products.filter((item) => {
     return item.sellerId === seller.id;
   });
+  
   const renderProductsSale = () => {
     const productsDiv = document.querySelector("#list-of-sale");
 

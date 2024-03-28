@@ -1,5 +1,5 @@
-import { Product } from "../js/Product.js";
-import { Seller } from "../js/seller.js";
+import Product from "../js/Product.js";
+import Seller from "./seller.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#prod-name").value = "";
@@ -9,9 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#prod-category").selectedIndex = 0;
   document.querySelector("#prod-image").value = "";
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
-  let sellerParsed = JSON.parse(localStorage.getItem("seller")); //when the user log in we store his data
+  let sellerParsed = JSON.parse(localStorage.getItem("loggedseller")); //when the user log in we store his data
 
-  let seller = Seller.fromJson(sellerParsed);
 
   const uploadButton = document.querySelector("#upload-item");
   const imageChoice = document.querySelector("#prod-image");
@@ -82,9 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       products.push(product);
-      seller.addProduct(product, pQuantity);
+      sellerParsed.product.push(product);
       localStorage.setItem("products", JSON.stringify(products));
-      localStorage.setItem("seller", JSON.stringify(seller));
+      localStorage.setItem("loggedseller", JSON.stringify(sellerParsed));
+      localStorage.setItem("seller", JSON.stringify(sellerParsed));
+
       if (product) {
         form.reset();
         document.querySelector("#prod-image").value = "";
