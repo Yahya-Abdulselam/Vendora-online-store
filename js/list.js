@@ -5,12 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const searchQuery = urlParams.get("search")?.toLowerCase() || "";
   console.log(searchQuery);
+  let searchProds = [...products];
 
   search.value = searchQuery;
   if (search) {
     search.focus();
   }
-  const category = localStorage.getItem("selectedCategory" ?? "any");
+  const category = localStorage.getItem("selectedCategory") ?? "any";
 
   const renderProduct = (product) => {
     const itemDiv = document.createElement("div");
@@ -108,29 +109,29 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach((p) => {
           container.appendChild(renderProduct(p));
         });
-    } else if (products.length) {
-      const value = search.value.trim().toLowerCase();
-      products
-        .filter(
-          (p) =>
-            (p.quantity > 0 && p.name.toLowerCase().includes(value)) ||
-            p.category?.toLowerCase().includes(value) ||
-            p.details?.toLowerCase().includes(value)
-        )
-        .forEach((p) => {
-          container.appendChild(renderProduct(p));
-        });
+    } else {
+      searchProds.forEach((p) => {
+        container.appendChild(renderProduct(p));
+      });
     }
   };
   search.addEventListener("input", () => {
     const value = search.value.trim().toLowerCase();
-    products = products.filter((p) => {
-      return products.length
-        ? (p.quantity > 0 && p.name.toLowerCase().includes(value)) ||
+    if (value) {
+      if (searchProds.length) {
+        searchProds = products.filter((p) => {
+          console.log(p.name);
+          return (
+            (p.quantity > 0 && p.name.toLowerCase().includes(value)) ||
             p.category.toLowerCase().includes(value) ||
             p.details.toLowerCase().includes(value)
-        : false;
-    });
+          );
+        });
+      }
+    } else {
+      searchProds = [...products];
+    }
+
     renderProducts();
   });
 

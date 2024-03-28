@@ -1,6 +1,7 @@
 {
   "type": "module",
   "dependencies": {
+    "lodash": "^4.17.21",
     "nanoid": "^3.3.7",
     "prompt-sync": "^4.2.0",
     "swup": "^4.6.0"
