@@ -14,7 +14,7 @@ export default class PurchasedProduct extends Product {
     category,
     sellerId,
     date,
- 
+
     buyer
   ) {
     super(name, price, quantity, picture, details, category);

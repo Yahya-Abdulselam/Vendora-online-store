@@ -1,4 +1,3 @@
-import { purchasedProduct } from "./PurchasedProduct";
 document.addEventListener("DOMContentLoaded", () => {
   let purchasedProducts = JSON.parse(
     localStorage.getItem("purchasedProducts") ?? "[]"
@@ -71,21 +70,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (user.customer_balance >= total_price) {
       user.customer_balance = user.customer_balance - total_price;
       user.purchaseHistory[Object.keys(user.purchaseHistory).length] =
-        JSON.stringify(productInCart);
+      JSON.stringify(productInCart);
+      
       localStorage.setItem("loggeduser", JSON.stringify(user));
       const currentDateLocale = new Date().toLocaleString();
-      const purchased = new purchasedProduct(
-        product_name,
-        product_price,
-        productInCart.quantity,
-        productInCart.picture,
-        productInCart.details,
-        productInCart.category,
-        productInCart.sellerID,
-        currentDateLocale,
+      const purchased = {
+        "product_name": product_name,
+        "product_price": product_price,
+        "product_quantity": productInCart.quantity,
+        "product_picture": productInCart.picture,
+        "product_details": productInCart.details,
+        "product_category": productInCart.category,
+        "product_sellerID": productInCart.sellerID,
+        "currentDateLocale": currentDateLocale,
+        "user_purchase": user,
 
-        user
-      );
+      }
+      
       purchasedProducts.push(purchased);
       localStorage.setItem(
         "purchasedProducts",
