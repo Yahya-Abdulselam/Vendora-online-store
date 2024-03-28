@@ -14,7 +14,7 @@ export default class PurchasedProduct extends Product {
     category,
     sellerId,
     date,
-    time,
+ 
     buyer
   ) {
     super(name, price, quantity, picture, details, category);
@@ -52,18 +52,18 @@ export default class PurchasedProduct extends Product {
       date: this.date,
     };
   }
-  static fromJSON(object) {
-    return new product(
-      name,
-      price,
-      quantity,
-      picture,
-      details,
-      category,
-      sellerId,
-      date,
+  // static fromJSON(object) {
+  //   return new product(
+  //     name,
+  //     price,
+  //     quantity,
+  //     picture,
+  //     details,
+  //     category,
+  //     sellerId,
+  //     date,
 
-      buyer
-    );
-  }
+  //     buyer
+  //   );
+  // }
 }

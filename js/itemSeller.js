@@ -38,20 +38,20 @@ document.addEventListener("DOMContentLoaded", () => {
       product.quantity === 0 ? "sold out" : `${product.quantity} left`;
     return productDiv;
   };
-  const productsForSeller = products.filter((item) => {
-    return item.sellerId === seller.id;
-  });
+  // const productsForSeller = products.filter((item) => {
+  //   return item.sellerId === seller.id;
+  // });
 
   const renderProductsSale = () => {
     const productsDiv = document.querySelector("#list-of-sale");
 
     productsDiv.replaceChildren();
 
-    productsForSeller.forEach((item) =>
+    seller.products.forEach((item) =>
       productsDiv.appendChild(renderProductSale(item))
     );
     const sectionSale = document.querySelector("#items-on-sale");
-    if (productsForSeller.length) {
+    if (seller.products.length) {
       sectionSale.style.visibility = "visible";
     } else {
       sectionSale.style.visibility = "hidden";
@@ -94,13 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const quantityPurchasedLi = document.createElement("li");
     quantityPurchasedLi.classList.add("quantity-purchased");
 
-    ul.appendChild(closeButton);
-    ul.appendChild(buyerLi);
-    ul.appendChild(priceLi);
-    ul.appendChild(quantityPurchasedLi);
-    ul.appendChild(quantitySoldLi);
-    ul.appendChild(quantityLeftLi);
-    dialog.appendChild(ul);
+    list.appendChild(closeButton);
+    list.appendChild(buyerLi);
+    list.appendChild(priceLi);
+    list.appendChild(quantityPurchasedLi);
+    list.appendChild(quantitySoldLi);
+    list.appendChild(quantityLeftLi);
+    dialog.appendChild(list);
 
     productDiv.appendChild(image);
     productDiv.appendChild(name);
@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     quantityPurchasedLi.textContent = product.quantityPurchased;
     priceLi.textContent = product.price;
     quantityLeftLi.textContent = product.quantity;
+    image.src = product.image;
     quantitySoldLi.textContent = (product) => {
       const tempProducts = purchasedProducts.filter(
         (p) => p.name === product.name
@@ -130,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
       productsDiv.appendChild(renderProductHistory(item))
     );
     const soldHistory = document.querySelector("#sold-history");
-    if (productsForSeller.length) {
+    if (seller.products.length) {
       soldHistory.style.visibility = "visible";
     } else {
       soldHistory.style.visibility = "hidden";

@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pPrice = document.querySelector("#prod-price").value.trim();
     const pDetails = document.querySelector("#prod-desc").value.trim();
     const imgShowed = document.querySelector("#show-prod");
+
     const pQuantity = document.querySelector("#prod-quantity").value.trim();
     const pCategory = document.querySelector("#prod-category").value.trim();
     let isValid = true;
