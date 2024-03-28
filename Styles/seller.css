@@ -367,6 +367,10 @@ button:hover {
   }
 }
 
+.hidden {
+  display: none;
+}
+
 a:hover + .dropdown-menu {
   opacity: 1;
 }

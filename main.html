@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vendora</title>
     <link rel="stylesheet" href="/Styles/main.css" />
-
-    <script src="/main2.js"></script>
-    <script src="/js/checkLogin.js"></script>
-    <script src="/js/buyProduct.js"></script>
-
-    <script src="/category.js"></script>
-    <script src="/searchToList.js"></script>
-
     <link
       rel="icon"
       type="image/x-icon"
@@ -77,9 +69,12 @@
               >
 
               <div class="dropdown-menu">
-                <a href="login.html">Login</a>
-                <a href="./purchased.html">Purchase History</a>
-                <a href="login.html">Account Details</a>
+                <a href="login.html" id="hidden1">Login</a>
+                <a href="./purchased.html" id="hidden2" class="hidden"
+                  >Purchase History</a
+                >
+                <!-- <a href="login.html" id="hidden2" class="hidden"
+                  >Account Details</a> -->
               </div>
             </li>
           </ul>
@@ -360,4 +355,10 @@
       your shopping desires.
     </p>
   </footer>
+  <script src="/main2.js"></script>
+  <script src="/js/checkLogin.js"></script>
+  <script src="/js/buyProduct.js"></script>
+
+  <script src="/category.js"></script>
+  <script src="/searchToList.js"></script>
 </main>

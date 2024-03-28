@@ -179,3 +179,9 @@ function handleUpload() {
     window.location.href = "../upload-product.html";
   }
 }
+
+if (localStorage.getItem("loggedseller")) {
+  var hidden = document.getElementById("hidden");
+
+  hidden.classList.add("hidden");
+}

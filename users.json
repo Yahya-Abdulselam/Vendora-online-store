@@ -1,7 +1,7 @@
 [
   {
     "username": "yousef",
-    "password": "yousef",
+    "password": "QWERTY123456789",
     "id": 1,
     "customer_balance": 200,
     "address": {
@@ -11,13 +11,11 @@
       "phone_number": "3918 2033",
       "location": "Doha"
     },
-    "purchaseHistory": {
-
-    }
+    "purchaseHistory": {}
   },
   {
     "username": "mohammed",
-    "password": "mohammed",
+    "password": "QWERTY123456789",
     "id": 2,
     "customer_balance": 5000,
     "address": {
@@ -27,13 +25,11 @@
       "phone_number": "5591 3027",
       "City": "Doha"
     },
-    "purchaseHistory": {
-
-    }
+    "purchaseHistory": {}
   },
   {
     "username": "yahya",
-    "password": "yahya",
+    "password": "QWERTY123456789",
     "id": 3,
     "customer_balance": 200,
     "address": {
@@ -43,8 +39,6 @@
       "phone_number": "6631 3085",
       "City": "Doha"
     },
-    "purchaseHistory": {
-
-    }
+    "purchaseHistory": {}
   }
 ]

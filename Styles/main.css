@@ -60,6 +60,7 @@ body {
   font-family: sans-serif;
   font-size: 1.4rem;
 }
+
 p {
   color: white;
   line-height: 2rem;
@@ -912,7 +913,13 @@ of everything
     color: black;
     font-size: 0.75rem;
   }
+
+  .hidden{
+    display: none;
+  }
 }
+
+
 
 a:hover + .dropdown-menu {
   opacity: 1;

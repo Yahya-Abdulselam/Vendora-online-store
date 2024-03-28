@@ -51,10 +51,12 @@ function toggleIcon() {
 
   if (password.type === "password") {
     password.type = "text";
+    password.focus();
     eyeicon.src = "media/icons/eye-open.jpg";
     eyeicon.alt = "eye-open";
   } else {
     password.type = "password";
+    password.focus();
     eyeicon.src = "media/icons/eye-close.jpg";
     eyeicon.alt = "eye-close";
   }
