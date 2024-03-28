@@ -352,6 +352,7 @@ main {
   margin: 3rem;
 }
 #list-items {
+  margin-top: 1em;
   display: flex;
   flex-flow: column wrap;
 
