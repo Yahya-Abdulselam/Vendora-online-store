@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let shipping = document.getElementById("shipping-price");
   let total = document.getElementById("total-price");
 
+  let imageElement = document.querySelector("#order-product-image")
+
   const product_name =
     productInCart != null ? productInCart.name : productName.innerText;
   const product_price =
@@ -47,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.getItem("customerBalance") == null
       ? JSON.parse(localStorage.getItem("loggeduser")).customer_balance + " QAR"
       : productName.innerText;
+  
+  imageElement.src = "../../" + productInCart.img
 
   const shipping_price = 10;
   const total_price = product_price + shipping_price;

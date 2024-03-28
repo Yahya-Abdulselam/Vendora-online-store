@@ -7,7 +7,8 @@
         "picture": "",
         "details": "Book about a wizard boy who fights a noseless man.",
         "category": "Book",
-        "productId": 0
+        "productId": 0,
+        "img": "media/prod/HarryPotterCover.jpg"
     },
     {
         "id": "102",
@@ -17,7 +18,8 @@
         "picture": "",
         "details": "Expensive computer.",
         "category": "Electronics",
-        "productId": 0
+        "productId": 0,
+        "img": "media/prod/media/prod/Apple_16-inch-MacBook-Pro_111319_big.jpg.large.jpg"
     },
     {
         "id": "103",
@@ -27,6 +29,7 @@
         "picture": "",
         "details": "Chair that's brown.",
         "category": "Furniture",
-        "productId": 0
+        "productId": 0,
+        "img": "media/prod/media/prod/Apple_16-inch-MacBook-Pro_111319_big.jpg.large.jpg"
     }
 ]
