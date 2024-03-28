@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const plusPicture = document.createElement("picture");
     plusPicture.className = "plus";
     const sourcePlus = document.createElement("source");
+    sourcePlus.srcset = "media/icons/darktheme-icons/square-plus(1).svg";
     sourcePlus.media = "(prefers-color-scheme: dark)";
     const imgPlus = document.createElement("img");
     imgPlus.src = "/media/icons/square-plus.svg";

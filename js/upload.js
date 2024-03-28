@@ -78,7 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
         pPrice,
         pQuantity,
         imgShowed.src,
-        pDetails
+        pDetails,
+        pCategory
       );
 
       products.push(product);

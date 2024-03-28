@@ -357,7 +357,7 @@ main {
 
   gap: 2rem;
 }
-#list-items h1 {
+main h1 {
   color: var(--butterfly-bush-400);
   text-align: center;
   font-size: 2rem;
@@ -449,7 +449,7 @@ main {
       1fr
     ); /*grid layout for trending categories 2 each line*/
   }
-  #list-items h1 {
+  h1 {
     font-size: 4rem;
   }
 }

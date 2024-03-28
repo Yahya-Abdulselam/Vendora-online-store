@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return productLi;
   };
   const renderProductsPurchased = () => {
-    const productLi = document.querySelector("#product-item");
+    const productLi = document.querySelector("#list-items");
 
     productLi.replaceChildren();
 
