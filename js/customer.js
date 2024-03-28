@@ -21,11 +21,9 @@ export default class Customer extends User {
   get balance() {
     this.balance;
   }
-  get paymentMethods() {
-    this.paymentMethods;
-  }
-  set paymentMethods(pm) {
-    this.paymentMethods = pm;
+
+  set balance(balance) {
+    this.balance = balance;
   }
   addPurchase(product) {
     this.purchaseHistory.push;
