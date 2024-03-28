@@ -1,10 +1,9 @@
-import { Seller } from "./seller";
 document.addEventListener("DOMContentLoaded", () => {
   let purchasedProducts = JSON.parse(
     localStorage.getItem("purchasedProducts") ?? "[]"
   );
-  let buyerParsed = JSON.parse(localStorage.getItem("buyer") ?? "{}"); //when the user log in we store his data(current seller)
-  let buyer = Seller.fromJson(buyerParsed);
+  let buyer = JSON.parse(localStorage.getItem("loggeduser") ?? "{}"); //when the user log in we store his data(current seller)
+
   const renderProductPurchased = (product) => {
     const productLi = document.createElement("ul");
     productLi.classList.add("product-item");

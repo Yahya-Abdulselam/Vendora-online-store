@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#prod-image").value = "";
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
   let sellerParsed = JSON.parse(localStorage.getItem("loggedseller")); //when the user log in we store his data
-
+  let seller = Seller.fromJSON(sellerParsed);
 
   const uploadButton = document.querySelector("#upload-item");
   const imageChoice = document.querySelector("#prod-image");
@@ -81,10 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       products.push(product);
-      sellerParsed.product.push(product);
+      // sellerParsed.products.push(product);
+      seller.addProduct(product);
       localStorage.setItem("products", JSON.stringify(products));
-      localStorage.setItem("loggedseller", JSON.stringify(sellerParsed));
-      localStorage.setItem("seller", JSON.stringify(sellerParsed));
+
+      localStorage.setItem("loggedseller", JSON.stringify(seller));
 
       if (product) {
         form.reset();

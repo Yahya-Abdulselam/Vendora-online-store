@@ -1,3 +1,4 @@
+import { nanoid } from "../node_modules/nanoid/nanoid.js";
 export default class User {
   #id;
   #username;
@@ -5,6 +6,7 @@ export default class User {
   constructor(username, password) {
     this.#username = username;
     this.#password = password;
+    this.#id = this.#generateId();
   }
   get id() {
     return this.#id;
@@ -16,6 +18,9 @@ export default class User {
 
   get username() {
     return this.#username;
+  }
+  #generateId() {
+    return nanoid();
   }
 
   toJSON() {

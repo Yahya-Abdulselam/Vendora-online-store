@@ -1,12 +1,10 @@
-import { Seller } from "./seller.js";
-
 document.addEventListener("DOMContentLoaded", () => {
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
   let purchasedProducts = JSON.parse(
     localStorage.getItem("purchasedProducts") ?? "[]"
   );
-  let sellerParsed = JSON.parse(localStorage.getItem("seller")); //when the user log in we store his data(current seller)
-  let seller = Seller.fromJson(sellerParsed);
+  let seller = JSON.parse(localStorage.getItem("loggedseller")); //when the user log in we store his data(current seller)
+
   const renderProductSale = (product) => {
     const productDiv = document.createElement("div");
     productDiv.classList.add("itemsale");
@@ -43,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const productsForSeller = products.filter((item) => {
     return item.sellerId === seller.id;
   });
-  
+
   const renderProductsSale = () => {
     const productsDiv = document.querySelector("#list-of-sale");
 
@@ -129,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
       item.sellerId === seller.id;
     });
     productsHistory.forEach((item) =>
-      productsDiv.appendChild(renderProductsHistory(item))
+      productsDiv.appendChild(renderProductHistory(item))
     );
     const soldHistory = document.querySelector("#sold-history");
     if (productsForSeller.length) {
@@ -144,4 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
       JSON.stringify(purchasedProducts)
     );
   };
+  renderProductsSale();
+  renderProductsHistory();
 });
