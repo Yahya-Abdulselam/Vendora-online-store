@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     row3.appendChild(status);
 
     image.src = product.picture;
-    console.log("Image source: ", product.image);
-    console.log("Product", product);
+    // console.log("Image source: ", product.image);
+    // console.log("Product", product);
     name.textContent = product.name;
     price.textContent = product.price;
     status.textContent =
