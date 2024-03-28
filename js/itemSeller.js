@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     price.classList.add("price");
 
     const row3 = document.createElement("tr");
-    const status = document.createElement("table");
+    const status = document.createElement("td");
     status.classList.add("status");
 
     productDiv.appendChild(image);
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     productDiv.appendChild(table);
 
     image.src = product.picture;
- 
+
     console.log("Image source: ", product.picture);
     console.log("Product", product);
     name.textContent = product.name;
