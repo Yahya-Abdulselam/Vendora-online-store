@@ -370,60 +370,10 @@ button:hover {
 
 #account {
   position: relative;
-
-  #dropdown-menu {
-    z-index: 2;
-    position: absolute;
-    left: 0rem;
-    top: calc(100% + 0.25rem);
-    background-color:#0094d3;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: opacity 150ms ease-in-out;
-
-    a {
-      color: black;
-      font-size: 0.75rem;
-    }
-  }
-
-  a:hover + #dropdown-menu {
-    opacity: 1;
-  }
-
-  #dropdown-menu:hover {
-    opacity: 1;
-  }
 }
 
 #categories {
   position: relative;
-
-  #dropdown-menu {
-    z-index: 2;
-    position: absolute;
-    left: 0rem;
-    top: calc(100% + 0.25rem);
-    background-color:#0094d3;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: opacity 150ms ease-in-out;
-
-    a {
-      color: black;
-      font-size: 0.75rem;
-    }
-  }
-
-  a:hover + #dropdown-menu {
-    opacity: 1;
-  }
-
-  #dropdown-menu:hover {
-    opacity: 1;
-  }
 }
 
 #trending-categories {
@@ -945,6 +895,31 @@ of everything
 
 #account-button {
   cursor: pointer;
+}
+
+.dropdown-menu {
+  z-index: 2;
+  position: absolute;
+  left: -2rem;
+  top: calc(100% + 0.25rem);
+  background-color:#0094d3;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+
+  a {
+    color: black;
+    font-size: 0.75rem;
+  }
+}
+
+a:hover + .dropdown-menu {
+  opacity: 1;
+}
+
+.dropdown-menu:hover {
+  opacity: 1;
 }
 
 /*ligh and dark themed page*/
