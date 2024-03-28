@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  window.addEventListener("beforeunload", () => {
+    localStorage.removeItem("selectedCategory");
+  });
   let search = document.querySelector("#sv");
   search.value = "";
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
@@ -104,11 +107,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector("#list-items");
     container.replaceChildren();
     if (products.length && category !== "any") {
-      products
-        .filter((p) => p.quantity > 0 && p.category === category)
-        .forEach((p) => {
-          container.appendChild(renderProduct(p));
-        });
+      if (search?.value) {
+        searchProds
+          .filter((p) => p.quantity > 0 && p.category === category)
+          .forEach((p) => {
+            container.appendChild(renderProduct(p));
+          });
+      } else {
+        products
+          .filter((p) => p.quantity > 0 && p.category === category)
+          .forEach((p) => {
+            container.appendChild(renderProduct(p));
+          });
+      }
     } else {
       searchProds.forEach((p) => {
         container.appendChild(renderProduct(p));
