@@ -3,7 +3,7 @@ import User from "./user.js";
 export default class Customer extends User {
   cart = [];
   address;
-  paymentMethods;
+  balance;
   purchaseHistory = [];
 
   constructor(username, password) {
