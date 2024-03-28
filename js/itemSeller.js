@@ -31,7 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
     row2.appendChild(price);
     row3.appendChild(status);
 
-    image.src = product.image;
+    image.src = product.picture;
+    console.log("Image source: ", product.image);
+    console.log("Product", product);
     name.textContent = product.name;
     price.textContent = product.price;
     status.textContent =
@@ -176,4 +178,3 @@ function handleUpload() {
     window.location.href = "../upload-product.html";
   }
 }
-
