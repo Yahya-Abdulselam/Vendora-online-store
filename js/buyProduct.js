@@ -6,21 +6,28 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     const buyButtons = document.querySelectorAll(".buyButton")
-    buyButtons.forEach((button) => {
-        button.addEventListener("click", async () => {
+    const quantityText = document.querySelectorAll(".quantity")
+
+    for (let i = 0; i < buyButtons.length; i++) {
+        buyButtons[i].addEventListener("click", async () => {
             if (localStorage.getItem("loggeduser") != null) {
                 const product = JSON.parse(localStorage.getItem("products")).find(
-                    (product) => product.name + product.sellerId === button.value
+                    (product) => product.name + product.sellerId === buyButtons[i].value
                 );
 
                 if (product) {
-                    product.quantity = 1
+                    product.quantity = quantityText[i].textContent
                     localStorage.setItem("itemInCart", JSON.stringify(product))
                     window.location.href = "../pages/checkout/checkout-address.html"
                 } else {
                     alert("product doesn't exist")
-                }
-
+                } 
+            } else {
+                location.href = "../login.html"
+            } 
+        })
+    }
+})
                 /**
                  * DONT DELETE!
                  * It does the same as above, but for JSON files. can be used for part 2!
@@ -40,10 +47,3 @@ document.addEventListener("DOMContentLoaded", () => {
                 //         alert("product doesn't exist")
                 //     }
                 // })
-            } else {
-                location.href = "../login.html"
-            }
-        })
-    });
-    
-})
