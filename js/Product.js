@@ -74,9 +74,7 @@ export default class Product {
   }
 
   addQuantity(q) {
- 
     this.#_quantity += Number(q);
-  
   }
 
   increment() {
@@ -86,6 +84,11 @@ export default class Product {
   decrement() {
     if (this.#_quantity > 0) {
       this.#_quantity--;
+    }
+  }
+  decrementQ(q) {
+    if (this.#_quantity-q>= 0) {
+      this.#_quantity -= q;
     }
   }
 
@@ -101,7 +104,7 @@ export default class Product {
     };
   }
 
-static fromJSON(object) {
+  static fromJSON(object) {
     const product = new Product(
       object.name,
       object.price,
