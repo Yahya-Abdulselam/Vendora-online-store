@@ -96,12 +96,12 @@ document.addEventListener("DOMContentLoaded", () => {
     cartAddDiv.appendChild(plusPicture);
 
     /**
-     * 
-     * 
+     *
+     *
      */
     const buyButton = document.createElement("button");
-    buyButton.setAttribute("class", "buy buyButton")
-    buyButton.setAttribute("value", product.name + product.sellerId)
+    buyButton.setAttribute("class", "buy buyButton");
+    buyButton.setAttribute("value", product.name + product.sellerId);
     buyButton.textContent = "Buy now";
     infoDiv.appendChild(buyButton);
 
@@ -131,9 +131,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   };
-  search.addEventListener('keydown', function(event) {
+  search.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-        event.preventDefault();}});
+      event.preventDefault();
+    }
+  });
   search.addEventListener("input", () => {
     const value = search.value.trim().toLowerCase();
     if (value) {
@@ -156,3 +158,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderProducts();
 });
+
+if (localStorage.getItem("loggeduser")) {
+  var hidden1 = document.getElementById("hidden1");
+  var hidden2 = document.getElementById("hidden2");
+
+  hidden1.classList.add("hidden");
+  hidden2.classList.remove("hidden");
+}
