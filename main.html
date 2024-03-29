@@ -10,6 +10,12 @@
       type="image/x-icon"
       href="/media/images/FullLogo_Transparent_NoBuffer(1).png"
     />
+    <script src="/main2.js"></script>
+    <script src="/js/checkLogin.js"></script>
+    <script src="/js/buyProduct.js"></script>
+
+    <script src="/category.js"></script>
+    <script src="/searchToList.js"></script>
   </head>
 </html>
 <header>
@@ -49,10 +55,10 @@
               >
 
               <div class="dropdown-menu">
-                <a href="login.html">Books</a>
-                <a href="login.html">Electronics</a>
-                <a href="login.html">Furniture</a>
-                <a href="login.html">Clothing</a>
+                <a class="book">Books</a>
+                <a class="tech">Electronics</a>
+                <a class="furniture">Furniture</a>
+                <a class="clothing">Clothing</a>
               </div>
             </li>
 
@@ -73,6 +79,10 @@
                 <a href="./purchased.html" id="hidden2" class="hidden"
                   >Purchase History</a
                 >
+                <div id="balance-div">
+                  <img src="/media/icons/wallet.svg" alt="wallet" />
+                  <p id="balance"></p>
+                </div>
                 <!-- <a href="login.html" id="hidden2" class="hidden"
                   >Account Details</a> -->
               </div>
@@ -104,7 +114,7 @@
             alt=""
           />
           <section>
-            <button id="clothing"><h2>Shop for clothes</h2></button>
+            <button class="clothing"><h2>Shop for clothes</h2></button>
             <h4 id="cloths-desc">Explore the trending fashion</h4>
           </section>
         </a>
@@ -113,7 +123,7 @@
         <a href="">
           <img src="/media/prod/pen-4337521_640.jpg" class="category" alt="" />
           <section>
-            <button id="tech"><h2>Shop for tech</h2></button>
+            <button class="tech"><h2>Shop for tech</h2></button>
             <h4 id="tech-desc">Immerse yourself in the latest technologies</h4>
           </section>
         </a>
@@ -126,7 +136,7 @@
             alt=""
           />
           <section>
-            <button id="furniture"><h2>Shop for furniture</h2></button>
+            <button class="furniture"><h2>Shop for furniture</h2></button>
             <h4 id="furniture-desc">
               Discover modern furniture and house items
             </h4>
@@ -141,7 +151,7 @@
             alt=""
           />
           <section>
-            <button id="book"><h2>Shop for books</h2></button>
+            <button class="book"><h2>Shop for books</h2></button>
             <h4 id="book-desc">
               broaden your horizon with the world's knowledge.
             </h4>
@@ -355,10 +365,4 @@
       your shopping desires.
     </p>
   </footer>
-  <script src="/main2.js"></script>
-  <script src="/js/checkLogin.js"></script>
-  <script src="/js/buyProduct.js"></script>
-
-  <script src="/category.js"></script>
-  <script src="/searchToList.js"></script>
 </main>

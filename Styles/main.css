@@ -269,6 +269,15 @@ header nav .links a:hover:after {
   display: none;
 }
 
+#balance::before {
+  content: "$";
+}
+#balance-div {
+  display: flex;
+  gap: 0.1rem;
+  display: none;
+}
+
 /*words in links are  not displayed in small screen*/
 ul.links a p {
   display: none;
@@ -298,6 +307,7 @@ ul.links a p {
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
+
 #trending-categories ul li a {
   display: block;
   position: relative;
@@ -903,7 +913,7 @@ of everything
   position: absolute;
   left: -2rem;
   top: calc(100% + 0.25rem);
-  background-color:#0094d3;
+  background-color: #0094d3;
   padding: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   opacity: 0;
@@ -914,12 +924,10 @@ of everything
     font-size: 0.75rem;
   }
 
-  .hidden{
+  .hidden {
     display: none;
   }
 }
-
-
 
 a:hover + .dropdown-menu {
   opacity: 1;
