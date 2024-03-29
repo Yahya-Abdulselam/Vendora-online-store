@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const furnitureButton = document.querySelectorAll(".furniture");
   const balance = document.querySelector("#balance");
   const balanceDiv = document.querySelector("#balance-div");
+  const categories= document.querySelectorAll(".categories");
+  categories.forEach((cat) => {
+    cat.addEventListener("click", (event) => {
+      event.preventDefault();});});
 
   if (buyer?.balance) {
     balanceDiv.computedStyleMap.display = "flex";

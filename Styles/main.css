@@ -359,6 +359,7 @@ button {
   width: 30%;
   height: 3rem;
   size: 3rem;
+  font-size: 1rem;
   border: transparent;
   border-radius: 30px;
   -webkit-border-radius: 30px;
@@ -885,6 +886,9 @@ of everything
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
+  }
+  #trending-categories button {
+    height: 4rem;
   }
   /*on hover animation to display info*/
   #trending-categories ul li:hover section {
