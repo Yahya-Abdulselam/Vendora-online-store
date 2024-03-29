@@ -2,6 +2,28 @@
 * {
   box-sizing: border-box;
 }
+@font-face {
+    font-family: "lora";
+  
+    src: url("/Fonts/Merriweather/Lora/static/Lora-Regular.ttf");
+  }
+  @font-face {
+    font-family: "Merriweather";
+    src: url("/Fonts/Merriweather/Merriweather_Sans/static/MerriweatherSans-Regular.ttf");
+  }
+  
+  * {
+    font-family: "lora";
+    box-sizing: border-box;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Merriweather";
+  }
+  
 
 :root {
   --picton-blue-50: #effaff;
