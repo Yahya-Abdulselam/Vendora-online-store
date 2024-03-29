@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ? JSON.parse(localStorage.getItem("loggeduser")).customer_balance + " QAR"
       : productName.innerText;
   
-  imageElement.src = "../../" + productInCart.img
+  imageElement.src = productInCart.picture
 
   const shipping_price = 10;
   const total_price = product_price + shipping_price;
