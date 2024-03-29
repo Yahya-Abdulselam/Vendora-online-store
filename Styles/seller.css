@@ -392,7 +392,8 @@ x main {
   padding: 1em;
   background-color: var(--mine-shaft-950);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25%, 0.4fr));
+  grid-template-columns: repeat(auto-fit, minmax(23%, 0.3fr));
+
   gap: 2rem;
 }
 
@@ -400,14 +401,23 @@ x main {
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
+  height: 30%;
   border: 3px solid var(--butterfly-bush-300);
   text-align: center;
+}
+.itemssale,
+.itemssold {
+  display: flex;
+  flex-flow: column;
+
+  gap: 0.7rem;
 }
 .itemssale img,
 .itemssold > img {
   width: 100%;
   border-radius: 10px;
-
+  height: 60%;
+  object-fit: cover;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -452,7 +462,7 @@ td {
   padding: 1em;
   background-color: var(--mine-shaft-950);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(19%, 0.2fr));
+  grid-template-columns: repeat(auto-fit, minmax(18%, 0.2fr));
   gap: 1rem;
 }
 .itemname {

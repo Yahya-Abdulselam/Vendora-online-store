@@ -29,11 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     prodDate.classList.add("prod-date");
 
-    image.src = product.image;
+    image.src = product.picture;
+   
     prodName.textContent = product.name;
     prodPrice.textContent = product.price;
     prodQty.textContent = product.quantity;
-    prodDate.textContent=product.date;
+    prodDate.textContent = product.date;
 
     li1.appendChild(image);
     productLi.appendChild(li1);
@@ -41,8 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     productLi.appendChild(prodPrice);
     productLi.appendChild(prodQty);
     productLi.appendChild(prodDate);
-
-
 
     return productLi;
   };
@@ -53,8 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     purchasedProducts
       .filter((p) => {
-       
-  return      p.buyer.id === buyer.id;
+        return p.buyer.id === buyer.id;
       })
       .forEach((p) => productLi.appendChild(renderProductPurchased(p)));
   };

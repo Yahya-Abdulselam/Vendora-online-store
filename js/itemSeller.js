@@ -38,7 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
     name.textContent = product.name;
     price.textContent = product.price;
     status.textContent =
-      product.quantity === 0 ? "sold out" : `${product.quantity} left`;
+      product.quantity === 0 || !product.quantity
+        ? "sold out"
+        : `${product.quantity} left`;
     return productDiv;
   };
   // const productsForSeller = products.filter((item) => {
@@ -50,17 +52,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     productsDiv.replaceChildren();
 
-    seller.products.forEach((item) =>
-      productsDiv.appendChild(renderProductSale(item))
-    );
-    const sectionSale = document.querySelector("#items-on-sale");
-    if (seller.products.length) {
-      sectionSale.style.visibility = "visible";
-    } else {
-      sectionSale.style.visibility = "hidden";
-    }
+      seller.products.forEach((item) =>
+        productsDiv.appendChild(renderProductSale(item))
+      );
+      const sectionSale = document.querySelector("#items-on-sale");
+      if (seller.products.length) {
+        sectionSale.style.visibility = "visible";
+      } else {
+        sectionSale.style.visibility = "hidden";
+      }
 
-    localStorage.setItem("products", JSON.stringify(products));
+      localStorage.setItem("products", JSON.stringify(products));
+    
   };
 
   const renderProductHistory = (product) => {

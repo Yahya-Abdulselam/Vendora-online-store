@@ -74,7 +74,9 @@ export default class Product {
   }
 
   addQuantity(q) {
+ 
     this.#_quantity += Number(q);
+  
   }
 
   increment() {

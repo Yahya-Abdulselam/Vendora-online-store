@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       products.push(product);
       // sellerParsed.products.push(product);
-      seller.addProduct(product);
+      seller.addProduct(product,pQuantity);
       localStorage.setItem("products", JSON.stringify(products));
 
       localStorage.setItem("loggedseller", JSON.stringify(seller));
