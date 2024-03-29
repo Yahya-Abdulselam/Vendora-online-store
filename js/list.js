@@ -95,8 +95,13 @@ document.addEventListener("DOMContentLoaded", () => {
     plusPicture.appendChild(imgPlus);
     cartAddDiv.appendChild(plusPicture);
 
+    /**
+     * 
+     * 
+     */
     const buyButton = document.createElement("button");
-    buyButton.className = "buy";
+    buyButton.setAttribute("class", "buy buyButton")
+    buyButton.setAttribute("value", product.name + product.sellerId)
     buyButton.textContent = "Buy now";
     infoDiv.appendChild(buyButton);
 
