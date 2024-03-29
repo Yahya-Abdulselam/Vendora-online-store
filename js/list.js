@@ -164,3 +164,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderProducts();
 });
+
+if (localStorage.getItem("loggeduser")) {
+  var hidden1 = document.getElementById("hidden1");
+  var hidden2 = document.getElementById("hidden2");
+
+  hidden1.classList.add("hidden");
+  hidden2.classList.remove("hidden");
+}
