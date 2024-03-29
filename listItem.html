@@ -6,8 +6,6 @@
     <title>Vendora</title>
     <link rel="stylesheet" href="/Styles/listing.css" />
 
-
-
     <link
       rel="icon"
       type="image/x-icon"
@@ -43,16 +41,23 @@
                   >
                 </li>
                 <li class="extra">
-                  <a href=""
+                  <a href="main.html#socials"
                     ><img src="/media/icons/help.svg" alt="" />
                     <p>Customer Service</p></a
                   >
                 </li>
-                <li class="extra">
+                <li class="extra" id="categories">
                   <a href=""
                     ><img src="/media/icons/category.svg" alt="" />
                     <p>categories</p></a
                   >
+
+                  <div class="dropdown-menu">
+                    <a class="book">Books</a>
+                    <a class="tech">Electronics</a>
+                    <a class="furniture">Furniture</a>
+                    <a class="clothing">Clothing</a>
+                  </div>
                 </li>
 
                 <li class="sides" id="cart">
@@ -62,10 +67,18 @@
                   >
                 </li>
                 <li class="sides" id="account">
-                  <a href="/login.html">
+                  <a id="account-button">
                     <img src="/media/icons/user.svg" alt="" />
                     <p>account</p></a
                   >
+                  <div class="dropdown-menu">
+                    <a href="login.html" id="hidden1">Login</a>
+                    <a href="./purchased.html" id="hidden2" class="hidden"
+                      >Purchase History</a
+                    >
+                    <!-- <a href="login.html" id="hidden2" class="hidden"
+                  >Account Details</a> -->
+                  </div>
                 </li>
               </ul>
             </li>
@@ -145,7 +158,7 @@
               /> </picture
           ></a>
         </li>
-  
+
         <li>
           <a href="example.com">
             <picture id="reddit">
@@ -165,7 +178,10 @@
                 media="(prefers-color-scheme: dark)"
                 width="40px"
               />
-              <img src="/media/icons/brand-facebook.svg" width="40px" /> </picture
+              <img
+                src="/media/icons/brand-facebook.svg"
+                width="40px"
+              /> </picture
           ></a>
         </li>
       </ul>
@@ -179,20 +195,21 @@
       </ul>
       <p>
         Welcome to Vendora, your ultimate e-commerce destination where you can
-        find anything your heart desires. With our vast selection of products and
-        services, we strive to be your one-stop shop for all your needs. Our
-        motto, "Infinite Choices, One Destination," encapsulates our commitment to
-        providing you with endless options while simplifying your shopping
+        find anything your heart desires. With our vast selection of products
+        and services, we strive to be your one-stop shop for all your needs. Our
+        motto, "Infinite Choices, One Destination," encapsulates our commitment
+        to providing you with endless options while simplifying your shopping
         experience. Whether you're searching for the latest tech gadgets, trendy
-        fashion pieces, home essentials, or unique gifts, Vendora has you covered.
-        Shop with confidence knowing that quality, convenience, and customer
-        satisfaction are at the core of everything we do. Join us on this exciting
-        journey of discovery and let Vendora be your go-to destination for all
-        your shopping desires.
+        fashion pieces, home essentials, or unique gifts, Vendora has you
+        covered. Shop with confidence knowing that quality, convenience, and
+        customer satisfaction are at the core of everything we do. Join us on
+        this exciting journey of discovery and let Vendora be your go-to
+        destination for all your shopping desires.
       </p>
     </footer>
+    <script src="/main2.js"></script>
+
+    <script src="/js/list.js"></script>
+    <script src="/category.js"></script>
   </body>
 </html>
-<script src="/main2.js"></script>
-
-<script src="/js/list.js"></script>
