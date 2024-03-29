@@ -2,6 +2,10 @@
 * {
   box-sizing: border-box;
 }
+html,
+body {
+  height: 100%;
+}
 
 :root {
   --picton-blue-50: #effaff;
@@ -83,7 +87,14 @@ header nav > ul {
   align-items: center;
 }
 body {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column;
   transition: all ease 250ms;
+  -webkit-transition: all ease 250ms;
+  -moz-transition: all ease 250ms;
+  -ms-transition: all ease 250ms;
+  -o-transition: all ease 250ms;
 }
 
 /*.oscroll and .hide are use to control the nav bar appearance while scrolling using java 
