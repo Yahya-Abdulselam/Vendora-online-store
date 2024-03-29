@@ -98,10 +98,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         pDetails,
         pCategory
       );
-
-      products.push(product);
+      const found = products.find((p) => (p.name = product.name));
+      if (found) {
+        found.quantity += 1;
+      } else {
+        products.push(product);
+      }
       // sellerParsed.products.push(product);
-      seller.addProduct(product,pQuantity);
+      seller.addProduct(product, pQuantity);
       localStorage.setItem("products", JSON.stringify(products));
 
       localStorage.setItem("loggedseller", JSON.stringify(seller));
