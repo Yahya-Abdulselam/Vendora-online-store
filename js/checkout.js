@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let shipping = document.getElementById("shipping-price");
   let total = document.getElementById("total-price");
 
-  let imageElement = document.querySelector("#order-product-image")
+  let imageElement = document.querySelector("#order-product-image");
 
   const product_name =
     productInCart != null ? productInCart.name : productName.innerText;
@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.getItem("customerBalance") == null
       ? JSON.parse(localStorage.getItem("loggeduser")).customer_balance + " QAR"
       : productName.innerText;
-  
-  imageElement.src = productInCart.picture
+
+  imageElement.src = productInCart.picture;
 
   const shipping_price = 10;
   const total_price = product_price + shipping_price;
@@ -70,19 +70,25 @@ document.addEventListener("DOMContentLoaded", () => {
   total.innerText = total_price;
 
   let products = JSON.parse(localStorage.getItem("products"));
-  let product
-  let index
+  let product;
+  let index;
   for (let i = 0; i < products.length; i++) {
-    if (productInCart.name + productInCart.sellerID == products[i].name + products[i].sellerID) {
-      product = products[i]
-      index = i
-      break
+    if (
+      productInCart.name + productInCart.sellerID ==
+      products[i].name + products[i].sellerID
+    ) {
+      product = products[i];
+      index = i;
+      break;
     }
   }
 
   document.querySelector(".confirmButton").addEventListener("click", () => {
     let user = JSON.parse(localStorage.getItem("loggeduser"));
-    if (user.customer_balance >= total_price && product.quantity >= productInCart.quantity) {
+    if (
+      user.customer_balance >= total_price &&
+      product.quantity >= productInCart.quantity
+    ) {
       user.customer_balance = user.customer_balance - total_price;
       user.purchaseHistory[Object.keys(user.purchaseHistory).length] =
         JSON.stringify(productInCart);
@@ -101,8 +107,8 @@ document.addEventListener("DOMContentLoaded", () => {
         buyer: user,
       };
 
-      products[index].quantity = product.quantity - productInCart.quantity
-      localStorage.setItem("products", JSON.stringify(products))
+      products[index].quantity = product.quantity - productInCart.quantity;
+      localStorage.setItem("products", JSON.stringify(products));
 
       purchasedProducts.push(purchased);
       localStorage.setItem(
@@ -111,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       location.replace("../../main.html");
     } else {
-      alert("Balance isn't enough or item is out of stock!")
+      alert("Balance isn't enough or item is out of stock!");
     }
   });
 });
