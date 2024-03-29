@@ -6,10 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const furnitureButton = document.querySelectorAll(".furniture");
   const balance = document.querySelector("#balance");
   const balanceDiv = document.querySelector("#balance-div");
-  const categories= document.querySelectorAll(".categories");
+  const categories = document.querySelectorAll(".categories");
   categories.forEach((cat) => {
     cat.addEventListener("click", (event) => {
-      event.preventDefault();});});
+      event.preventDefault();
+    });
+  });
 
   if (buyer?.balance) {
     balanceDiv.computedStyleMap.display = "flex";
@@ -21,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
       localStorage.setItem("selectedCategory", "clothing");
+
       window.location.href = "/listItem.html";
     });
   });

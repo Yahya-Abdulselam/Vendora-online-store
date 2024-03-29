@@ -1,7 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  window.addEventListener("beforeunload", () => {
-    localStorage.removeItem("selectedCategory");
-  });
+  const clearCategoryOnNavigation = () => {
+    const path = window.location.pathname;
+    if (path !== "/listItem.html") {
+      localStorage.removeItem("selectedCategory");
+    }
+  };
+
+  window.addEventListener("beforeunload", clearCategoryOnNavigation);
+
   let search = document.querySelector("#sv");
   search.value = "";
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
