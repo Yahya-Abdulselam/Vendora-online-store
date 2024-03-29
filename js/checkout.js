@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         sellerID: productInCart.sellerID,
         date: currentDateLocale,
         buyer: user,
+        sellerId: productInCart.sellerId
       };
 
       products[index].quantity = product.quantity - productInCart.quantity;
