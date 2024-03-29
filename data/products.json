@@ -4,7 +4,6 @@
         "name": "Harry Potter",
         "price": 100,
         "quantity": 20,
-      
         "details": "Book about a wizard boy who fights a noseless man.",
         "category": "Book",
         "productId": 0,
@@ -26,7 +25,6 @@
         "name": "Brown Chair",
         "price": 0,
         "quantity": 0,
-      
         "details": "Chair that's brown.",
         "category": "Furniture",
         "productId": 0,
