@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     prodDate.classList.add("prod-date");
 
     image.src = product.picture;
-   
     prodName.textContent = product.name;
     prodPrice.textContent = product.price;
     prodQty.textContent = product.quantity;
