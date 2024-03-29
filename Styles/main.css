@@ -288,13 +288,13 @@ header nav .links a:hover:after {
 }
 
 #balance::before {
-  content: "$";
+  content: " QAR";
 }
 #balance-div {
   display: flex;
   justify-content: center;
   gap: 0.1rem;
-  font-size: 1rem; 
+  font-size: 1rem;
 }
 
 .dropdown-menu {

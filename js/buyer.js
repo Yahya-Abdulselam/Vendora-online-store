@@ -3,6 +3,7 @@ import { purchasedProduct } from "./PurchasedProduct.js";
 
 export class Buyer extends User {
   #_purchasedProducts;
+  balance;
 
   constructor(username, password) {
     super(username, password);
@@ -25,7 +26,7 @@ export class Buyer extends User {
 
   toJSON() {
     return {
-      ...super.toJSON(),
+      ...super.toJSON(),balance:this.balance,
       purchasedProducts: this.purchasedProducts.map((product) =>
         product.toJSON()
       ),

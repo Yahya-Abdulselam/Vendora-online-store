@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     image.src = product.picture;
 
-    console.log("Image source: ", product.picture);
-    console.log("Product", product);
+
+ 
     name.textContent = product.name;
     price.textContent = product.price;
     status.textContent =

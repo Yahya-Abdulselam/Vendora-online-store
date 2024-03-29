@@ -446,7 +446,7 @@ td {
   color: var(--butterfly-bush-500);
 }
 .price::after {
-  content: "$";
+  content: " QAR";
 }
 .item-name::before,
 .itemname::before {

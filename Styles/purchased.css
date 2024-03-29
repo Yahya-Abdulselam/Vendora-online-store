@@ -398,7 +398,7 @@ main h1 {
   content: "Qty:";
 }
 .prod-price::before {
-  content: "$";
+  content: " QAR";
 }
 @media screen and (min-width: 750px) {
   h3 {

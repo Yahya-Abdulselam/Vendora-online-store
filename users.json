@@ -3,7 +3,7 @@
     "username": "yousef",
     "password": "QWERTY123456789",
     "id": 1,
-    "customer_balance": 200,
+    " balance": 3000,
     "address": {
       "full_name": "Yousef Mohamed",
       "zip_code": "32",
@@ -17,7 +17,7 @@
     "username": "mohammed",
     "password": "QWERTY123456789",
     "id": 2,
-    "customer_balance": 5000,
+    " balance": 8000,
     "address": {
       "full_name": "Mohammed Al-Adbi",
       "zip_code": "45",
@@ -31,7 +31,7 @@
     "username": "yahya",
     "password": "QWERTY123456789",
     "id": 3,
-    "customer_balance": 200,
+    " balance": 400,
     "address": {
       "full_name": "Yahya Abdulselam",
       "zip_code": "24",

@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     if (isValid) {
       const img = await toBase64(imageChoice.files[0]);
+
       const product = new Product(
         pName,
         pPrice,
@@ -98,15 +99,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         pDetails,
         pCategory
       );
-      const found = products.find((p) => (p.name = product.name));
+      const found = products.find((p) => (p.name ===product.name));
       if (found) {
         found.quantity += 1;
       } else {
         products.push(product);
+  
       }
+      console.log(products);
+   
       // sellerParsed.products.push(product);
       seller.addProduct(product, pQuantity);
       localStorage.setItem("products", JSON.stringify(products));
+      console.log(products);
 
       localStorage.setItem("loggedseller", JSON.stringify(seller));
 
