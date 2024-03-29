@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let customer_name = document.getElementById("customer-name");
   let customer_address = document.getElementById("customer-address");
   let customer_city = document.getElementById("customer-city");
+  let product_quantity = document.querySelector("#product-quantity")
 
   let customerBalance = document.getElementById("customer-balance");
 
@@ -38,6 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.getItem("loggeduser") != null
       ? JSON.parse(localStorage.getItem("loggeduser")).address.address_line
       : productName.innerText;
+    
+  const product_quantity_amount = JSON.parse(localStorage.getItem("itemInCart")).quantity
+  
 
   // for some reason this doesnt work? you can replace it with any other attribute but city refuses to work
   const shipping_city =
@@ -49,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.getItem("customerBalance") == null
       ? JSON.parse(localStorage.getItem("loggeduser")).customer_balance + " QAR"
       : productName.innerText;
+    
+  product_quantity.innerText = product_quantity_amount
 
   imageElement.src = productInCart.picture;
 
@@ -74,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let index;
   for (let i = 0; i < products.length; i++) {
     if (
-      productInCart.name + productInCart.sellerID ==
+      productInCart.name + productInCart.sellerID ===
       products[i].name + products[i].sellerID
     ) {
       product = products[i];
@@ -116,10 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
         JSON.stringify(purchasedProducts)
       );
       location.replace("../../main.html");
-    } else {
+    }  else if (product.quantity - productInCart.quantity < 0) {
+      document.querySelector("#prod-quantity-error").textContent =
+      "There's not enough items in stock.";
+    }
+    else {
       document.querySelector("#prod-balance-error").textContent =
       "Please enter a valid price.";
-  
     }
   });
 });

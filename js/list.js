@@ -101,10 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
     plusPicture.appendChild(imgPlus);
     cartAddDiv.appendChild(plusPicture);
 
-    /**
-     *
-     *
-     */
     const buyButton = document.createElement("button");
     buyButton.setAttribute("class", "buy buyButton");
     buyButton.setAttribute("value", product.name + product.sellerId);
