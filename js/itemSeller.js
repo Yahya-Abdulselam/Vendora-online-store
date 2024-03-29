@@ -183,5 +183,6 @@ function handleUpload() {
 if (localStorage.getItem("loggedseller")) {
   var hidden = document.getElementById("hidden");
 
+  hidden.classList.remove("dropdown-menu");
   hidden.classList.add("hidden");
 }
