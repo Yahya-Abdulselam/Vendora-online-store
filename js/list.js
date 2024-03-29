@@ -1,7 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  window.addEventListener("beforeunload", () => {
-    localStorage.removeItem("selectedCategory");
-  });
+  const clearCategoryOnNavigation = () => {
+    const path = window.location.pathname;
+    if (path !== "/listItem.html") {
+      localStorage.removeItem("selectedCategory");
+    }
+  };
+
+  window.addEventListener("beforeunload", clearCategoryOnNavigation);
+
   let search = document.querySelector("#sv");
   search.value = "";
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
@@ -96,12 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
     cartAddDiv.appendChild(plusPicture);
 
     /**
-     * 
-     * 
+     *
+     *
      */
     const buyButton = document.createElement("button");
-    buyButton.setAttribute("class", "buy buyButton")
-    buyButton.setAttribute("value", product.name + product.sellerId)
+    buyButton.setAttribute("class", "buy buyButton");
+    buyButton.setAttribute("value", product.name + product.sellerId);
     buyButton.textContent = "Buy now";
     infoDiv.appendChild(buyButton);
 
@@ -131,9 +137,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   };
-  search.addEventListener('keydown', function(event) {
+  search.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-        event.preventDefault();}});
+      event.preventDefault();
+    }
+  });
   search.addEventListener("input", () => {
     const value = search.value.trim().toLowerCase();
     if (value) {

@@ -117,7 +117,9 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       location.replace("../../main.html");
     } else {
-      alert("Balance isn't enough or item is out of stock!");
+      document.querySelector("#prod-balance-error").textContent =
+      "Please enter a valid price.";
+  
     }
   });
 });

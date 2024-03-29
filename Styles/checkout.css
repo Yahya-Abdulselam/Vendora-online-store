@@ -103,327 +103,332 @@ body {
 }
 
 header nav {
-    padding-right: 2rem;
-    padding-left: 2rem;
-    width: 100%;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  width: 100%;
 
-    padding-top: 1em;
-    padding-bottom: 1rem;
-    z-index: 1;
-    display: flex;
-    gap: 0.2rem;
-    flex-flow: column;
-    transition: 0.5s ease-in-out;
-    -webkit-transition: 0.5s ease-in-out;
-    -moz-transition: 0.5s ease-in-out;
-    -ms-transition: 0.5s ease-in-out;
-    -o-transition: 0.5s ease-in-out;
+  padding-top: 1em;
+  padding-bottom: 1rem;
+  z-index: 1;
+  display: flex;
+  gap: 0.2rem;
+  flex-flow: column;
+  transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -ms-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
 }
 /*change how logo look like when being hovered*/
 header #first a:hover {
-    opacity: 60%;
+  opacity: 60%;
 }
 header div {
-    margin-right: 2rem;
-    margin-left: 2rem;
-    cursor: pointer;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  cursor: pointer;
 }
 /*the slogan does not appear in small screens*/
 #slogan {
-    display: none;
+  display: none;
 }
 
 /*search box with search icon in flex combined */
 .search {
-    z-index: 1;
+  z-index: 1;
 
-    width: 100%;
+  width: 100%;
 
-    justify-self: center;
-    flex-basis: 0.2rem;
-    display: flex;
+  justify-self: center;
+  flex-basis: 0.2rem;
+  display: flex;
 
-    background-color: var(--picton-blue-100);
-    padding: 0.4rem;
-    border-radius: 30px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    -ms-border-radius: 30px;
-    -o-border-radius: 30px;
+  background-color: var(--picton-blue-100);
+  padding: 0.4rem;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
 }
 
 .search input {
-    border: transparent;
-    background-color: transparent;
-    height: 100%;
-    width: 100%;
+  border: transparent;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
 }
 .search input:focus {
-    outline: none;
+  outline: none;
 }
 
 .search img {
-    width: 1.3rem;
+  width: 1.3rem;
 }
 ul {
-    list-style: none;
+  list-style: none;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 #first img {
-    width: 1.6rem;
+  width: 1.6rem;
 }
 #first a {
-    color: black;
-    display: flex;
-    align-items: center;
-    gap: 0.2em;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
 }
 .links {
-    display: flex; /*appropriately positioning  links in nav bar to  the side*/
-    flex-flow: row;
-    justify-content: end;
+  display: flex; /*appropriately positioning  links in nav bar to  the side*/
+  flex-flow: row;
+  justify-content: end;
 }
 /*combine logo name with icon*/
 #first {
-    display: flex;
-    margin-inline-start: 0px;
-    padding-inline-start: 0px;
+  display: flex;
+  margin-inline-start: 0px;
+  padding-inline-start: 0px;
 }
 #logo h1 {
-    font-size: 1.7rem;
-    text-transform: uppercase;
+  font-size: 1.7rem;
+  text-transform: uppercase;
 }
 
 #cart a,
 #account a {
-    position: relative;
+  position: relative;
 }
 header a {
-    padding-right: 0.7rem;
-    padding-left: 0.7rem;
-    padding-bottom: 0.2rem;
+  padding-right: 0.7rem;
+  padding-left: 0.7rem;
+  padding-bottom: 0.2rem;
 }
 
 .extra {
-    display: none;
+  display: none;
 }
 
 /*words in links are  not displayed in small screen*/
 ul.links a p {
-    display: none;
+  display: none;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-main>section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    box-shadow: 0rem 0.1rem 0rem rgb(241, 241, 241);
-    background-color: var(--picton-blue-200);
-    margin: 0.1rem 0rem;
-    border-radius: 0.25rem;
+main > section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0rem 0.1rem 0rem rgb(241, 241, 241);
+  background-color: var(--picton-blue-200);
+  margin: 0.1rem 0rem;
+  border-radius: 0.25rem;
 
-    p {
-        margin: 0.1rem;
-    }
+  p {
+    margin: 0.1rem;
+  }
 }
 
-section>div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+section > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .order-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    height: 10rem;
-    box-shadow: 0rem 0.1rem 0rem rgb(241, 241, 241);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 10rem;
+  box-shadow: 0rem 0.1rem 0rem rgb(241, 241, 241);
 
-    img {
-        align-self: center;
-        width: 8rem;
-        height: 6rem;
-        border-radius: 0.5rem;
-    }
+  img {
+    align-self: center;
+    width: 8rem;
+    height: 6rem;
+    border-radius: 0.5rem;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .order-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
     div {
-        display: flex;
-        justify-content: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      margin: 0.1rem;
     }
 
-    .order-information {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-
-        div {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            margin: 0.1rem;
-        }
-
-        h5 {
-            margin: 0.25rem;
-        }
-
-        p {
-            color: gray;
-        }
+    h5 {
+      margin: 0.25rem;
     }
+
+    p {
+      color: gray;
+    }
+  }
 }
 
 .shipping-information {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  box-shadow: 0rem 0.1rem 0rem rgb(241, 241, 241);
+  padding: 0.4rem;
+
+  div {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    box-shadow: 0rem 0.1rem 0rem rgb(241, 241, 241);
-    padding: 0.4rem;
+    justify-content: space-between;
+    align-items: center;
 
-    div {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    margin: 0.1rem;
 
-        margin: 0.1rem;
-        
-        button {
-            width: 25%;
-        }
+    button {
+      width: 25%;
     }
+  }
 
-    p {
-        margin: 0.1rem;
-        color: gray;
-    }
+  p {
+    margin: 0.1rem;
+    color: gray;
+  }
 
-    a {
-        text-decoration: none;
-        color: black;
-    }
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .payment-method {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  box-shadow: 0rem 0.1rem 0rem rgb(241, 241, 241);
+  padding: 0.4rem;
+
+  div {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    box-shadow: 0rem 0.1rem 0rem rgb(241, 241, 241);
-    padding: 0.4rem;
+    justify-content: space-between;
+    align-items: center;
 
-    div {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        button {
-            width: 25%;
-        }
+    button {
+      width: 25%;
     }
+  }
 
-    p {
-        display: flex;
-        justify-content: space-between;
-        margin: 0.1rem;
-        color: gray;
-    }
+  p {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.1rem;
+    color: gray;
+  }
 
-    a {
-        text-decoration: none;
-        color: black;
-    }
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .order-summary {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    padding: 0.4rem;
-    box-shadow: 0rem 0.1rem 0rem rgb(241, 241, 241);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 0.4rem;
+  box-shadow: 0rem 0.1rem 0rem rgb(241, 241, 241);
 
-    p {
-        margin: 0.1rem;
-        justify-content: space-between;
-        color: gray;
-    }
+  p {
+    margin: 0.1rem;
+    justify-content: space-between;
+    color: gray;
+  }
 }
 
-input[type="text"]{
-    border-radius: 0.7rem;
-    height: 1.75rem;
-    width: 90%;
-    margin: 0.5rem;
-    border: none;
-    box-shadow: 0.1rem 0.1rem 0.1rem var(--picton-blue-100);
+input[type="text"] {
+  border-radius: 0.7rem;
+  height: 1.75rem;
+  width: 90%;
+  margin: 0.5rem;
+  border: none;
+  box-shadow: 0.1rem 0.1rem 0.1rem var(--picton-blue-100);
 }
 
-button{
-    margin: 1rem 2rem;
-    width: 80%;
-    height: 2rem;
-    border-radius: 1rem;
-    border: none;
-    background-color: var(--picton-blue-300);
+button {
+  margin: 1rem 2rem;
+  width: 80%;
+  height: 2rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--picton-blue-300);
 
-    font-weight: bold;
+  font-weight: bold;
 }
 
-section>h1 {
-    font-weight: bold;
+section > h1 {
+  font-weight: bold;
+}
+#prod-balance-error {
+  color: red;
+  font-size: 0.8rem;
+  margin-left: 5px;
 }
 
 @media only screen and (min-width: 600px) {
-    main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        
-        margin: 1rem;
-    }
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    .order-info {
-        width: 40rem;
-        height: 15rem;
-        margin: 0.5rem;
+    margin: 1rem;
+  }
 
-        img {
-            width: 8rem;
-            height: 9rem;
-        }
-    }
+  .order-info {
+    width: 40rem;
+    height: 15rem;
+    margin: 0.5rem;
 
-    .shipping-information {
-        width: 40rem;
-        margin: 0.5rem;
+    img {
+      width: 8rem;
+      height: 9rem;
     }
+  }
 
-    .payment-method {
-        width: 40rem;
-        margin: 0.5rem;
-    }
+  .shipping-information {
+    width: 40rem;
+    margin: 0.5rem;
+  }
 
-    .order-summary{
-        width: 40rem;
-        margin: 0.5rem;
-    }
+  .payment-method {
+    width: 40rem;
+    margin: 0.5rem;
+  }
 
-    button {
-        width: 15rem;
-    }
+  .order-summary {
+    width: 40rem;
+    margin: 0.5rem;
+  }
+
+  button {
+    width: 15rem;
+  }
 }
