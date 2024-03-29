@@ -292,8 +292,40 @@ header nav .links a:hover:after {
 }
 #balance-div {
   display: flex;
+  justify-content: center;
   gap: 0.1rem;
-  display: none;
+  font-size: 1rem; 
+}
+
+.dropdown-menu {
+  z-index: 2;
+  position: absolute;
+  left: -2rem;
+  top: calc(100% + 0.25rem);
+  background-color: #0094d3;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+  width: 100%;
+
+  a {
+    color: black;
+    font-size: 0.75rem;
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+a:hover + .dropdown-menu {
+  opacity: 1;
+}
+
+.dropdown-menu:hover {
+  opacity: 1;
 }
 
 /*words in links are  not displayed in small screen*/
@@ -922,43 +954,6 @@ of everything
   }
 }
 
-#cart-button {
-  cursor: pointer;
-}
-
-#account-button {
-  cursor: pointer;
-}
-
-.dropdown-menu {
-  z-index: 2;
-  position: absolute;
-  left: -2rem;
-  top: calc(100% + 0.25rem);
-  background-color: #0094d3;
-  padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transition: opacity 150ms ease-in-out;
-
-  a {
-    color: black;
-    font-size: 0.75rem;
-  }
-
-  .hidden {
-    display: none;
-  }
-}
-
-a:hover + .dropdown-menu {
-  opacity: 1;
-}
-
-.dropdown-menu:hover {
-  opacity: 1;
-}
-
 /*ligh and dark themed page*/
 @media screen and (prefers-color-scheme: light) {
   body {
@@ -977,4 +972,12 @@ a:hover + .dropdown-menu {
   body {
     background-color: black;
   }
+}
+
+#cart-button {
+  cursor: pointer;
+}
+
+#account-button {
+  cursor: pointer;
 }

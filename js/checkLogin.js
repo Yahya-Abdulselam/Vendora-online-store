@@ -16,9 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (localStorage.getItem("loggeduser") != null) {
+    let balanceAccount = document.createElement("div")
+    balanceAccount.setAttribute("id", "balance-div")
+    balanceAccount.innerHTML = `
+    <img src="/media/icons/wallet.svg" alt="wallet">
+    <p id="balance">${JSON.parse(localStorage.getItem("loggeduser")).customer_balance}</p>
+    `
+
     let purchaseHistoryLink = document.createElement("a")
     purchaseHistoryLink.setAttribute("href", "./purchased.html")
     purchaseHistoryLink.innerHTML = `Purchase History`
+    document.querySelector("#account-dropdown").append(balanceAccount)
     document.querySelector("#account-dropdown").append(purchaseHistoryLink)
   }
 
