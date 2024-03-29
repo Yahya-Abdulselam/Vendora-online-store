@@ -30,6 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
     purchaseHistoryLink.innerHTML = `Purchase History`;
     document.querySelector("#account-dropdown").append(balanceAccount);
     document.querySelector("#account-dropdown").append(purchaseHistoryLink);
+  } else {
+    let loginLink = document.createElement("a");
+    loginLink.setAttribute("href", "login.html");
+    loginLink.innerHTML = `Login`;
+    document.querySelector("#account-dropdown").append(loginLink);
   }
 
   if (localStorage.getItem("loggedseller") != null) {
@@ -37,15 +42,5 @@ document.addEventListener("DOMContentLoaded", () => {
     accountDetailsLink.setAttribute("href", "../main.html");
     accountDetailsLink.innerHTML = `Account Details`;
     document.querySelector("#account-dropdown").append(accountDetailsLink);
-  }
-
-  if (
-    localStorage.getItem("loggeduser") == null &&
-    localStorage.getItem("loggedseller") == null
-  ) {
-    let loginLink = document.createElement("a");
-    loginLink.setAttribute("href", "login.html");
-    loginLink.innerHTML = `Login`;
-    document.querySelector("#account-dropdown").append(loginLink);
   }
 });
