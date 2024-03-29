@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const category = localStorage.getItem("selectedCategory") ?? "any";
 
   const renderProduct = (product) => {
+    const maxQ = product.quantity;
     const itemDiv = document.createElement("div");
     itemDiv.className = "item";
 
@@ -93,8 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     plusPicture.addEventListener("click", () => {
       const q = Number(quantityP.textContent);
-
-      quantityP.textContent = (q + 1).toString();
+      if (q < maxQ) {
+        quantityP.textContent = (q + 1).toString();
+      }
     });
 
     plusPicture.appendChild(sourcePlus);
