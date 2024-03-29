@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", async () => {
             if (localStorage.getItem("loggeduser") != null) {
                 const product = JSON.parse(localStorage.getItem("products")).find(
-                    (product) => product.name + product.sellerId == button.value
+                    (product) => product.name + product.sellerId === button.value
                 );
 
                 if (product) {
