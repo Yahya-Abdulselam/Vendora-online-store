@@ -1,7 +1,7 @@
 import Product from "../js/Product.js";
 import Seller from "./seller.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   document.querySelector("#prod-name").value = "";
   document.querySelector("#prod-price").value = "";
   document.querySelector("#prod-desc").value = "";
@@ -21,11 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
     imgShowed.src = URL.createObjectURL(img);
     imgShowed.style.width = "40%";
   });
-  uploadButton.addEventListener("click", () => {
+  uploadButton.addEventListener("click", async () => {
     const pName = document.querySelector("#prod-name").value.trim();
     const pPrice = document.querySelector("#prod-price").value.trim();
     const pDetails = document.querySelector("#prod-desc").value.trim();
-    const imgShowed = document.querySelector("#show-prod");
 
     const pQuantity = document.querySelector("#prod-quantity").value.trim();
     const pCategory = document.querySelector("#prod-category").value.trim();
@@ -73,11 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("prod-image-error").textContent = "";
     }
     if (isValid) {
+      const img = await toBase64(imageChoice.files[0]);
       const product = new Product(
         pName,
         pPrice,
         pQuantity,
-        imgShowed.src,
+        img,
         pDetails,
         pCategory
       );
@@ -93,6 +93,16 @@ document.addEventListener("DOMContentLoaded", () => {
         form.reset();
         document.querySelector("#prod-image").value = "";
         window.location.href = "pages/seller.html"; //when finish uploading go back to seller page
+      }
+
+      //toBase method was copied from google
+      function toBase64(image) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(image);
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = (error) => reject(error);
+        });
       }
     }
   });

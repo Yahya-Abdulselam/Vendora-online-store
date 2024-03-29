@@ -392,7 +392,7 @@ x main {
   padding: 1em;
   background-color: var(--mine-shaft-950);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(29%, 0.5fr));
+  grid-template-columns: repeat(auto-fit, minmax(25%, 0.4fr));
   gap: 2rem;
 }
 
@@ -407,6 +407,7 @@ x main {
 .itemssold > img {
   width: 100%;
   border-radius: 10px;
+
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -639,6 +640,9 @@ footer #socials a:hover {
     font-size: 1.3rem;
     line-height: 2rem;
   }
+}
+main {
+  margin: 2rem;
 }
 @media screen and (min-width: 770px) {
   #upload-product article p {
