@@ -3,6 +3,7 @@ function handleLogin() {
   var password = document.getElementById("password").value;
   var form = document.querySelector("form");
   var u = document.getElementById("username");
+  var l = localStorage.getItem("destinationAfterLogin");
 
   fetch("/users.json")
     .then((response) => response.json())
@@ -12,7 +13,11 @@ function handleLogin() {
       );
       if (user) {
         localStorage.setItem("loggeduser", JSON.stringify(user));
-        window.location.href = "main.html";
+        if (!l) {
+          window.location.href = "main.html";
+        } else {
+          window.location.href = "pages/checkout/checkout-address.html";
+        }
       } else {
         alert("Invalid username or password. Please try again.");
         form.reset();

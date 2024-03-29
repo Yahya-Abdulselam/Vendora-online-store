@@ -4,6 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (path !== "/listItem.html") {
       localStorage.removeItem("selectedCategory");
     }
+
+    if (localStorage.getItem("loggeduser")) {
+      var hidden1 = document.getElementById("hidden1");
+      var hidden2 = document.getElementById("hidden2");
+
+      hidden1.classList.add("hidden");
+      hidden2.classList.remove("hidden");
+    }
+
+    const buyButton = document.querySelectorAll(".buy");
+    buyButton.addEventListener("click", handleBuyButtonClick);
   };
 
   window.addEventListener("beforeunload", clearCategoryOnNavigation);
@@ -107,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     buyButton.setAttribute("class", "buy buyButton");
     buyButton.setAttribute("value", product.name + product.sellerId);
     buyButton.textContent = "Buy now";
+    buyButton.addEventListener("click", handleBuyButtonClick);
     infoDiv.appendChild(buyButton);
 
     return itemDiv;
@@ -163,10 +175,20 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProducts();
 });
 
-if (localStorage.getItem("loggeduser")) {
-  var hidden1 = document.getElementById("hidden1");
-  var hidden2 = document.getElementById("hidden2");
+// if (localStorage.getItem("loggeduser")) {
+//   var hidden1 = document.getElementById("hidden1");
+//   var hidden2 = document.getElementById("hidden2");
 
-  hidden1.classList.add("hidden");
-  hidden2.classList.remove("hidden");
+//   hidden1.classList.add("hidden");
+//   hidden2.classList.remove("hidden");
+// }
+
+function handleBuyButtonClick() {
+  console.log("Buy Button Clicked");
+  if (!localStorage.getItem("loggeduser")) {
+    localStorage.setItem("destinationAfterLogin", "checkout.html");
+    window.location.href = "login.html";
+  } else {
+    window.location.href = "pages/checkout/checkout-address.html";
+  }
 }

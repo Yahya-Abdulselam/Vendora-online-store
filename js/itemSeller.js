@@ -37,8 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     image.src = product.picture;
 
-
- 
     name.textContent = product.name;
     price.textContent = product.price;
     status.textContent =
