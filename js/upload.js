@@ -12,14 +12,30 @@ document.addEventListener("DOMContentLoaded", async () => {
   let sellerParsed = JSON.parse(localStorage.getItem("loggedseller")); //when the user log in we store his data
   let seller = Seller.fromJSON(sellerParsed);
 
+  const sizeLimit = 1.6 * 1024 * 1024;
+
   const uploadButton = document.querySelector("#upload-item");
   const imageChoice = document.querySelector("#prod-image");
   const imgShowed = document.querySelector("#show-prod");
   const form = document.querySelector("form");
   imageChoice.addEventListener("change", () => {
     let img = imageChoice.files[0];
-    imgShowed.src = URL.createObjectURL(img);
-    imgShowed.style.width = "40%";
+    if (!img) {
+      return; // No file selected, exit the function
+    }
+
+    if (img.size > sizeLimit) {
+      document.getElementById("prod-image-error").textContent =
+        "Image size must not exceed 1.6MB.";
+
+      return;
+    } else {
+      document.getElementById("prod-image-error").textContent = "";
+
+      const imgShowed = document.querySelector("#show-prod");
+      imgShowed.src = URL.createObjectURL(img);
+      imgShowed.style.width = "40%";
+    }
   });
   uploadButton.addEventListener("click", async () => {
     const pName = document.querySelector("#prod-name").value.trim();
@@ -29,6 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const pQuantity = document.querySelector("#prod-quantity").value.trim();
     const pCategory = document.querySelector("#prod-category").value.trim();
     let isValid = true;
+
     if (!pName) {
       document.getElementById("prod-name-error").textContent =
         "Please enter a product name.";
@@ -96,6 +113,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       //toBase method was copied from google
+
       function toBase64(image) {
         return new Promise((resolve, reject) => {
           const reader = new FileReader();
