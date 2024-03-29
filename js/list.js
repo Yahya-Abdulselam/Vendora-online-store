@@ -131,6 +131,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   };
+  search.addEventListener('keydown', function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();}});
   search.addEventListener("input", () => {
     const value = search.value.trim().toLowerCase();
     if (value) {

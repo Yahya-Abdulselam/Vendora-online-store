@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     price.classList.add("price");
 
     const row3 = document.createElement("tr");
+    const addButton = document.createElement("button");
+    addButton.textContent = "ADD 1";
+
     const status = document.createElement("td");
     status.classList.add("status");
 
@@ -29,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     row1.appendChild(name);
     row2.appendChild(price);
     row3.appendChild(status);
+
     productDiv.appendChild(table);
 
     image.src = product.picture;
@@ -52,18 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     productsDiv.replaceChildren();
 
-      seller.products.forEach((item) =>
-        productsDiv.appendChild(renderProductSale(item))
-      );
-      const sectionSale = document.querySelector("#items-on-sale");
-      if (seller.products.length) {
-        sectionSale.style.visibility = "visible";
-      } else {
-        sectionSale.style.visibility = "hidden";
-      }
+    seller.products.forEach((item) =>
+      productsDiv.appendChild(renderProductSale(item))
+    );
+    const sectionSale = document.querySelector("#items-on-sale");
+    if (seller.products.length) {
+      sectionSale.style.visibility = "visible";
+    } else {
+      sectionSale.style.visibility = "hidden";
+    }
 
-      localStorage.setItem("products", JSON.stringify(products));
-    
+    localStorage.setItem("products", JSON.stringify(products));
   };
 
   const renderProductHistory = (product) => {
