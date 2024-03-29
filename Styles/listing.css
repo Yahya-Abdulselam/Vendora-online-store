@@ -232,6 +232,18 @@ a {
   text-transform: uppercase;
 }
 
+#categories {
+  position: relative;
+}
+
+#account {
+  position: relative;
+}
+
+#account-button {
+  cursor: pointer;
+}
+
 #cart a,
 #account a {
   position: relative;
@@ -240,6 +252,35 @@ header a {
   padding-right: 0.7rem;
   padding-left: 0.7rem;
   padding-bottom: 0.2rem;
+}
+
+.dropdown-menu {
+  z-index: 2;
+  position: absolute;
+  left: -2rem;
+  top: calc(100% + 0.25rem);
+  background-color: #0094d3;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+
+  a {
+    color: black;
+    font-size: 0.75rem;
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+a:hover + .dropdown-menu {
+  opacity: 1;
+}
+
+.dropdown-menu:hover {
+  opacity: 1;
 }
 
 /*place a line under anchor when being hovered*/
