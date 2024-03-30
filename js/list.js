@@ -1,12 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const clearCategoryOnNavigation = () => {
-    const path = window.location.pathname;
-    if (path !== "/pages/listItem.html") {
-      localStorage.removeItem("selectedCategory");
-    } else {
-    }
-  };
-
   if (localStorage.getItem("loggeduser")) {
     var hidden1 = document.getElementById("hidden1");
     var hidden2 = document.getElementById("hidden2");
@@ -16,7 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   //when leaving the listing page clear category preference
+  const clearCategoryOnNavigation = () => {
+    console.log("asa");
+    const path = window.location.pathname;
+    if (path === "/pages/listItem.html") {
+      localStorage.removeItem("selectedCategory");
+    }
+  };
   window.addEventListener("beforeunload", clearCategoryOnNavigation);
+  window.addEventListener("popstate", clearCategoryOnNavigation);
+
 
   let search = document.querySelector("#sv");
   search.value = "";
@@ -133,7 +134,9 @@ document.addEventListener("DOMContentLoaded", () => {
     buyButton.setAttribute("class", "buy buyButton");
     buyButton.setAttribute("value", product.name + product.sellerId);
     buyButton.textContent = "Buy now";
-    buyButton.addEventListener("click", ()=>{handleBuy(buyButton, quantityP)});
+    buyButton.addEventListener("click", () => {
+      handleBuy(buyButton, quantityP);
+    });
     infoDiv.appendChild(buyButton);
 
     return itemDiv;
