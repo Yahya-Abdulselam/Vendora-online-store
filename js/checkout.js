@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   productName.innerText = product_name;
   informationProductPrice.innerText = product_price;
   productAttribute.innerText = attribute;
-
+  
   customer_name.innerText = shipping_full_name;
   customer_address.innerText = shipping_address;
   customer_city.innerText = shipping_city;
@@ -85,6 +85,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       product = products[i];
       index = i;
+      const itemQuantityText = document.querySelector("#in-stock")
+      itemQuantityText.textContent = (products[i].quantity > 0) ? "In Stock" : "Out of stock"
+
       break;
     }
   }
