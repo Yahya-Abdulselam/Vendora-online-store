@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //   hidden2.classList.remove("hidden");
 // }
 
-function handleBuyButtonClick() {
+function handleBuyButtonClick(product) {
   console.log("Buy Button Clicked");
   if (!localStorage.getItem("loggeduser")) {
     localStorage.setItem("destinationAfterLogin", "checkout.html");
