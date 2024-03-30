@@ -4,18 +4,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (path !== "/pages/listItem.html") {
       localStorage.removeItem("selectedCategory");
     }
-
-    if (localStorage.getItem("loggeduser")) {
-      var hidden1 = document.getElementById("hidden1");
-      var hidden2 = document.getElementById("hidden2");
-
-      hidden1.classList.add("hidden");
-      hidden2.classList.remove("hidden");
-    }
-
     // const buyButton = document.querySelectorAll(".buy");
     // buyButton.addEventListener("click", handleBuyButtonClick);
   };
+
+
+  if (localStorage.getItem("loggeduser")) {
+    var hidden1 = document.getElementById("hidden1");
+    var hidden2 = document.getElementById("hidden2");
+
+    hidden1.classList.add("hidden");
+    hidden2.classList.remove("hidden");
+  }
 
   window.addEventListener("beforeunload", clearCategoryOnNavigation);
 
