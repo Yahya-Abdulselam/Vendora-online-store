@@ -3,27 +3,27 @@
   box-sizing: border-box;
 }
 @font-face {
-    font-family: "lora";
-  
-    src: url("/Fonts/Merriweather/Lora/static/Lora-Regular.ttf");
-  }
-  @font-face {
-    font-family: "Merriweather";
-    src: url("/Fonts/Merriweather/Merriweather_Sans/static/MerriweatherSans-Regular.ttf");
-  }
-  
-  * {
-    font-family: "lora";
-    box-sizing: border-box;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    font-family: "Merriweather";
-  }
-  
+  font-family: "lora";
+
+  src: url("/Fonts/Merriweather/Lora/static/Lora-Regular.ttf");
+}
+@font-face {
+  font-family: "Merriweather";
+  src: url("/Fonts/Merriweather/Merriweather_Sans/static/MerriweatherSans-Regular.ttf");
+}
+
+* {
+  font-family: "lora";
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Merriweather";
+}
+
 :root {
   --picton-blue-50: #effaff;
   --picton-blue-100: #def4ff;
@@ -399,11 +399,37 @@ button {
   height: 2rem;
   border-radius: 1rem;
   border: none;
-  background-color: var(--picton-blue-300);
 
   font-weight: bold;
 }
+button {
+  background-color: var(--picton-blue-500);
 
+  transition: all 0.5s ease;
+  box-shadow: none;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+
+  border: transparent;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+button:hover {
+  /*a transition on button when hovering to remove background color*/
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+  border: solid var(--picton-blue-500);
+  scale: 1.1;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
 section > h1 {
   font-weight: bold;
 }
