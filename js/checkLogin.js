@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#cart-button").addEventListener("click", () => {
-    if (localStorage.getItem("loggeduser") != null) {
+    if (localStorage.getItem("/pages/loggeduser") != null) {
       window.location.href = "checkout.html";
     } else {
-      window.location.href = "login.html";
+      window.location.href = "/pages/login.html";
     }
   });
 
   document.querySelector("#account-button").addEventListener("click", () => {
     if (localStorage.getItem("loggeduser") != null) {
-      window.location.href = "checkout.html";
+      window.location.href = "/pages/checkout.html";
     } else {
-      window.location.href = "login.html";
+      window.location.href = "/pages/login.html";
     }
   });
 
@@ -26,20 +26,20 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     let purchaseHistoryLink = document.createElement("a");
-    purchaseHistoryLink.setAttribute("href", "purchased.html");
+    purchaseHistoryLink.setAttribute("href", "/pages/purchased.html");
     purchaseHistoryLink.innerHTML = `Purchase History`;
     document.querySelector("#account-dropdown").append(balanceAccount);
     document.querySelector("#account-dropdown").append(purchaseHistoryLink);
   } else {
     let loginLink = document.createElement("a");
-    loginLink.setAttribute("href", "login.html");
+    loginLink.setAttribute("href", "/pages/login.html");
     loginLink.innerHTML = `Login`;
     document.querySelector("#account-dropdown").append(loginLink);
   }
 
   if (localStorage.getItem("loggedseller") != null) {
     let accountDetailsLink = document.createElement("a");
-    accountDetailsLink.setAttribute("href", "main.html");
+    accountDetailsLink.setAttribute("href", "/pages/main.html");
     accountDetailsLink.innerHTML = `Account Details`;
     document.querySelector("#account-dropdown").append(accountDetailsLink);
   }

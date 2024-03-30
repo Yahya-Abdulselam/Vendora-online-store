@@ -468,6 +468,9 @@ td {
   content: "price : ";
   color: var(--butterfly-bush-500);
 }
+.itemssold .price::before {
+  content: "amount paid: ";
+}
 .price::after {
   content: " QAR";
 }

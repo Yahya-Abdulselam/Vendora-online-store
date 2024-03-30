@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       localStorage.setItem("selectedCategory", "clothing");
 
-      window.location.href = "listItem.html";
+      window.location.href = "/pages/listItem.html";
     });
   });
 
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
       localStorage.setItem("selectedCategory", "tech");
-      window.location.href = "listItem.html";
+      window.location.href = "/pages/listItem.html";
     });
   });
 
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
       localStorage.setItem("selectedCategory", "book");
-      window.location.href = "listItem.html";
+      window.location.href = "/pages/listItem.html";
     });
   });
 
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
       localStorage.setItem("selectedCategory", "furniture");
-      window.location.href = "listItem.html";
+      window.location.href = "/pages/listItem.html";
     });
   });
 });

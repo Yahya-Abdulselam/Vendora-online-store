@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const clearCategoryOnNavigation = () => {
     const path = window.location.pathname;
-    if (path !== "listItem.html") {
+    if (path !== "/pages/listItem.html") {
       localStorage.removeItem("selectedCategory");
     }
 

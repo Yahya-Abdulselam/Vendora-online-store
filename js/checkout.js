@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const okButton = document.querySelector("#okButton");
 
       okButton.addEventListener("click", () => {
-        location.replace("../../main.html");
+        location.replace("/pages/main.html");
       });
     } else if (product.quantity - productInCart.quantity < 0) {
       document.querySelector("#prod-quantity-error").textContent =

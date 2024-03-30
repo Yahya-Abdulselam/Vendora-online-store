@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
 function handleUpload() {
   if (!localStorage.getItem("loggedseller")) {
     localStorage.setItem("uploadDestination", "upload-product.html");
-    window.location.href = "sellerlogin.html";
+    window.location.href = "/pages/sellerlogin.html";
   } else {
-    window.location.href = "upload-product.html";
+    window.location.href = "/pages/upload-product.html";
   }
 }
 

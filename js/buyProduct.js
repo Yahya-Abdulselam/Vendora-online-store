@@ -5,53 +5,53 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-    const buyButtons = document.querySelectorAll(".buyButton")
-    const quantityText = document.querySelectorAll(".quantity")
+  const buyButtons = document.querySelectorAll(".buyButton");
+  const quantityText = document.querySelectorAll(".quantity");
 
-    for (let i = 0; i < buyButtons.length; i++) {
-        buyButtons[i].addEventListener("click", async () => {
-            if (localStorage.getItem("loggeduser") != null) {
-                const product = JSON.parse(localStorage.getItem("products")).find(
-                    (product) => product.name + product.sellerId === buyButtons[i].value
-                );
+  for (let i = 0; i < buyButtons.length; i++) {
+    buyButtons[i].addEventListener("click", async () => {
+      if (localStorage.getItem("loggeduser") != null) {
+        const product = JSON.parse(localStorage.getItem("products")).find(
+          (product) => product.name + product.sellerId === buyButtons[i].value
+        );
 
-                if (product) {
-                    product.quantity = quantityText[i].textContent
-                  
-                    localStorage.setItem("itemInCart", JSON.stringify(product))
-                    window.location.href = "checkout-address.html"
-                } else{
-                    alert("Product doesn't exist!")
-                }
-            } else {
-                const product = JSON.parse(localStorage.getItem("products")).find(
-                    (product) => product.name + product.sellerId === buyButtons[i].value
-                );
-                product.quantity = quantityText[i].textContent
-                localStorage.setItem("itemInCart", JSON.stringify(product))
-                window.location.href = "checkout-address.html"
-                localStorage.setItem("destinationAfterLogin", "checkout.html");
-                window.location.href = "login.html";
-            } 
-        })
-    }
-})
-                /**
-                 * DONT DELETE!
-                 * It does the same as above, but for JSON files. can be used for part 2!
-                 */
-                // await fetch("../data/products.json")
-                // .then((response) => response.json())
-                // .then((data) => {
-                //     const product = data.find(
-                //         (product) => product.id == button.value
-                //     );
+        if (product) {
+          product.quantity = quantityText[i].textContent;
 
-                //     if (product) {
-                //         product.quantity = 1
-                //         localStorage.setItem("itemInCart", JSON.stringify(product))
-                //         window.location.href = "../pages/checkout/checkout-address.html"
-                //     } else {
-                //         alert("product doesn't exist")
-                //     }
-                // })
+          localStorage.setItem("itemInCart", JSON.stringify(product));
+          window.location.href = "/pages/checkout-address.html";
+        } else {
+          alert("Product doesn't exist!");
+        }
+      } else {
+        const product = JSON.parse(localStorage.getItem("products")).find(
+          (product) => product.name + product.sellerId === buyButtons[i].value
+        );
+        product.quantity = quantityText[i].textContent;
+        localStorage.setItem("itemInCart", JSON.stringify(product));
+        window.location.href = "/pages/checkout-address.html";
+        localStorage.setItem("destinationAfterLogin", "/pages/checkout.html");
+        window.location.href = "/pages/login.html";
+      }
+    });
+  }
+});
+/**
+ * DONT DELETE!
+ * It does the same as above, but for JSON files. can be used for part 2!
+ */
+// await fetch("../data/products.json")
+// .then((response) => response.json())
+// .then((data) => {
+//     const product = data.find(
+//         (product) => product.id == button.value
+//     );
+
+//     if (product) {
+//         product.quantity = 1
+//         localStorage.setItem("itemInCart", JSON.stringify(product))
+//         window.location.href = "../pages/checkout/checkout-address.html"
+//     } else {
+//         alert("product doesn't exist")
+//     }
+// })

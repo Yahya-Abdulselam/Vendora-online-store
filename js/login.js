@@ -14,9 +14,9 @@ function handleLogin() {
       if (user) {
         localStorage.setItem("loggeduser", JSON.stringify(user));
         if (!l) {
-          window.location.href = "main.html";
+          window.location.href = "/pages/main.html";
         } else {
-          window.location.href = "checkout-address.html";
+          window.location.href = "/pages/checkout-address.html";
         }
       } else {
         alert("Invalid username or password. Please try again.");
