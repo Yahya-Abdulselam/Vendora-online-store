@@ -139,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "purchasedProducts",
         JSON.stringify(purchasedProducts)
       );
+      localStorage.setItem("itemInCart", null)
       const popUpWindow = document.querySelector("#model");
       popUpWindow.classList.add("open");
       const okButton = document.querySelector("#okButton");
