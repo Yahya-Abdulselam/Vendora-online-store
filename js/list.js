@@ -24,12 +24,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const searchQuery = urlParams.get("search")?.toLowerCase() || "";
   console.log(searchQuery);
-  let searchProds = [...products];
+  let searchProds = [];
 
   search.value = searchQuery;
   if (search) {
     search.focus();
   }
+
+  if (search.value) {
+    searchProds = products.filter((p) => {
+      return (
+        (p.quantity > 0 && p.name.toLowerCase().includes(search.value)) ||
+        p.category.toLowerCase().includes(search.value) ||
+        p.details.toLowerCase().includes(search.value)
+      );
+    });
+    console.log(searchProds);
+  } else {
+    searchProds = [...products];
+  }
+
   const category = localStorage.getItem("selectedCategory") ?? "any";
 
   const renderProduct = (product) => {
@@ -156,7 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (value) {
       if (searchProds.length) {
         searchProds = products.filter((p) => {
-          console.log(p.name);
           return (
             (p.quantity > 0 && p.name.toLowerCase().includes(value)) ||
             p.category.toLowerCase().includes(value) ||

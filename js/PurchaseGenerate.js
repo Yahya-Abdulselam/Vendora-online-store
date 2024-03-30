@@ -72,7 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
       )
       .forEach((p) => productLi.appendChild(renderProductPurchased(p)));
   };
-
+  search.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }})
   search.addEventListener("input", () => {
     const searchText = search.value;
     renderProductsPurchasedFiltered(searchText);
