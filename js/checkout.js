@@ -63,8 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const total_price = product_price + shipping_price;
 
   productName.innerText = product_name;
-  informationProductPrice.innerText = product_price;
-  productAttribute.innerText = attribute;
+  informationProductPrice.innerText = "Price: " + product_price;
+  productAttribute.innerText = "Category: " + attribute;
 
   customer_name.innerText = shipping_full_name;
   customer_address.innerText = shipping_address;
@@ -88,7 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
       index = i;
       const itemQuantityText = document.querySelector("#in-stock");
       itemQuantityText.textContent =
-        products[i].quantity > 0 ? "In Stock" : "Out of stock";
+        products[i].quantity > 0
+          ? products[i].quantity + " left in the stock"
+          : "Out of stock";
 
       break;
     }
@@ -139,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "purchasedProducts",
         JSON.stringify(purchasedProducts)
       );
-      localStorage.removeItem("itemInCart")
+      localStorage.removeItem("itemInCart");
       const popUpWindow = document.querySelector("#model");
       popUpWindow.classList.add("open");
       const okButton = document.querySelector("#okButton");
