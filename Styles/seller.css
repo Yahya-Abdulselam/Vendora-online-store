@@ -534,6 +534,9 @@ td {
 .price {
   color: var(--picton-blue-300);
 }
+.status {
+  border-bottom: none;
+}
 
 .addDiv {
   padding: 0.2rem;
