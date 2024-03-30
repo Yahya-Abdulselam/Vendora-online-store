@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
       hidden2.classList.remove("hidden");
     }
 
-    const buyButton = document.querySelectorAll(".buy");
-    buyButton.addEventListener("click", handleBuyButtonClick);
+    // const buyButton = document.querySelectorAll(".buy");
+    // buyButton.addEventListener("click", handleBuyButtonClick);
   };
 
   window.addEventListener("beforeunload", clearCategoryOnNavigation);

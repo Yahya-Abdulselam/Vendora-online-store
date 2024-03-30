@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ? JSON.parse(localStorage.getItem("loggeduser")).address.address_line
       : productName.innerText;
     
-  const product_quantity_amount = JSON.parse(localStorage.getItem("itemInCart")).quantity
+  const product_quantity_amount = Number(JSON.parse(localStorage.getItem("itemInCart")).quantity)
   
 
   // for some reason this doesnt work? you can replace it with any other attribute but city refuses to work
