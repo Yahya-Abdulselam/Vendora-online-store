@@ -770,6 +770,10 @@ footer #socials a:hover {
   -ms-transition: 0.1s;
   -o-transition: 0.1s;
 }
+
+#balance-div{
+  cursor: default;
+}
 /*small sizes before reaching 596px*/
 @media screen and (max-width: 596px) {
   /*
@@ -833,6 +837,8 @@ of everything
     }
   }
 }
+
+
 /*small sizes before reaching 370px*/
 @media screen and (max-width: 370px) {
   .slider h1 {
