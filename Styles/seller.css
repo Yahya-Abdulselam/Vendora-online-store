@@ -24,7 +24,6 @@ h5 {
   font-family: "Merriweather";
 }
 
-
 :root {
   --picton-blue-50: #effaff;
   --picton-blue-100: #def4ff;
@@ -445,7 +444,9 @@ x main {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
-
+.itemssold {
+  cursor: pointer;
+}
 td {
   padding: 0.4rem;
   border: 1px solid var(--butterfly-bush-300);
@@ -492,7 +493,7 @@ td {
   line-height: 1.4rem;
 }
 .buyer::before {
-  content: "username : ";
+  content: "buyer : ";
   color: var(--butterfly-bush-500);
 }
 .quantity-sold::before {
@@ -503,14 +504,15 @@ td {
   content: "quantity purchased : ";
   color: var(--butterfly-bush-500);
 }
+.quantity-sold::after {
+  content: " in total from  this item";
+  color: var(--picton-blue-300);
+}
 .quantity-left::before {
   content: "quantity left : ";
   color: var(--butterfly-bush-500);
 }
-.quantity-left::after {
-  content: "in total from  this item";
-  color: var(--picton-blue-300);
-}
+.quantity-purchased,
 .quantity-left,
 .quantity-sold,
 .buyer,
@@ -521,6 +523,7 @@ td {
   cursor: pointer;
 }
 .pop-up ul {
+  gap: 0.5em;
   display: grid;
 }
 .pop-up {
