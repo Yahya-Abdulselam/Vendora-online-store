@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ? JSON.parse(localStorage.getItem("loggeduser")).customer_balance + " QAR"
       : productName.innerText;
 
-  product_quantity.innerText = product_quantity_amount;
+  product_quantity.innerText = product_quantity_amount + " Pieces";
 
   imageElement.src = productInCart.picture;
 
