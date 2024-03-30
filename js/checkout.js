@@ -1,3 +1,8 @@
+/**
+ * This sets up both the product's information and the user's information in the checkout, and then afterwards if the buy button is pressed, then it will save the bought product to the user's
+ * purchase history, it will update the seller's product's quantity, and it will update the product in the list of all products accordingly.
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
   let purchasedProducts = JSON.parse(
     localStorage.getItem("purchasedProducts") ?? "[]"
@@ -44,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
     JSON.parse(localStorage.getItem("itemInCart")).quantity
   );
 
-  // for some reason this doesnt work? you can replace it with any other attribute but city refuses to work
   const shipping_city =
     localStorage.getItem("loggeduser") != null
       ? JSON.parse(localStorage.getItem("loggeduser")).address.city
@@ -63,8 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const total_price = product_price + shipping_price;
 
   productName.innerText = product_name;
-  informationProductPrice.innerText = product_price;
-  productAttribute.innerText = attribute;
+  informationProductPrice.innerText = "Price: " + product_price;
+  productAttribute.innerText = "Category: " + attribute;
 
   customer_name.innerText = shipping_full_name;
   customer_address.innerText = shipping_address;
@@ -88,7 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
       index = i;
       const itemQuantityText = document.querySelector("#in-stock");
       itemQuantityText.textContent =
-        products[i].quantity > 0 ? "In Stock" : "Out of stock";
+        products[i].quantity > 0
+          ? products[i].quantity + " left in the stock"
+          : "Out of stock";
 
       break;
     }
@@ -139,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "purchasedProducts",
         JSON.stringify(purchasedProducts)
       );
-      localStorage.removeItem("itemInCart")
+      localStorage.removeItem("itemInCart");
       const popUpWindow = document.querySelector("#model");
       popUpWindow.classList.add("open");
       const okButton = document.querySelector("#okButton");
@@ -152,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "There's not enough items in stock.";
     } else {
       document.querySelector("#prod-balance-error").textContent =
-        "Please enter a valid price.";
+        "Insufficient balance";
     }
   });
 });

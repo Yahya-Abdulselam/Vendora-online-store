@@ -1,6 +1,10 @@
 import Product from "./Product.js";
 import Seller from "./seller.js";
 
+/**
+ * this gets the information about the product and then does a validity check. If its not valid, it resets everything. Otherwise, it saves the product's information, pushing it to the seller's
+ * products and to the available products on the site.
+ */
 document.addEventListener("DOMContentLoaded", async () => {
   document.querySelector("#prod-name").value = "";
   document.querySelector("#prod-price").value = "";
@@ -27,12 +31,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     if (img.size > sizeLimit) {
-      document.querySelector("prod-image-error").textContent =
+      document.querySelector("#prod-image-error").textContent =
         "Image size must not exceed 1.6MB.";
 
       return;
     } else {
-      document.querySelector("prod-image-error").textContent = "";
+      document.querySelector("#prod-image-error").textContent = "";
 
       const imgShowed = document.querySelector("#show-prod");
       imgShowed.src = URL.createObjectURL(img);
