@@ -479,6 +479,9 @@ td {
   content: "item : ";
   color: var(--butterfly-bush-500);
 }
+.itemssold:hover {
+  opacity: 0.7;
+}
 .status::before {
   content: "status : ";
   color: var(--butterfly-bush-500);
@@ -507,8 +510,13 @@ td {
   content: "quantity purchased : ";
   color: var(--butterfly-bush-500);
 }
+
+.quantity-purchased::after {
+  content: " in this transaction";
+  color: var(--picton-blue-300);
+}
 .quantity-sold::after {
-  content: " in total from  this item";
+  content: " in total from this item";
   color: var(--picton-blue-300);
 }
 .quantity-left::before {
