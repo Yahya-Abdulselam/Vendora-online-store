@@ -28,6 +28,14 @@ export default class Seller extends User {
     }
     product.sellerId = this.id;
   }
+  decrementProduct(product, quantitySold) {
+    const existingProduct = this.#_products.find(p => p.name === product.name);
+    if (existingProduct && existingProduct.quantity >= quantitySold) {
+      existingProduct.quantity.decrementQ(quantitySold);
+    } else {
+     
+      console.error("Product not found or insufficient quantity");
+    }};
 
   removeProduct(product) {
     const index = this.#_products.findIndex((p) => p.name === product.name);
