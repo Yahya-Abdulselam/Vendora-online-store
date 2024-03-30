@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // buyButton.addEventListener("click", handleBuyButtonClick);
   };
 
-
   if (localStorage.getItem("loggeduser")) {
     var hidden1 = document.getElementById("hidden1");
     var hidden2 = document.getElementById("hidden2");
@@ -151,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
     }
   });
+
   search.addEventListener("input", () => {
     const value = search.value.trim().toLowerCase();
     if (value) {

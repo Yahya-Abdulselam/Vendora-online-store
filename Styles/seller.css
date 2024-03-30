@@ -291,6 +291,9 @@ header nav .links a:hover:after {
 ul.links a p {
   display: none;
 }
+header button:hover {
+  scale: 1.1;
+}
 #upload-product img {
   width: 100%;
   height: 100%;
@@ -463,6 +466,7 @@ td {
 }
 td {
   font-size: 0.9rem;
+  vertical-align: middle;
 }
 .price::before {
   content: "price : ";
@@ -533,24 +537,25 @@ td {
 
 .addDiv {
   padding: 0.2rem;
+  font-size: 1rem;
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  gap: 0.1rem;
+  gap: 0.2rem;
 }
 .addDiv input {
-  width: 3rem;
+  width: 2rem;
   height: 2rem;
 }
 .addDiv::after {
-  content: " items";
+  content: "items";
   color: var(--picton-blue-300);
 }
 
 .add-button {
   width: 40%;
-  height: 3rem;
+  height: 2rem;
 }
 .open-popup {
   cursor: pointer;
@@ -646,6 +651,14 @@ footer #socials a:hover {
 /*-------------------------*/
 /*big screen sizes */
 @media screen and (min-width: 750px) {
+  .addDiv input {
+    width: 3rem;
+    height: 2rem;
+  }
+  .add-button {
+    width: 40%;
+    height: 3rem;
+  }
   /*make slogan visible */
   #slogan {
     display: inline;
@@ -701,7 +714,8 @@ footer #socials a:hover {
     justify-self: stretch;
     grid-row: 1; /*change size of nav bar*/
   }
-  td {
+  td,
+  .addDiv {
     font-size: 1.5rem;
   }
   .itemname {
