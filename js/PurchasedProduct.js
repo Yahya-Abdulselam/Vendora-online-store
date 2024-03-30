@@ -4,7 +4,7 @@ export default class PurchasedProduct extends Product {
   _buyer;
 
   _date;
-
+puchasedQuantity;
   constructor(
     name,
     price,
@@ -14,12 +14,13 @@ export default class PurchasedProduct extends Product {
     category,
     sellerId,
     date,
-    buyer
+    buyer,
   ) {
     super(name, price, quantity, picture, details, category, sellerId);
 
     this.date = date;
     this.buyer = buyer;
+
   }
   get sellerId() {
     return this.sellerId;
@@ -49,7 +50,7 @@ export default class PurchasedProduct extends Product {
   toJSON() {
     return {
       ...super.toJSON(),
-     
+  
       buyer: this.buyer,
       date: this.date,
     };

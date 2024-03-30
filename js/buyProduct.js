@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (product) {
                     product.quantity = quantityText[i].textContent
+                  
                     localStorage.setItem("itemInCart", JSON.stringify(product))
                     window.location.href = "../pages/checkout/checkout-address.html"
                 } else {

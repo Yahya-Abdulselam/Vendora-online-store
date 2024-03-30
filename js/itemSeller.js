@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const productDiv = document.createElement("div");
     productDiv.classList.add("itemssold");
     const image = document.createElement("img");
-    image.classList.add("open-up");
+    image.classList.add("open-popup");
 
     const name = document.createElement("h3");
     name.classList.add("itemname");
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     closeimgDark.srcset = "media/icons/darktheme-icons/square-rounded-x.svg";
     closeimgDark.media = "(prefers-color-scheme: dark)";
     const closeImg = document.createElement("img");
-    closeImg.src = "media/icons/darktheme-icons/square-rounded-x.svg";
+    closeImg.src = "media/icons/square-rounded-x.svg";
     const buyerLi = document.createElement("li");
     buyerLi.classList.add("buyer");
     const priceLi = document.createElement("li");
@@ -101,30 +101,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const quantityPurchasedLi = document.createElement("li");
     quantityPurchasedLi.classList.add("quantity-purchased");
 
-    list.appendChild(closeButton);
+    list.appendChild(closeimage);
     list.appendChild(buyerLi);
     list.appendChild(priceLi);
     list.appendChild(quantityPurchasedLi);
     list.appendChild(quantitySoldLi);
     list.appendChild(quantityLeftLi);
-    dialog.appendChild(list);
-
+    popup.appendChild(list);
+    image.addEventListener("click", () => {
+      if (popup) {
+        popup.showModal();
+      }
+    });
+    closeimage.addEventListener("click", () => {
+      popup.close();
+    });
     productDiv.appendChild(image);
     productDiv.appendChild(name);
-    productDiv.appendChild(dialog);
+    productDiv.appendChild(popup);
 
+    image.src = product.picture;
+
+    const q = purchasedProducts
+      .filter((p) => p.name === product.name && seller.id === p.sellerId)
+      .reduce((ac, p) => Number(p.quantity) + ac, 0);
+    console.log(q);
+    const mainProduct = products.find(
+      (p) => p.name === product.name && seller.id === p.sellerId
+    );
     name.textContent = product.name;
     buyerLi.textContent = product.buyer.username;
-    quantityPurchasedLi.textContent = product.quantityPurchased;
+    quantityPurchasedLi.textContent = product.quantity;
     priceLi.textContent = product.price;
-    quantityLeftLi.textContent = product.quantity;
-    image.src = product.image;
-    quantitySoldLi.textContent = (product) => {
-      const tempProducts = purchasedProducts.filter(
-        (p) => p.name === product.name
-      );
-      return tempProducts.length;
-    };
+
+    quantityLeftLi.textContent = mainProduct.quantity;
+    quantitySoldLi.textContent = q;
+
     return productDiv;
   };
   const renderProductsHistory = () => {
@@ -132,8 +144,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     productsDiv.replaceChildren();
     const productsHistory = purchasedProducts.filter((item) => {
-      item.sellerId === seller.id;
+      {
+        return item.sellerId === seller.id;
+      }
     });
+    console.log(productsHistory);
     productsHistory.forEach((item) =>
       productsDiv.appendChild(renderProductHistory(item))
     );
