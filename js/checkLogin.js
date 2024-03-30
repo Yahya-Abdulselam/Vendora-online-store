@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector("#account-button").addEventListener("click", () => {
     if (localStorage.getItem("loggeduser") != null) {
-      window.location.href = "/pages/checkout.html";
+      window.location.href = "/pages/purchased.html";
     } else {
       window.location.href = "/pages/login.html";
     }
