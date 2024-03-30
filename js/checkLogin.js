@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#cart-button").addEventListener("click", () => {
     if (localStorage.getItem("loggeduser") != null) {
-      window.location.href = "/pages/checkout/checkout.html";
+      window.location.href = "checkout.html";
     } else {
-      window.location.href = "./login.html";
+      window.location.href = "login.html";
     }
   });
 
   document.querySelector("#account-button").addEventListener("click", () => {
     if (localStorage.getItem("loggeduser") != null) {
-      window.location.href = "/pages/checkout/checkout.html";
+      window.location.href = "checkout.html";
     } else {
-      window.location.href = "./login.html";
+      window.location.href = "login.html";
     }
   });
 
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     let purchaseHistoryLink = document.createElement("a");
-    purchaseHistoryLink.setAttribute("href", "./purchased.html");
+    purchaseHistoryLink.setAttribute("href", "purchased.html");
     purchaseHistoryLink.innerHTML = `Purchase History`;
     document.querySelector("#account-dropdown").append(balanceAccount);
     document.querySelector("#account-dropdown").append(purchaseHistoryLink);
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (localStorage.getItem("loggedseller") != null) {
     let accountDetailsLink = document.createElement("a");
-    accountDetailsLink.setAttribute("href", "../main.html");
+    accountDetailsLink.setAttribute("href", "main.html");
     accountDetailsLink.innerHTML = `Account Details`;
     document.querySelector("#account-dropdown").append(accountDetailsLink);
   }

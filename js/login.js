@@ -5,7 +5,7 @@ function handleLogin() {
   var u = document.getElementById("username");
   var l = localStorage.getItem("destinationAfterLogin");
 
-  fetch("/users.json")
+  fetch("../data/users.json")
     .then((response) => response.json())
     .then((data) => {
       var user = data.find(
@@ -16,7 +16,7 @@ function handleLogin() {
         if (!l) {
           window.location.href = "main.html";
         } else {
-          window.location.href = "pages/checkout/checkout-address.html";
+          window.location.href = "checkout-address.html";
         }
       } else {
         alert("Invalid username or password. Please try again.");
@@ -52,12 +52,12 @@ function toggleIcon() {
   if (password.type === "password") {
     password.type = "text";
     password.focus();
-    eyeicon.src = "media/icons/eye-open.jpg";
+    eyeicon.src = "/media/icons/eye-open.jpg";
     eyeicon.alt = "eye-open";
   } else {
     password.type = "password";
     password.focus();
-    eyeicon.src = "media/icons/eye-close.jpg";
+    eyeicon.src = "/media/icons/eye-close.jpg";
     eyeicon.alt = "eye-close";
   }
 }

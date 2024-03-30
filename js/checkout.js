@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
           "purchasedProducts",
           JSON.stringify(purchasedProducts)
         );
-        location.replace("../../main.html");
+        location.replace("main.html");
       })
 
       

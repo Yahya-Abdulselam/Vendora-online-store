@@ -83,10 +83,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeimage = document.createElement("picture");
     closeimage.classList.add("close-popup");
     const closeimgDark = document.createElement("source");
-    closeimgDark.srcset = "media/icons/darktheme-icons/square-rounded-x.svg";
+    closeimgDark.srcset = "/media/icons/darktheme-icons/square-rounded-x.svg";
     closeimgDark.media = "(prefers-color-scheme: dark)";
     const closeImg = document.createElement("img");
-    closeImg.src = "media/icons/square-rounded-x.svg";
+    closeImg.src = "/media/icons/square-rounded-x.svg";
     const buyerLi = document.createElement("li");
     buyerLi.classList.add("buyer");
     const priceLi = document.createElement("li");
@@ -192,10 +192,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function handleUpload() {
   if (!localStorage.getItem("loggedseller")) {
-    localStorage.setItem("uploadDestination", "../upload-product.html");
-    window.location.href = "../sellerlogin.html";
+    localStorage.setItem("uploadDestination", "upload-product.html");
+    window.location.href = "sellerlogin.html";
   } else {
-    window.location.href = "../upload-product.html";
+    window.location.href = "upload-product.html";
   }
 }
 

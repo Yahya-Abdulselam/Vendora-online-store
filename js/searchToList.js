@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchValue = searchMainPage.value.trim();
     if (searchValue) {
       const p = encodeURIComponent(searchValue);
-      window.location.href = `/listItem.html?search=` + p;
+      window.location.href = `listItem.html?search=` + p;
     }
   });
 
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchValue = searchMainPage.value.trim();
     if (searchValue) {
       const p = encodeURIComponent(searchValue);
-      window.location.href = `/listItem.html?search=` + p;
+      window.location.href = `listItem.html?search=` + p;
     }
   });
 });
