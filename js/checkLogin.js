@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#cart-button").addEventListener("click", () => {
-    if (localStorage.getItem("loggeduser") != null) {
-      if (localStorage.getItem("itemInCart") != null){
+    if (localStorage.getItem("loggeduser") !== null) {
+      if (localStorage.getItem("itemInCart") !== null){
         window.location.href = "checkout.html";
       }
     } else {
