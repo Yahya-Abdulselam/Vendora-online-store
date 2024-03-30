@@ -4,9 +4,9 @@ import Product from "./Product.js";
 export default class Seller extends User {
   #_products;
 
-  constructor(username, password,id) {
-    super(username, password,id);
-    this.products = [];
+  constructor(username, password, id, products = null) {
+    super(username, password, id);
+    this.products = products ?? [];
   }
 
   get products() {
@@ -29,13 +29,15 @@ export default class Seller extends User {
     product.sellerId = this.id;
   }
   decrementProduct(product, quantitySold) {
-    const existingProduct = this.#_products.find(p => p.name === product.name);
+    const existingProduct = this.#_products.find(
+      (p) => p.name === product.name
+    );
     if (existingProduct && existingProduct.quantity >= quantitySold) {
       existingProduct.quantity.decrementQ(quantitySold);
     } else {
-     
       console.error("Product not found or insufficient quantity");
-    }};
+    }
+  }
 
   removeProduct(product) {
     const index = this.#_products.findIndex((p) => p.name === product.name);
@@ -52,7 +54,12 @@ export default class Seller extends User {
   }
 
   static fromJSON(object) {
-    const seller = new Seller(object.username, object.password,object.id);
+    const seller = new Seller(
+      object.username,
+      object.password,
+      object.id,
+      object.products
+    );
     if (Array.isArray(object.products)) {
       seller.products = object.products.map((prod) => Product.fromJSON(prod));
     }
