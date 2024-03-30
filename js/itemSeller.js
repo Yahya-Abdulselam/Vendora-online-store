@@ -19,19 +19,44 @@ document.addEventListener("DOMContentLoaded", () => {
     price.classList.add("price");
 
     const row3 = document.createElement("tr");
+    const addDiv = document.createElement("div");
     const addButton = document.createElement("button");
-    addButton.textContent = "ADD 1";
+    addButton.classList.add("add-button");
+    addButton.textContent = "ADD";
+    const qToAdd = document.createElement("input");
+    addDiv.classList.add("addDiv");
+    qToAdd.type = "number";
+    qToAdd.value = "1";
+    qToAdd.min = "1";
+    addDiv.appendChild(addButton);
+    addDiv.appendChild(qToAdd);
+    const row4 = document.createElement("tr");
 
     const status = document.createElement("td");
     status.classList.add("status");
+
+    addButton.addEventListener("click", () => {
+      const qToAddValue = Number(qToAdd.value);
+      if (qToAddValue && qToAddValue > 0) {
+        updateProd(product, qToAdd.value);
+        updateProdInSeller(product, qToAdd.value);
+        console.log(qToAddValue);
+        console.log(seller);
+      }
+
+      renderProductsHistory();
+      renderProductsSale();
+    });
 
     productDiv.appendChild(image);
     table.appendChild(row1);
     table.appendChild(row2);
     table.appendChild(row3);
+    table.appendChild(row4);
     row1.appendChild(name);
     row2.appendChild(price);
     row3.appendChild(status);
+    row4.appendChild(addDiv);
 
     productDiv.appendChild(table);
 
@@ -167,6 +192,21 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   renderProductsSale();
   renderProductsHistory();
+  function updateProd(prod, q) {
+    const qValue = Number(q);
+    const product = products.find(
+      (p) => p.name === prod.name && p.sellerId === prod.sellerId
+    );
+
+    product.quantity = product.quantity + qValue;
+    localStorage.setItem("products", JSON.stringify(products));
+  }
+  function updateProdInSeller(prod, q) {
+    const qValue = Number(q);
+    const product = seller.products.find((p) => p.name === prod.name);
+    product.quantity = product.quantity + qValue;
+    localStorage.setItem("loggedseller", JSON.stringify(seller));
+  }
 });
 
 document.addEventListener("DOMContentLoaded", () => {

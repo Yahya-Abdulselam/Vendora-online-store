@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             "zip_code": customerZipCode.value,
             "address_line": customerAddressLine.value,
             "phone_number": customerMobile.value,
-            "City": customerCity.value
+            "city": customerCity.value
         }
 
         let user = JSON.parse(localStorage.getItem("loggeduser"))
