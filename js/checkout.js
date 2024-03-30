@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // for some reason this doesnt work? you can replace it with any other attribute but city refuses to work
   const shipping_city =
     localStorage.getItem("loggeduser") != null
-      ? JSON.parse(localStorage.getItem("loggeduser")).address.City
+      ? JSON.parse(localStorage.getItem("loggeduser")).address.city
       : productName.innerText;
 
   const customer_balance =
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "purchasedProducts",
         JSON.stringify(purchasedProducts)
       );
-      localStorage.setItem("itemInCart", null)
+      localStorage.setItem("itemInCart", null);
       const popUpWindow = document.querySelector("#model");
       popUpWindow.classList.add("open");
       const okButton = document.querySelector("#okButton");
