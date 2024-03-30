@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     const shipping_full_name = JSON.parse(localStorage.getItem("loggeduser")).address.full_name;
     const shipping_address = JSON.parse(localStorage.getItem("loggeduser")).address.address_line;
-    const shipping_city = JSON.parse(localStorage.getItem("loggeduser")).address.City;
+    const shipping_city = JSON.parse(localStorage.getItem("loggeduser")).address.city;
     const shipping_zipcode = JSON.parse(localStorage.getItem("loggeduser")).address.zip_code;
     const shipping_mobile = JSON.parse(localStorage.getItem("loggeduser")).address.phone_number;
     const itemQuantity = JSON.parse(localStorage.getItem("itemInCart")).quantity;
