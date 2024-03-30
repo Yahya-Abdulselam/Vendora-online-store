@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const quantityP = document.createElement("p");
     quantityP.className = "quantity";
-    quantityP.textContent = "0";
+    quantityP.textContent = "1";
     cartAddDiv.appendChild(quantityP);
 
     const plusPicture = document.createElement("picture");
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     minusPicture.addEventListener("click", () => {
       const q = Number(quantityP.textContent);
-      if (q > 0) {
+      if (q > 1) {
         quantityP.textContent = (q - 1).toString();
       }
     });
