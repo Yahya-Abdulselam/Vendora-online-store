@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const search = document.querySelector("#sv");
   let purchasedProducts = JSON.parse(
     localStorage.getItem("purchasedProducts") ?? "[]"
   );
@@ -44,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return productLi;
   };
+
   const renderProductsPurchased = () => {
     const productLi = document.querySelector("#list-items");
 
@@ -55,5 +57,26 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .forEach((p) => productLi.appendChild(renderProductPurchased(p)));
   };
+
+  const renderProductsPurchasedFiltered = (filter) => {
+    const productLi = document.querySelector("#list-items");
+    productLi.replaceChildren();
+
+    purchasedProducts
+      .filter((p) => p.buyer.id === buyer.id)
+      .filter(
+        (product) =>
+          product.name.toLowerCase().includes(filter.toLowerCase()) ||
+          product.date?.includes(filter) ||
+          product.category?.includes(filter)
+      )
+      .forEach((p) => productLi.appendChild(renderProductPurchased(p)));
+  };
+
+  search.addEventListener("input", () => {
+    const searchText = search.value;
+    renderProductsPurchasedFiltered(searchText);
+  });
+
   renderProductsPurchased();
 });
