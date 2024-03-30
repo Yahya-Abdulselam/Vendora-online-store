@@ -14,16 +14,10 @@ export default class Product {
     this.picture = picture;
     this.details = details;
     this.category = category;
-    this.#_sellerId = null;
+
   }
 
-  get sellerId() {
-    return this.#_sellerId;
-  }
 
-  set sellerId(id) {
-    this.#_sellerId = id;
-  }
 
   get name() {
     return this.#_name;
@@ -100,7 +94,7 @@ export default class Product {
       picture: this.picture,
       details: this.details,
       category: this.category,
-      sellerId: this.sellerId,
+
     };
   }
 
@@ -113,7 +107,7 @@ export default class Product {
       object.details,
       object.category
     );
-    product.sellerId = object.sellerId;
+
     return product;
   }
 }

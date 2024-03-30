@@ -21,7 +21,9 @@ export default class PurchasedProduct extends Product {
     this.date = date;
     this.buyer = buyer;
   }
-
+  get sellerId() {
+    return this.sellerId;
+  }
   set sellerId(id) {
     this.sellerId = id;
   }
@@ -47,6 +49,7 @@ export default class PurchasedProduct extends Product {
   toJSON() {
     return {
       ...super.toJSON(),
+      sellerId: this.sellerId,
       buyer: this.buyer,
       date: this.date,
     };
