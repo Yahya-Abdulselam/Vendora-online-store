@@ -5,7 +5,7 @@ function handleLogin() {
   var u = document.getElementById("username");
   var l = localStorage.getItem("uploadDestination");
 
-  fetch("data/seller.json")
+  fetch("../data/seller.json")
     .then((response) => response.json())
     .then((data) => {
       var user = data.find(
@@ -16,7 +16,7 @@ function handleLogin() {
         localStorage.setItem("loggedseller", JSON.stringify(user));
 
         if (!l) {
-          window.location.href = "pages/seller.html";
+          window.location.href = "seller.html";
         } else {
           window.location.href = "upload-product.html";
         }
@@ -54,12 +54,12 @@ function toggleIcon() {
   if (password.type === "password") {
     password.type = "text";
     password.focus();
-    eyeicon.src = "media/icons/eye-open.jpg";
+    eyeicon.src = "/media/icons/eye-open.jpg";
     eyeicon.alt = "eye-open";
   } else {
     password.type = "password";
     password.focus();
-    eyeicon.src = "media/icons/eye-close.jpg";
+    eyeicon.src = "/media/icons/eye-close.jpg";
     eyeicon.alt = "eye-close";
   }
 }

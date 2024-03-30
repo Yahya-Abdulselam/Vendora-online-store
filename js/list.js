@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const clearCategoryOnNavigation = () => {
     const path = window.location.pathname;
-    if (path !== "/listItem.html") {
+    if (path !== "listItem.html") {
       localStorage.removeItem("selectedCategory");
     }
 
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const minusPicture = document.createElement("picture");
     minusPicture.className = "minus";
     const sourceMinus = document.createElement("source");
-    sourceMinus.srcset = "media/icons/darktheme-icons/square-minus(1).svg";
+    sourceMinus.srcset = "/media/icons/darktheme-icons/square-minus(1).svg";
     sourceMinus.media = "(prefers-color-scheme: dark)";
     const imgMinus = document.createElement("img");
     imgMinus.src = "/media/icons/square-minus.svg";
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const plusPicture = document.createElement("picture");
     plusPicture.className = "plus";
     const sourcePlus = document.createElement("source");
-    sourcePlus.srcset = "media/icons/darktheme-icons/square-plus(1).svg";
+    sourcePlus.srcset = "/media/icons/darktheme-icons/square-plus(1).svg";
     sourcePlus.media = "(prefers-color-scheme: dark)";
     const imgPlus = document.createElement("img");
     imgPlus.src = "/media/icons/square-plus.svg";

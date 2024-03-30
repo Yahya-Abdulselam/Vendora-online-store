@@ -1,4 +1,4 @@
-import Product from "../js/Product.js";
+import Product from "./Product.js";
 import Seller from "./seller.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (product) {
         form.reset();
         document.querySelector("#prod-image").value = "";
-        window.location.href = "pages/seller.html"; //when finish uploading go back to seller page
+        window.location.href = "seller.html"; //when finish uploading go back to seller page
       }
 
       //toBase method was copied from google
