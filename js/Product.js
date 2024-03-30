@@ -110,7 +110,7 @@ export default class Product {
       object.quantity,
       object.picture,
       object.details,
-      object.category
+      object.category,object.sellerId
     );
 
     return product;
