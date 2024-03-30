@@ -4,8 +4,8 @@ import Product from "./Product.js";
 export default class Seller extends User {
   #_products;
 
-  constructor(username, password) {
-    super(username, password);
+  constructor(username, password,id) {
+    super(username, password,id);
     this.products = [];
   }
 
@@ -44,7 +44,7 @@ export default class Seller extends User {
   }
 
   static fromJSON(object) {
-    const seller = new Seller(object.username, object.password);
+    const seller = new Seller(object.username, object.password,object.id);
     if (Array.isArray(object.products)) {
       seller.products = object.products.map((prod) => Product.fromJSON(prod));
     }

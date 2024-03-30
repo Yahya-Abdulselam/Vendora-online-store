@@ -5,11 +5,12 @@ export default class Customer extends User {
   address;
   balance;
   purchaseHistory = [];
+  balance;
 
   constructor(username, password) {
     super(username, password);
 
-    this.balance = 1000;
+   
   }
   set address(address) {
     this.address = address;

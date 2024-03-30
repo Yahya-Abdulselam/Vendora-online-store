@@ -7,17 +7,22 @@ export default class Product {
   #_category;
   #_sellerId;
 
-  constructor(name, price, quantity, picture, details, category) {
+  constructor(name, price, quantity, picture, details, category, sellerId) {
     this.name = name;
     this.price = Number(price);
     this.quantity = Number(quantity);
     this.picture = picture;
     this.details = details;
     this.category = category;
-
+    this.sellerId = sellerId;
   }
 
-
+  get sellerId() {
+    return this.#_sellerId;
+  }
+  set sellerId(id) {
+    this.#_sellerId = id;
+  }
 
   get name() {
     return this.#_name;
@@ -81,7 +86,7 @@ export default class Product {
     }
   }
   decrementQ(q) {
-    if (this.#_quantity-q>= 0) {
+    if (this.#_quantity - q >= 0) {
       this.#_quantity -= q;
     }
   }
@@ -94,7 +99,7 @@ export default class Product {
       picture: this.picture,
       details: this.details,
       category: this.category,
-
+      sellerId: this.sellerId,
     };
   }
 

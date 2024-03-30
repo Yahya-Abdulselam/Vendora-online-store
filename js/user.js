@@ -3,13 +3,16 @@ export default class User {
   #id;
   #username;
   #password;
-  constructor(username, password) {
+  constructor(username, password, id = null) {
     this.#username = username;
     this.#password = password;
-    this.#id = this.#generateId();
+    this.#id = id || this.#generateId();
   }
   get id() {
     return this.#id;
+  }
+  set id(id) {
+    this.#id = id;
   }
 
   get password() {

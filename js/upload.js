@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.querySelector("#prod-image").value = "";
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
   let sellerParsed = JSON.parse(localStorage.getItem("loggedseller")); //when the user log in we store his data
-  let seller = Seller.fromJSON(sellerParsed);
+  let seller = Seller.fromJSON(sellerParsed,sellerParsed.id);
+ console.log(sellerParsed.id);
+ console.log(seller.id);
 
   const sizeLimit = 1.6 * 1024 * 1024;
 
@@ -97,17 +99,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         pQuantity,
         img,
         pDetails,
-        pCategory
+        pCategory,
+        seller.id
       );
-      const found = products.find((p) => (p.name ===product.name));
+      const found = products.find((p) => p.name === product.name);
       if (found) {
         found.quantity += 1;
       } else {
         products.push(product);
-  
       }
       console.log(products);
-   
+
       // sellerParsed.products.push(product);
       seller.addProduct(product, pQuantity);
       localStorage.setItem("products", JSON.stringify(products));

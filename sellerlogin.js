@@ -11,8 +11,10 @@ function handleLogin() {
       var user = data.find(
         (user) => user.username === username && user.password === password
       );
+     
       if (user) {
         localStorage.setItem("loggedseller", JSON.stringify(user));
+
         if (!l) {
           window.location.href = "pages/seller.html";
         } else {
