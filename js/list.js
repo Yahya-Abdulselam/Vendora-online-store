@@ -7,18 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     hidden2.classList.remove("hidden");
   }
 
-  //when leaving the listing page clear category preference
-  const clearCategoryOnNavigation = () => {
-    console.log("asa");
-    const path = window.location.pathname;
-    if (path === "/pages/listItem.html") {
-      localStorage.removeItem("selectedCategory");
-    }
-  };
-  window.addEventListener("beforeunload", clearCategoryOnNavigation);
-  window.addEventListener("popstate", clearCategoryOnNavigation);
-
-
   let search = document.querySelector("#sv");
   search.value = "";
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
@@ -31,6 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
   if (search) {
     search.focus();
   }
+  //when leaving the listing page clear category preference
+  const clearCategoryOnNavigation = () => {
+    console.log("asa");
+    const path = window.location.pathname;
+    if (path !== "/pages/listItem.html" || search.value) {
+      localStorage.removeItem("selectedCategory");
+    }
+  };
+  window.addEventListener("beforeunload", clearCategoryOnNavigation);
+  window.addEventListener("popstate", clearCategoryOnNavigation);
 
   //if the page load with search value then filter
   if (search.value) {
