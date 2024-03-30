@@ -1,3 +1,6 @@
+/**
+ * sets up the user history
+ */
 document.addEventListener("DOMContentLoaded", () => {
   const user = JSON.parse(localStorage.getItem("loggeduser"));
   const listHolder = document.querySelector("#list-items");

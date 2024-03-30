@@ -1,3 +1,8 @@
+/**
+ * when the page is loaded, it takes the user's information and sets up the information in the input fields, and the user can change it if they wish. If the user presses the button to save
+ * it would move on to check out and saves any changed to the data thats been given.
+ */
+
 document.addEventListener("DOMContentLoaded", () =>{
     const customerName = document.getElementById("full_name");
     const customerAddressLine = document.getElementById("address-line");

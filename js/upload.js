@@ -1,6 +1,10 @@
 import Product from "./Product.js";
 import Seller from "./seller.js";
 
+/**
+ * this gets the information about the product and then does a validity check. If its not valid, it resets everything. Otherwise, it saves the product's information, pushing it to the seller's
+ * products and to the available products on the site.
+ */
 document.addEventListener("DOMContentLoaded", async () => {
   document.querySelector("#prod-name").value = "";
   document.querySelector("#prod-price").value = "";

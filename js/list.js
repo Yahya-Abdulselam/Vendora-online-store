@@ -4,8 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (path !== "/pages/listItem.html") {
       localStorage.removeItem("selectedCategory");
     }
-    // const buyButton = document.querySelectorAll(".buy");
-    // buyButton.addEventListener("click", handleBuyButtonClick);
   };
 
   if (localStorage.getItem("loggeduser")) {
