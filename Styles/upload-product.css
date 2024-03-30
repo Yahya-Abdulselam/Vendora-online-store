@@ -259,7 +259,6 @@ main {
     height: 2rem;
     border-radius: 1rem;
     border: none;
-    background-color: var(--picton-blue-300);
 
     font-weight: bold;
   }
@@ -320,7 +319,7 @@ input[type="text"] {
     height: 2rem;
     border-radius: 1rem;
     border: none;
-    background-color: var(--picton-blue-300);
+    background-color: var(--picton-blue-500);
 
     font-weight: bold;
   }
@@ -343,6 +342,35 @@ input[type="text"] {
   color: red;
   font-size: 0.8rem;
   margin-left: 5px;
+}
+button {
+  background-color: var(--picton-blue-500);
+
+  transition: all 0.5s ease;
+  box-shadow: none;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+
+  border: transparent;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+button:hover,
+.select-image:hover {
+  /*a transition on button when hovering to remove background color*/
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+  border: solid var(--picton-blue-500);
+  scale: 1.1;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
 }
 
 @media only screen and (min-width: 600px) {
