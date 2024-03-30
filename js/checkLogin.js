@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  /**
+   * Checks if user is logged in, if they are, and the item has a cart, it takes them to checkout. Otherwise it just takes them to login if the cart is pressed.
+   */
   document.querySelector("#cart-button").addEventListener("click", () => {
     if (localStorage.getItem("loggeduser") !== null) {
       if (localStorage.getItem("itemInCart") !== null){
@@ -8,7 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "/pages/login.html";
     }
   });
-
+  /**
+   * Checks if user is logged in, if they are, takes them to purchase history if the account icon is pressed.
+   */
   document.querySelector("#account-button").addEventListener("click", () => {
     if (localStorage.getItem("loggeduser") != null) {
       window.location.href = "/pages/purchased.html";
@@ -17,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // if user is logged in as either seller or customer, it sets up the drop down for the user icon.
   if (localStorage.getItem("loggeduser") != null) {
     let balanceAccount = document.createElement("div");
     balanceAccount.setAttribute("id", "balance-div");

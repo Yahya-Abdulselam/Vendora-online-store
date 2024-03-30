@@ -317,7 +317,7 @@ header nav .links a:hover:after {
 
   a {
     color: black;
-    font-size: 50%;
+    font-size: 0.75rem;
   }
 
   p#balance{
@@ -819,7 +819,6 @@ of everything
   h3 {
     line-height: 1.2rem;
   }
-
   #account-dropdown {
     width: 5rem;
     left: -3rem;
@@ -833,7 +832,6 @@ of everything
       font-size: 0.75rem;
     }
   }
-  
 }
 /*small sizes before reaching 370px*/
 @media screen and (max-width: 370px) {
