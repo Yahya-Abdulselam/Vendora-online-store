@@ -10,16 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /** it checks up on all of the buttons if they're pressed or not, if they are then it would save the item in cart and take the user to the cart. But if the user isn't logged in when the button
    * is pressed it will save the item, take the user to login to login, and then take them back.
-  */
+   */
   for (let i = 0; i < buyButtons.length; i++) {
     buyButtons[i].addEventListener("click", async () => {
-
       // check if user is logged in
       if (localStorage.getItem("loggeduser") != null) {
         const product = JSON.parse(localStorage.getItem("products")).find(
           (product) => product.name + product.sellerId === buyButtons[i].value
         );
-        
+
         // put product in cart and then move to the checkout.
         if (product) {
           product.quantity = quantityText[i].textContent;

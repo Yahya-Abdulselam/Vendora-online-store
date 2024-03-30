@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const path = window.location.pathname;
     if (path !== "/pages/listItem.html") {
       localStorage.removeItem("selectedCategory");
+    } else {
     }
   };
 
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const searchQuery = urlParams.get("search")?.toLowerCase() || "";
 
-  let searchProds = [];//the filtered list we will use to show items
+  let searchProds = []; //the filtered list we will use to show items
 
   search.value = searchQuery;
   if (search) {
@@ -132,6 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     buyButton.setAttribute("class", "buy buyButton");
     buyButton.setAttribute("value", product.name + product.sellerId);
     buyButton.textContent = "Buy now";
+    buyButton.addEventListener("click", ()=>{handleBuy(buyButton, quantityP)});
     infoDiv.appendChild(buyButton);
 
     return itemDiv;
@@ -143,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (products.length && category !== "any") {
       if (search?.value) {
         searchProds
-          .filter((p) => p.quantity > 0 && p.category === category)//if category not any filter it
+          .filter((p) => p.quantity > 0 && p.category === category) //if category not any filter it
           .forEach((p) => {
             container.appendChild(renderProduct(p));
           });
@@ -166,7 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  search.addEventListener("input", () => {//if there is a search filter an item based on category name and details
+  search.addEventListener("input", () => {
+    //if there is a search filter an item based on category name and details
     const value = search.value.trim().toLowerCase();
     if (value) {
       if (searchProds.length) {
@@ -186,6 +189,36 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   renderProducts();
+
+  function handleBuy(buyButton, quantityP) {
+    // check if user is logged in
+    if (localStorage.getItem("loggeduser") != null) {
+      const product = JSON.parse(localStorage.getItem("products")).find(
+        (product) => product.name + product.sellerId === buyButton.value
+      );
+
+      // put product in cart and then move to the checkout.
+      if (product) {
+        product.quantity = quantityP.textContent;
+
+        localStorage.setItem("itemInCart", JSON.stringify(product));
+        window.location.href = "/pages/checkout-address.html";
+      } else {
+        alert("Product doesn't exist!");
+      }
+    } else {
+      const product = JSON.parse(localStorage.getItem("products")).find(
+        (product) => product.name + product.sellerId === buyButton.value
+      );
+
+      // save product in cart, and move to login
+      product.quantity = quantityP.textContent;
+      localStorage.setItem("itemInCart", JSON.stringify(product));
+      window.location.href = "/pages/checkout-address.html";
+      localStorage.setItem("destinationAfterLogin", "/pages/checkout.html");
+      window.location.href = "/pages/login.html";
+    }
+  }
 });
 
 // if (localStorage.getItem("loggeduser")) {
