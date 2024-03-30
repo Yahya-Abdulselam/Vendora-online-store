@@ -118,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
     buyButton.setAttribute("class", "buy buyButton");
     buyButton.setAttribute("value", product.name + product.sellerId);
     buyButton.textContent = "Buy now";
-    buyButton.addEventListener("click", handleBuyButtonClick);
     infoDiv.appendChild(buyButton);
 
     return itemDiv;
@@ -182,13 +181,3 @@ document.addEventListener("DOMContentLoaded", () => {
 //   hidden1.classList.add("hidden");
 //   hidden2.classList.remove("hidden");
 // }
-
-function handleBuyButtonClick() {
-  console.log("Buy Button Clicked");
-  if (!localStorage.getItem("loggeduser")) {
-    localStorage.setItem("destinationAfterLogin", "checkout.html");
-    window.location.href = "login.html";
-  } else {
-    window.location.href = "pages/checkout/checkout-address.html";
-  }
-}

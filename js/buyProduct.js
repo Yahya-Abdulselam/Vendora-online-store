@@ -20,11 +20,18 @@ document.addEventListener("DOMContentLoaded", () => {
                   
                     localStorage.setItem("itemInCart", JSON.stringify(product))
                     window.location.href = "../pages/checkout/checkout-address.html"
-                } else {
-                    alert("product doesn't exist")
-                } 
+                } else{
+                    alert("Product doesn't exist!")
+                }
             } else {
-                location.href = "../login.html"
+                const product = JSON.parse(localStorage.getItem("products")).find(
+                    (product) => product.name + product.sellerId === buyButtons[i].value
+                );
+                product.quantity = quantityText[i].textContent
+                localStorage.setItem("itemInCart", JSON.stringify(product))
+                window.location.href = "../pages/checkout/checkout-address.html"
+                localStorage.setItem("destinationAfterLogin", "checkout.html");
+                window.location.href = "login.html";
             } 
         })
     }
