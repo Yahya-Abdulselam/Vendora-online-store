@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const balance = document.querySelector("#balance");
   const balanceDiv = document.querySelector("#balance-div");
   const categories = document.querySelectorAll(".categories");
+
+  //select the category the user chose to filter
   categories.forEach((cat) => {
     cat.addEventListener("click", (event) => {
       event.preventDefault();

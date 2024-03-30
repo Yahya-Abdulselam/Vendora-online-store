@@ -418,6 +418,9 @@ footer #socials a:hover {
   -ms-transition: 0.1s;
   -o-transition: 0.1s;
 }
+
+
+/*use RAM layout to setup items when searching*/
 #list-items {
   margin: 2rem;
   display: grid;
@@ -492,7 +495,7 @@ button {
 button:hover {
   transition: all 0.3s ease-in-out;
 
-  border: solid var(--french-rose-600);
+  border: solid var(--french-rose-600);/*change color of border when hovering*/
   color: var(--french-rose-600);
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;

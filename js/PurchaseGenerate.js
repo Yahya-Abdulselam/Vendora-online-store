@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   let buyer = JSON.parse(localStorage.getItem("loggeduser") ?? "{}"); //when the user log in we store his data(current seller)
 
+  //render each product
   const renderProductPurchased = (product) => {
     const productLi = document.createElement("ul");
     productLi.classList.add("product-item");
@@ -53,11 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     purchasedProducts
       .filter((p) => {
+        //for products that has same buyer id show it to him
         return p.buyer.id === buyer.id;
       })
       .forEach((p) => productLi.appendChild(renderProductPurchased(p)));
   };
 
+  //filter history based on search
   const renderProductsPurchasedFiltered = (filter) => {
     const productLi = document.querySelector("#list-items");
     productLi.replaceChildren();
@@ -75,10 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
   search.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       event.preventDefault();
-    }})
+    }
+  });
   search.addEventListener("input", () => {
     const searchText = search.value;
-    renderProductsPurchasedFiltered(searchText);
+    renderProductsPurchasedFiltered(searchText); //when search call the filter
   });
 
   renderProductsPurchased();
