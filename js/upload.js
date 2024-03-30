@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     if (img.size > sizeLimit) {
-      document.querySelector("prod-image-error").textContent =
+      document.querySelector("#prod-image-error").textContent =
         "Image size must not exceed 1.6MB.";
 
       return;
     } else {
-      document.querySelector("prod-image-error").textContent = "";
+      document.querySelector("#prod-image-error").textContent = "";
 
       const imgShowed = document.querySelector("#show-prod");
       imgShowed.src = URL.createObjectURL(img);
