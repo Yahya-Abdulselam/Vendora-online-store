@@ -1,3 +1,8 @@
+/**
+ * This sets up both the product's information and the user's information in the checkout, and then afterwards if the buy button is pressed, then it will save the bought product to the user's
+ * purchase history, it will update the seller's product's quantity, and it will update the product in the list of all products accordingly.
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
   let purchasedProducts = JSON.parse(
     localStorage.getItem("purchasedProducts") ?? "[]"
@@ -44,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
     JSON.parse(localStorage.getItem("itemInCart")).quantity
   );
 
-  // for some reason this doesnt work? you can replace it with any other attribute but city refuses to work
   const shipping_city =
     localStorage.getItem("loggeduser") != null
       ? JSON.parse(localStorage.getItem("loggeduser")).address.city
