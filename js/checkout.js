@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "There's not enough items in stock.";
     } else {
       document.querySelector("#prod-balance-error").textContent =
-        "Please enter a valid price.";
+        "Insufficient balance";
     }
   });
 });
