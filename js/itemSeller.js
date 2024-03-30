@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //   return item.sellerId === seller.id;
   // });
 
+  //render all products on  sale for seller
   const renderProductsSale = () => {
     const productsDiv = document.querySelector("#list-of-sale");
 
@@ -84,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     const sectionSale = document.querySelector("#items-on-sale");
     if (seller.products.length) {
-      sectionSale.style.visibility = "visible";
+      sectionSale.style.visibility = "visible"; //set it visible
     } else {
       sectionSale.style.visibility = "hidden";
     }
@@ -133,13 +134,14 @@ document.addEventListener("DOMContentLoaded", () => {
     list.appendChild(quantitySoldLi);
     list.appendChild(quantityLeftLi);
     popup.appendChild(list);
+    //controlling pop up for sale history
     image.addEventListener("click", () => {
       if (popup) {
-        popup.showModal();
+        popup.showModal(); //if image clicked show the pop up
       }
     });
     closeimage.addEventListener("click", () => {
-      popup.close();
+      popup.close(); //if close clicked close it
     });
     productDiv.appendChild(image);
     productDiv.appendChild(name);

@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hidden2.classList.remove("hidden");
   }
 
+  //when leaving the listing page clear category preference
   window.addEventListener("beforeunload", clearCategoryOnNavigation);
 
   let search = document.querySelector("#sv");
@@ -21,14 +22,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
   const urlParams = new URLSearchParams(window.location.search);
   const searchQuery = urlParams.get("search")?.toLowerCase() || "";
-  console.log(searchQuery);
-  let searchProds = [];
+
+  let searchProds = [];//the filtered list we will use to show items
 
   search.value = searchQuery;
   if (search) {
     search.focus();
   }
 
+  //if the page load with search value then filter
   if (search.value) {
     searchProds = products.filter((p) => {
       return (
@@ -141,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (products.length && category !== "any") {
       if (search?.value) {
         searchProds
-          .filter((p) => p.quantity > 0 && p.category === category)
+          .filter((p) => p.quantity > 0 && p.category === category)//if category not any filter it
           .forEach((p) => {
             container.appendChild(renderProduct(p));
           });
@@ -164,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  search.addEventListener("input", () => {
+  search.addEventListener("input", () => {//if there is a search filter an item based on category name and details
     const value = search.value.trim().toLowerCase();
     if (value) {
       if (searchProds.length) {

@@ -474,7 +474,9 @@ section > h1 {
   line-height: 24px;
   margin: 10px 0;
 }
-
+#product-quantity::before {
+  content: "quantity ordered ";
+}
 @media only screen and (min-width: 600px) {
   main {
     display: flex;

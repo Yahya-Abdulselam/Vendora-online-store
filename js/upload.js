@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.querySelector("#prod-quantity").value = "";
   document.querySelector("#prod-category").selectedIndex = 0;
   document.querySelector("#prod-image").value = "";
+
+  //prepare all vallues needed from storage
   let products = JSON.parse(localStorage.getItem("products") ?? "[]");
   let sellerParsed = JSON.parse(localStorage.getItem("loggedseller")); //when the user log in we store his data
-  let seller = Seller.fromJSON(sellerParsed,sellerParsed.id);
- console.log(sellerParsed.id);
- console.log(seller.id);
+  let seller = Seller.fromJSON(sellerParsed, sellerParsed.id);
 
-  const sizeLimit = 1.6 * 1024 * 1024;
+  const sizeLimit = 1.6 * 1024 * 1024; // max size local storage can handle
 
   const uploadButton = document.querySelector("#upload-item");
   const imageChoice = document.querySelector("#prod-image");
@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     if (img.size > sizeLimit) {
-      document.getElementById("prod-image-error").textContent =
+      document.querySelector("prod-image-error").textContent =
         "Image size must not exceed 1.6MB.";
 
       return;
     } else {
-      document.getElementById("prod-image-error").textContent = "";
+      document.querySelector("prod-image-error").textContent = "";
 
       const imgShowed = document.querySelector("#show-prod");
       imgShowed.src = URL.createObjectURL(img);
@@ -50,51 +50,54 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const pQuantity = document.querySelector("#prod-quantity").value.trim();
     const pCategory = document.querySelector("#prod-category").value.trim();
+    /*get values of form*/
     let isValid = true;
 
+    /*validate the values */
     if (!pName) {
-      document.getElementById("prod-name-error").textContent =
+      document.querySelector("#prod-name-error").textContent =
         "Please enter a product name.";
       isValid = false;
     } else {
-      document.getElementById("prod-name-error").textContent = "";
+      document.querySelector("#prod-name-error").textContent = "";
     }
     if (!pPrice || isNaN(pPrice) || parseFloat(pPrice) <= 0) {
-      document.getElementById("prod-price-error").textContent =
+      document.querySelector("#prod-price-error").textContent =
         "Please enter a valid price.";
       isValid = false;
     } else {
-      document.getElementById("prod-price-error").textContent = "";
+      document.querySelector("#prod-price-error").textContent = "";
     }
     if (!pDetails) {
-      document.getElementById("prod-desc-error").textContent =
+      document.querySelector("#prod-desc-error").textContent =
         "Please enter a product description.";
       isValid = false;
     } else {
-      document.getElementById("prod-desc-error").textContent = "";
+      document.querySelector("#prod-desc-error").textContent = "";
     }
     if (!pQuantity || isNaN(pQuantity) || parseInt(pQuantity, 10) <= 0) {
-      document.getElementById("prod-quantity-error").textContent =
+      document.querySelector("#prod-quantity-error").textContent =
         "Please enter a valid quantity a number>0.";
       isValid = false;
     } else {
-      document.getElementById("prod-quantity-error").textContent = "";
+      document.querySelector("#prod-quantity-error").textContent = "";
     }
     if (!pCategory) {
-      document.getElementById("prod-category-error").textContent =
+      document.querySelector("#prod-category-error").textContent =
         "Please select a category.";
       isValid = false;
     } else {
-      document.getElementById("prod-category-error").textContent = "";
+      document.querySelector("#prod-category-error").textContent = "";
     }
     if (imageChoice.files.length === 0) {
-      document.getElementById("prod-image-error").textContent =
+      document.querySelector("#prod-image-error").textContent =
         "Please upload an image.";
       isValid = false;
     } else {
-      document.getElementById("prod-image-error").textContent = "";
+      document.querySelector("#prod-image-error").textContent = "";
     }
     if (isValid) {
+      /*change image to base 64 so it can be stored in local storage*/
       const img = await toBase64(imageChoice.files[0]);
 
       const product = new Product(
@@ -108,14 +111,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       );
       const found = products.find((p) => p.name === product.name);
       if (found) {
-        found.quantity += 1;
+        found.quantity += 1; /*if found only increase the quantity*/
       } else {
         products.push(product);
       }
       console.log(products);
 
       // sellerParsed.products.push(product);
-      seller.addProduct(product, pQuantity);
+      seller.addProduct(
+        product,
+        pQuantity
+      ); /*make sure seller has the product*/
       localStorage.setItem("products", JSON.stringify(products));
       console.log(products);
 
@@ -127,7 +133,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.location.href = "/pages/seller.html"; //when finish uploading go back to seller page
       }
 
-      //toBase method was copied from google
+      //toBase method was taken from geekforgeeks.org
 
       function toBase64(image) {
         return new Promise((resolve, reject) => {
