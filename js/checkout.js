@@ -120,12 +120,20 @@ document.addEventListener("DOMContentLoaded", () => {
       products[index].quantity = product.quantity - productInCart.quantity;
       localStorage.setItem("products", JSON.stringify(products));
 
-      purchasedProducts.push(purchased);
-      localStorage.setItem(
-        "purchasedProducts",
-        JSON.stringify(purchasedProducts)
-      );
-      location.replace("../../main.html");
+      const popUpWindow = document.querySelector("#model")
+      popUpWindow.classList.add("open")
+      const okButton = document.querySelector("#okButton")
+
+      okButton.addEventListener("click", () => {
+        purchasedProducts.push(purchased);
+        localStorage.setItem(
+          "purchasedProducts",
+          JSON.stringify(purchasedProducts)
+        );
+        location.replace("../../main.html");
+      })
+
+      
     }  else if (product.quantity - productInCart.quantity < 0) {
       document.querySelector("#prod-quantity-error").textContent =
       "There's not enough items in stock.";

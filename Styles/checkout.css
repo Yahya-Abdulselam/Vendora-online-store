@@ -419,6 +419,36 @@ section > h1 {
   margin-left: 5px;
 }
 
+.model {
+  background-color: #0075aa;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: -1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.model.open {
+  opacity: 1;
+  z-index: 10;
+}
+
+.model-inner h2 {
+  margin: 0;
+}
+
+.model-inner p {
+  line-height: 24px;
+  margin: 10px 0;
+}
+
 @media only screen and (min-width: 600px) {
   main {
     display: flex;
