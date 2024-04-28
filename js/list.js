@@ -21,15 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   //when leaving the listing page clear category preference
   const clearCategoryOnNavigation = () => {
-    console.log("asa");
+    search = document.querySelector("#sv");
+    console.log(search.value);
     const path = window.location.pathname;
     if (path !== "/pages/listItem.html" || search.value) {
       localStorage.removeItem("selectedCategory");
     }
   };
+  clearCategoryOnNavigation();
   window.addEventListener("beforeunload", clearCategoryOnNavigation);
   window.addEventListener("popstate", clearCategoryOnNavigation);
-
+  window.addEventListener("unload", clearCategoryOnNavigation);
   //if the page load with search value then filter
   if (search.value) {
     searchProds = products.filter((p) => {
