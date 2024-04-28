@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   //when leaving the listing page clear category preference
   const clearCategoryOnNavigation = () => {
-    search = document.querySelector("#sv");
-    console.log(search.value);
+  
+   
     const path = window.location.pathname;
     if (path !== "/pages/listItem.html" || search.value) {
       localStorage.removeItem("selectedCategory");
