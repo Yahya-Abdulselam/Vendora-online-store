@@ -23,7 +23,7 @@ model Buyer {
   id           String        @id @default(cuid())
   username     String        @unique
   password     String        @unique
-  balance      Float
+  balance      Float         @default(0)
   transactions Transaction[]
 }
 
