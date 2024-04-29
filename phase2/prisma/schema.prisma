@@ -16,7 +16,7 @@ model Seller {
   password String @unique
 
   products    Product[]
-  Transaction Transaction[]
+
 }
 
 model Buyer {
@@ -42,23 +42,21 @@ model Product {
 
 model Transaction {
   id             String  @id @default(cuid())
-  name           String
+
   amountPaid     Float
   quantityBought Float
-  buter          Buyer   @relation(fields: [buyerId], references: [id], onDelete: Cascade)
+  buyer          Buyer   @relation(fields: [buyerId], references: [id], onDelete: Cascade)
   buyerId        String
   product        Product @relation(fields: [productId], references: [id])
   productId      String
 
-  Seller           Seller?   @relation(fields: [sellerId], references: [id])
-  sellerId         String?
-  Category         Category? @relation(fields: [categoryCategory], references: [category])
-  categoryCategory String?
+
+
 }
 
 model Category {
   category String @id
 
   products     Product[]
-  transactions Transaction[]
+  
 }
