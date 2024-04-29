@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seller Login</title>
+    <link rel="stylesheet" href="../Styles/sellerlogin.css" />
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../media/images/FullLogo_Transparent_NoBuffer(1).png"
+    />
+  </head>
+</html>
+<header>
+  <!-- Creating main header -->
+  <section class="navsec">
+    <nav class="navv">
+      <ul>
+        <li id="first">
+          <a href="" id="list"><img src="../media/icons/list.svg" alt="" /></a>
+          <script src="../js/main.js"></script>
+          <a href="seller.html" id="logo">
+            <img
+              src="../media/images/FullLogo_Transparent_NoBuffer(1).png"
+              alt="vendora logo"
+            />
+            <h1>Vendora</h1></a
+          >
+        </li>
+        <li>
+          <ul class="links">
+            <li class="extra">
+              <a href="login.html"
+                ><img src="../media/icons/building-store.svg" alt="" />
+                <p>Buy</p></a
+              >
+            </li>
+            <li class="extra">
+              <a href="seller.html#socials"
+                ><img src="../media/icons/help.svg" alt="" />
+                <p>Customer Service</p></a
+              >
+            </li>
+            <li class="sides" id="account">
+              <a href="">
+                <img src="../media/icons/user.svg" alt="" />
+                <p>account</p></a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </section>
+  <main class="main">
+    <!-- Creating the seller login form -->
+    <div class="login">
+      <form>
+        <br />
+        <h1>Seller Login</h1>
+        <br />
+        <br />
+        <div>
+          <label for="username" class="label">Username:</label>
+        </div>
+        <div>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="input"
+            placeholder="Username"
+            autofocus
+            required
+          />
+        </div>
+        <br />
+        <div>
+          <label for="password" class="label">Password:</label>
+        </div>
+        <div class="password-container">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="input"
+            placeholder="Password"
+            required
+          />
+          <!-- Adding onClick to toggle between hide and show -->
+          <img
+            src="../media/icons/eye-close.jpg"
+            alt="eye-close"
+            class="eye-icon"
+            id="eye-icon"
+            onclick="toggleIcon()"
+          />
+        </div>
+      </form>
+      <br />
+      <br />
+      <button type="button" class="button">Continue</button>
+    </div>
+    <script src="../js/sellerlogin.js"></script>
+  </main>
+</header>

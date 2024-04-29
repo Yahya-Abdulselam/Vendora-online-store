@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendora seller</title>
+    <link rel="stylesheet" href="../Styles/seller.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../media/images/FullLogo_Transparent_NoBuffer(1).png"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- header with a nav bar  and search-->
+      <section class="navsec">
+        <nav class="navv">
+          <ul>
+            <li id="first">
+              <a href="" id="list"
+                ><img src="../media/icons/list.svg" alt=""
+              /></a>
+              <a href="main.html" id="logo">
+                <img
+                  src="../media/images/FullLogo_Transparent_NoBuffer(1).png"
+                  alt="vendora logo"
+                />
+                <h1>Vendora</h1></a
+              >
+            </li>
+            <li>
+              <ul class="links">
+                <li class="extra">
+                  <a href="main.html"
+                    ><img src="../media/icons/shopping-bag.svg" alt="" />
+                    <p>Buy</p></a
+                  >
+                </li>
+                <li class="extra">
+                  <a href="#socials"
+                    ><img src="../media/icons/help.svg" alt="" />
+                    <p>Customer Service</p></a
+                  >
+                </li>
+
+                <li class="sides" id="account">
+                  <a href="">
+                    <img src="../media/icons/user.svg" alt="" />
+                    <p>account</p></a
+                  >
+
+                  <div class="dropdown-menu" id="hidden">
+                    <a href="sellerlogin.html">Login</a>
+                    <!-- <a href="login.html">Sale History</a> -->
+                    <!-- <a href="login.html">Account Details</a> -->
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+      <div id="upload-product">
+        <img
+          src="../media/images/pexels-tima-miroshnichenko-6169033.jpg"
+          id="seller-img"
+          alt="seller image"
+        />
+
+        <article>
+          <h2>your first step into wealth</h2>
+          <p>
+            Ready to turn your creations into cash? Start earning today by
+            uploading your products! our platform provides the perfect
+            opportunity to reach a wide audience. unlock the potential to
+            transform your passion into profit. Don't miss out on the chance to
+            share your unique products with the world. Click 'Upload a Product'
+            now and start selling!
+          </p>
+          <button onclick="handleUpload()">upload a product</button>
+        </article>
+      </div>
+    </header>
+    <main>
+      <section id="items-on-sale" style="visibility: hidden">
+        <!-- visibility as hidden-->
+        <h2>Items you have on sale</h2>
+        <div id="list-of-sale">
+          <!--dummy for sale -->
+          <div class="itemssale">
+            <img src="../media/prod/pen-4337521_640.jpg" alt="" />
+
+            <table>
+              <tr>
+                <td class="item-name">laptop</td>
+              </tr>
+              <tr>
+                <td class="price">100</td>
+              </tr>
+              <tr>
+                <td class="status">available</td>
+              </tr>
+            </table>
+          </div>
+          <div class="itemssale">
+            <img src="../media/prod/pen-4337521_640.jpg" alt="" />
+
+            <table>
+              <tr>
+                <td class="item-name">laptop</td>
+              </tr>
+              <tr>
+                <td class="price">100</td>
+              </tr>
+              <tr>
+                <td class="status">available</td>
+              </tr>
+            </table>
+          </div>
+          <div class="itemssale">
+            <img src="../media/prod/pen-4337521_640.jpg" alt="" />
+
+            <table>
+              <tr>
+                <td class="item-name">laptop</td>
+              </tr>
+              <tr>
+                <td class="price">100</td>
+              </tr>
+              <tr>
+                <td class="status">available</td>
+              </tr>
+            </table>
+          </div>
+          <div class="itemssale">
+            <img src="../media/prod/pen-4337521_640.jpg" alt="" />
+            <table>
+              <tr>
+                <td class="item-name">laptop</td>
+              </tr>
+              <tr>
+                <td class="price">100</td>
+              </tr>
+              <tr>
+                <td class="status">available</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="sold-history" style="visibility: hidden">
+        <h2>Items' Sale History:</h2>
+        <div id="list-of-sold">
+          
+          <div class="itemssold"><!--dummy for sale history-->
+            <img
+              src="../media/prod/pen-4337521_640.jpg"
+              class="open-popup"
+              alt=""
+            />
+
+            <h3 class="itemname">laptop</h3>
+            <dialog class="pop-up">
+              <ul>
+                <picture class="close-popup">
+                  <source
+                    srcset="../media/icons/darktheme-icons/square-rounded-x.svg"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <img
+                    src="../media/icons/darktheme-icons/square-rounded-x.svg"
+                  />
+                </picture>
+                <li class="buyer">ahmad</li>
+                <li class="price">price</li>
+                <li class="quantity-purchased">32</li>
+                <li class="quantity-sold">32</li>
+                <li class="quantity-left">2</li>
+              </ul>
+            </dialog>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <ul id="socials">
+        <li>
+          <a href="example.com">
+            <picture id="x">
+              <source
+                srcset="..\media\icons\darktheme-icons\brand-x.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img src="../media/icons/brand-x.svg" width="40px" />
+            </picture>
+          </a>
+        </li>
+        <li>
+          <a href="example.com">
+            <picture id="insta">
+              <source
+                srcset="..\media\icons\darktheme-icons\brand-instagram.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img
+                src="../media/icons/brand-instagram.svg"
+                width="40px"
+              /> </picture
+          ></a>
+        </li>
+
+        <li>
+          <a href="example.com">
+            <picture id="reddit">
+              <source
+                srcset="..\media\icons\darktheme-icons\brand-reddit.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img src="../media/icons/brand-reddit.svg" width="40px" /> </picture
+          ></a>
+        </li>
+        <li>
+          <a href="example.com">
+            <picture id="face">
+              <source
+                srcset="..\media\icons\darktheme-icons\brand-facebook.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img
+                src="../media/icons/brand-facebook.svg"
+                width="40px"
+              /> </picture
+          ></a>
+        </li>
+      </ul>
+      <ul id="links">
+        <li><a href="">Shop for your Dreams</a></li>
+        <li><a href="">About us</a></li>
+        <li><a href="">Contact us</a></li>
+        <li><a href="">FAQs</a></li>
+        <li><a href="">Terms & Conditions</a></li>
+        <li><a href="">Customer Reviews</a></li>
+      </ul>
+      <p>
+        Welcome to Vendora, your ultimate e-commerce destination where you can
+        find anything your heart desires. With our vast selection of products
+        and services, we strive to be your one-stop shop for all your needs. Our
+        motto, "Infinite Choices, One Destination," encapsulates our commitment
+        to providing you with endless options while simplifying your shopping
+        experience. Whether you're searching for the latest tech gadgets, trendy
+        fashion pieces, home essentials, or unique gifts, Vendora has you
+        covered. Shop with confidence knowing that quality, convenience, and
+        customer satisfaction are at the core of everything we do. Join us on
+        this exciting journey of discovery and let Vendora be your go-to
+        destination for all your shopping desires.
+      </p>
+    </footer>
+    <script src="../js/itemSeller.js"></script>
+    <script src="../js/scrolling.js"></script>
+  </body>
+</html>

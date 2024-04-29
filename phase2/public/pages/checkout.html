@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link rel="stylesheet" href="../Styles/checkout.css" />
+  </head>
+  <body>
+    <header>
+      <section class="navsec">
+        <nav class="navv">
+          <ul>
+            <li id="first">
+              <a href="" id="list"
+                ><img src="../media/icons/list.svg" alt=""
+              /></a>
+
+              <a href="main.html" id="logo">
+                <img
+                  src="../media/images/FullLogo_Transparent_NoBuffer(1).png"
+                  alt="vendora logo"
+                />
+                <h1>Vendora</h1></a
+              >
+            </li>
+            <li>
+              <ul class="links">
+                <li class="extra">
+                  <a href=""
+                    ><img src="../media/icons/shopping-bag.svg" alt="" />
+                    <p>Buy</p></a
+                  >
+                </li>
+                <li class="extra">
+                  <a href=""
+                    ><img src="../media/icons/help.svg" alt="" />
+                    <p>Customer Service</p></a
+                  >
+                </li>
+
+                <li class="sides" id="account">
+                  <a href="">
+                    <img src="../media/icons/user.svg" alt="" />
+                    <p>account</p></a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </header>
+
+    <main>
+      <section class="order-info">
+        <div>
+          <img src="" alt="" id="order-product-image" />
+        </div>
+
+        <div class="order-information">
+          <div>
+            <h5 id="order-name">{Product Name}</h5>
+          </div>
+
+          <div>
+            <p id="information-product-price">{Price}</p>  </div>
+           
+            <div>
+            <p id="product-attribute">{Attribute}</p>
+          </div>
+
+          <div>
+            <p id="in-stock">In Stock</p>
+          </div>
+
+        
+      </section>
+
+      <section class="shipping-information">
+        <h1>Shipping Information</h1>
+        <p id="customer-name">{Name}</p>
+        <div class="button-text">
+          <p id="customer-address">{Address}</p>
+          <button><a href="checkout-address.html">Edit ></a></button>
+        </div>
+        <p id="customer-city">{City}</p>
+        <p id="product-quantity">{Quantity}</p>
+        <div id="prod-quantity-error"></div>
+      </section>
+
+      <section class="payment-method">
+        <h1>Balance</h1>
+        <p id="customer-balance">{Customer Balance}</p>
+        <div id="prod-balance-error"></div>
+      </section>
+
+      <section class="order-summary">
+        <h1>Order Summary</h1>
+        <div>
+          <p>Subtotal:</p>
+          <p id="summary-product-price">{Price}</p>
+        </div>
+        <div>
+          <p>Shipping:</p>
+          <p id="shipping-price">{Price}</p>
+        </div>
+        <div>
+          <p>Total:</p>
+          <p id="total-price">{Price}</p>
+        </div>
+      </section>
+
+      <button class="confirmButton">Confirm Order</button>
+
+      <div class="model" id="model">
+        <div class="inner-model">
+          <h2>Thank you!</h2>
+          <p>Your order will arrive in 72 hours.</p>
+          <button id="okButton">Okay</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="../js/checkout.js"></script>
+  </body>
+</html>
