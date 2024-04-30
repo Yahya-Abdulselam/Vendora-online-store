@@ -1,5 +1,5 @@
 import prisma from "@/repos/prisma";
-
+import products from "@/repos/products";
 export async function get(id) {
   try {
     if (id) {
@@ -49,3 +49,4 @@ export async function update(id, data) {
     };
   }
 }
+

@@ -1,6 +1,5 @@
 import Product from "./Product.js";
 import Seller from "./seller.js";
-
 /**
  * this gets the information about the product and then does a validity check. If its not valid, it resets everything. Otherwise, it saves the product's information, pushing it to the seller's
  * products and to the available products on the site.
@@ -109,14 +108,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         pCategory,
         seller.id
       );
+
       const found = products.find((p) => p.name === product.name);
       if (found) {
         found.quantity += 1; /*if found only increase the quantity*/
       } else {
         products.push(product);
       }
-      console.log(products);
-
+      console.log(JSON.stringify(imageChoice.files[0]));
+      console.log(imageChoice.files[0]);
+      console.log(URL.createObjectURL(imageChoice.files[0]));
       // sellerParsed.products.push(product);
       seller.addProduct(
         product,

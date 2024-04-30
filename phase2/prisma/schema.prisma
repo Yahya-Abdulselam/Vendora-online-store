@@ -13,16 +13,15 @@ datasource db {
 model Seller {
   id       String @id @default(cuid())
   username String @unique
-  password String @unique
+  password String
 
-  products    Product[]
-
+  products Product[]
 }
 
 model Buyer {
   id           String        @id @default(cuid())
   username     String        @unique
-  password     String        @unique
+  password     String
   balance      Float         @default(0)
   transactions Transaction[]
 }
@@ -30,6 +29,7 @@ model Buyer {
 model Product {
   id           String        @id @default(cuid())
   name         String
+  description  String?
   price        Float
   quantity     Int
   picture      Bytes
@@ -41,7 +41,7 @@ model Product {
 }
 
 model Transaction {
-  id             String  @id @default(cuid())
+  id String @id @default(cuid())
 
   amountPaid     Float
   quantityBought Float
@@ -49,14 +49,10 @@ model Transaction {
   buyerId        String
   product        Product @relation(fields: [productId], references: [id])
   productId      String
-
-
-
 }
 
 model Category {
   category String @id
 
-  products     Product[]
-  
+  products Product[]
 }

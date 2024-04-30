@@ -8,7 +8,7 @@ export async function get(id) {
         include: { transactions: true },
       });
     }
-    return await prisma.buyer.findMany({ include: { products: true } });
+    return await prisma.buyer.findMany({ include: { transactions: true } });
   } catch (e) {
     return {
       error: {

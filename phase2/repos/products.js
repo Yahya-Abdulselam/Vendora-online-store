@@ -28,18 +28,61 @@ export async function create(seller, data) {
     };
   }
 }
+export async function filterByCat(cat) {
 
+  try {
+    return await prisma.product.findMany({
+      where: { catId: cat },
+    });
+  } catch (e) {
+    return {
+      error: {
+        message: "no product found",
+        status: 404,
+      },
+    };
+  }
+}
 export async function get(seller, id) {
+  let verification = null;
   try {
     if (id) {
-      const verification = await sellers.get(seller);
+      verification = await sellers.get(seller);
+
+      if (seller) {
+        return await prisma.product.findUnique({
+          where: { id, sellerId: verification.id },
+        });
+      } else {
+        return await prisma.product.findUnique({
+          where: { id },
+        });
+      }
+    }
+    verification = await sellers.get(seller);
+    if (seller) {
+      return await prisma.product.findMany({
+        where: { sellerId: verification.id },
+      });
+    } else {
+      return await prisma.product.findMany();
+    }
+  } catch (e) {
+    return {
+      error: {
+        message: e.message,
+        status: 404,
+      },
+    };
+  }
+}
+export async function getForTransaction(id) {
+  try {
+    if (id) {
       return await prisma.product.findUnique({
-        where: { id, sellerId: verification.id },
+        where: { id },
       });
     }
-    return await prisma.product.findMany({
-      where: { sellerId: verification.id },
-    });
   } catch (e) {
     return {
       error: {
@@ -84,6 +127,22 @@ export async function update(seller, product, data) {
       error: {
         message: "product not found",
         status: 404,
+      },
+    };
+  }
+}
+
+export async function getTransactions(seller, id) {
+  try {
+    return await prisma.product.findMany({
+      where: { id, sellerId: seller.id },
+      select: { transactions: true },
+    });
+  } catch (e) {
+    return {
+      error: {
+        message: e.message,
+        status: 500,
       },
     };
   }
