@@ -2,7 +2,7 @@ import prisma from "@/repos/prisma";
 import * as sellers from "@/repos/sellers";
 export async function create(seller, data) {
   try {
-    const verification = await sellers.get(seller);
+    // const verification = await sellers.get(seller);
 
     const { category, ...restData } = data;
 
@@ -10,7 +10,7 @@ export async function create(seller, data) {
       data: {
         ...restData,
         seller: {
-          connect: { id: verification.id },
+          connect: { id: seller },
         },
         category: {
           connect: { category: category },
@@ -20,6 +20,7 @@ export async function create(seller, data) {
 
     return product;
   } catch (error) {
+    console.log(error);
     return {
       error: {
         message: error.message,
@@ -29,10 +30,23 @@ export async function create(seller, data) {
   }
 }
 export async function filterByCat(cat) {
-
   try {
     return await prisma.product.findMany({
       where: { catId: cat },
+    });
+  } catch (e) {
+    return {
+      error: {
+        message: "no product found",
+        status: 404,
+      },
+    };
+  }
+}
+export async function filterByName(seller, name) {
+  try {
+    return await prisma.product.findFirstOrThrow({
+      where: { sellerId: seller, name: name },
     });
   } catch (e) {
     return {

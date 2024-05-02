@@ -42,108 +42,144 @@ document.addEventListener("DOMContentLoaded", async () => {
       imgShowed.style.width = "40%";
     }
   });
-  uploadButton.addEventListener("click", async () => {
-    const pName = document.querySelector("#prod-name").value.trim();
-    const pPrice = document.querySelector("#prod-price").value.trim();
-    const pDetails = document.querySelector("#prod-desc").value.trim();
 
-    const pQuantity = document.querySelector("#prod-quantity").value.trim();
-    const pCategory = document.querySelector("#prod-category").value.trim();
-    /*get values of form*/
-    let isValid = true;
+  uploadButton.addEventListener("click", async (event) => {
+    try {
+      event.preventDefault();
+      const pName = document.querySelector("#prod-name").value.trim();
+      const pPrice = document.querySelector("#prod-price").value.trim();
+      const pDetails = document.querySelector("#prod-desc").value.trim();
 
-    /*validate the values */
-    if (!pName) {
-      document.querySelector("#prod-name-error").textContent =
-        "Please enter a product name.";
-      isValid = false;
-    } else {
-      document.querySelector("#prod-name-error").textContent = "";
-    }
-    if (!pPrice || isNaN(pPrice) || parseFloat(pPrice) <= 0) {
-      document.querySelector("#prod-price-error").textContent =
-        "Please enter a valid price.";
-      isValid = false;
-    } else {
-      document.querySelector("#prod-price-error").textContent = "";
-    }
-    if (!pDetails) {
-      document.querySelector("#prod-desc-error").textContent =
-        "Please enter a product description.";
-      isValid = false;
-    } else {
-      document.querySelector("#prod-desc-error").textContent = "";
-    }
-    if (!pQuantity || isNaN(pQuantity) || parseInt(pQuantity, 10) <= 0) {
-      document.querySelector("#prod-quantity-error").textContent =
-        "Please enter a valid quantity a number>0.";
-      isValid = false;
-    } else {
-      document.querySelector("#prod-quantity-error").textContent = "";
-    }
-    if (!pCategory) {
-      document.querySelector("#prod-category-error").textContent =
-        "Please select a category.";
-      isValid = false;
-    } else {
-      document.querySelector("#prod-category-error").textContent = "";
-    }
-    if (imageChoice.files.length === 0) {
-      document.querySelector("#prod-image-error").textContent =
-        "Please upload an image.";
-      isValid = false;
-    } else {
-      document.querySelector("#prod-image-error").textContent = "";
-    }
-    if (isValid) {
-      /*change image to base 64 so it can be stored in local storage*/
-      const img = await toBase64(imageChoice.files[0]);
+      const pQuantity = document.querySelector("#prod-quantity").value.trim();
+      const pCategory = document.querySelector("#prod-category").value.trim();
+      /*get values of form*/
+      let isValid = true;
 
-      const product = new Product(
-        pName,
-        pPrice,
-        pQuantity,
-        img,
-        pDetails,
-        pCategory,
-        seller.id
-      );
-
-      const found = products.find((p) => p.name === product.name);
-      if (found) {
-        found.quantity += 1; /*if found only increase the quantity*/
+      /*validate the values */
+      if (!pName) {
+        document.querySelector("#prod-name-error").textContent =
+          "Please enter a product name.";
+        isValid = false;
       } else {
-        products.push(product);
+        document.querySelector("#prod-name-error").textContent = "";
       }
-      console.log(JSON.stringify(imageChoice.files[0]));
-      console.log(imageChoice.files[0]);
-      console.log(URL.createObjectURL(imageChoice.files[0]));
-      // sellerParsed.products.push(product);
-      seller.addProduct(
-        product,
-        pQuantity
-      ); /*make sure seller has the product*/
-      localStorage.setItem("products", JSON.stringify(products));
-      console.log(products);
+      if (!pPrice || isNaN(pPrice) || parseFloat(pPrice) <= 0) {
+        document.querySelector("#prod-price-error").textContent =
+          "Please enter a valid price.";
+        isValid = false;
+      } else {
+        document.querySelector("#prod-price-error").textContent = "";
+      }
+      if (!pDetails) {
+        document.querySelector("#prod-desc-error").textContent =
+          "Please enter a product description.";
+        isValid = false;
+      } else {
+        document.querySelector("#prod-desc-error").textContent = "";
+      }
+      if (!pQuantity || isNaN(pQuantity) || parseInt(pQuantity, 10) <= 0) {
+        document.querySelector("#prod-quantity-error").textContent =
+          "Please enter a valid quantity a number>0.";
+        isValid = false;
+      } else {
+        document.querySelector("#prod-quantity-error").textContent = "";
+      }
+      if (!pCategory) {
+        document.querySelector("#prod-category-error").textContent =
+          "Please select a category.";
+        isValid = false;
+      } else {
+        document.querySelector("#prod-category-error").textContent = "";
+      }
+      if (imageChoice.files.length === 0) {
+        document.querySelector("#prod-image-error").textContent =
+          "Please upload an image.";
+        isValid = false;
+      } else {
+        document.querySelector("#prod-image-error").textContent = "";
+      }
+      if (isValid) {
+        /*change image to base 64 so it can be stored in local storage*/
+        const img = await toBase64(imageChoice.files[0]);
 
-      localStorage.setItem("loggedseller", JSON.stringify(seller));
+        const p = {
+          name: pName,
+          price: parseFloat(pPrice),
+          quantity: parseInt(pQuantity),
+          picture: img,
+          description: pDetails,
 
-      if (product) {
+          category: pCategory,
+        };
+
+        // const found = prods.find((p) => p.name === pName);
+        let existingProduct = {};
+        const res = await fetch(
+          `/api/sellapi/${seller.id}/?product-name=${p.name}`
+        );
+        if (res.ok) {
+          existingProduct = await res.json();
+        }
+        console.log(existingProduct?.name);
+        console.log(existingProduct === true);
+        if (existingProduct?.id) {
+          // found.quantity += 1; /*if found only increase the quantity*/
+          console.log(existingProduct === true);
+          const res = await fetch(
+            `/api/sellapi/${seller.id}/${existingProduct.id}`,
+            {
+              method: "PATCH",
+              body: JSON.stringify({
+                quantity: existingProduct.quantity + p.quantity,
+              }),
+            }
+          );
+          if (res.ok) {
+            await res.json();
+          }
+          if (!res.ok) {
+            throw new Error("Failed to update product quantity.");
+          }
+        } else {
+          products.push(p);
+          const res = await fetch(`/api/sellapi/${seller.id}`, {
+            method: "POST",
+            body: JSON.stringify(p),
+          });
+          if (res.ok) {
+            await res.json();
+          }
+          if (!res.ok) {
+            throw new Error("Failed to add new product.");
+          }
+        }
         form.reset();
-        document.querySelector("#prod-image").value = "";
-        window.location.href = "/pages/seller.html"; //when finish uploading go back to seller page
-      }
+        // sellerParsed.products.push(product);
+        // seller.addProduct(p, pQuantity); /*make sure seller has the product*/
+        // localStorage.setItem("products", JSON.stringify(products));
 
-      //toBase method was taken from geekforgeeks.org
+        // localStorage.setItem("loggedseller", JSON.stringify(seller));
 
-      function toBase64(image) {
-        return new Promise((resolve, reject) => {
-          const reader = new FileReader();
-          reader.readAsDataURL(image);
-          reader.onload = () => resolve(reader.result);
-          reader.onerror = (error) => reject(error);
-        });
+        if (p) {
+          form.reset();
+          document.querySelector("#prod-image").value = "";
+          window.location.href = "/pages/seller.html"; //when finish uploading go back to seller page
+        }
+
+        //toBase method was taken from geekforgeeks.org
+
+        function toBase64(image) {
+          return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(image);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = (error) => reject(error);
+          });
+        }
       }
+    } catch (error) {
+      console.error("Error occurred:", error);
+      console.log(error);
     }
   });
 });

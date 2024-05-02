@@ -4,8 +4,9 @@ import * as products from "@/repos/products";
 export async function GET(request, { params }) {
   try {
     const { searchParams } = new URL(request.url);
-    console.log(searchParams);
+   
     const category = searchParams.get("category");
+    
     let results = null;
     if (category) {
       results = await products.filterByCat(category);

@@ -22,6 +22,7 @@ export default class User {
   get username() {
     return this.#username;
   }
+  
   #generateId() {
     return nanoid();
   }

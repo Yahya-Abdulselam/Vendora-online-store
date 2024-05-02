@@ -32,12 +32,14 @@ model Product {
   description  String?
   price        Float
   quantity     Int
-  picture      Bytes
+  picture      String
   seller       Seller        @relation(fields: [sellerId], references: [id], onDelete: Cascade)
   sellerId     String
   category     Category      @relation(fields: [catId], references: [category])
   catId        String
   transactions Transaction[]
+
+  @@unique([name, sellerId])
 }
 
 model Transaction {
