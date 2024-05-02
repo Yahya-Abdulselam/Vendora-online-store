@@ -37,8 +37,31 @@ export async function get(buyer, prod, id) {
         where: { id, buyerId: verification.id, productId: verification2.id },
       });
     }
-    return await prisma.product.findMany({
-      where: { buyerId: verification.id, productId: verification2.id },
+    if (prod && buyer) {
+      return await prisma.product.findMany({
+        where: { buyerId: verification.id, productId: verification2.id },
+      });
+    }
+    return await prisma.product.findMany({});
+  } catch (e) {
+    return {
+      error: {
+        message: "no transaction found",
+        status: 404,
+      },
+    };
+  }
+}
+export async function getForSeller(seller, prod) {
+  try {
+    if (prod && seller) {
+      const verification2 = await products.get(seller, prod);
+      return await prisma.transaction.findUnique({
+        where: { sellerId: seller, productId: verification2.id },
+      });
+    }
+    return await prisma.transaction.findMany({
+      where: { sellerId: seller },
     });
   } catch (e) {
     return {
@@ -50,27 +73,26 @@ export async function get(buyer, prod, id) {
   }
 }
 export async function getForBuyer(buyer, id) {
-    try {
-      if (id) {
-        const verification = await buyers.get(buyer);
-   
-        return await prisma.transaction.findUnique({
-          where: { id, buyerId: verification.id },
-        });
-      }
-      return await prisma.product.findMany({
-        where: { buyerId: verification.id },
+  try {
+    if (id) {
+      const verification = await buyers.get(buyer);
+
+      return await prisma.transaction.findUnique({
+        where: { id, buyerId: verification.id },
       });
-    } catch (e) {
-      return {
-        error: {
-          message: "no transaction found",
-          status: 404,
-        },
-      };
     }
+    return await prisma.product.findMany({
+      where: { buyerId: verification.id },
+    });
+  } catch (e) {
+    return {
+      error: {
+        message: "no transaction found",
+        status: 404,
+      },
+    };
   }
-  
+}
 
 export async function remove(seller, id) {
   try {

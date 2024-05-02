@@ -1,11 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-  let products = JSON.parse(localStorage.getItem("products") ?? "[]");
-  let purchasedProducts = JSON.parse(
-    localStorage.getItem("purchasedProducts") ?? "[]"
-  );
+document.addEventListener("DOMContentLoaded", async () => {
+  // let products = JSON.parse(localStorage.getItem("products") ?? "[]");
   let seller = JSON.parse(localStorage.getItem("loggedseller")); //when the user log in we store his data(current seller)
-
-  const renderProductSale = (product) => {
+  // let purchasedProducts = JSON.parse(
+  //   localStorage.getItem("purchasedProducts") ?? "[]"
+  // );
+ 
+  const renderProductSale = async (product) => {
     const productDiv = document.createElement("div");
     productDiv.classList.add("itemssale");
     const image = document.createElement("img");
@@ -35,17 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const status = document.createElement("td");
     status.classList.add("status");
 
-    addButton.addEventListener("click", () => {
+    addButton.addEventListener("click", async () => {
       const qToAddValue = Number(qToAdd.value);
       if (qToAddValue && qToAddValue > 0) {
-        updateProd(product, qToAdd.value);
-        updateProdInSeller(product, qToAdd.value);
+        await updateProd(product, qToAdd.value);
+
         console.log(qToAddValue);
         console.log(seller);
       }
 
-      renderProductsHistory();
-      renderProductsSale();
+      await renderProductsHistory();
+      await renderProductsSale();
     });
 
     productDiv.appendChild(image);
@@ -75,25 +75,33 @@ document.addEventListener("DOMContentLoaded", () => {
   // });
 
   //render all products on  sale for seller
-  const renderProductsSale = () => {
+  const renderProductsSale = async () => {
+    let products = [];
+    const res = await fetch(`/api/sellapi/${seller.id}`, {
+      method: "GET",
+    });
+    if (res.ok) {
+      products = await res.json();
+    }
+    if (!res.ok) {
+      throw new Error("Failed to update product quantity.");
+    }
     const productsDiv = document.querySelector("#list-of-sale");
 
     productsDiv.replaceChildren();
 
-    seller.products.forEach((item) =>
-      productsDiv.appendChild(renderProductSale(item))
+    products.forEach(async (item) =>
+      productsDiv.appendChild(await renderProductSale(item))
     );
     const sectionSale = document.querySelector("#items-on-sale");
-    if (seller.products.length) {
+    if (products.length) {
       sectionSale.style.visibility = "visible"; //set it visible
     } else {
       sectionSale.style.visibility = "hidden";
     }
-
-    localStorage.setItem("products", JSON.stringify(products));
   };
 
-  const renderProductHistory = (product) => {
+  const renderProductHistory = async (product) => {
     const productDiv = document.createElement("div");
     productDiv.classList.add("itemssold");
     const image = document.createElement("img");
@@ -148,14 +156,30 @@ document.addEventListener("DOMContentLoaded", () => {
     productDiv.appendChild(popup);
 
     image.src = product.picture;
-
-    const q = purchasedProducts
-      .filter((p) => p.name === product.name && seller.id === p.sellerId)
-      .reduce((ac, p) => Number(p.quantity) + ac, 0);
-    console.log(q);
-    const mainProduct = products.find(
-      (p) => p.name === product.name && seller.id === p.sellerId
+    let transactionsOfProduct = [];
+    const result = await fetch(
+      `/api/sellapi/${seller.id}/transaction/?product-id=${product.productId}`,
+      {
+        method: "GET",
+      }
     );
+    if (result.ok) {
+      transactionsOfProduct = await res.json();
+    }
+    if (!result.ok) {
+      throw new Error("Failed to get transactions.");
+    }
+    const q = transactionsOfProduct.reduce(
+      (ac, p) => Number(p.quantity) + ac,
+      0
+    );
+    let existingProduct = {};
+    const res = await fetch(`/api/sellapi/${seller.id}/${product.productId}`);
+    if (res.ok) {
+      existingProduct = await res.json();
+    }
+    console.log(q);
+    const mainProduct = existingProduct;
     name.textContent = product.name;
     buyerLi.textContent = product.buyer.username;
     quantityPurchasedLi.textContent = product.quantity;
@@ -166,48 +190,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return productDiv;
   };
-  const renderProductsHistory = () => {
+  const renderProductsHistory = async () => {
+    let purchasedProducts = [];
+    const result = await fetch(`/api/sellapi/${seller.id}/transaction`, {
+      method: "GET",
+    });
+    if (result.ok) {
+      purchasedProducts = await result.json();
+    }
+    if (!result.ok) {
+      throw new Error("Failed to get transactions.");
+    }
     const productsDiv = document.querySelector("#list-of-sold");
 
     productsDiv.replaceChildren();
-    const productsHistory = purchasedProducts.filter((item) => {
-      {
-        return item.sellerId === seller.id;
-      }
-    });
-    console.log(productsHistory);
-    productsHistory.forEach((item) =>
-      productsDiv.appendChild(renderProductHistory(item))
+console.log(purchasedProducts);
+    purchasedProducts.forEach(async (item) =>
+      productsDiv.appendChild(await renderProductHistory(item))
     );
     const soldHistory = document.querySelector("#sold-history");
-    if (seller.products.length) {
+    if (purchasedProducts) {
       soldHistory.style.visibility = "visible";
     } else {
       soldHistory.style.visibility = "hidden";
     }
-
-    localStorage.setItem("products", JSON.stringify(products));
-    localStorage.setItem(
-      "purchasedProducts",
-      JSON.stringify(purchasedProducts)
-    );
   };
-  renderProductsSale();
-  renderProductsHistory();
-  function updateProd(prod, q) {
+  await renderProductsSale();
+  await renderProductsHistory();
+  async function updateProd(prod, q) {
     const qValue = Number(q);
-    const product = products.find(
-      (p) => p.name === prod.name && p.sellerId === prod.sellerId
-    );
 
-    product.quantity = product.quantity + qValue;
-    localStorage.setItem("products", JSON.stringify(products));
-  }
-  function updateProdInSeller(prod, q) {
-    const qValue = Number(q);
-    const product = seller.products.find((p) => p.name === prod.name);
-    product.quantity = product.quantity + qValue;
-    localStorage.setItem("loggedseller", JSON.stringify(seller));
+    const res = await fetch(`/api/sellapi/${prod.sellerId}/${prod.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        quantity: prod.quantity + qValue,
+      }),
+    });
+    if (res.ok) {
+      await res.json();
+    }
+    if (!res.ok) {
+      throw new Error("Failed to update product quantity.");
+    }
   }
 });
 

@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.querySelector("#prod-image").value = "";
 
   //prepare all vallues needed from storage
-  let products = JSON.parse(localStorage.getItem("products") ?? "[]");
+  // let products = JSON.parse(localStorage.getItem("products") ?? "[]");
   let sellerParsed = JSON.parse(localStorage.getItem("loggedseller")); //when the user log in we store his data
   let seller = Seller.fromJSON(sellerParsed, sellerParsed.id);
 
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             throw new Error("Failed to update product quantity.");
           }
         } else {
-          products.push(p);
+        
           const res = await fetch(`/api/sellapi/${seller.id}`, {
             method: "POST",
             body: JSON.stringify(p),
