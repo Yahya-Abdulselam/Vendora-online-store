@@ -1,11 +1,14 @@
 [
     {
-        "category": "Book"
+        "category": "book"
     },
     {
-        "category": "Clothes"
+        "category": "clothing"
     },
     {
-        "category": "Electronics"
+        "category": "tech"
+    },
+    {
+        "category": "furniture"
     }
 ]

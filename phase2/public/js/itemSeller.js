@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // let purchasedProducts = JSON.parse(
   //   localStorage.getItem("purchasedProducts") ?? "[]"
   // );
- 
+
   const renderProductSale = async (product) => {
     const productDiv = document.createElement("div");
     productDiv.classList.add("itemssale");
@@ -39,14 +39,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       const qToAddValue = Number(qToAdd.value);
       if (qToAddValue && qToAddValue > 0) {
         await updateProd(product, qToAdd.value);
-
-   
       }
 
       await renderProductsSale();
-     
-        await renderProductsHistory();
-      
+
+      await renderProductsHistory();
     });
 
     productDiv.appendChild(image);
@@ -100,7 +97,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else {
       sectionSale.style.visibility = "hidden";
     }
-   
   };
 
   const renderProductHistory = async (product) => {
@@ -201,8 +197,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       purchasedProducts = await result.json();
     }
     if (!result.ok) {
-     
-    
     }
     const productsDiv = document.querySelector("#list-of-sold");
 
@@ -219,7 +213,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   };
   await renderProductsSale();
- 
+
   await renderProductsHistory();
 
   async function updateProd(prod, q) {
@@ -233,7 +227,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     if (res.ok) {
       await res.json();
-     
     }
     if (!res.ok) {
       throw new Error("Failed to update product quantity.");

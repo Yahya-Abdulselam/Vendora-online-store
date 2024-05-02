@@ -7,7 +7,7 @@
         "quantity": 15,
         "picture": "",
         "sellerId": "0",
-        "catId": "1"
+        "catId": "clothing"
     },
     {
         "id": "102",
@@ -17,7 +17,7 @@
         "quantity": 4,
         "picture": "",
         "sellerId": "0",
-        "catId": "1"
+        "catId": "clothing"
     },
 
     {
@@ -28,7 +28,7 @@
         "quantity": 10,
         "picture": "",
         "sellerId": "1",
-        "catId": "1"
+        "catId": "clothing"
     },
     {
         "id": "104",
@@ -38,7 +38,7 @@
         "quantity": 25,
         "picture": "",
         "sellerId": "1",
-        "catId": "1"
+        "catId": "clothing"
     },
     {
         "id": "105",
@@ -48,7 +48,7 @@
         "quantity": 20,
         "picture": "",
         "sellerId": "1",
-        "catId": "1"
+        "catId": "clothing"
     },
 
     {
@@ -59,7 +59,7 @@
         "quantity": 30,
         "picture": "",
         "sellerId": "3",
-        "catId": "1"
+        "catId": "book"
     },
 
     {
@@ -70,7 +70,7 @@
         "quantity": 70,
         "picture": "",
         "sellerId": "3",
-        "catId": "1"
+        "catId": "tech"
     },
     {
         "id": "108",
@@ -80,6 +80,6 @@
         "quantity": 4,
         "picture": "",
         "sellerId": "3",
-        "catId": "1"
+        "catId": "tech"
     }
 ]
