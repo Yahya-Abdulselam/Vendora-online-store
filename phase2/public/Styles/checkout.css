@@ -272,6 +272,7 @@ section > div {
 
   img {
     align-self: center;
+    object-fit:   contain;
     width: 8rem;
     height: 6rem;
     border-radius: 0.5rem;
