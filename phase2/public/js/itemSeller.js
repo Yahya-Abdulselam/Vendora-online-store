@@ -100,6 +100,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else {
       sectionSale.style.visibility = "hidden";
     }
+    localStorage.setItem("products", JSON.stringify(products));
   };
 
   const renderProductHistory = async (product) => {

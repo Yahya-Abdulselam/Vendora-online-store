@@ -38,11 +38,18 @@ export async function get(buyer, prod, id) {
       });
     }
     if (prod && buyer) {
-      return await prisma.product.findMany({
+      const verification = await buyers.get(buyer);
+      const verification2 = await products.getForTransaction(prod);
+      return await prisma.transaction.findMany({
         where: { buyerId: verification.id, productId: verification2.id },
       });
     }
-    return await prisma.product.findMany({});
+    if (buyer) {
+      const verification = await buyers.get(buyer);
+      return await prisma.transaction.findMany({ buyerId: verification.id });
+    } else {
+      return await prisma.transaction.findMany({});
+    }
   } catch (e) {
     return {
       error: {

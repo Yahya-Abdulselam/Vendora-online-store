@@ -1,8 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const search = document.querySelector("#sv");
-  let purchasedProducts = JSON.parse(
-    localStorage.getItem("purchasedProducts") ?? "[]"
-  );
+
   let buyer = JSON.parse(localStorage.getItem("loggeduser") ?? "{}"); //when the user log in we store his data(current seller)
 
   //render each product
@@ -46,18 +44,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return productLi;
   };
+  let transactions = [];
+  const res = await fetch(`/api/buyapi/${buyer.id}/transaction`, {
+    method: "GET",
+  });
+  if (res.ok) {
+    transactions = await res.json();
+  }
 
   const renderProductsPurchased = () => {
     const productLi = document.querySelector("#list-items");
 
     productLi.replaceChildren();
 
-    purchasedProducts
-      .filter((p) => {
-        //for products that has same buyer id show it to him
-        return p.buyer.id === buyer.id;
-      })
-      .forEach((p) => productLi.appendChild(renderProductPurchased(p)));
+    transactions.forEach((p) =>
+      productLi.appendChild(renderProductPurchased(p))
+    );
   };
 
   //filter history based on search
@@ -65,8 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const productLi = document.querySelector("#list-items");
     productLi.replaceChildren();
 
-    purchasedProducts
-      .filter((p) => p.buyer.id === buyer.id)
+    transactions
       .filter(
         (product) =>
           product.name.toLowerCase().includes(filter.toLowerCase()) ||

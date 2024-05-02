@@ -1,8 +1,15 @@
 import * as transactions from "@/repos/transactions";
 export async function GET(request, { params }) {
   try {
-    const { buyer, transactionProduct } = params;
-    const results = await transactions.get(buyer, transactionProduct);
+    const { searchParams } = new URL(request.url);
+    const transactionProduct = searchParams.get("transactionProduct");
+    const { buyer } = params;
+    let results;
+    if (transactionProduct) {
+      results = await transactions.get(buyer, transactionProduct);
+    } else {
+      results = await transactions.get(buyer);
+    }
 
     if ("error" in results) {
       return Response.json(results.error.message, {
@@ -18,10 +25,10 @@ export async function GET(request, { params }) {
 
 export async function POST(request, { params }) {
   try {
-    const { buyer, transactionProduct } = params;
-
+    const { searchParams } = new URL(request.url);
+    const transactionProduct = searchParams.get("transactionProduct");
+    const { buyer } = params;
     const data = await request.json();
-
     const transaction = await transactions.create(
       buyer,
       transactionProduct,
