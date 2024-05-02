@@ -1,0 +1,85 @@
+[
+    {
+        "id": "101",
+        "name": "Sunglasses",
+        "description": "A cool set of sunglasses.",
+        "price": 150,
+        "quantity": 15,
+        "picture": "",
+        "sellerId": "0",
+        "catId": "1"
+    },
+    {
+        "id": "102",
+        "name": "Medical glasses",
+        "description": "A set of medical glasses.",
+        "price": 1500,
+        "quantity": 4,
+        "picture": "",
+        "sellerId": "0",
+        "catId": "1"
+    },
+
+    {
+        "id": "103",
+        "name": "Black shirt",
+        "description": "A nice black shirt.",
+        "price": 10,
+        "quantity": 10,
+        "picture": "",
+        "sellerId": "1",
+        "catId": "1"
+    },
+    {
+        "id": "104",
+        "name": "White shirt",
+        "description": "A chill white shirt.",
+        "price": 15,
+        "quantity": 25,
+        "picture": "",
+        "sellerId": "1",
+        "catId": "1"
+    },
+    {
+        "id": "105",
+        "name": "Gray shirt",
+        "description": "A gray medicore shirt.",
+        "price": 20,
+        "quantity": 20,
+        "picture": "",
+        "sellerId": "1",
+        "catId": "1"
+    },
+
+    {
+        "id": "106",
+        "name": "Harry Potter",
+        "description": "A book about magical boy.",
+        "price": 200,
+        "quantity": 30,
+        "picture": "",
+        "sellerId": "3",
+        "catId": "1"
+    },
+
+    {
+        "id": "107",
+        "name": "Iphone",
+        "description": "A phone that has uses.",
+        "price": 2000,
+        "quantity": 70,
+        "picture": "",
+        "sellerId": "3",
+        "catId": "1"
+    },
+    {
+        "id": "108",
+        "name": "Macbook",
+        "description": "A laptop with M2 chip.",
+        "price": 10000,
+        "quantity": 4,
+        "picture": "",
+        "sellerId": "3",
+        "catId": "1"
+    }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "amountPaid": 10,
+        "quantityBought": 1,
+        "buyerId": "5",
+        "productId": "103"
+    },
+    {
+        "amountPaid": 45,
+        "quantityBought": 3,
+        "buyerId": "6",
+        "productId": "104"
+    },
+    {
+        "amountPaid": 40,
+        "quantityBought": 2,
+        "buyerId": "7",
+        "productId": "105"
+    },
+    {
+        "amountPaid": 600,
+        "quantityBought": 3,
+        "buyerId": "8",
+        "productId": "106"
+    },
+    {
+        "amountPaid": 300,
+        "quantityBought": 2,
+        "buyerId": "8",
+        "productId": "101"
+    }
+]
