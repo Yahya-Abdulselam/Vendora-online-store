@@ -59,7 +59,9 @@ export async function filterByName(seller, name) {
 }
 export async function get(seller, id) {
   let verification = null;
+  
   try {
+    
     if (id) {
       verification = await sellers.get(seller);
 
@@ -79,6 +81,7 @@ export async function get(seller, id) {
         where: { sellerId: verification.id },
       });
     } else {
+      
       return await prisma.product.findMany();
     }
   } catch (e) {

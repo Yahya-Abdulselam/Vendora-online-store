@@ -24,33 +24,32 @@ document.addEventListener("DOMContentLoaded", () => {
   clothingButton.forEach((button) => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
-      localStorage.setItem("selectedCategory", "clothing");
 
-      window.location.href = "/pages/listItem.html";
+      window.location.href = "/pages/listItem.html/?category=clothing";
     });
   });
 
   techButton.forEach((button) => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
-      localStorage.setItem("selectedCategory", "tech");
-      window.location.href = "/pages/listItem.html";
+
+      window.location.href = "/pages/listItem.html/?category=tech";
     });
   });
 
   bookButton.forEach((button) => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
-      localStorage.setItem("selectedCategory", "book");
-      window.location.href = "/pages/listItem.html";
+
+      window.location.href = "/pages/listItem.html/?category=book";
     });
   });
 
   furnitureButton.forEach((button) => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
-      localStorage.setItem("selectedCategory", "furniture");
-      window.location.href = "/pages/listItem.html";
+
+      window.location.href = "/pages/listItem.html/?category=furniture";
     });
   });
 });

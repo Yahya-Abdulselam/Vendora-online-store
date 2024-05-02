@@ -416,6 +416,7 @@ x main {
   background-color: var(--mine-shaft-950);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(23%, 0.3fr));
+  justify-content: center;
 
   gap: 2rem;
 }
@@ -425,15 +426,22 @@ x main {
   width: 100%;
   border-collapse: collapse;
   height: 30%;
-  border: 3px solid var(--butterfly-bush-300);
+  
   text-align: center;
 }
 .itemssale,
 .itemssold {
   display: flex;
   flex-flow: column;
-
+ background-color: var(--mine-shaft-900);
+ padding: 0.4rem;
+ align-items: center;
+  border-radius: 10px;
   gap: 0.7rem;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 .itemssale img,
 .itemssold > img {
@@ -451,7 +459,7 @@ x main {
 }
 td {
   padding: 0.4rem;
-  border: 1px solid var(--butterfly-bush-300);
+
   color: var(--picton-blue-300);
   border-right: none;
   border-left: none;
@@ -496,6 +504,7 @@ td {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18%, 0.2fr));
   gap: 1rem;
+  justify-content: center;
 }
 .itemname {
   font-size: 0.6rem;
@@ -756,6 +765,17 @@ main {
 
 /*ligh and dark themed page*/
 @media screen and (prefers-color-scheme: light) {
+  .item-name,.price,.status{
+    color: var(--picton-blue-300)
+  }
+  .quantity-left::before ,.quantity-purchased::before,.quantity-sold::before,.buyer::before,.status::before,.item-name::before,
+  .itemname::before,.price::before {
+    color: var(--butterfly-bush-200);
+  }
+  .itemssale,
+.itemssold {
+  background-color: var(--mine-shaft-400);
+}
   body {
     background-color: white;
   }
@@ -781,14 +801,14 @@ main {
   td {
     border-color: var(--butterfly-bush-500);
   }
-  td,
-  .buyer,
-  .price,
-  .quantity-left,
-  .quantity-sold {
+ .itemssold td,
+  .itemssold.buyer,
+  .itemssold.price,
+  .itemssold.quantity-left,
+  .itemssold.quantity-sold {
     color: var(--picton-blue-700);
   }
-  .price::before,
+  .itemssold .price::before, 
   .item-name td::before,
   .status td::before,
   .buyer::before,

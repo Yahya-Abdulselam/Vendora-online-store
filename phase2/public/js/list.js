@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   if (localStorage.getItem("loggeduser")) {
     var hidden1 = document.getElementById("hidden1");
     var hidden2 = document.getElementById("hidden2");
@@ -9,10 +9,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let search = document.querySelector("#sv");
   search.value = "";
-  let products = JSON.parse(localStorage.getItem("products") ?? "[]");
+
   const urlParams = new URLSearchParams(window.location.search);
   const searchQuery = urlParams.get("search")?.toLowerCase() || "";
-
+  const catQuery = urlParams.get("category")?.toLowerCase() || "";
+  console.log(catQuery);
+  let products = [];
+  const res = await fetch(`/api/products/?category=${catQuery}`, {
+    method: "GET",
+  });
+  if (res.ok) {
+    products = await res.json();
+  }
+  if (!res.ok) {
+    throw new Error("Failed to update product quantity.");
+  }
+  console.log(products);
   let searchProds = []; //the filtered list we will use to show items
 
   search.value = searchQuery;
@@ -20,31 +32,30 @@ document.addEventListener("DOMContentLoaded", () => {
     search.focus();
   }
   //when leaving the listing page clear category preference
-  const clearCategoryOnNavigation = () => {
-    const path = window.location.pathname;
-    if (path !== "/pages/listItem.html" || search.value) {
-      localStorage.removeItem("selectedCategory");
-    }
-  };
-  clearCategoryOnNavigation();
-  window.addEventListener("beforeunload", clearCategoryOnNavigation);
-  window.addEventListener("popstate", clearCategoryOnNavigation);
-  window.addEventListener("unload", clearCategoryOnNavigation);
+  // const clearCategoryOnNavigation = () => {
+  //   const path = window.location.pathname;
+  //   if (path !== "/pages/listItem.html" || search.value) {
+  //     localStorage.removeItem("selectedCategory");
+  //   }
+  // };
+  // clearCategoryOnNavigation();
+  // window.addEventListener("beforeunload", clearCategoryOnNavigation);
+  // window.addEventListener("popstate", clearCategoryOnNavigation);
+  // window.addEventListener("unload", clearCategoryOnNavigation);
   //if the page load with search value then filter
   if (search.value) {
     searchProds = products.filter((p) => {
       return (
         (p.quantity > 0 && p.name.toLowerCase().includes(search.value)) ||
-        p.category.toLowerCase().includes(search.value) ||
+        p?.category.toLowerCase().includes(search.value) ||
         p.details.toLowerCase().includes(search.value)
       );
     });
-    console.log(searchProds);
   } else {
     searchProds = [...products];
   }
 
-  const category = localStorage.getItem("selectedCategory") ?? "any";
+  // const category = localStorage.getItem("selectedCategory") ?? "any";
 
   const renderProduct = (product) => {
     const maxQ = product.quantity;
@@ -140,45 +151,28 @@ document.addEventListener("DOMContentLoaded", () => {
     return itemDiv;
   };
 
-  const renderProducts = () => {
+  const renderProducts = async () => {
     const container = document.querySelector("#list-items");
     container.replaceChildren();
-    if (products.length && category !== "any") {
-      if (search?.value) {
-        searchProds
-          .filter((p) => p.quantity > 0 && p.category === category) //if category not any filter it
-          .forEach((p) => {
-            container.appendChild(renderProduct(p));
-          });
-      } else {
-        products
-          .filter((p) => p.quantity > 0 && p.category === category)
-          .forEach((p) => {
-            container.appendChild(renderProduct(p));
-          });
-      }
-    } else {
-      searchProds.forEach((p) => {
+
+    searchProds
+      .filter((p) => p.quantity > 0) //if category not any filter it
+      .forEach((p) => {
         container.appendChild(renderProduct(p));
       });
-    }
   };
-  search.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-    }
-  });
 
   search.addEventListener("input", () => {
     //if there is a search filter an item based on category name and details
     const value = search.value.trim().toLowerCase();
     if (value) {
       if (searchProds.length) {
+        
         searchProds = products.filter((p) => {
           return (
             (p.quantity > 0 && p.name.toLowerCase().includes(value)) ||
-            p.category.toLowerCase().includes(value) ||
-            p.details.toLowerCase().includes(value)
+            p.catId.toLowerCase().includes(value) ||
+            p.description.toLowerCase().includes(value)
           );
         });
       }

@@ -40,12 +40,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (qToAddValue && qToAddValue > 0) {
         await updateProd(product, qToAdd.value);
 
-        console.log(qToAddValue);
-        console.log(seller);
+   
       }
 
-      await renderProductsHistory();
       await renderProductsSale();
+     
+        await renderProductsHistory();
+      
     });
 
     productDiv.appendChild(image);
@@ -199,24 +200,27 @@ document.addEventListener("DOMContentLoaded", async () => {
       purchasedProducts = await result.json();
     }
     if (!result.ok) {
-      throw new Error("Failed to get transactions.");
+     
+    
     }
     const productsDiv = document.querySelector("#list-of-sold");
 
     productsDiv.replaceChildren();
-console.log(purchasedProducts);
+
     purchasedProducts.forEach(async (item) =>
       productsDiv.appendChild(await renderProductHistory(item))
     );
     const soldHistory = document.querySelector("#sold-history");
-    if (purchasedProducts) {
+    if (purchasedProducts.length) {
       soldHistory.style.visibility = "visible";
     } else {
       soldHistory.style.visibility = "hidden";
     }
   };
   await renderProductsSale();
+ 
   await renderProductsHistory();
+
   async function updateProd(prod, q) {
     const qValue = Number(q);
 
@@ -228,6 +232,7 @@ console.log(purchasedProducts);
     });
     if (res.ok) {
       await res.json();
+     
     }
     if (!res.ok) {
       throw new Error("Failed to update product quantity.");
