@@ -1,26 +1,26 @@
 [
     {
         "id": "5",
-        "username": "buyingStuff",
+        "username": "joe",
         "password": "1234",
-        "balance": 1000
+        "balance": 6300
     },
     {
         "id": "6",
-        "username": "buyingShirts",
+        "username": "salem",
         "password": "2345",
-        "balance": 1000
+        "balance": 20000
     },
     {
         "id": "7",
-        "username": "buyingBooks",
+        "username": "kamal",
         "password": "3456",
         "balance": 1000
     },
     {
         "id": "8",
-        "username": "buyingElectronics",
+        "username": "taim",
         "password": "4567",
-        "balance": 1000
+        "balance": 500
     }
 ]

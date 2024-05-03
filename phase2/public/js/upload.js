@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   let sellerParsed = JSON.parse(localStorage.getItem("loggedseller")); //when the user log in we store his data
   let seller = Seller.fromJSON(sellerParsed, sellerParsed.id);
 
-  const sizeLimit = 1.6 * 1024 * 1024; // max size local storage can handle
+  const sizeLimit = 2 * 1024 * 1024; // max size local storage can handle
 
   const uploadButton = document.querySelector("#upload-item");
   const imageChoice = document.querySelector("#prod-image");
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (img.size > sizeLimit) {
       document.querySelector("#prod-image-error").textContent =
-        "Image size must not exceed 1.6MB.";
+        "Image size must not exceed 2 MB.";
 
       return;
     } else {
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             await res.json();
           }
           if (!res.ok) {
-            throw new Error("Failed to update product quantity.");
+        
           }
         } else {
         
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             await res.json();
           }
           if (!res.ok) {
-            throw new Error("Failed to add new product.");
+         
           }
         }
         form.reset();

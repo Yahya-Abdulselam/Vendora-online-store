@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       products = await res.json();
     }
     if (!res.ok) {
-      throw new Error("Failed to update product quantity.");
+    
     }
     const productsDiv = document.querySelector("#list-of-sale");
 

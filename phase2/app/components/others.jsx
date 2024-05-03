@@ -61,7 +61,7 @@ return (
   </div>
   <div className="stat">
     <div className="stat-title">Number of products bought</div>
-    <div className="stat-value">{topBuyerTransaction[0]._sum.quantityBought}  bought</div>
+    <div className="stat-value">{topBuyerTransaction[0]._sum.quantityBought}  </div>
    
   </div>
 </div>

@@ -24,7 +24,6 @@ h5 {
   font-family: "Merriweather";
 }
 
-
 :root {
   --picton-blue-50: #effaff;
   --picton-blue-100: #def4ff;
@@ -415,7 +414,6 @@ footer #socials a:hover {
   -o-transition: 0.1s;
 }
 
-
 /*use RAM layout to setup items when searching*/
 #list-items {
   margin: 2rem;
@@ -491,7 +489,7 @@ button {
 button:hover {
   transition: all 0.3s ease-in-out;
 
-  border: solid var(--french-rose-600);/*change color of border when hovering*/
+  border: solid var(--french-rose-600); /*change color of border when hovering*/
   color: var(--french-rose-600);
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -507,6 +505,9 @@ button:hover {
 }
 .buy {
   width: 100%;
+}
+.price::after {
+  content: " QAR";
 }
 
 footer {

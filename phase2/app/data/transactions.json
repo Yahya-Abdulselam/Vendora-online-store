@@ -1,32 +1,170 @@
 [
     {
-        "amountPaid": 10,
-        "quantityBought": 1,
-        "buyerId": "5",
-        "productId": "103"
-    },
-    {
-        "amountPaid": 45,
+        "amountPaid": 150,
         "quantityBought": 3,
-        "buyerId": "6",
-        "productId": "104"
-    },
-    {
-        "amountPaid": 40,
-        "quantityBought": 2,
         "buyerId": "7",
         "productId": "105"
     },
     {
-        "amountPaid": 600,
-        "quantityBought": 3,
+        "amountPaid": 620,
+        "quantityBought": 1,
         "buyerId": "8",
-        "productId": "106"
+        "productId": "107"
+    },
+    {
+        "amountPaid": 300,
+        "quantityBought": 2,
+        "buyerId": "8",
+        "productId": "108"
     },
     {
         "amountPaid": 300,
         "quantityBought": 2,
         "buyerId": "8",
         "productId": "101"
+    },
+    {
+        "amountPaid": 300,
+        "quantityBought": 2,
+        "buyerId": "8",
+        "productId": "101"
+    },
+    {
+        "amountPaid": 300,
+        "quantityBought": 2,
+        "buyerId": "8",
+        "productId": "101"
+    },
+    {
+        "amountPaid": 300,
+        "quantityBought": 2,
+        "buyerId": "8",
+        "productId": "101"
+    },
+    {
+        "amountPaid": 300,
+        "quantityBought": 2,
+        "buyerId": "8",
+        "productId": "101"
+    },
+    {
+        "amountPaid": 300,
+        "quantityBought": 2,
+        "buyerId": "8",
+        "productId": "101"
+    },
+    {
+        "amountPaid": 1700,
+        "quantityBought": 1,
+        "buyerId": "5",
+        "productId": "99"
+    },
+    {
+        "amountPaid": 900,
+        "quantityBought": 1,
+        "buyerId": "8",
+        "productId": "100"
+    },
+    {
+        "amountPaid": 340,
+        "quantityBought": 1,
+        "buyerId": "7",
+        "productId": "101"
+    },
+    {
+        "amountPaid": 60,
+        "quantityBought": 1,
+        "buyerId": "6",
+        "productId": "103"
+    },
+    {
+        "amountPaid": 50,
+        "quantityBought": 1,
+        "buyerId": "7",
+        "productId": "105"
+    },
+    {
+        "amountPaid": 420,
+        "quantityBought": 1,
+        "buyerId": "8",
+        "productId": "106"
+    },
+    {
+        "amountPaid": 620,
+        "quantityBought": 1,
+        "buyerId": "8",
+        "productId": "107"
+    },
+    {
+        "amountPaid": 3400,
+        "quantityBought": 1,
+        "buyerId": "6",
+        "productId": "108"
+    },
+    {
+        "amountPaid": 900,
+        "quantityBought": 1,
+        "buyerId": "5",
+        "productId": "100"
+    },
+    {
+        "amountPaid": 340,
+        "quantityBought": 1,
+        "buyerId": "7",
+        "productId": "101"
+    },
+    {
+        "amountPaid": 60,
+        "quantityBought": 1,
+        "buyerId": "6",
+        "productId": "103"
+    },
+    {
+        "amountPaid": 50,
+        "quantityBought": 1,
+        "buyerId": "7",
+        "productId": "105"
+    },
+    {
+        "amountPaid": 420,
+        "quantityBought": 1,
+        "buyerId": "8",
+        "productId": "106"
+    },
+    {
+        "amountPaid": 620,
+        "quantityBought": 1,
+        "buyerId": "8",
+        "productId": "107"
+    },
+    {
+        "amountPaid": 3400,
+        "quantityBought": 1,
+        "buyerId": "6",
+        "productId": "108"
+    },
+    {
+        "amountPaid": 900,
+        "quantityBought": 1,
+        "buyerId": "5",
+        "productId": "100"
+    },
+    {
+        "amountPaid": 340,
+        "quantityBought": 1,
+        "buyerId": "7",
+        "productId": "101"
+    },
+    {
+        "amountPaid": 60,
+        "quantityBought": 1,
+        "buyerId": "6",
+        "productId": "103"
+    },
+    {
+        "amountPaid": 50,
+        "quantityBought": 1,
+        "buyerId": "7",
+        "productId": "105"
     }
 ]

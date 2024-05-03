@@ -2,9 +2,10 @@
 
 import * as stats from"@/repos/stats";
 const totalTech= await stats.getTransactionTotalByCategory("tech");
-const totalClothing= await stats.getTransactionTotalByCategory("Clothing");
+const totalClothing= await stats.getTransactionTotalByCategory("clothing");
 const totalBook= await stats.getTransactionTotalByCategory("book");
 const totalFurniture= await stats.getTransactionTotalByCategory("furniture");
+
 export default function CatRevenue({  }) {
 
   return (

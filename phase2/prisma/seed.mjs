@@ -21,8 +21,9 @@ async function main() {
     for (const seller of sellers) await prisma.seller.create({ data: seller });
     for (const category of categories)
       await prisma.category.create({ data: category });
-    for (const product of products){  
-      await prisma.product.create({ data: product });}
+    for (const product of products) {
+      await prisma.product.create({ data: product });
+    }
 
     for (const transaction of transactions)
       await prisma.transaction.create({ data: transaction });

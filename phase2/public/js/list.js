@@ -47,8 +47,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     searchProds = products.filter((p) => {
       return (
         (p.quantity > 0 && p.name.toLowerCase().includes(search.value)) ||
-        p?.category.toLowerCase().includes(search.value) ||
-        p.details.toLowerCase().includes(search.value)
+        p?.catId.toLowerCase().includes(search.value) ||
+        p.description.toLowerCase().includes(search.value)
       );
     });
   } else {

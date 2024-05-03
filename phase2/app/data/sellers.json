@@ -1,22 +1,18 @@
 [
     {
-        "id": "0",
-        "username": "sellingStuff",
+        "id": "1",
+        "username": "Yahya",
         "password": "1234"
     },
     {
-        "id": "1",
-        "username": "sellingShirts",
+        "id": "2",
+        "username": "Youssef",
         "password": "2345"
     },
     {
-        "id": "2",
-        "username": "sellingBooks",
-        "password": "3456"
-    },
-    {
         "id": "3",
-        "username": "sellingElectronics",
-        "password": "4567"
+        "username": "Mohammad",
+        "password": "3456"
     }
+  
 ]
