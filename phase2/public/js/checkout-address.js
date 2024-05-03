@@ -3,6 +3,14 @@
  * it would move on to check out and saves any changed to the data thats been given.
  */
 
+export default async function fetchUserData() {
+    return await fetch("../../app/api/buyapi/[buyer]/route.js")
+}
+
+export default async function fetchCartProduct() {
+    return await fetch("../../app/api/buyapi/[cart]/route.js")
+}
+
 document.addEventListener("DOMContentLoaded", () =>{
     const customerName = document.getElementById("full_name");
     const customerAddressLine = document.getElementById("address-line");
@@ -34,9 +42,9 @@ document.addEventListener("DOMContentLoaded", () =>{
             "city": customerCity.value
         }
 
-        let user = JSON.parse(localStorage.getItem("loggeduser"))
+        let user = fetchUserData()
         user.address = newAddress
-        let itemProduct = JSON.parse(localStorage.getItem("itemInCart"))
+        let itemProduct = fetchCartProduct()
         itemProduct.quantity = quantityInput.value
         localStorage.setItem("loggeduser", JSON.stringify(user))
         localStorage.setItem("itemInCart", JSON.stringify(itemProduct))

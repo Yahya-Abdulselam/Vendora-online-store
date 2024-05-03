@@ -3,11 +3,23 @@
  * purchase history, it will update the seller's product's quantity, and it will update the product in the list of all products accordingly.
  */
 
+export default async function fetchUserData() {
+  return await fetch("../../app/api/buyapi/[buyer]/route.js")
+}
+
+export default async function fetchCartProduct() {
+  return await fetch("../../app/api/buyapi/[cart]/route.js")
+}
+
+export default async function fetchProducts() {
+  return await fetch("../../app/api/products/route.js")
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   let purchasedProducts = JSON.parse(
     localStorage.getItem("purchasedProducts") ?? "[]"
   );
-  const productInCart = JSON.parse(localStorage.getItem("itemInCart"));
+  const productInCart = fetchCartProduct()
   let productName = document.getElementById("order-name");
   let informationProductPrice = document.getElementById(
     "information-product-price"
@@ -80,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
   shipping.innerText = shipping_price;
   total.innerText = total_price;
 
-  let products = JSON.parse(localStorage.getItem("products"));
+  let products = fetchProducts()
   let product;
   let index;
   for (let i = 0; i < products.length; i++) {

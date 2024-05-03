@@ -1,3 +1,7 @@
+export default async function fetchUserData() {
+  return await fetch("../../app/api/buyapi/[buyer]/route.js")
+}
+
 // function to handle login of user
 function handleLogin() {
   var username = document.getElementById("username").value;
@@ -7,7 +11,7 @@ function handleLogin() {
   var dal = localStorage.getItem("destinationAfterLogin");
 
   //fetch the users from users.json
-  fetch("../data/users.json")
+  fetchUserData()
     .then((response) => response.json())
     .then((data) => {
       var user = data.find(
