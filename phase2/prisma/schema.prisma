@@ -24,6 +24,7 @@ model Buyer {
   password     String
   balance      Float         @default(0)
   transactions Transaction[]
+  Cart         Cart[]
 }
 
 model Product {
@@ -38,6 +39,7 @@ model Product {
   category     Category      @relation(fields: [catId], references: [category])
   catId        String
   transactions Transaction[]
+  Cart         Cart[]
 
   @@unique([name, sellerId])
 }
@@ -58,4 +60,15 @@ model Category {
   category String @id
 
   products Product[]
+}
+
+model Cart {
+  id String @id @default(cuid())
+
+
+  buyer          Buyer    @relation(fields: [buyerId], references: [id], onDelete: Cascade)
+  buyerId        String
+  product        Product  @relation(fields: [productId], references: [id])
+  productId      String
+ 
 }

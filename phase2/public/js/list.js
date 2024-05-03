@@ -167,7 +167,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const value = search.value.trim().toLowerCase();
     if (value) {
       if (searchProds.length) {
-        
         searchProds = products.filter((p) => {
           return (
             (p.quantity > 0 && p.name.toLowerCase().includes(value)) ||
