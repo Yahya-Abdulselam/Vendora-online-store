@@ -47,10 +47,11 @@ model Transaction {
 
   amountPaid     Float
   quantityBought Float
-  buyer          Buyer   @relation(fields: [buyerId], references: [id], onDelete: Cascade)
+  buyer          Buyer    @relation(fields: [buyerId], references: [id], onDelete: Cascade)
   buyerId        String
-  product        Product @relation(fields: [productId], references: [id])
+  product        Product  @relation(fields: [productId], references: [id])
   productId      String
+  date           DateTime @default(now())
 }
 
 model Category {
