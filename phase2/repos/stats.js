@@ -75,31 +75,70 @@ export async function getTransactionAccountTotal(id, from, to) {
   });
 }
 export async function getTopProducts() {
-  return await prisma.transaction.groupBy({
+  const topProducts = await prisma.transaction.groupBy({
     by: ["productId"],
     _sum: {
       quantityBought: true,
       amountPaid: true,
     },
-    orderBy: {
-      _sum: {
-        quantityBought: "desc",
+    orderBy: [
+      {
+        _sum: {
+          quantityBought: "desc",
+        },
       },
-    },
-
+      {
+        _sum: {
+          amountPaid: "desc",
+        },
+      },
+    ],
     take: 3,
   });
+
+  return topProducts;
 }
 
-export async function getClientTop() {
-  const result = await prisma.account.aggregate({
-    by: ["client"],
-    _sum: {
-      balance: true,
-    },
-    take: 1,
-  });
-  return await prisma.client.findUnique({
-    id: result.client,
-  });
+export async function getSellerTop() {
+  try {
+    const result = await prisma.$queryRaw`
+  SELECT s.id, s.username, SUM(t.amountPaid) AS totalRevenue, SUM(t.quantityBought) As totalQuantity
+  FROM Seller s, Product p, "Transaction" t
+  where p.id = t.productId and  s.id = p.sellerId 
+  GROUP BY s.id
+  ORDER BY totalQuantity DESC,totalRevenue DESC 
+  LIMIT 1;
+`;
+
+    return result;
+  } catch (e) {
+    return {
+      error: {
+        message: e.message,
+        status: 404,
+      },
+    };
+  }
+}
+export async function getBuyerTop() {
+  try {
+    const sellersWithRevenue = await prisma.transaction.groupBy({
+      by: ["buyerId"],
+      _sum: {
+        amountPaid: true,
+        quantityBought: true,
+      },
+      orderBy: [
+        {
+          _sum: {
+            amountPaid: "desc",
+          },
+        },
+        {
+          _sum: { quantityBought: "desc" },
+        },
+      ],
+      take: 1,
+    });return sellersWithRevenue;
+  } catch {}
 }

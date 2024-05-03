@@ -38,7 +38,7 @@ export default async function GeneralStat({  }) {
 <div className="collapse bg-base-200 m-5 ">
   <input type="checkbox" /> 
   <div className="collapse-title text-xl font-medium">
-    Click me to show/hide content
+Most Popular Products
   </div>
   <div className="collapse-content flex flex-row justify-between flex-wrap"> 
   <div className="stats shadow flex flex-col-reverse justify-start m-7 bg-gray-300 dark:bg-gray-900">
