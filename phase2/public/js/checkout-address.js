@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
         let user = fetchUserData()
         user.address = newAddress
-        let itemProduct = fetchCartProduct()
+        let itemProduct = fetchCartProduct().product
         itemProduct.quantity = quantityInput.value
         localStorage.setItem("loggeduser", JSON.stringify(user))
         localStorage.setItem("itemInCart", JSON.stringify(itemProduct))

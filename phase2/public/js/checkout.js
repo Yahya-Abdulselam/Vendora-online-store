@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let purchasedProducts = JSON.parse(
     localStorage.getItem("purchasedProducts") ?? "[]"
   );
-  const productInCart = fetchCartProduct()
+  const productInCart = fetchCartProduct().product
   let productName = document.getElementById("order-name");
   let informationProductPrice = document.getElementById(
     "information-product-price"

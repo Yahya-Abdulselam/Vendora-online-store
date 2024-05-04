@@ -1,5 +1,10 @@
 import Product from "./Product.js";
 import Seller from "./seller.js";
+
+export default async function fetchSellerData() {
+  return await fetch("../../app/api/sellapi/[seller]/route.js")
+}
+
 /**
  * this gets the information about the product and then does a validity check. If its not valid, it resets everything. Otherwise, it saves the product's information, pushing it to the seller's
  * products and to the available products on the site.
@@ -14,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //prepare all vallues needed from storage
   // let products = JSON.parse(localStorage.getItem("products") ?? "[]");
-  let sellerParsed = JSON.parse(localStorage.getItem("loggedseller")); //when the user log in we store his data
+  let sellerParsed = fetchSellerData() //when the user log in we store his data
   let seller = Seller.fromJSON(sellerParsed, sellerParsed.id);
 
   const sizeLimit = 2 * 1024 * 1024; // max size local storage can handle

@@ -1,3 +1,7 @@
+export default async function fetchSellerData() {
+  return await fetch("../../app/api/sellapi/[seller]/route.js")
+}
+
 // function to handle login of seller
 function handleLogin() {
   var username = document.getElementById("username").value;
@@ -7,7 +11,7 @@ function handleLogin() {
   var dal = localStorage.getItem("uploadDestination");
 
   //fetch the users from seller.json
-  fetch("../data/seller.json")
+  fetchSellerData()
     .then((response) => response.json())
     .then((data) => {
       var user = data.find(
