@@ -4,6 +4,10 @@
  * file.
  */
 
+export default async function fetchProducts() {
+  return await fetch("../../app/api/buyapi/[product]/route.js")
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const buyButtons = document.querySelectorAll(".buyButton");
   const quantityText = document.querySelectorAll(".quantity");
@@ -15,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     buyButtons[i].addEventListener("click", async () => {
       // check if user is logged in
       if (localStorage.getItem("loggeduser") != null) {
-        const product = JSON.parse(localStorage.getItem("products")).find(
+        const product = fetchProducts().find(
           (product) => product.name + product.sellerId === buyButtons[i].value
         );
 
@@ -29,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
           alert("Product doesn't exist!");
         }
       } else {
-        const product = JSON.parse(localStorage.getItem("products")).find(
+        const product = fetchProducts().find(
           (product) => product.name + product.sellerId === buyButtons[i].value
         );
 

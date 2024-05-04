@@ -1,8 +1,13 @@
 /**
  * sets up the user history
  */
+
+export default async function fetchUserData() {
+  return await fetch("../../app/api/buyapi/[buyer]/route.js")
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  const user = JSON.parse(localStorage.getItem("loggeduser"));
+  const user = fetchUserData()
   const listHolder = document.querySelector("#list-items");
   console.log(user.username);
   console.log(user.purchaseHistory);
