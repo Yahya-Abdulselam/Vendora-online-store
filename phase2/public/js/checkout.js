@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const resTrans = await fetch(
         `/api/buyapi/${user.id}/transaction`,
         {
-          method: "PATCH",
+          method: "POST",
           body: transaction
         }
       );
