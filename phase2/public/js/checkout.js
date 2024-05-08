@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const customer_balance =
     localStorage.getItem("customerBalance") == null
-      ? JSON.parse(localStorage.getItem("loggeduser")).customer_balance + " QAR"
+      ? JSON.parse(localStorage.getItem("loggeduser")).balance + " QAR"
       : productName.innerText;
 
   product_quantity.innerText = product_quantity_amount + " Pieces";
@@ -89,46 +89,42 @@ document.addEventListener("DOMContentLoaded", () => {
   total.innerText = total_price;
 
   let product;
-
+  let index;
   let products
 
   (async () => {
-    const products = await fetchProducts()
-    console.log(products)
-  })
-  
-  console.log("hello")
-  // console.log(JSON.stringify(products))
-  // let index;
-  // for (let i = 0; i < products.length; i++) {
-  //   if (
-  //     productInCart.name + productInCart.sellerID ===
-  //     products[i].name + products[i].sellerID
-  //   ) {
-  //     product = products[i];
-  //     console.log(product)
-  //     index = i;
-  //     const itemQuantityText = document.querySelector("#in-stock");
-  //     itemQuantityText.textContent =
-  //       products[i].quantity > 0
-  //         ? products[i].quantity + " left in the stock"
-  //         : "Out of stock";
+    products = await fetchProducts()
+    console.log("hello")
+    
+    for (let i = 0; i < products.length; i++) {
+      if (
+        productInCart.name + productInCart.sellerID ===
+        products[i].name + products[i].sellerID
+      ) {
+        product = products[i];
+        console.log(product)
+        index = i;
+        const itemQuantityText = document.querySelector("#in-stock");
+        itemQuantityText.textContent =
+          products[i].quantity > 0
+            ? products[i].quantity + " left in the stock"
+            : "Out of stock";
 
-  //     break;
-  //   }
-  // }
+        break;
+      }
+    }
+  })();
   
 
   document.querySelector(".confirmButton").addEventListener("click", () => {
-
     let user = JSON.parse(localStorage.getItem("loggeduser"));
     if (
-      user.customer_balance >= total_price &&
+      user.balance >= total_price &&
       product.quantity >= productInCart.quantity
     ) {
+      console.log("buying!")
       user.customer_balance = user.customer_balance - total_price;
-      user.purchaseHistory[Object.keys(user.purchaseHistory).length] =
-        JSON.stringify(productInCart);
+      // user.purchaseHistory.push(JSON.stringify(productInCart));
 
       localStorage.setItem("loggeduser", JSON.stringify(user));
       const currentDateLocale = new Date().toLocaleString();
@@ -146,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       products[index].quantity = product.quantity - productInCart.quantity;
-      localStorage.setItem("products", JSON.stringify(products));
+      localStorage.setItem("products", products);
       const loggedSeller = JSON.parse(localStorage.getItem("loggedseller"));
       if (loggedSeller && loggedSeller.products) {
         loggedSeller.products.forEach((sellerProduct) => {
@@ -184,10 +180,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       });
-    // } else if (product.quantity - productInCart.quantity < 0) {
-    //   document.querySelector("#prod-quantity-error").textContent =
-    //     "There's not enough items in stock.";
-    // } else {
+    } else if (product.quantity - productInCart.quantity < 0) {
+      document.querySelector("#prod-quantity-error").textContent =
+        "There's not enough items in stock.";
+    } else {
       document.querySelector("#prod-balance-error").textContent =
         "Insufficient balance";
     }
