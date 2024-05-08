@@ -11,6 +11,18 @@ async function fetchProducts() {
   return data
 }
 
+(async () => {
+  const resUser = await fetch(
+    `/api/buyapi/5`,
+    {
+      method: "PATCH",
+      body: JSON.stringify({
+        "full_name": "Mohammed"
+      })
+    }
+  );
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   let purchasedProducts = JSON.parse(
     localStorage.getItem("purchasedProducts") ?? "[]"
@@ -167,17 +179,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       purchasedProducts.push(purchased);
 
-      // update 
+      // Doesnt work 
       const resUser = await fetch(
         `/api/buyapi/${user.id}`,
         {
           method: "PATCH",
-          body: {
-            
-          }
+          body: JSON.stringify(localStorage.getItem("loggeduser"))
         }
       );
 
+      // doesnt work
       const resTrans = await fetch(
         `api/buyapi/${user.id}/transaction`,
         {

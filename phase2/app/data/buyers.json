@@ -3,7 +3,12 @@
         "id": "5",
         "username": "joe",
         "password": "1234",
-        "balance": 6300
+        "balance": 6300,
+        "full_name": "Joe Smith",
+        "address_line": "123456",
+        "city": "Doha",
+        "zip_code": "0000",
+        "phone_number": "1234-5678"
     },
     {
         "id": "6",
