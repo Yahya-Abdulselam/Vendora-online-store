@@ -41,9 +41,9 @@ document.addEventListener("DOMContentLoaded", () =>{
         itemProduct.quantity = quantityInput.value
         localStorage.setItem("itemInCart", JSON.stringify(itemProduct))
         const res = await fetch(
-            `/api/buyapi/`,
+            `/api/buyapi/${user.id}`,
             {
-              method: "POST",
+              method: "PATCH",
               body: JSON.stringify({
                 user
               }),

@@ -15,3 +15,33 @@ export async function GET(request, { params }) {
     return Response.json({ message: "Internal error" }, { status: 500 });
   }
 }
+export async function PATCH(request, { params }) {
+  let data;
+  try {
+    data = await request.json();
+
+    const { buyer } = params;
+
+    const Card = await buyers.update(buyer, data);
+
+    if ("error" in Card) {
+      return Response.json(Card.error.message, {
+        status: Card.error.status,
+      });
+    } else {
+      return Response.json(Card, { Status: 200 });
+    }
+  } catch (e) {
+    if (data) {
+      return Response.json(
+        { message: "Internal server error" },
+        { status: 500 }
+      );
+    } else {
+      return Response.json(
+        { message: "product's data is missing" },
+        { status: 500 }
+      );
+    }
+  }
+}
