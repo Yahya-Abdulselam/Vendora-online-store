@@ -53,7 +53,7 @@ export async function get(buyer, prod, id) {
   } catch (e) {
     return {
       error: {
-        message: "no transaction found",
+        message: e.message,
         status: 404,
       },
     };

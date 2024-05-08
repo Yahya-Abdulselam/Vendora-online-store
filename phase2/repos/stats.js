@@ -93,7 +93,7 @@ export async function getTopProducts() {
         },
       },
     ],
-    take: 3,
+    take: 4,
   });
 
   return topProducts;
@@ -139,6 +139,68 @@ export async function getBuyerTop() {
         },
       ],
       take: 1,
-    });return sellersWithRevenue;
+    });
+    return sellersWithRevenue;
   } catch {}
+}
+
+export async function getTransactionStandardDeviation() {
+  const today = new Date();
+  const start = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+  const end = new Date(today.getFullYear(), today.getMonth(), 0);
+  const count = (await getTransactionsCountLastMonth())._count.id;
+
+  const avg = await getAvgLastMonth();
+  const varianceTop = await prisma.$queryRaw`
+  SELECT SUM((amountPaid-${avg})*(amountPaid-${avg})) AS squaredDiff
+  FROM 'Transaction'
+  where date>=${start} AND date<=${end}
+`;
+
+  const variance = varianceTop[0].squaredDiff / count;
+  const sd = Math.sqrt(variance);
+
+  return sd;
+}
+export async function getAvgLastMonth() {
+  const count = (await getTransactionsCountLastMonth())._count.id;
+  const tranLastMonth = (await getTransactionsLastMonth())._sum.amountPaid;
+  const avg = tranLastMonth / count;
+  return avg;
+}
+export async function getTransactionsLastMonth() {
+  try {
+    const today = new Date();
+    const start = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+    const end = new Date(today.getFullYear(), today.getMonth(), 0);
+    const transactions = await prisma.transaction.aggregate({
+      _sum: {
+        amountPaid: true,
+      },
+      where: {
+        date: {
+          gte: start,
+          lte: end,
+        },
+      },
+    });
+
+    return transactions;
+  } catch {}
+}
+export async function getTransactionsCountLastMonth() {
+  const today = new Date();
+  const start = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+  const end = new Date(today.getFullYear(), today.getMonth(), 0);
+  return await prisma.transaction.aggregate({
+    _count: {
+      id: true,
+    },
+    where: {
+      date: {
+        gte: start,
+        lte: end,
+      },
+    },
+  });
 }

@@ -13,7 +13,7 @@ export default function CatRevenue({  }) {
   
     <div className="stat">
       <div className="stat-figure text-secondary">
-      <svg xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current" width="24" height="24"  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-laptop"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current lucide lucide-laptop" width="24" height="24"  stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg>
       </div>
       <div className="stat-title text-center text-fuchsia-700 dark:text-fuchsia-300">Tech and  Electronics</div>
       <div className="stat-value text-center">{totalTech._sum.amountPaid??0} QAR </div>
@@ -22,7 +22,7 @@ export default function CatRevenue({  }) {
     
     <div className="stat">
       <div className="stat-figure text-secondary">
-      <svg xmlns="http://www.w3.org/2000/svg"fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current" width="24" height="24"  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-laptop"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg"fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current lucide lucide-laptop" width="24" height="24"  stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
       </div>
       <div className="stat-title text-center  text-fuchsia-700 dark:text-fuchsia-300">Clothing and Fashion</div>
       <div className="stat-value text-center">{totalClothing._sum.amountPaid??0} QAR</div>
@@ -43,7 +43,7 @@ export default function CatRevenue({  }) {
       <svg xmlns="http://www.w3.org/2000/svg"fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
       </div>
       <div className="stat-title text-center  text-fuchsia-700 dark:text-fuchsia-300">Books</div>
-      <div className="stat-value">{totalBook._sum.amountPaid??0} QAR</div>
+      <div className="stat-value text-center">{totalBook._sum.amountPaid??0} QAR</div>
   
     </div></div>
      

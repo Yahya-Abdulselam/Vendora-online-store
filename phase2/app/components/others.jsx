@@ -7,7 +7,7 @@ const topBuyer= await buyers.get(topBuyerTransaction[0].buyerId)
 
 export default async function OtherStat({  }) {
 return (
-<div className="join join-vertical w-full">
+<div className="join join-vertical w-full  ">
   <div className="collapse collapse-arrow join-item border border-base-300">
 
     <input type="radio" name="my-accordion-4" defaultChecked /> 
