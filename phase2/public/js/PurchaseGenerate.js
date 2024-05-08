@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   let buyer = JSON.parse(localStorage.getItem("loggeduser") ?? "{}"); //when the user log in we store his data(current seller)
 
   //render each product
-  const renderProductPurchased = (product) => {
+  const renderProductPurchased = (transaction) => {
     const productLi = document.createElement("ul");
     productLi.classList.add("product-item");
 
@@ -29,12 +29,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     prodDate.classList.add("prod-date");
 
-    image.src = product.picture;
-    prodName.textContent = product.name;
-    prodPrice.textContent = product.price;
-    prodQty.textContent = product.quantity;
-    prodDate.textContent = product.date;
-
+    image.src = transaction.product.picture;
+    prodName.textContent = transaction.product.name;
+    prodPrice.textContent = transaction.amountPaid;
+    prodQty.textContent = transaction.quantityBought;
+    const date = transaction.date.split('T');
+    const time=date[1].replace("Z","")
+    prodDate.textContent=date[0]+","+time
     li1.appendChild(image);
     productLi.appendChild(li1);
     productLi.appendChild(prodName);
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const productLi = document.querySelector("#list-items");
 
     productLi.replaceChildren();
-
+console.log(JSON.stringify(transactions))
     transactions.forEach((p) =>
       productLi.appendChild(renderProductPurchased(p))
     );

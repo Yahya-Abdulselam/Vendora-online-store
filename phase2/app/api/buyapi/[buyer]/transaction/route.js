@@ -8,7 +8,7 @@ export async function GET(request, { params }) {
     if (transactionProduct) {
       results = await transactions.get(buyer, transactionProduct);
     } else {
-      results = await transactions.get(buyer);
+      results = await transactions.get(buyer, null, null);
     }
 
     if ("error" in results) {
