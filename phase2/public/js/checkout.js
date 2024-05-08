@@ -88,31 +88,31 @@ document.addEventListener("DOMContentLoaded", () => {
   shipping.innerText = shipping_price;
   total.innerText = total_price;
 
-  let product;
-  let index;
-  let products
+  // let product;
+  // let index;
+  // let products
 
-  (async () => {
-    products = await fetchProducts()
+  // (async () => {
+  //   products = await fetchProducts()
     
-    for (let i = 0; i < products.length; i++) {
-      if (
-        productInCart.name + productInCart.sellerID ===
-        products[i].name + products[i].sellerID
-      ) {
-        product = products[i];
-        console.log(product)
-        index = i;
-        const itemQuantityText = document.querySelector("#in-stock");
-        itemQuantityText.textContent =
-          products[i].quantity > 0
-            ? products[i].quantity + " left in the stock"
-            : "Out of stock";
+  //   for (let i = 0; i < products.length; i++) {
+  //     if (
+  //       productInCart.name + productInCart.sellerID ===
+  //       products[i].name + products[i].sellerID
+  //     ) {
+  //       product = products[i];
+  //       console.log(product)
+  //       index = i;
+  //       const itemQuantityText = document.querySelector("#in-stock");
+  //       itemQuantityText.textContent =
+  //         products[i].quantity > 0
+  //           ? products[i].quantity + " left in the stock"
+  //           : "Out of stock";
 
-        break;
-      }
-    }
-  })();
+  //       break;
+  //     }
+  //   }
+  // })();
   
 
   document.querySelector(".confirmButton").addEventListener("click", async () => {
@@ -140,8 +140,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         date: currentDateLocale,
         buyer: user,
-        sellerId: productInCart.sellerId,
+        productId: productInCart.id,
       };
+
+      const transaction = {
+        amountPaid: product_price,
+        quantityBought: productInCart.quantity,
+        buyerId: user.id,
+        productId: product.id
+      }
 
       products[index].quantity = product.quantity - productInCart.quantity;
       localStorage.setItem("products", products);
@@ -161,11 +168,19 @@ document.addEventListener("DOMContentLoaded", () => {
       purchasedProducts.push(purchased);
 
       // update 
-      const res = await fetch(
+      const resUser = await fetch(
         `/api/buyapi/${user.id}`,
         {
           method: "PATCH",
-          body: localStorage.getItem("loggeduser"),
+          body: localStorage.getItem("loggeduser")
+        }
+      );
+
+      const resTrans = await fetch(
+        `/api/buyapi/${user.id}/transaction`,
+        {
+          method: "PATCH",
+          body: transaction
         }
       );
       
