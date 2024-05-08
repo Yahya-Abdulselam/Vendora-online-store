@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   document
     .querySelector(".save-address")
     .addEventListener("click", async () => {
-
       customerName.value = shipping_full_name;
       customerAddressLine.value = shipping_address;
       customerCity.value = shipping_city;
@@ -48,17 +47,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       itemProduct.quantity = quantityInput.value;
       localStorage.setItem("itemInCart", JSON.stringify(itemProduct));
-  
+try{
       const res = await fetch(`/api/buyapi/${user.id}`, {
         method: "PATCH",
         body: JSON.stringify({
-          user
+          user,
         }),
       });
-
-      if (res.ok) {
-        const updated = await res.json();
-        console.log(updated);
-      }
+    }
+    catch(e){
+      console.log(e)
+    }
+      
     });
 });
