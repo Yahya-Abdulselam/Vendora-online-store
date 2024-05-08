@@ -62,13 +62,3 @@ model Category {
   products Product[]
 }
 
-model Cart {
-  id String @id @default(cuid())
-
-
-  buyer          Buyer    @relation(fields: [buyerId], references: [id], onDelete: Cascade)
-  buyerId        String
-  product        Product  @relation(fields: [productId], references: [id])
-  productId      String
- 
-}
