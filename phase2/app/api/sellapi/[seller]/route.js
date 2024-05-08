@@ -1,17 +1,9 @@
 import * as products from "@/repos/products";
+import * as sellers from "@/repos/sellers";
 export async function GET(request, { params }) {
   try {
-    const { searchParams } = new URL(request.url);
-    const pName = searchParams.get("product-name");
     const { seller } = params;
-    let results ;
-    if (pName) {
-      
-      results = await products.filterByName(seller, pName);
-
-    } else {
-      results = await products.get(seller);
-    }
+    const results = await sellers.get(seller);
 
     if ("error" in results) {
       return Response.json(results.error.message, {
@@ -21,9 +13,10 @@ export async function GET(request, { params }) {
       return Response.json(results, { Status: 200 });
     }
   } catch (e) {
-    return Response.json({ message: e.message}, { status: 500 });
+    return Response.json({ message: "Internal error" }, { status: 500 });
   }
 }
+
 
 export async function POST(request, { params }) {
   try {
