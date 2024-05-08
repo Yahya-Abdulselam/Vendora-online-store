@@ -59,16 +59,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       localStorage.setItem("itemInCart", JSON.stringify(itemProduct));
       localStorage.setItem("loggeduser", JSON.stringify(user));
       try {
-        await fetchPatchUser(
-          user.id,
-          {
-            full_name: user.full_name,
-            address_line: user.zip_code,
-            city: user.address_line,
-            zip_code: user.city,
-            phone_number: user.mber,
-          }
-        );
+        await fetchPatchUser(user.id, {
+          full_name: user.full_name,
+          address_line: user.zip_code,
+          city: user.address_line,
+          zip_code: user.city,
+          phone_number: user.phone_number,
+        });
       } catch (e) {
         console.log(e);
       }

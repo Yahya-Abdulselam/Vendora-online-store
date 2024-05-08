@@ -7,18 +7,15 @@ async function fetchProducts() {
   const response = await fetch(`/api/products`, {
     method: "GET",
   });
-  const data = await response.json()
-  return data
+  const data = await response.json();
+  return data;
 }
-
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   let purchasedProducts = JSON.parse(
     localStorage.getItem("purchasedProducts") ?? "[]"
   );
-  const productInCart = JSON.parse(localStorage.getItem("itemInCart"))
+  const productInCart = JSON.parse(localStorage.getItem("itemInCart"));
   let productName = document.getElementById("order-name");
   let informationProductPrice = document.getElementById(
     "information-product-price"
@@ -93,18 +90,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let product;
   let index;
-  let products
+  let products;
 
   (async () => {
-    products = await fetchProducts()
-    
+    products = await fetchProducts();
+
     for (let i = 0; i < products.length; i++) {
       if (
         productInCart.name + productInCart.sellerID ===
         products[i].name + products[i].sellerID
       ) {
         product = products[i];
-        console.log(product)
+        console.log(product);
         index = i;
         const itemQuantityText = document.querySelector("#in-stock");
         itemQuantityText.textContent =
@@ -116,103 +113,98 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   })();
-  
 
-  document.querySelector(".confirmButton").addEventListener("click", async () => {
-    /**
-     * First, grab the information and turn it into a transaction and turn it into a transaction and use PUT.
-     * Second, use PATCH to update the quantity of the items.
-     */
-    let user = JSON.parse(localStorage.getItem("loggeduser"));
-    if (
-      user.balance >= total_price &&
-      product.quantity >= productInCart.quantity
-    ) {
-      console.log("buying!")
-      user.customer_balance = user.customer_balance - total_price;
+  document
+    .querySelector(".confirmButton")
+    .addEventListener("click", async () => {
+      /**
+       * First, grab the information and turn it into a transaction and turn it into a transaction and use PUT.
+       * Second, use PATCH to update the quantity of the items.
+       */
+      let user = JSON.parse(localStorage.getItem("loggeduser"));
+      if (
+        user.balance >= total_price &&
+        product.quantity >= productInCart.quantity
+      ) {
+        console.log("buying!");
+        user.customer_balance = user.customer_balance - total_price;
 
-      localStorage.setItem("loggeduser", JSON.stringify(user));
-      const currentDateLocale = new Date().toLocaleString();
-      const purchased = {
-        name: product_name,
-        price: product_price,
-        quantity: productInCart.quantity,
-        picture: productInCart.picture,
-        description: productInCart.description,
-        category: productInCart.category,
+        localStorage.setItem("loggeduser", JSON.stringify(user));
+        const currentDateLocale = new Date().toLocaleString();
+        const purchased = {
+          name: product_name,
+          price: product_price,
+          quantity: productInCart.quantity,
+          picture: productInCart.picture,
+          description: productInCart.description,
+          category: productInCart.category,
 
-        date: currentDateLocale,
-        buyerId: user.id,
-        productId: productInCart.id,
-      };
+          date: currentDateLocale,
+          buyerId: user.id,
+          productId: productInCart.id,
+        };
 
-      const transaction = {
-        amountPaid: product_price,
-        quantityBought: productInCart.quantity,
-        buyerId: user.id,
-        productId: product.id
-      }
+        const transaction = {
+          amountPaid: product_price,
+          quantityBought: productInCart.quantity,
+          buyerId: user.id,
+          productId: product.id,
+        };
 
-      products[index].quantity = product.quantity - productInCart.quantity;
-      localStorage.setItem("products", products);
-      const loggedSeller = JSON.parse(localStorage.getItem("loggedseller"));
-      if (loggedSeller && loggedSeller.products) {
-        loggedSeller.products.forEach((sellerProduct) => {
-          const globalProduct = products.find(
-            (p) =>
-              p.name === sellerProduct.name && p.sellerId === loggedSeller.id
-          );
-          if (globalProduct) {
-            sellerProduct.quantity = globalProduct.quantity;
-          }
+        products[index].quantity = product.quantity - productInCart.quantity;
+        localStorage.setItem("products", products);
+        const loggedSeller = JSON.parse(localStorage.getItem("loggedseller"));
+        if (loggedSeller && loggedSeller.products) {
+          loggedSeller.products.forEach((sellerProduct) => {
+            const globalProduct = products.find(
+              (p) =>
+                p.name === sellerProduct.name && p.sellerId === loggedSeller.id
+            );
+            if (globalProduct) {
+              sellerProduct.quantity = globalProduct.quantity;
+            }
+          });
+          localStorage.setItem("loggedseller", JSON.stringify(loggedSeller));
+        }
+        purchasedProducts.push(purchased);
+
+        // Doesnt work
+        const resUser = await fetch(`/api/buyapi/${user.id}`, {
+          method: "PATCH",
+          body: JSON.stringify(localStorage.getItem("loggeduser")),
         });
-        localStorage.setItem("loggedseller", JSON.stringify(loggedSeller));
+
+        // doesnt work
+        const resTrans = await fetch(
+          `api/buyapi/${user.id}/transaction/?transactionProduct=${product.id}`,
+          {
+            method: "POST",
+            body: JSON.stringify(transaction),
+          }
+        );
+
+        const resProduct = await fetch(
+          `/api/sellapi/${product.sellerId}/${product.id}`,
+          {
+            method: "PATCH",
+            body: JSON.stringify(product),
+          }
+        );
+
+        localStorage.removeItem("itemInCart");
+        const popUpWindow = document.querySelector("#model");
+        popUpWindow.classList.add("open");
+        const okButton = document.querySelector("#okButton");
+
+        okButton.addEventListener("click", () => {
+          location.replace("/pages/main.html");
+        });
+      } else if (product.quantity - productInCart.quantity < 0) {
+        document.querySelector("#prod-quantity-error").textContent =
+          "There's not enough items in stock.";
+      } else {
+        document.querySelector("#prod-balance-error").textContent =
+          "Insufficient balance";
       }
-      purchasedProducts.push(purchased);
-
-      // Doesnt work 
-      const resUser = await fetch(
-        `/api/buyapi/${user.id}`,
-        {
-          method: "PATCH",
-          body: JSON.stringify(localStorage.getItem("loggeduser"))
-        }
-      );
-
-      // doesnt work
-      const resTrans = await fetch(
-        `api/buyapi/${user.id}/transaction`,
-        {
-          method: "POST",
-          body: JSON.stringify(transaction)
-        }
-      );
-
-      const resProduct = await fetch(
-        `/api/sellapi/${product.sellerId}/${product.id}`,
-        {
-          method: "PATCH",
-          body: JSON.stringify(product)
-        }
-      );
-      
-
-      localStorage.removeItem("itemInCart");
-      const popUpWindow = document.querySelector("#model");
-      popUpWindow.classList.add("open");
-      const okButton = document.querySelector("#okButton");
-
-      okButton.addEventListener("click", () => {
-        location.replace("/pages/main.html");
-
-
-      });
-    } else if (product.quantity - productInCart.quantity < 0) {
-      document.querySelector("#prod-quantity-error").textContent =
-        "There's not enough items in stock.";
-    } else {
-      document.querySelector("#prod-balance-error").textContent =
-        "Insufficient balance";
-    }
-  });
+    });
 });

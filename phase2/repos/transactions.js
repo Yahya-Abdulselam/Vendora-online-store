@@ -1,23 +1,24 @@
 import prisma from "@/repos/prisma";
 import * as buyers from "@/repos/buyers";
 import * as products from "@/repos/products";
-export async function create(buyer, prod, data) {
+export async function create(buyer, prod, d) {
   try {
     const verification = await buyers.get(buyer);
+    const verification2 = await products.get(null, prod);
 
-    const product = await prisma.transaction.create({
+    const transaction = await prisma.transaction.create({
       data: {
-        data,
+        d,
         buyer: {
           connect: { id: verification.id },
         },
         product: {
-          connect: { id: prod },
+          connect: { id: verification2.id },
         },
       },
     });
-
-    return product;
+    console.log(transaction);
+    return transaction;
   } catch (error) {
     return {
       error: {
