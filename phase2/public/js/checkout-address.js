@@ -3,7 +3,7 @@
  * it would move on to check out and saves any changed to the data thats been given.
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const customerName = document.getElementById("full_name");
   const customerAddressLine = document.getElementById("address-line");
   const customerCity = document.getElementById("city");
@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .querySelector(".save-address")
     .addEventListener("click", async () => {
+
       customerName.value = shipping_full_name;
       customerAddressLine.value = shipping_address;
       customerCity.value = shipping_city;
@@ -37,21 +38,21 @@ document.addEventListener("DOMContentLoaded", () => {
       quantityInput.value = itemQuantity;
 
       let user = JSON.parse(localStorage.getItem("loggeduser"));
-      user.full_name = customerName.value
-      user.zip_code = customerZipCode.value
-      user.address_line = customerAddressLine.value
-      user.phone_number = customerMobile.value
-      user.city = customerCity.value
+      user.full_name = customerName.value;
+      user.zip_code = customerZipCode.value;
+      user.address_line = customerAddressLine.value;
+      user.phone_number = customerMobile.value;
+      user.city = customerCity.value;
 
-      let itemProduct = json.parse(localStorage.getItem("iemInCart"));
- 
+      let itemProduct = JSON.parse(localStorage.getItem("itemInCart"));
+
       itemProduct.quantity = quantityInput.value;
       localStorage.setItem("itemInCart", JSON.stringify(itemProduct));
-
+  
       const res = await fetch(`/api/buyapi/${user.id}`, {
         method: "PATCH",
         body: JSON.stringify({
-          user,
+          user
         }),
       });
 

@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `/api/buyapi/${user.id}/transaction`,
         {
           method: "POST",
-          body: transaction
+          body: JSON.stringify(transaction),
         }
       );
       

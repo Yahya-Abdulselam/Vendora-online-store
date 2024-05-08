@@ -22,14 +22,14 @@ export async function PATCH(request, { params }) {
 
     const { buyer } = params;
 
-    const Card = await buyers.update(buyer, data);
+    const buyerUpdated = await buyers.update(buyer, data);
 
-    if ("error" in Card) {
-      return Response.json(Card.error.message, {
-        status: Card.error.status,
+    if ("error" in buyerUpdated) {
+      return Response.json(buyerUpdated.error.message, {
+        status: buyerUpdated.error.status,
       });
     } else {
-      return Response.json(Card, { Status: 200 });
+      return Response.json(buyerUpdated, { Status: 200 });
     }
   } catch (e) {
     if (data) {

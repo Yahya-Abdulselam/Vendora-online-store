@@ -36,8 +36,9 @@ export async function create(data) {
 
 export async function update(id, data) {
   try {
-    return await prisma.task.update({
-      where: { id },
+
+    return await prisma.buyer.update({
+      where: { id:id },
       data,
     });
   } catch (e) {
