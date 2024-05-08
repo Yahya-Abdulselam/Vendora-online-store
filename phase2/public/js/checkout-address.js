@@ -26,35 +26,35 @@ document.addEventListener("DOMContentLoaded", () => {
   ).phone_number;
   const itemQuantity = JSON.parse(localStorage.getItem("itemInCart")).quantity;
 
-  customerName.value = shipping_full_name;
-  customerAddressLine.value = shipping_address;
-  customerCity.value = shipping_city;
-  customerZipCode.value = shipping_zipcode;
-  customerMobile.value = shipping_mobile;
-  quantityInput.value = itemQuantity;
-
   document
     .querySelector(".save-address")
     .addEventListener("click", async () => {
-      const newAddress = {
-        full_name: customerName.value,
-        zip_code: customerZipCode.value,
-        address_line: customerAddressLine.value,
-        phone_number: customerMobile.value,
-        city: customerCity.value,
-      };
+      customerName.value = shipping_full_name;
+      customerAddressLine.value = shipping_address;
+      customerCity.value = shipping_city;
+      customerZipCode.value = shipping_zipcode;
+      customerMobile.value = shipping_mobile;
+      quantityInput.value = itemQuantity;
 
       let user = JSON.parse(localStorage.getItem("loggeduser"));
+      user.full_name = customerName.value
+      user.zip_code = customerZipCode.value
+      user.address_line = customerAddressLine.value
+      user.phone_number = customerMobile.value
+      user.city = customerCity.value
+
       let itemProduct = json.parse(localStorage.getItem("iemInCart"));
  
       itemProduct.quantity = quantityInput.value;
       localStorage.setItem("itemInCart", JSON.stringify(itemProduct));
+
       const res = await fetch(`/api/buyapi/${user.id}`, {
         method: "PATCH",
         body: JSON.stringify({
           user,
         }),
       });
+      
       if (res.ok) {
         const updated = await res.json();
         console.log(updated);

@@ -94,7 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   (async () => {
     products = await fetchProducts()
-    console.log("hello")
     
     for (let i = 0; i < products.length; i++) {
       if (
@@ -117,6 +116,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
   document.querySelector(".confirmButton").addEventListener("click", () => {
+    /**
+     * First, grab the information and turn it into a transaction and turn it into a transaction and use PUT.
+     * Second, use PATCH to update the quantity of the items.
+     */
     let user = JSON.parse(localStorage.getItem("loggeduser"));
     if (
       user.balance >= total_price &&
@@ -124,7 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       console.log("buying!")
       user.customer_balance = user.customer_balance - total_price;
-      // user.purchaseHistory.push(JSON.stringify(productInCart));
 
       localStorage.setItem("loggeduser", JSON.stringify(user));
       const currentDateLocale = new Date().toLocaleString();
