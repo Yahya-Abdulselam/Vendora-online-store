@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
           user,
         }),
       });
-      
+
       if (res.ok) {
         const updated = await res.json();
         console.log(updated);

@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
   
 
-  document.querySelector(".confirmButton").addEventListener("click", () => {
+  document.querySelector(".confirmButton").addEventListener("click", async () => {
     /**
      * First, grab the information and turn it into a transaction and turn it into a transaction and use PUT.
      * Second, use PATCH to update the quantity of the items.
@@ -161,15 +161,13 @@ document.addEventListener("DOMContentLoaded", () => {
       purchasedProducts.push(purchased);
 
       // update 
-      (async () => {
-        const res = await fetch(
-          `/api/buyapi/`,
-          {
-            method: "PATCH",
-            body: localStorage.getItem("loggeduser"),
-          }
-        );
-      })
+      const res = await fetch(
+        `/api/buyapi/${user.id}`,
+        {
+          method: "PATCH",
+          body: localStorage.getItem("loggeduser"),
+        }
+      );
       
 
       localStorage.removeItem("itemInCart");
