@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
   // let products = JSON.parse(localStorage.getItem("products") ?? "[]");
-  let seller = JSON.parse(localStorage.getItem("loggedseller")); //when the user log in we store his data(current seller)
+  let seller = await JSON.parse(localStorage.getItem("loggedseller")); //when the user log in we store his data(current seller)
   // let purchasedProducts = JSON.parse(
   //   localStorage.getItem("purchasedProducts") ?? "[]"
   // );
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   //render all products on  sale for seller
   const renderProductsSale = async () => {
     let products = [];
-    const res = await fetch(`/api/sellapi/${seller.id}`, {
+    const res = await fetch(`/api/sellapi/${seller.id}/product`, {
       method: "GET",
     });
     if (res.ok) {
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   };
 
-  const renderProductHistory = async (product) => {
+  const renderProductHistory = async (transaction) => {
     const productDiv = document.createElement("div");
     productDiv.classList.add("itemssold");
     const image = document.createElement("img");
@@ -153,35 +153,31 @@ document.addEventListener("DOMContentLoaded", async () => {
     productDiv.appendChild(name);
     productDiv.appendChild(popup);
 
-    image.src = product.picture;
+    image.src = transaction.product.picture;
     let transactionsOfProduct = [];
     const result = await fetch(
-      `/api/sellapi/${seller.id}/transaction/?product-id=${product.productId}`,
+      `/api/sellapi/${seller.id}/transaction/?product-id=${transaction.product.id}`,
       {
         method: "GET",
       }
     );
     if (result.ok) {
-      transactionsOfProduct = await res.json();
+      transactionsOfProduct = await result.json();
     }
     if (!result.ok) {
       throw new Error("Failed to get transactions.");
     }
     const q = transactionsOfProduct.reduce(
-      (ac, p) => Number(p.quantity) + ac,
+      (ac, p) => Number(p.quantityBought) + ac,
       0
     );
-    let existingProduct = {};
-    const res = await fetch(`/api/sellapi/${seller.id}/${product.productId}`);
-    if (res.ok) {
-      existingProduct = await res.json();
-    }
-    console.log(q);
+    let existingProduct = transaction.product;
+
     const mainProduct = existingProduct;
-    name.textContent = product.name;
-    buyerLi.textContent = product.buyer.username;
-    quantityPurchasedLi.textContent = product.quantity;
-    priceLi.textContent = product.price;
+    name.textContent = existingProduct.name;
+    buyerLi.textContent = transaction.buyer.username;
+    quantityPurchasedLi.textContent = transaction.quantityBought;
+    priceLi.textContent = transaction.amountPaid;
 
     quantityLeftLi.textContent = mainProduct.quantity;
     quantitySoldLi.textContent = q;

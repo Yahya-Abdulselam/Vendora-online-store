@@ -23,7 +23,7 @@ function handleLogin() {
 
     // if found user add him to localstorage under the item loggeduser
     if (user) {
-      localStorage.setItem("loggedseller", user);
+      localStorage.setItem("loggedseller", JSON.stringify(user));
       // if user clicked on buy now on a product without being logged in redirect him to checkout page after successfull login
       if (!dal) {
         window.location.href = "/pages/seller.html";

@@ -150,12 +150,22 @@ export async function update(seller, product, data) {
 }
 
 export async function getTransactions(seller, id) {
+ 
   try {
+    if(id&&seller){
     return await prisma.product.findMany({
       where: { id, sellerId: seller.id },
       select: { transactions: true },
-    });
-  } catch (e) {
+    });}
+    else{
+      if(seller){
+        return await prisma.product.findMany({
+          where: { id, sellerId: seller.id },
+          select: { transactions: true },
+        })}
+      }
+    }
+   catch (e) {
     return {
       error: {
         message: e.message,

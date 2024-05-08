@@ -63,22 +63,40 @@ export async function getForSeller(seller, prod) {
   try {
     if (prod && seller) {
       const verification2 = await products.get(seller, prod);
-      return await prisma.transaction.findUnique({
-        where: { sellerId: seller, productId: verification2.id },
+      return await prisma.transaction.findMany({
+        where: {  productId: verification2.id,product: {
+          sellerId: seller,
+        },
+      },
+      include: {
+        product: true, 
+        buyer: true, 
+      }, 
       });
     }
-    return await prisma.transaction.findMany({
-      where: { sellerId: seller },
+    const transactions = await prisma.transaction.findMany({
+      where: {
+        product: {
+          sellerId: seller,
+        },
+      },
+      include: {
+        product: true, 
+        buyer: true, 
+      },
     });
+
+    return transactions;
   } catch (e) {
     return {
       error: {
-        message: "no transaction found",
+        message: e.message,
         status: 404,
       },
     };
   }
 }
+
 export async function getForBuyer(buyer, id) {
   try {
     if (id) {
