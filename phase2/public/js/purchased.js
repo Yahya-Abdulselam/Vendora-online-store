@@ -3,7 +3,15 @@
  */
 
 export default async function fetchUserData() {
-  return await fetch("../../app/api/buyapi/[buyer]/route.js")
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get("search")?.toLowerCase() || "";
+  const catQuery = urlParams.get("category")?.toLowerCase() || "";
+  const response = await fetch(`/api/buyapi/`, {
+    method: "GET",
+  });
+
+  const data = await response.json()
+  return data
 }
 
 document.addEventListener("DOMContentLoaded", () => {

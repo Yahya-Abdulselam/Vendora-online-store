@@ -1,7 +1,10 @@
-export default async function fetchSellerData() {
-  return await fetch("../../app/api/sellapi/[seller]/route.js")
+async function fetchSellerData() {
+  const response = await fetch(`/api/sellapi`, {
+    method: "GET",
+  });
+  const data = await response.json()
+  return data
 }
-
 // function to handle login of seller
 function handleLogin() {
   var username = document.getElementById("username").value;
@@ -10,31 +13,31 @@ function handleLogin() {
   var ufocus = document.getElementById("username");
   var dal = localStorage.getItem("uploadDestination");
 
-  //fetch the users from seller.json
-  fetchSellerData()
-    .then((response) => response.json())
-    .then((data) => {
-      var user = data.find(
-        (user) => user.username === username && user.password === password
-      );
-      // if found seller add him to localstorage under the item loggedseller
-      if (user) {
-        localStorage.setItem("loggedseller", JSON.stringify(user));
-        // if seller clicked on upload a product without being logged in redirect him to upload product page after successfull login
-        if (!dal) {
-          window.location.href = "seller.html";
-        } else {
-          window.location.href = "upload-product.html";
-        }
+  //fetch the users from users.json
+  (async () => {
+    userdata = await fetchSellerData();
+    console.log(userdata)
+    var user = userdata.find(
+      (user) => user.username === username && user.password === password
+    );
+
+    // if found user add him to localstorage under the item loggeduser
+    if (user) {
+      localStorage.setItem("loggedseller", JSON.stringify(user));
+      // if user clicked on buy now on a product without being logged in redirect him to checkout page after successfull login
+      if (!dal) {
+        window.location.href = "/pages/seller.html";
+      } else {
+        window.location.href = "/pages/upload-product.html";
       }
-      //  if seller credentials are incorrect alert him with a message and reset the form
-      else {
-        alert("Invalid username or password. Please try again.");
-        form.reset();
-        ufocus.focus();
-      }
-    })
-    .catch((error) => console.error("Error:", error));
+    }
+    //  if user credentials are incorrect alert him with a message and reset the form
+    else {
+      alert("Invalid username or password. Please try again.");
+      form.reset();
+      ufocus.focus();
+    }
+  })();
 }
 
 // adding event listener to button to handle the event of login

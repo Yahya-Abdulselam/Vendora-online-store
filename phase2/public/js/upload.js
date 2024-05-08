@@ -1,9 +1,19 @@
 import Product from "./Product.js";
 import Seller from "./seller.js";
 
-export default async function fetchSellerData() {
-  return await fetch("../../app/api/sellapi/[seller]/route.js")
+async function fetchSellerData() {
+  const seller = JSON.parse(localStorage.getItem("loggedseller"))
+  const response = await fetch(`/api/sellapi/${seller.id}`, {
+    method: "GET",
+  });
+  const data = await response.json()
+  return data
 }
+
+(async () => {
+  const sellerData = await fetchSellerData()
+  console.log(JSON.stringify(sellerData))
+})
 
 /**
  * this gets the information about the product and then does a validity check. If its not valid, it resets everything. Otherwise, it saves the product's information, pushing it to the seller's
