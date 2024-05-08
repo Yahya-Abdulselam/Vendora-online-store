@@ -14,18 +14,30 @@
         "id": "6",
         "username": "salem",
         "password": "2345",
-        "balance": 20000
+        "balance": 20000,        "full_name": "salem ahmad",
+        "address_line": "123499",
+        "city": "Doha",
+        "zip_code": "0001",
+        "phone_number": "1234-3213"
     },
     {
         "id": "7",
         "username": "kamal",
         "password": "3456",
-        "balance": 1000
+        "balance": 1000,        "full_name": "kamal aiman",
+        "address_line": "4234",
+        "city": "Doha",
+        "zip_code": "0000",
+        "phone_number": "1234-1244"
     },
     {
         "id": "8",
         "username": "taim",
         "password": "4567",
-        "balance": 500
+        "balance": 500,        "full_name": "taim omar",
+        "address_line": "123456",
+        "city": "Doha",
+        "zip_code": "0000",
+        "phone_number": "34521-5678"
     }
 ]

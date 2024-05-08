@@ -11,17 +11,8 @@ async function fetchProducts() {
   return data
 }
 
-(async () => {
-  const resUser = await fetch(
-    `/api/buyapi/5`,
-    {
-      method: "PATCH",
-      body: JSON.stringify({
-        "full_name": "Mohammed"
-      })
-    }
-  );
-})();
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   let purchasedProducts = JSON.parse(
