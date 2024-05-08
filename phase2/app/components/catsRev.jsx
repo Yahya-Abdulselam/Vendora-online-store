@@ -9,7 +9,7 @@ const totalFurniture= await stats.getTransactionTotalByCategory("furniture");
 export default function CatRevenue({  }) {
 
   return (
-    <div className="stats shadow overflow-scroll flex justify-center m-8  bg-gray-300 dark:bg-gray-900 ">
+    <div className="stats shadow overflow-scroll flex  m-8  bg-gray-300 dark:bg-gray-900 ">
   
     <div className="stat">
       <div className="stat-figure text-secondary">
