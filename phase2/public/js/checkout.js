@@ -3,23 +3,19 @@
  * purchase history, it will update the seller's product's quantity, and it will update the product in the list of all products accordingly.
  */
 
-export default async function fetchUserData() {
-  return await fetch("../../app/api/buyapi/[buyer]/route.js")
-}
-
-export default async function fetchCartProduct() {
-  return await fetch("../../app/api/buyapi/[cart]/route.js")
-}
-
-export default async function fetchProducts() {
-  return await fetch("../../app/api/products/route.js")
+async function fetchProducts() {
+  const response = await fetch(`/api/products`, {
+    method: "GET",
+  });
+  const data = await response.json()
+  return data
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   let purchasedProducts = JSON.parse(
     localStorage.getItem("purchasedProducts") ?? "[]"
   );
-  const productInCart = fetchCartProduct().product
+  const productInCart = JSON.parse(localStorage.getItem("itemInCart"))
   let productName = document.getElementById("order-name");
   let informationProductPrice = document.getElementById(
     "information-product-price"
@@ -50,11 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const shipping_full_name =
     localStorage.getItem("loggeduser") != null
-      ? JSON.parse(localStorage.getItem("loggeduser")).address.full_name
+      ? JSON.parse(localStorage.getItem("loggeduser")).full_name
       : productName.innerText;
   const shipping_address =
     localStorage.getItem("loggeduser") != null
-      ? JSON.parse(localStorage.getItem("loggeduser")).address.address_line
+      ? JSON.parse(localStorage.getItem("loggeduser")).address_line
       : productName.innerText;
 
   const product_quantity_amount = Number(
@@ -63,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const shipping_city =
     localStorage.getItem("loggeduser") != null
-      ? JSON.parse(localStorage.getItem("loggeduser")).address.city
+      ? JSON.parse(localStorage.getItem("loggeduser")).city
       : productName.innerText;
 
   const customer_balance =
@@ -92,27 +88,39 @@ document.addEventListener("DOMContentLoaded", () => {
   shipping.innerText = shipping_price;
   total.innerText = total_price;
 
-  let products = fetchProducts()
   let product;
-  let index;
-  for (let i = 0; i < products.length; i++) {
-    if (
-      productInCart.name + productInCart.sellerID ===
-      products[i].name + products[i].sellerID
-    ) {
-      product = products[i];
-      index = i;
-      const itemQuantityText = document.querySelector("#in-stock");
-      itemQuantityText.textContent =
-        products[i].quantity > 0
-          ? products[i].quantity + " left in the stock"
-          : "Out of stock";
 
-      break;
-    }
-  }
+  let products
+
+  (async () => {
+    const products = await fetchProducts()
+    console.log(products)
+  })
+  
+  console.log("hello")
+  // console.log(JSON.stringify(products))
+  // let index;
+  // for (let i = 0; i < products.length; i++) {
+  //   if (
+  //     productInCart.name + productInCart.sellerID ===
+  //     products[i].name + products[i].sellerID
+  //   ) {
+  //     product = products[i];
+  //     console.log(product)
+  //     index = i;
+  //     const itemQuantityText = document.querySelector("#in-stock");
+  //     itemQuantityText.textContent =
+  //       products[i].quantity > 0
+  //         ? products[i].quantity + " left in the stock"
+  //         : "Out of stock";
+
+  //     break;
+  //   }
+  // }
+  
 
   document.querySelector(".confirmButton").addEventListener("click", () => {
+
     let user = JSON.parse(localStorage.getItem("loggeduser"));
     if (
       user.customer_balance >= total_price &&
@@ -153,10 +161,19 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("loggedseller", JSON.stringify(loggedSeller));
       }
       purchasedProducts.push(purchased);
-      localStorage.setItem(
-        "purchasedProducts",
-        JSON.stringify(purchasedProducts)
-      );
+
+      // update 
+      (async () => {
+        const res = await fetch(
+          `/api/buyapi/`,
+          {
+            method: "PATCH",
+            body: localStorage.getItem("loggeduser"),
+          }
+        );
+      })
+      
+
       localStorage.removeItem("itemInCart");
       const popUpWindow = document.querySelector("#model");
       popUpWindow.classList.add("open");
@@ -164,11 +181,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       okButton.addEventListener("click", () => {
         location.replace("/pages/main.html");
+
+
       });
-    } else if (product.quantity - productInCart.quantity < 0) {
-      document.querySelector("#prod-quantity-error").textContent =
-        "There's not enough items in stock.";
-    } else {
+    // } else if (product.quantity - productInCart.quantity < 0) {
+    //   document.querySelector("#prod-quantity-error").textContent =
+    //     "There's not enough items in stock.";
+    // } else {
       document.querySelector("#prod-balance-error").textContent =
         "Insufficient balance";
     }

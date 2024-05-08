@@ -19,11 +19,17 @@ model Seller {
 }
 
 model Buyer {
-  id           String        @id @default(cuid())
-  username     String        @unique
-  password     String
-  balance      Float         @default(0)
-  transactions Transaction[]
+  id              String        @id @default(cuid())
+  username        String        @unique
+  password        String
+  balance         Float         @default(0)
+  full_name       String?       @default("")
+  address_line    String?       @default("")
+  city            String?       @default("")
+  zip_code        String?       @default("")
+  phone_number    String?       @default("")
+  transactions    Transaction[]
+  purchaseHistory Product[]
 }
 
 model Product {
@@ -38,6 +44,8 @@ model Product {
   category     Category      @relation(fields: [catId], references: [category])
   catId        String
   transactions Transaction[]
+  Buyer        Buyer?        @relation(fields: [buyerId], references: [id])
+  buyerId      String?
 
   @@unique([name, sellerId])
 }

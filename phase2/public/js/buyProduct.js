@@ -4,9 +4,15 @@
  * file.
  */
 
-export default async function fetchProducts() {
-  return await fetch("../../app/api/buyapi/[product]/route.js")
+async function fetchSellerData() {
+  const seller = JSON.parse(localStorage.getItem("loggedseller"))
+  const response = await fetch(`/api/sellapi/${seller.id}`, {
+    method: "GET",
+  });
+  const data = await response.json()
+  return data
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const buyButtons = document.querySelectorAll(".buyButton");
@@ -19,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     buyButtons[i].addEventListener("click", async () => {
       // check if user is logged in
       if (localStorage.getItem("loggeduser") != null) {
-        const product = fetchProducts().find(
+        const product = await fetchProducts().find(
           (product) => product.name + product.sellerId === buyButtons[i].value
         );
 

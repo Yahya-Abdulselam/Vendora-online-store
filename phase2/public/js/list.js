@@ -1,3 +1,12 @@
+async function fetchProducts() {
+  const response = await fetch(`/api/products`, {
+    method: "GET",
+  });
+  const data = await response.json()
+  return data
+}
+
+
 document.addEventListener("DOMContentLoaded", async () => {
   if (localStorage.getItem("loggeduser")) {
     var hidden1 = document.getElementById("hidden1");
@@ -186,32 +195,37 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function handleBuy(buyButton, quantityP) {
     // check if user is logged in
-    if (localStorage.getItem("loggeduser") != null) {
-      const product = JSON.parse(localStorage.getItem("products")).find(
-        (product) => product.name + product.sellerId === buyButton.value
-      );
-
-      // put product in cart and then move to the checkout.
-      if (product) {
+    (async () => {
+      const data = await fetchProducts()
+      if (localStorage.getItem("loggeduser") != null) {
+        const data = await fetchProducts()
+        const product = data.find(
+          (product) => product.name + product.sellerId === buyButton.value
+        );
+        
+        // put product in cart and then move to the checkout.
+        if (product) {
+          product.quantity = quantityP.textContent;
+  
+          localStorage.setItem("itemInCart", JSON.stringify(product));
+          window.location.href = "/pages/checkout-address.html";
+        } else {
+          alert("Product doesn't exist!");
+        }
+      } else {
+        const product = data.find(
+          (product) => product.name + product.sellerId === buyButton.value
+        );
+  
+        // save product in cart, and move to login
         product.quantity = quantityP.textContent;
-
         localStorage.setItem("itemInCart", JSON.stringify(product));
         window.location.href = "/pages/checkout-address.html";
-      } else {
-        alert("Product doesn't exist!");
+        localStorage.setItem("destinationAfterLogin", "/pages/checkout.html");
+        window.location.href = "/pages/login.html";
       }
-    } else {
-      const product = JSON.parse(localStorage.getItem("products")).find(
-        (product) => product.name + product.sellerId === buyButton.value
-      );
-
-      // save product in cart, and move to login
-      product.quantity = quantityP.textContent;
-      localStorage.setItem("itemInCart", JSON.stringify(product));
-      window.location.href = "/pages/checkout-address.html";
-      localStorage.setItem("destinationAfterLogin", "/pages/checkout.html");
-      window.location.href = "/pages/login.html";
-    }
+    })();
+    
   }
 });
 

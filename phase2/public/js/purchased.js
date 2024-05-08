@@ -1,24 +1,24 @@
 /**
  * sets up the user history
+ * This cant be done because the user schema doesnt have a purchase history. 
+ * Should this be done in local storage?
  */
 
-export default async function fetchUserData() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const searchQuery = urlParams.get("search")?.toLowerCase() || "";
-  const catQuery = urlParams.get("category")?.toLowerCase() || "";
-  const response = await fetch(`/api/buyapi/`, {
+async function fetchUserData() {
+  const response = await fetch(`/api/buyapi`, {
     method: "GET",
   });
-
   const data = await response.json()
   return data
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
-  const user = fetchUserData()
+  let user
+  (async () => {
+    user = await fetchUserData()
+  })
   const listHolder = document.querySelector("#list-items");
-  console.log(user.username);
-  console.log(user.purchaseHistory);
 
   if (user.purchaseHistory != null) {
     for (let i = 0; i < Object.keys(user.purchaseHistory).length; i++) {

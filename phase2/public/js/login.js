@@ -18,7 +18,6 @@ function handleLogin() {
   //fetch the users from users.json
   (async () => {
     userdata = await fetchUserData();
-    console.log(userdata)
     var user = userdata.find(
       (user) => user.username === username && user.password === password
     );
@@ -26,6 +25,7 @@ function handleLogin() {
     // if found user add him to localstorage under the item loggeduser
     if (user) {
       localStorage.setItem("loggeduser", JSON.stringify(user));
+      console.log(JSON.stringify(user))
       // if user clicked on buy now on a product without being logged in redirect him to checkout page after successfull login
       if (!dal) {
         window.location.href = "/pages/main.html";

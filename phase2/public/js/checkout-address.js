@@ -3,13 +3,6 @@
  * it would move on to check out and saves any changed to the data thats been given.
  */
 
-export default async function fetchUserData() {
-    return await fetch("../../app/api/buyapi/[buyer]/route.js")
-}
-
-export default async function fetchCartProduct() {
-    return await fetch("../../app/api/buyapi/[cart]/route.js")
-}
 
 document.addEventListener("DOMContentLoaded", () =>{
     const customerName = document.getElementById("full_name");
@@ -19,11 +12,12 @@ document.addEventListener("DOMContentLoaded", () =>{
     const customerMobile = document.getElementById("mobile");
     const quantityInput = document.querySelector(".quantityInput");
 
-    const shipping_full_name = JSON.parse(localStorage.getItem("loggeduser")).address.full_name;
-    const shipping_address = JSON.parse(localStorage.getItem("loggeduser")).address.address_line;
-    const shipping_city = JSON.parse(localStorage.getItem("loggeduser")).address.city;
-    const shipping_zipcode = JSON.parse(localStorage.getItem("loggeduser")).address.zip_code;
-    const shipping_mobile = JSON.parse(localStorage.getItem("loggeduser")).address.phone_number;
+
+    const shipping_full_name = JSON.parse(localStorage.getItem("loggeduser")).full_name;
+    const shipping_address = JSON.parse(localStorage.getItem("loggeduser")).address_line;
+    const shipping_city = JSON.parse(localStorage.getItem("loggeduser")).city;
+    const shipping_zipcode = JSON.parse(localStorage.getItem("loggeduser")).zip_code;
+    const shipping_mobile = JSON.parse(localStorage.getItem("loggeduser")).phone_number;
     const itemQuantity = JSON.parse(localStorage.getItem("itemInCart")).quantity;
 
     customerName.value = shipping_full_name;
@@ -33,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     customerMobile.value = shipping_mobile;
     quantityInput.value = itemQuantity
 
-    document.querySelector(".save-address").addEventListener("click", () => {
+    document.querySelector(".save-address").addEventListener("click", async () => {
         const newAddress = {
             "full_name": customerName.value,
             "zip_code": customerZipCode.value,
@@ -42,11 +36,18 @@ document.addEventListener("DOMContentLoaded", () =>{
             "city": customerCity.value
         }
 
-        let user = fetchUserData()
-        user.address = newAddress
-        let itemProduct = fetchCartProduct().product
+        let user = localStorage.getItem("loggeduser")
+        let itemProduct = localStorage.getItem("cart")
         itemProduct.quantity = quantityInput.value
-        localStorage.setItem("loggeduser", JSON.stringify(user))
         localStorage.setItem("itemInCart", JSON.stringify(itemProduct))
+        const res = await fetch(
+            `/api/buyapi/`,
+            {
+              method: "POST",
+              body: JSON.stringify({
+                user
+              }),
+            }
+          );
     })
 })
