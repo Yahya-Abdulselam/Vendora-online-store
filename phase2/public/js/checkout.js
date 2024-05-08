@@ -88,31 +88,31 @@ document.addEventListener("DOMContentLoaded", () => {
   shipping.innerText = shipping_price;
   total.innerText = total_price;
 
-  // let product;
-  // let index;
-  // let products
+  let product;
+  let index;
+  let products
 
-  // (async () => {
-  //   products = await fetchProducts()
+  (async () => {
+    products = await fetchProducts()
     
-  //   for (let i = 0; i < products.length; i++) {
-  //     if (
-  //       productInCart.name + productInCart.sellerID ===
-  //       products[i].name + products[i].sellerID
-  //     ) {
-  //       product = products[i];
-  //       console.log(product)
-  //       index = i;
-  //       const itemQuantityText = document.querySelector("#in-stock");
-  //       itemQuantityText.textContent =
-  //         products[i].quantity > 0
-  //           ? products[i].quantity + " left in the stock"
-  //           : "Out of stock";
+    for (let i = 0; i < products.length; i++) {
+      if (
+        productInCart.name + productInCart.sellerID ===
+        products[i].name + products[i].sellerID
+      ) {
+        product = products[i];
+        console.log(product)
+        index = i;
+        const itemQuantityText = document.querySelector("#in-stock");
+        itemQuantityText.textContent =
+          products[i].quantity > 0
+            ? products[i].quantity + " left in the stock"
+            : "Out of stock";
 
-  //       break;
-  //     }
-  //   }
-  // })();
+        break;
+      }
+    }
+  })();
   
 
   document.querySelector(".confirmButton").addEventListener("click", async () => {
@@ -135,11 +135,11 @@ document.addEventListener("DOMContentLoaded", () => {
         price: product_price,
         quantity: productInCart.quantity,
         picture: productInCart.picture,
-        details: productInCart.details,
+        description: productInCart.description,
         category: productInCart.category,
 
         date: currentDateLocale,
-        buyer: user,
+        buyerId: user.id,
         productId: productInCart.id,
       };
 
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `/api/buyapi/${user.id}`,
         {
           method: "PATCH",
-          body: localStorage.getItem("loggeduser")
+          body: JSON.stringify(localStorage.getItem("loggeduser"))
         }
       );
 
@@ -180,7 +180,15 @@ document.addEventListener("DOMContentLoaded", () => {
         `/api/buyapi/${user.id}/transaction`,
         {
           method: "POST",
-          body: JSON.stringify(transaction),
+          body: JSON.stringify(transaction)
+        }
+      );
+
+      const resProduct = await fetch(
+        `/api/sellapi/${product.sellerId}/${product.id}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify(product)
         }
       );
       
