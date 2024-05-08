@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // const found = prods.find((p) => p.name === pName);
         let existingProduct = {};
         const res = await fetch(
-          `/api/sellapi/${seller.id}/?product-name=${p.name}`
+          `/api/sellapi/${seller.id}/product/?product-name=${p.name}`
         );
         if (res.ok) {
           existingProduct = await res.json();
