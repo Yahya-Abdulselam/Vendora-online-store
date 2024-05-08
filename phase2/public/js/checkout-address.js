@@ -26,16 +26,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   ).phone_number;
   const itemQuantity = JSON.parse(localStorage.getItem("itemInCart")).quantity;
 
+  customerName.value = shipping_full_name;
+  customerAddressLine.value = shipping_address;
+  customerCity.value = shipping_city;
+  customerZipCode.value = shipping_zipcode;
+  customerMobile.value = shipping_mobile;
+  quantityInput.value = itemQuantity;
+
   document
     .querySelector(".save-address")
     .addEventListener("click", async () => {
-      customerName.value = shipping_full_name;
-      customerAddressLine.value = shipping_address;
-      customerCity.value = shipping_city;
-      customerZipCode.value = shipping_zipcode;
-      customerMobile.value = shipping_mobile;
-      quantityInput.value = itemQuantity;
-
       let user = JSON.parse(localStorage.getItem("loggeduser"));
       user.full_name = customerName.value;
       user.zip_code = customerZipCode.value;
@@ -47,12 +47,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       itemProduct.quantity = quantityInput.value;
       localStorage.setItem("itemInCart", JSON.stringify(itemProduct));
+      localStorage.setItem("loggeduser", JSON.stringify(user));
 try{
       const res = await fetch(`/api/buyapi/${user.id}`, {
         method: "PATCH",
         body: JSON.stringify({
-          user,
-        }),
+          "full_name": user.full_name,
+          "address_line": user.zip_code,
+          "city": user.address_line,
+          "zip_code": user.city,
+          "phone_number": user.phone_number
+        })
       });
     }
     catch(e){

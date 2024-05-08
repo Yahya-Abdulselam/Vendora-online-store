@@ -172,12 +172,14 @@ document.addEventListener("DOMContentLoaded", () => {
         `/api/buyapi/${user.id}`,
         {
           method: "PATCH",
-          body: JSON.stringify(localStorage.getItem("loggeduser"))
+          body: {
+            
+          }
         }
       );
 
       const resTrans = await fetch(
-        `/api/buyapi/${user.id}/transaction`,
+        `api/buyapi/${user.id}/transaction`,
         {
           method: "POST",
           body: JSON.stringify(transaction)
