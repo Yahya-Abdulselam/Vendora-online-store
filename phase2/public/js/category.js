@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   let buyer = JSON.parse(localStorage.getItem("loggeduser") ?? "{}"); //when the user log in we store his data(current seller)
-  console.log(buyer.balance)
+  console.log(buyer.balance);
   const clothingButton = document.querySelectorAll(".clothing");
   const techButton = document.querySelectorAll(".tech");
   const bookButton = document.querySelectorAll(".book");
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (buyer?.balance) {
-    balance.textContent = buyer.balance;
+    balance.textContent = buyer?.balance;
     console.log(1);
   }
 

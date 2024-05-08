@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ? productInCart.price * productInCart.quantity
       : subtotal.innerText;
   const attribute =
-    productInCart != null ? productInCart.category : productAttribute.innerText;
+    productInCart != null ? productInCart.catId : productAttribute.innerText;
 
   const shipping_full_name =
     localStorage.getItem("loggeduser") != null

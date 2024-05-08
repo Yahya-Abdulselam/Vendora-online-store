@@ -10,7 +10,7 @@
       "amountPaid": 620,
       "quantityBought": 1,
       "buyerId": "8",
-      "productId": "107",
+      "productId": "99",
       "date": "2023-04-18T14:30:45.000Z"
     },
     {
@@ -24,29 +24,36 @@
       "amountPaid": 300,
       "quantityBought": 2,
       "buyerId": "8",
-      "productId": "101",
+      "productId": "107",
       "date": "2024-04-25T16:48:37.000Z"
     },
     {
       "amountPaid": 300,
       "quantityBought": 2,
       "buyerId": "8",
-      "productId": "101",
+      "productId": "103",
       "date": "2024-03-27T11:15:29.000Z"
     },
     {
       "amountPaid": 300,
       "quantityBought": 2,
-      "buyerId": "8",
+      "buyerId": "7",
       "productId": "101",
       "date": "2024-02-28T19:22:05.000Z"
     },
     {
       "amountPaid": 300,
       "quantityBought": 2,
-      "buyerId": "8",
+      "buyerId": "6",
       "productId": "101",
       "date": "2023-08-10T07:45:18.000Z"
+    },
+    {
+      "amountPaid": 900,
+      "quantityBought": 1,
+      "buyerId": "8",
+      "productId": "100",
+      "date": "2024-04-10T22:44:56.000Z"
     },
     {
       "amountPaid": 300,
@@ -59,7 +66,7 @@
       "amountPaid": 300,
       "quantityBought": 2,
       "buyerId": "8",
-      "productId": "101",
+      "productId": "99",
       "date": "2024-05-04T20:35:46.000Z"
     },
     {
@@ -76,13 +83,7 @@
       "productId": "100",
       "date": "2023-09-08T16:28:40.000Z"
     },
-    {
-      "amountPaid": 900,
-      "quantityBought": 1,
-      "buyerId": "8",
-      "productId": "100",
-      "date": "2024-04-10T22:44:56.000Z"
-    },
+
     {
       "amountPaid": 340,
       "quantityBought": 1,
@@ -108,7 +109,7 @@
       "amountPaid": 420,
       "quantityBought": 1,
       "buyerId": "8",
-      "productId": "106",
+      "productId": "102",
       "date": "2023-05-18T23:50:00.000Z"
     },
     {
@@ -119,11 +120,25 @@
       "date": "2023-11-20T06:06:16.000Z"
     },
     {
+      "amountPaid": 6800,
+      "quantityBought": 2,
+      "buyerId": "5",
+      "productId": "108",
+      "date": "2023-10-22T12:20:32.000Z"
+    },
+    {
       "amountPaid": 3400,
       "quantityBought": 1,
-      "buyerId": "6",
+      "buyerId": "7",
       "productId": "108",
-      "date": "2023-11-22T12:22:32.000Z"
+      "date": "2023-03-12T12:22:32.000Z"
+    },
+    {
+      "amountPaid": 3400,
+      "quantityBought": 1,
+      "buyerId": "7",
+      "productId": "108",
+      "date": "2024-04-17T12:22:32.000Z"
     },
     {
       "amountPaid": 900,
