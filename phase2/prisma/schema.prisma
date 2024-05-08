@@ -24,7 +24,6 @@ model Buyer {
   password     String
   balance      Float         @default(0)
   transactions Transaction[]
-
 }
 
 model Product {
@@ -39,7 +38,6 @@ model Product {
   category     Category      @relation(fields: [catId], references: [category])
   catId        String
   transactions Transaction[]
- 
 
   @@unique([name, sellerId])
 }
@@ -61,4 +59,3 @@ model Category {
 
   products Product[]
 }
-
