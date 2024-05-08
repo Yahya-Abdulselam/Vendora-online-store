@@ -35,6 +35,7 @@ export async function get(buyer, prod, id) {
       const verification2 = await products.getForTransaction(prod);
       return await prisma.transaction.findUnique({
         where: { id, buyerId: verification.id, productId: verification2.id },
+        include: { product: true },
       });
     }
     if (prod && buyer) {
@@ -42,13 +43,17 @@ export async function get(buyer, prod, id) {
       const verification2 = await products.getForTransaction(prod);
       return await prisma.transaction.findMany({
         where: { buyerId: verification.id, productId: verification2.id },
+        include: { product: true },
       });
     }
     if (buyer) {
       const verification = await buyers.get(buyer);
-      return await prisma.transaction.findMany({ buyerId: verification.id });
+      return await prisma.transaction.findMany({
+        where: { buyerId: verification.id },
+        include: { product: true },
+      });
     } else {
-      return await prisma.transaction.findMany({});
+      return await prisma.transaction.findMany({ include: { product: true } });
     }
   } catch (e) {
     return {
@@ -64,14 +69,16 @@ export async function getForSeller(seller, prod) {
     if (prod && seller) {
       const verification2 = await products.get(seller, prod);
       return await prisma.transaction.findMany({
-        where: {  productId: verification2.id,product: {
-          sellerId: seller,
+        where: {
+          productId: verification2.id,
+          product: {
+            sellerId: seller,
+          },
         },
-      },
-      include: {
-        product: true, 
-        buyer: true, 
-      }, 
+        include: {
+          product: true,
+          buyer: true,
+        },
       });
     }
     const transactions = await prisma.transaction.findMany({
@@ -81,8 +88,8 @@ export async function getForSeller(seller, prod) {
         },
       },
       include: {
-        product: true, 
-        buyer: true, 
+        product: true,
+        buyer: true,
       },
     });
 
