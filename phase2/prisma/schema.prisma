@@ -29,7 +29,7 @@ model Buyer {
   zip_code        String?       @default("")
   phone_number    String?       @default("")
   transactions    Transaction[]
-  purchaseHistory Product[]
+ 
 }
 
 model Product {
@@ -44,8 +44,8 @@ model Product {
   category     Category      @relation(fields: [catId], references: [category])
   catId        String
   transactions Transaction[]
-  Buyer        Buyer?        @relation(fields: [buyerId], references: [id])
-  buyerId      String?
+ 
+
 
   @@unique([name, sellerId])
 }
