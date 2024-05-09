@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendora</title>
+    <link rel="stylesheet" href="../Styles/main.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../media/images/FullLogo_Transparent_NoBuffer(1).png"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- header with a nav bar  and search-->
+      <section class="navsec">
+        <nav class="navv">
+          <ul>
+            <li id="first">
+              <a href="" id="list"
+                ><img src="../media/icons/list.svg" alt=""
+              /></a>
+
+              <a href="" id="logo">
+                <img
+                  src="../media/images/FullLogo_Transparent_NoBuffer(1).png"
+                  alt="vendora logo"
+                />
+                <h1>Vendora</h1></a
+              >
+            </li>
+            <li>
+              <ul class="links">
+                <li class="extra">
+                  <a href="seller.html"
+                    ><img src="../media/icons/building-store.svg" alt="" />
+                    <p>Sell</p></a
+                  >
+                </li>
+                <li class="extra">
+                  <a href="#socials"
+                    ><img src="../media/icons/help.svg" alt="" />
+                    <p>Customer Service</p></a
+                  >
+                </li>
+                <li class="extra" id="categories">
+                  <a href=""
+                    ><img src="../media/icons/category.svg" alt="" />
+                    <p>categories</p></a
+                  >
+
+                  <div class="dropdown-menu">
+                    <a class="book">Books</a>
+                    <a class="tech">Electronics</a>
+                    <a class="furniture">Furniture</a>
+                    <a class="clothing">Clothing</a>
+                  </div>
+                </li>
+
+                <li class="sides" id="cart">
+                  <a id="cart-button"
+                    ><img src="../media/icons/shopping-cart(1).svg" alt="" />
+                    <p>cart</p></a
+                  >
+                </li>
+                <li class="sides" id="account">
+                  <a id="account-button">
+                    <img src="../media/icons/user.svg" alt="" />
+                    <p>account</p></a
+                  >
+                  <div class="dropdown-menu" id="account-dropdown">
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="search" method="post">
+            <label for="sv">
+              <img src="../media/icons/search.svg" alt=""
+            /></label>
+            <input type="search" id="sv" placeholder="Search Vendora" />
+          </form>
+        </nav>
+      </section>
+      <h2 id="slogan">
+        Infinite Choices,<br />
+        One Destination
+      </h2>
+    </header>
+
+    <main>
+      <!--trending categories list-->
+      <div id="trending-categories">
+        <ul>
+          <li>
+            <a class="categories" href="">
+              <img
+                src="../media/prod/woman-2564660_640.jpg"
+                class="category"
+                alt=""
+              />
+              <section>
+                <button class="clothing"><h2>Shop for clothes</h2></button>
+                <h4 id="cloths-desc">Explore the trending fashion</h4>
+              </section>
+            </a>
+          </li>
+          <li>
+            <a class="categories" href="">
+              <img
+                src="../media/prod/pen-4337521_640.jpg"
+                class="category"
+                alt=""
+              />
+              <section>
+                <button class="tech"><h2>Shop for tech</h2></button>
+                <h4 id="tech-desc">
+                  Immerse yourself in the latest technologies
+                </h4>
+              </section>
+            </a>
+          </li>
+          <li>
+            <a class="categories" href="">
+              <img
+                src="../media/prod/living-room-2569325_640.jpg"
+                class="category"
+                alt=""
+              />
+              <section>
+                <button class="furniture"><h2>Shop for furniture</h2></button>
+                <h4 id="furniture-desc">
+                  Discover modern furniture and house items
+                </h4>
+              </section>
+            </a>
+          </li>
+          <li>
+            <a class="categories" href="">
+              <img
+                src="../media/prod/books-1867168_640.jpg"
+                class="category"
+                alt=""
+              />
+              <section>
+                <button class="book"><h2>Shop for books</h2></button>
+                <h4 id="book-desc">
+                  broaden your horizon with the world's knowledge.
+                </h4>
+              </section>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <section id="trending-products">
+        <!--trending products list-->
+        <div class="product">
+          <!--static dummy for products in main -->
+          <video autoplay muted loop>
+            <source
+              src="../media/prod/5081433-hd_1366_720_25fps.mp4"
+              alt="MacBook Pro"
+            />
+          </video>
+
+          <div class="info">
+            <h1>macbook pro</h1>
+            <h3>
+              <em>Think Different</em><br />
+              only for <em class="price">2499.99 QAR</em>
+            </h3>
+            <button class="buyButton">Buy now</button>
+          </div>
+        </div>
+        <div class="product">
+          <video autoplay muted loop>
+            <source
+              src="../media/prod/pexels-quang-viet-nguyen-17197594 (2160p).mp4"
+              alt="rolex"
+            />
+          </video>
+
+          <div class="info">
+            <h1>Rolex Oyster</h1>
+            <h3>
+              <em>A Crown for Every Achievement</em><br />
+              only for <em class="price">15000 QAR</em>
+            </h3>
+            <button class="buyButton">Buy now</button>
+          </div>
+        </div>
+        <div class="product">
+          <img
+            src="../media/prod/pexels-hamza-nouasria-12611637.jpg"
+            alt="air force 1"
+          />
+
+          <div class="info">
+            <h1>Air Force 1</h1>
+            <h3>
+              <em>Just Do It</em><br />
+              only for <em class="price">600 QAR</em>
+            </h3>
+            <button class="buyButton">Buy now</button>
+          </div>
+        </div>
+        <div class="product">
+          <video autoplay muted loop>
+            <source
+              src="../media/prod/pexels-eren-li-7240999 (2160p).mp4"
+              alt="meta quest 3"
+            />
+          </video>
+
+          <div class="info">
+            <h1>Meta Quest 3</h1>
+            <h3>
+              <em>Expand your world</em><br />
+              only for <em class="price">1499.99 QAR</em>
+            </h3>
+            <button class="buyButton">Buy now</button>
+          </div>
+        </div>
+      </section>
+      <div class="slider">
+        <div id="special">
+          <h1>Special offers!!</h1>
+        </div>
+
+        <div id="offers">
+          <!--special offers list list-->
+          <div class="img-list">
+            <span>
+              <img src="../media/prod/pexels-pixabay-256450.jpg" alt="book" />
+
+              <div>
+                <h2>book</h2>
+                <h3>100 QAR</h3>
+                <button class="buyButton" value="101">Buy now</button>
+              </div>
+            </span>
+            <span>
+              <img src="../media/prod/pexels-lil-artsy-1159670.jpg" alt="boots" />
+
+              <div>
+                <h2>Dr.martena boots</h2>
+                <h3>179.99 QAR</h3>
+                <button class="buyButton">Buy now</button>
+              </div></span
+            >
+            <span>
+              <img
+                src="../media/prod/pexels-antony-trivet-9979199.jpg"
+                alt="brown"
+              />
+
+              <div>
+                <h2>brown watch</h2>
+                <h3>73 QAR</h3>
+                <button class="buyButton">Buy now</button>
+              </div></span
+            >
+
+            <span>
+              <img
+                src="../media/prod/pexels-mateusz-taciak-7334396.jpg"
+                alt="guitar"
+              />
+
+              <div>
+                <h2>guitar</h2>
+                <h3>400 QAR</h3>
+                <button class="buyButton">Buy now</button>
+              </div></span
+            >
+            <span>
+              <img
+                src="../media/prod/pexels-umut-sarıalan-17921993.jpg"
+                alt="headset"
+              />
+
+              <div>
+                <h2>headset</h2>
+                <h3>145.4 QAR</h3>
+                <button class="buyButton">Buy now</button>
+              </div></span
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <ul id="socials">
+        <li>
+          <a href="example.com">
+            <picture id="x">
+              <source
+                srcset="..\media\icons\darktheme-icons\brand-x.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img src="../media/icons/brand-x.svg" width="40px" />
+            </picture>
+          </a>
+        </li>
+        <li>
+          <a href="example.com">
+            <picture id="insta">
+              <source
+                srcset="..\media\icons\darktheme-icons\brand-instagram.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img
+                src="../media/icons/brand-instagram.svg"
+                width="40px"
+              /> </picture
+          ></a>
+        </li>
+
+        <li>
+          <a href="example.com">
+            <picture id="reddit">
+              <source
+                srcset="..\media\icons\darktheme-icons\brand-reddit.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img src="../media/icons/brand-reddit.svg" width="40px" /> </picture
+          ></a>
+        </li>
+        <li>
+          <a href="example.com">
+            <picture id="face">
+              <source
+                srcset="..\media\icons\darktheme-icons\brand-facebook.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img
+                src="../media/icons/brand-facebook.svg"
+                width="40px"
+              /> </picture
+          ></a>
+        </li>
+      </ul>
+      <ul id="links">
+        <li><a href="seller.html">Become a seller</a></li>
+        <li><a href="">About us</a></li>
+        <li><a href="">Contact us</a></li>
+        <li><a href="">FAQs</a></li>
+        <li><a href="">Terms & Conditions</a></li>
+        <li><a href="">Customer Reviews</a></li>
+      </ul>
+      <p>
+        Welcome to Vendora, your ultimate e-commerce destination where you can
+        find anything your heart desires. With our vast selection of products
+        and services, we strive to be your one-stop shop for all your needs. Our
+        motto, "Infinite Choices, One Destination," encapsulates our commitment
+        to providing you with endless options while simplifying your shopping
+        experience. Whether you're searching for the latest tech gadgets, trendy
+        fashion pieces, home essentials, or unique gifts, Vendora has you
+        covered. Shop with confidence knowing that quality, convenience, and
+        customer satisfaction are at the core of everything we do. Join us on
+        this exciting journey of discovery and let Vendora be your go-to
+        destination for all your shopping desires.
+      </p>
+    </footer>
+
+    <script src="../js/checkLogin.js"></script>
+    <script src="../js/buyProduct.js"></script>
+    <script src="../js/category.js"></script>
+    <script src="../js/searchToList.js"></script>
+    <script src="../js/scrolling.js"></script>
+  </body>
+</html>

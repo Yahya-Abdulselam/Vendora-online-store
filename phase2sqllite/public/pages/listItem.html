@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendora</title>
+    <link rel="stylesheet" href="../Styles/listing.css" />
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../media/images/FullLogo_Transparent_NoBuffer(1).png"
+    />
+  </head>
+
+  <body>
+    <header>
+      <!-- header with a nav bar  and search-->
+      <section class="navsec">
+        <nav class="navv">
+          <ul>
+            <li id="first">
+              <a href="" id="list"
+                ><img src="../media/icons/list.svg" alt=""
+              /></a>
+
+              <a href="main.html" id="logo">
+                <img
+                  src="../media/images/FullLogo_Transparent_NoBuffer(1).png"
+                  alt="vendora logo"
+                />
+                <h1>Vendora</h1></a
+              >
+            </li>
+            <li>
+              <ul class="links">
+                <li class="extra">
+                  <a href="seller.html"
+                    ><img src="../media/icons/shopping-bag.svg" alt="" />
+                    <p>Sell</p></a
+                  >
+                </li>
+                <li class="extra">
+                  <a href="main.html#socials"
+                    ><img src="../media/icons/help.svg" alt="" />
+                    <p>Customer Service</p></a
+                  >
+                </li>
+                <li class="extra" id="categories">
+                  <a href=""
+                    ><img src="../media/icons/category.svg" alt="" />
+                    <p>categories</p></a
+                  >
+
+                  <div class="dropdown-menu">
+                    <a class="book">Books</a>
+                    <a class="tech">Electronics</a>
+                    <a class="furniture">Furniture</a>
+                    <a class="clothing">Clothing</a>
+                  </div>
+                </li>
+
+                <li class="sides" id="cart">
+                  <a href="checkout.html"
+                    ><img src="../media/icons/shopping-cart(1).svg" alt="" />
+                    <p>cart</p></a
+                  >
+                </li>
+                <li class="sides" id="account">
+                  <a id="account-button">
+                    <img src="../media/icons/user.svg" alt="" />
+                    <p>account</p></a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="login.html" id="hidden1">Login</a>
+                    <a href="purchased.html" id="hidden2" class="hidden"
+                      >Purchase History</a
+                    >
+                    <!-- <a href="login.html" id="hidden2" class="hidden"
+                  >Account Details</a> -->
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="search" method="post">
+            <label for="sv">
+              <img src="../media/icons/search.svg" alt=""
+            /></label>
+            <input type="search" id="sv" placeholder="Search Vendora" />
+          </form>
+        </nav>
+      </section>
+    </header>
+    <main>
+      <section id="list-items">
+        <!-- <div class="item">
+          <img
+            class="image"
+            src="../media/prod/klim-musalimov-gCBLPOD9eoc-unsplash.jpg"
+            alt=""
+          />
+          <div class="info">
+            <h2 class="name">name</h2>
+            <h3 class="price">100 QAR</h3>
+            <p class="desc">desc</p>
+            <div class="buy-item">
+              <div class="cart-add">
+                <picture class="minus">
+                  <source
+                    srcset="../media/icons/darktheme-icons/square-minus(1).svg"
+                    media="(prefers-color-scheme: dark)"
+                    width="20px"
+                  />
+                  <img src="../media/icons/square-minus.svg" width="20px" />
+                </picture>
+                <p class="quantity">2</p>
+                <picture class="plus">
+                  <source
+                    srcset="../media/icons/darktheme-icons/square-plus(1).svg"
+                    media="(prefers-color-scheme: dark)"
+                    width="20px"
+                  />
+                  <img src="../media/icons/square-plus.svg" width="20px" />
+                </picture>
+              </div>
+            </div>
+            <button class="buy">Buy now</button>
+          </div>
+        </div> -->
+      </section>
+    </main>
+    <footer>
+      <ul id="socials">
+        <li>
+          <a href="example.com">
+            <picture id="x">
+              <source
+                srcset="..\media\icons\darktheme-icons\brand-x.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img src="../media/icons/brand-x.svg" width="40px" />
+            </picture>
+          </a>
+        </li>
+        <li>
+          <a href="example.com">
+            <picture id="insta">
+              <source
+                srcset="..\media\icons\darktheme-icons\brand-instagram.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img
+                src="../media/icons/brand-instagram.svg"
+                width="40px"
+              /> </picture
+          ></a>
+        </li>
+
+        <li>
+          <a href="example.com">
+            <picture id="reddit">
+              <source
+                srcset="../media\icons\darktheme-icons\brand-reddit.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img src="../media/icons/brand-reddit.svg" width="40px" /> </picture
+          ></a>
+        </li>
+        <li>
+          <a href="example.com">
+            <picture id="face">
+              <source
+                srcset="../media\icons\darktheme-icons\brand-facebook.svg"
+                media="(prefers-color-scheme: dark)"
+                width="40px"
+              />
+              <img
+                src="../media/icons/brand-facebook.svg"
+                width="40px"
+              /> </picture
+          ></a>
+        </li>
+      </ul>
+      <ul id="links">
+        <li><a href="seller.html">Become a seller</a></li>
+        <li><a href="">About us</a></li>
+        <li><a href="">Contact us</a></li>
+        <li><a href="">FAQs</a></li>
+        <li><a href="">Terms & Conditions</a></li>
+        <li><a href="">Customer Reviews</a></li>
+      </ul>
+      <p>
+        Welcome to Vendora, your ultimate e-commerce destination where you can
+        find anything your heart desires. With our vast selection of products
+        and services, we strive to be your one-stop shop for all your needs. Our
+        motto, "Infinite Choices, One Destination," encapsulates our commitment
+        to providing you with endless options while simplifying your shopping
+        experience. Whether you're searching for the latest tech gadgets, trendy
+        fashion pieces, home essentials, or unique gifts, Vendora has you
+        covered. Shop with confidence knowing that quality, convenience, and
+        customer satisfaction are at the core of everything we do. Join us on
+        this exciting journey of discovery and let Vendora be your go-to
+        destination for all your shopping desires.
+      </p>
+    </footer>
+
+    <script src="../js/list.js"></script>
+    <script src="../js/category.js"></script>
+    <script src="../js/buyProduct.js"></script>
+    <script src="../js/scrolling.js"></script>
+  </body>
+</html>

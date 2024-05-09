@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../Styles/login.css" />
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../media/images/FullLogo_Transparent_NoBuffer(1).png"
+    />
+  </head>
+</html>
+<header>
+  <!-- Creating main header -->
+  <section class="navsec">
+    <nav class="navv">
+      <ul>
+        <li id="first">
+          <a href="" id="list"><img src="../media/icons/list.svg" alt="" /></a>
+          <script src="../js/main.js"></script>
+          <a href="main.html" id="logo">
+            <img
+              src="../media/images/FullLogo_Transparent_NoBuffer(1).png"
+              alt="vendora logo"
+            />
+            <h1>Vendora</h1></a
+          >
+        </li>
+        <li>
+          <ul class="links">
+            <li class="extra">
+              <a href="sellerlogin.html"
+                ><img src="../media/icons/building-store.svg" alt="" />
+                <p>Sell</p></a
+              >
+            </li>
+            <li class="extra">
+              <a href="main.html#socials"
+                ><img src="../media/icons/help.svg" alt="" />
+                <p>Customer Service</p></a
+              >
+            </li>
+            <li class="extra" id="categories">
+              <a href=""
+                ><img src="../media/icons/category.svg" alt="" />
+                <p>categories</p></a
+              >
+              <!-- Category dropdown -->
+              <div class="dropdown-menu">
+                <a class="book">Books</a>
+                <a class="tech">Electronics</a>
+                <a class="furniture">Furniture</a>
+                <a class="clothing">Clothing</a>
+              </div>
+            </li>
+
+            <li class="sides" id="cart">
+              <a href="checkout.html"
+                ><img src="../media/icons/shopping-cart(1).svg" alt="" />
+                <p>cart</p></a
+              >
+            </li>
+            <li class="sides" id="account">
+              <a href="">
+                <img src="../media/icons/user.svg" alt="" />
+                <p>account</p></a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </section>
+  <main class="main">
+    <!-- Creating the login form -->
+    <div class="login">
+      <form>
+        <br />
+        <h1>Login</h1>
+        <br />
+        <br />
+        <div>
+          <label for="username" class="label">Username:</label>
+        </div>
+        <div>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="input"
+            placeholder="Username"
+            autofocus
+            required
+          />
+        </div>
+        <br />
+        <div>
+          <label for="password" class="label">Password:</label>
+        </div>
+        <div class="password-container">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="input"
+            placeholder="Password"
+            required
+          />
+          <!-- Adding onClick to toggle between hide and show -->
+          <img
+            src="../media/icons/eye-close.jpg"
+            alt="eye-close"
+            class="eye-icon"
+            id="eye-icon"
+            onclick="toggleIcon()"
+          />
+        </div>
+      </form>
+      <br />
+      <br />
+      <button type="button" class="button">Continue</button>
+    </div>
+    <script src="../js/login.js"></script>
+    <script src="../js/category.js"></script>
+  </main>
+</header>
