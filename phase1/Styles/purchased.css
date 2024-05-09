@@ -372,9 +372,9 @@ main h1 {
   -o-border-radius: 20px;
 }
 #list-items .prod-quantity::before {
-  content: "Qty:";
+  content: "Qty: ";
 }
-.prod-price::before {
+.prod-price::after {
   content: " QAR";
 }
 
