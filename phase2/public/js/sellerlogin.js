@@ -2,12 +2,23 @@ async function fetchSellerData() {
   const response = await fetch(`/api/sellapi`, {
     method: "GET",
   });
-  const data = await response.json()
-  return data
+  const data = await response.json();
+  return data;
+}
+async function fetchLogged(username, password) {
+  const response = await fetch(
+    `/api/sellapi/sellerLoggedIn/?password=${password}&username=${username}`,
+    {
+      method: "GET",
+    }
+  );
+  if (response.ok) {
+    const data = await response.json();
+    return data;
+  }
 }
 
-
-localStorage.removeItem('loggedseller');
+localStorage.removeItem("loggedseller");
 
 // function to handle login of seller
 function handleLogin() {
@@ -19,12 +30,7 @@ function handleLogin() {
 
   //fetch the users from users.json
   (async () => {
-    userdata = await fetchSellerData();
-    console.log(userdata)
-    var user = userdata.find(
-      (user) => user.username === username && user.password === password
-    );
-
+    let user = await fetchLogged(username, password);
     // if found user add him to localstorage under the item loggeduser
     if (user) {
       localStorage.setItem("loggedseller", JSON.stringify(user));

@@ -18,6 +18,23 @@ export async function get(id) {
     };
   }
 }
+export async function getLogged(username, password) {
+  try {
+    if (username&&password) {
+      return await prisma.seller.findUnique({
+        where: { username, password },
+   
+      });
+    }
+  } catch (e) {
+    return {
+      error: {
+        message: e.message,
+        status: 500,
+      },
+    };
+  }
+}
 
 export async function create(data) {
   try {
@@ -49,4 +66,3 @@ export async function update(id, data) {
     };
   }
 }
-
