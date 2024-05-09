@@ -70,10 +70,10 @@ console.log(JSON.stringify(transactions))
 
     transactions
       .filter(
-        (product) =>
-          product.name.toLowerCase().includes(filter.toLowerCase()) ||
-          product.date?.includes(filter) ||
-          product.category?.includes(filter)
+        (t) =>
+          t.product.name.toLowerCase().includes(filter.toLowerCase()) ||
+          t.date?.includes(filter) ||
+          t.product.category?.includes(filter)
       )
       .forEach((p) => productLi.appendChild(renderProductPurchased(p)));
   };

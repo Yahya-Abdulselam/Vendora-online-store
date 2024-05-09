@@ -1,15 +1,15 @@
-@import url(./reset.css);
+@import url(/Styles/reset.css);
 * {
   box-sizing: border-box;
 }
 @font-face {
   font-family: "lora";
 
-  src: url("../Fonts/Merriweather/Lora/static/Lora-Regular.ttf");
+  src: url("/Fonts/Merriweather/Lora/static/Lora-Regular.ttf");
 }
 @font-face {
   font-family: "Merriweather";
-  src: url("../Fonts/Merriweather/Merriweather_Sans/static/MerriweatherSans-Regular.ttf");
+  src: url("/Fonts/Merriweather/Merriweather_Sans/static/MerriweatherSans-Regular.ttf");
 }
 
 * {
@@ -332,6 +332,8 @@ button:hover {
 
 main {
   margin: 3rem;
+  margin-top: 0rem;
+  padding-top: 3rem;
 }
 #list-items {
   margin-top: 1em;

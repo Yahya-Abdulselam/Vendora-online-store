@@ -27,6 +27,7 @@ async function fetchPostTransaction(buyer, data, product) {
     body: JSON.stringify(data),
   });
   const d = await response.json();
+  console.log(d);
   return d;
 }
 
