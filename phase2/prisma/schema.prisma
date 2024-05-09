@@ -1,13 +1,16 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-generator client {
-  provider = "prisma-client-js"
-}
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  directUrl         = env("DIRECT_URL")
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
 }
 
 model Seller {
@@ -19,17 +22,16 @@ model Seller {
 }
 
 model Buyer {
-  id              String        @id @default(cuid())
-  username        String        @unique
-  password        String
-  balance         Float         @default(0)
-  full_name       String?       @default("")
-  address_line    String?       @default("")
-  city            String?       @default("")
-  zip_code        String?       @default("")
-  phone_number    String?       @default("")
-  transactions    Transaction[]
- 
+  id           String        @id @default(cuid())
+  username     String        @unique
+  password     String
+  balance      Float         @default(0)
+  full_name    String?       @default("")
+  address_line String?       @default("")
+  city         String?       @default("")
+  zip_code     String?       @default("")
+  phone_number String?       @default("")
+  transactions Transaction[]
 }
 
 model Product {
@@ -44,8 +46,6 @@ model Product {
   category     Category      @relation(fields: [catId], references: [category])
   catId        String
   transactions Transaction[]
- 
-
 
   @@unique([name, sellerId])
 }
