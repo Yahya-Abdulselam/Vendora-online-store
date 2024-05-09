@@ -20,6 +20,7 @@ export async function create(buyer, prod, d) {
     console.log(transaction);
     return transaction;
   } catch (error) {
+    console.log('error')
     return {
       error: {
         message: error.message,

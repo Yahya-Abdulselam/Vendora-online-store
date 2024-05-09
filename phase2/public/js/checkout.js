@@ -21,7 +21,7 @@ async function fetchPatchUser(buyer, data) {
 }
 
 async function fetchPostTransaction(buyer, data, product) {
-  const url = `http://localhost:3000/api/buyapi/${buyer}/transaction/?transactionProduct=${product}`;
+  const url = `/api/buyapi/${buyer}/transaction/?transactionProduct=${product}`;
   const response = await fetch(url, {
     method: "POST",
     body: JSON.stringify(data),
@@ -165,11 +165,11 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const transaction = {
-          amountPaid: product_price,
-          quantityBought: productInCart.quantity,
+          amountPaid: Number(product_price),
+          quantityBought: Number(productInCart.quantity),
         };
 
-        console.log(product.id)
+        console.log(product.id);
 
         try {
           await fetchPatchUser(user.id, {
@@ -180,7 +180,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-          await fetchPostTransaction(user.id, transaction, product.id);
+          const re = await fetchPostTransaction(
+            user.id,
+            transaction,
+            product.id
+          );
+          if (re.ok) {
+            console.log(JSON.stringify(re));
+          }
         } catch (e) {
           console.log(e);
         }
@@ -216,8 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.setItem("loggedseller", JSON.stringify(loggedSeller));
         }
         purchasedProducts.push(purchased);
-
-        
 
         const resProduct = await fetch(
           `/api/sellapi/${product.sellerId}/${product.id}`,
