@@ -102,11 +102,11 @@ export async function getTopProducts() {
 export async function getSellerTop() {
   try {
     const result = await prisma.$queryRaw`
-  SELECT s.id, s.username, SUM(t.amountPaid) AS totalRevenue, SUM(t.quantityBought) As totalQuantity
-  FROM Seller s, Product p, "Transaction" t
-  where p.id = t.productId and  s.id = p.sellerId 
-  GROUP BY s.id
-  ORDER BY totalQuantity DESC,totalRevenue DESC 
+  SELECT s."id", s."username", SUM(t."amountPaid") AS "totalRevenue", SUM(t."quantityBought") As "totalQuantity"
+  FROM "Seller" s, "Product" p, "Transaction" t
+  where p."id" = t."productId" and  s."id" = p."sellerId" 
+  GROUP BY s."id"
+  ORDER BY "totalQuantity" DESC,"totalRevenue" DESC 
   LIMIT 1;
 `;
 
@@ -152,12 +152,13 @@ export async function getTransactionStandardDeviation() {
 
   const avg = await getAvgLastMonth();
   const varianceTop = await prisma.$queryRaw`
-  SELECT SUM((amountPaid-${avg})*(amountPaid-${avg})) AS squaredDiff
-  FROM 'Transaction'
+  SELECT SUM(("amountPaid"-${avg})*("amountPaid"-${avg})) AS "squaredDiff"
+  FROM "Transaction"
   where date>=${start} AND date<=${end}
 `;
 
-  const variance = varianceTop[0].squaredDiff / count;
+  const variance = Number(varianceTop[0].squaredDiff) / Number(count);
+
   const sd = Math.sqrt(variance);
 
   return sd;
