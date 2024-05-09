@@ -8,7 +8,8 @@ export async function create(buyer, prod, d) {
 
     const transaction = await prisma.transaction.create({
       data: {
-        d,
+        amountPaid: d.amountPaid,
+        quantityBought: d.quantityBought,
         buyer: {
           connect: { id: verification.id },
         },
