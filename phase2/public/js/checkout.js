@@ -20,8 +20,9 @@ async function fetchPatchUser(buyer, data) {
   return d;
 }
 
-async function fetchPostTransaction(buyer, data) {
-  const response = await fetch(`/api/buyapi/${buyer}/transaction`, {
+async function fetchPostTransaction(buyer, data, product) {
+  const url = `http://localhost:3000/api/buyapi/${buyer}/transaction/?transactionProduct=${product}`;
+  const response = await fetch(url, {
     method: "POST",
     body: JSON.stringify(data),
   });
@@ -166,8 +167,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const transaction = {
           amountPaid: product_price,
           quantityBought: productInCart.quantity,
-          buyerId: user.id,
-          productId: product.id,
         };
 
         console.log(product.id)
@@ -181,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-          await fetchPostTransaction(user.id, transaction);
+          await fetchPostTransaction(user.id, transaction, product.id);
         } catch (e) {
           console.log(e);
         }
