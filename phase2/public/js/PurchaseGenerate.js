@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     prodName.textContent = transaction.product.name;
     prodPrice.textContent = transaction.amountPaid;
     prodQty.textContent = transaction.quantityBought;
-    const date = transaction.date.split('T');
-    const time=date[1].replace("Z","")
-    prodDate.textContent=date[0]+","+time
+    const date = transaction.date.split("T");
+    const time = date[1].replace("Z", "");
+    prodDate.textContent = date[0] + "," + time;
     li1.appendChild(image);
     productLi.appendChild(li1);
     productLi.appendChild(prodName);
@@ -57,8 +57,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const productLi = document.querySelector("#list-items");
 
     productLi.replaceChildren();
-console.log(JSON.stringify(transactions))
-    transactions.forEach((p) =>
+    console.log(JSON.stringify(transactions));
+    transactions.reverse().forEach((p) =>
       productLi.appendChild(renderProductPurchased(p))
     );
   };
@@ -69,6 +69,7 @@ console.log(JSON.stringify(transactions))
     productLi.replaceChildren();
 
     transactions
+      .reverse()
       .filter(
         (t) =>
           t.product.name.toLowerCase().includes(filter.toLowerCase()) ||

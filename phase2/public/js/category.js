@@ -16,11 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  if (buyer?.balance) {
-    balance.textContent = buyer?.balance;
-    console.log(1);
-  }
-
   clothingButton.forEach((button) => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
@@ -52,4 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "/pages/listItem.html/?category=furniture";
     });
   });
+
+  if (buyer?.balance) {
+    balance.textContent = buyer?.balance;
+    console.log(1);
+  }
 });

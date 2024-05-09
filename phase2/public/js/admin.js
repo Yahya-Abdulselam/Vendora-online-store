@@ -1,7 +1,7 @@
-import User from "./user.js"
+import User from "./user.js";
 
 class Admin extends User {
-    constructor(username, password, userId){
-        super(username, password, userId)
-    }
+  constructor(username, password, userId) {
+    super(username, password, userId);
+  }
 }

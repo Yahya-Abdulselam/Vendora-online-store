@@ -169,7 +169,6 @@ document.addEventListener("DOMContentLoaded", () => {
           quantityBought: Number(productInCart.quantity),
         };
 
-        console.log(product.id);
 
         try {
           await fetchPatchUser(user.id, {
