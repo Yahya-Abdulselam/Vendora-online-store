@@ -59,9 +59,8 @@ export async function filterByName(seller, name) {
 }
 export async function get(seller, id) {
   let verification = null;
-  
+
   try {
-    
     if (id) {
       verification = await sellers.get(seller);
 
@@ -81,7 +80,6 @@ export async function get(seller, id) {
         where: { sellerId: verification.id },
       });
     } else {
-      
       return await prisma.product.findMany();
     }
   } catch (e) {
@@ -150,22 +148,21 @@ export async function update(seller, product, data) {
 }
 
 export async function getTransactions(seller, id) {
- 
   try {
-    if(id&&seller){
-    return await prisma.product.findMany({
-      where: { id, sellerId: seller.id },
-      select: { transactions: true },
-    });}
-    else{
-      if(seller){
+    if (id && seller) {
+      return await prisma.product.findMany({
+        where: { id, sellerId: seller.id },
+        select: { transactions: true },
+      });
+    } else {
+      if (seller) {
         return await prisma.product.findMany({
           where: { id, sellerId: seller.id },
           select: { transactions: true },
-        })}
+        });
       }
     }
-   catch (e) {
+  } catch (e) {
     return {
       error: {
         message: e.message,
