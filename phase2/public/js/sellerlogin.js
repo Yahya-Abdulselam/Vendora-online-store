@@ -7,7 +7,6 @@ async function fetchSellerData() {
 }
 
 
-localStorage.removeItem('loggeduser');
 localStorage.removeItem('loggedseller');
 
 // function to handle login of seller
