@@ -35,7 +35,7 @@ export async function POST(request, { params }) {
       data
     );
 
-    if ("error" in product) {
+    if ("error" in transaction) {
       return Response.json(transaction.error.message, {
         status: transaction.error.status,
       });

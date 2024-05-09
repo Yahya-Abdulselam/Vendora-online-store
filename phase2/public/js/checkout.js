@@ -11,6 +11,24 @@ async function fetchProducts() {
   return data;
 }
 
+async function fetchPatchUser(buyer, data) {
+  const response = await fetch(`/api/buyapi/${buyer}`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+  });
+  const d = await response.json();
+  return d;
+}
+
+async function fetchPostTransaction(buyer, data) {
+  const response = await fetch(`/api/buyapi/${buyer}/transaction`, {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+  const d = await response.json();
+  return d;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   let purchasedProducts = JSON.parse(
     localStorage.getItem("purchasedProducts") ?? "[]"
@@ -116,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document
     .querySelector(".confirmButton")
-    .addEventListener("click", async () => {
+    .addEventListener("click", async (event) => {
       /**
        * First, grab the information and turn it into a transaction and turn it into a transaction and use PUT.
        * Second, use PATCH to update the quantity of the items.
@@ -127,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
         product.quantity >= productInCart.quantity
       ) {
         console.log("buying!");
-        user.customer_balance = user.customer_balance - total_price;
+        user.balance = user.balance - total_price;
 
         localStorage.setItem("loggeduser", JSON.stringify(user));
         const currentDateLocale = new Date().toLocaleString();
@@ -151,6 +169,37 @@ document.addEventListener("DOMContentLoaded", () => {
           productId: product.id,
         };
 
+        console.log(product.id)
+
+        try {
+          await fetchPatchUser(user.id, {
+            balance: user.balance,
+          });
+        } catch (e) {
+          console.log(e);
+        }
+
+        try {
+          await fetchPostTransaction(user.id, transaction);
+        } catch (e) {
+          console.log(e);
+        }
+
+        // // Doesnt work
+        // const resUser = await fetch(`/api/buyapi/${user.id}`, {
+        //   method: "PATCH",
+        //   body: JSON.stringify(localStorage.getItem("loggeduser")),
+        // });
+
+        // // doesnt work
+        // const resTrans = await fetch(
+        //   `api/buyapi/${user.id}/transaction/?transactionProduct=${product.id}`,
+        //   {
+        //     method: "POST",
+        //     body: JSON.stringify(transaction),
+        //   }
+        // );
+
         products[index].quantity = product.quantity - productInCart.quantity;
         localStorage.setItem("products", products);
         const loggedSeller = JSON.parse(localStorage.getItem("loggedseller"));
@@ -168,20 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         purchasedProducts.push(purchased);
 
-        // Doesnt work
-        const resUser = await fetch(`/api/buyapi/${user.id}`, {
-          method: "PATCH",
-          body: JSON.stringify(localStorage.getItem("loggeduser")),
-        });
-
-        // doesnt work
-        const resTrans = await fetch(
-          `api/buyapi/${user.id}/transaction/?transactionProduct=${product.id}`,
-          {
-            method: "POST",
-            body: JSON.stringify(transaction),
-          }
-        );
+        
 
         const resProduct = await fetch(
           `/api/sellapi/${product.sellerId}/${product.id}`,
