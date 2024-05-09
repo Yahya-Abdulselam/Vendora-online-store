@@ -52,4 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
     accountDetailsLink.innerHTML = `Account Details`;
     document.querySelector("#account-dropdown").append(accountDetailsLink);
   }
+
+  if (localStorage.getItem("loggedseller") != null || localStorage.getItem("loggeduser") != null) {
+    let logoutLink = document.createElement("a");
+    logoutLink.setAttribute("href", "/pages/login.html");
+    logoutLink.innerHTML = `Logout`;
+    document.querySelector("#account-dropdown").append(logoutLink);
+  }
 });

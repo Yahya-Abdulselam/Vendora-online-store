@@ -5,6 +5,11 @@ async function fetchSellerData() {
   const data = await response.json()
   return data
 }
+
+
+localStorage.removeItem('loggeduser');
+localStorage.removeItem('loggedseller');
+
 // function to handle login of seller
 function handleLogin() {
   var username = document.getElementById("username").value;

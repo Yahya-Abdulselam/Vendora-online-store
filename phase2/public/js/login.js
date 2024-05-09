@@ -7,6 +7,9 @@ async function fetchUserData() {
   return data
 }
 
+localStorage.removeItem('loggeduser');
+localStorage.removeItem('loggedseller');
+
 // function to handle login of user
 function handleLogin() {
   var username = document.getElementById("username").value;
