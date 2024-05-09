@@ -20,7 +20,7 @@ export async function create(buyer, prod, d) {
     console.log(transaction);
     return transaction;
   } catch (error) {
-    console.log('error')
+    console.log("error");
     return {
       error: {
         message: error.message,
@@ -65,6 +65,19 @@ export async function get(buyer, prod, id) {
       },
     };
   }
+}
+export async function getTransactionTotalForSeller(seller) {
+  return await prisma.transaction.groupBy({
+    by: ["productId"],
+    _sum: {
+      amountPaid: true,
+    },
+    where: {
+      product: {
+        sellerId: seller,
+      },
+    },
+  });
 }
 export async function getForSeller(seller, prod) {
   try {

@@ -82,7 +82,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       products = await res.json();
     }
     if (!res.ok) {
-    
     }
     const productsDiv = document.querySelector("#list-of-sale");
 
@@ -197,10 +196,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const productsDiv = document.querySelector("#list-of-sold");
 
     productsDiv.replaceChildren();
-
-    purchasedProducts.forEach(async (item) =>
-      productsDiv.appendChild(await renderProductHistory(item))
+    const renderedProducts = await Promise.all  (
+      purchasedProducts.map(async (item) =>  renderProductHistory(item))
     );
+
+     renderedProducts.reverse().forEach(async(product) => productsDiv.appendChild(  product));
     const soldHistory = document.querySelector("#sold-history");
     if (purchasedProducts.length) {
       soldHistory.style.visibility = "visible";

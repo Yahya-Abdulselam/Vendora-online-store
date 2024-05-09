@@ -467,7 +467,7 @@ td {
   padding-inline-start: 0px;
 }
 .itemname {
-  border: 1px solid var(--butterfly-bush-300);
+
   color: var(--picton-blue-300);
   text-align: center;
 }

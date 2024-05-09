@@ -132,7 +132,7 @@ export async function update(seller, product, data) {
 
     const result = await prisma.product.update({
       where: { sellerId: verification.id, id: product },
-      data,
+    data,
     });
 
     return result;

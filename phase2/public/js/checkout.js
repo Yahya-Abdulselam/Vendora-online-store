@@ -40,7 +40,6 @@ async function fetchPostTransaction(buyer, data, product) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-
   const productInCart = JSON.parse(localStorage.getItem("itemInCart"));
   let productName = document.getElementById("order-name");
   let informationProductPrice = document.getElementById(
@@ -119,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let products;
 
   (async () => {
-    product = await fetchProduct(productInCart.id );
+    product = await fetchProduct(productInCart.id);
     const itemQuantityText = document.querySelector("#in-stock");
 
     itemQuantityText.textContent =
@@ -145,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localStorage.setItem("loggeduser", JSON.stringify(user));
         const currentDateLocale = new Date().toLocaleString();
- 
+
         const transaction = {
           amountPaid: Number(product_price),
           quantityBought: Number(productInCart.quantity),
@@ -186,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //     body: JSON.stringify(transaction),
         //   }
         // );
-
+        product.quantity = product.quantity - productInCart.quantity;
         const loggedSeller = JSON.parse(localStorage.getItem("loggedseller"));
 
         const resProduct = await fetch(

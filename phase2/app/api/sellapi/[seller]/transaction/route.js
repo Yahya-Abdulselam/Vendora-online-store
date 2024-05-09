@@ -3,11 +3,14 @@ export async function GET(request, { params }) {
   try {
     const { searchParams } = new URL(request.url);
     const pId = searchParams.get("product-id");
+    const sum = searchParams.get("sum");
     const { seller } = params;
 
     let results;
     if (pId) {
       results = await transactions.getForSeller(seller, pId);
+    } else if (sum === "true") {
+      results = await transactions.getTransactionTotalForSeller(seller);
     } else {
       results = await transactions.getForSeller(seller);
     }
