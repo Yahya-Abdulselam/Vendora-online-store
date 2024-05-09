@@ -11,6 +11,14 @@ async function fetchProducts() {
   return data;
 }
 
+async function fetchProduct(id) {
+  const response = await fetch(`/api/products/${id}`, {
+    method: "GET",
+  });
+  const data = await response.json();
+  return data;
+}
+
 async function fetchPatchUser(buyer, data) {
   const response = await fetch(`/api/buyapi/${buyer}`, {
     method: "PATCH",
@@ -32,9 +40,7 @@ async function fetchPostTransaction(buyer, data, product) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  let purchasedProducts = JSON.parse(
-    localStorage.getItem("purchasedProducts") ?? "[]"
-  );
+
   const productInCart = JSON.parse(localStorage.getItem("itemInCart"));
   let productName = document.getElementById("order-name");
   let informationProductPrice = document.getElementById(
@@ -113,25 +119,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let products;
 
   (async () => {
-    products = await fetchProducts();
+    product = await fetchProduct(productInCart.id );
+    const itemQuantityText = document.querySelector("#in-stock");
 
-    for (let i = 0; i < products.length; i++) {
-      if (
-        productInCart.name + productInCart.sellerID ===
-        products[i].name + products[i].sellerID
-      ) {
-        product = products[i];
-        console.log(product);
-        index = i;
-        const itemQuantityText = document.querySelector("#in-stock");
-        itemQuantityText.textContent =
-          products[i].quantity > 0
-            ? products[i].quantity + " left in the stock"
-            : "Out of stock";
-
-        break;
-      }
-    }
+    itemQuantityText.textContent =
+      product.quantity > 0
+        ? product.quantity + " left in the stock"
+        : "Out of stock";
   })();
 
   document
@@ -151,24 +145,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localStorage.setItem("loggeduser", JSON.stringify(user));
         const currentDateLocale = new Date().toLocaleString();
-        const purchased = {
-          name: product_name,
-          price: product_price,
-          quantity: productInCart.quantity,
-          picture: productInCart.picture,
-          description: productInCart.description,
-          category: productInCart.category,
-
-          date: currentDateLocale,
-          buyerId: user.id,
-          productId: productInCart.id,
-        };
-
+ 
         const transaction = {
           amountPaid: Number(product_price),
           quantityBought: Number(productInCart.quantity),
         };
-
 
         try {
           await fetchPatchUser(user.id, {
@@ -206,22 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //   }
         // );
 
-        products[index].quantity = product.quantity - productInCart.quantity;
-        localStorage.setItem("products", products);
         const loggedSeller = JSON.parse(localStorage.getItem("loggedseller"));
-        if (loggedSeller && loggedSeller.products) {
-          loggedSeller.products.forEach((sellerProduct) => {
-            const globalProduct = products.find(
-              (p) =>
-                p.name === sellerProduct.name && p.sellerId === loggedSeller.id
-            );
-            if (globalProduct) {
-              sellerProduct.quantity = globalProduct.quantity;
-            }
-          });
-          localStorage.setItem("loggedseller", JSON.stringify(loggedSeller));
-        }
-        purchasedProducts.push(purchased);
 
         const resProduct = await fetch(
           `/api/sellapi/${product.sellerId}/${product.id}`,

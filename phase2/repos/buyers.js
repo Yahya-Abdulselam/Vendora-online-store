@@ -18,7 +18,22 @@ export async function get(id) {
     };
   }
 }
-
+export async function getLogged(username, password) {
+  try {
+    if (username && password) {
+      return await prisma.buyer.findUnique({
+        where: { username, password },
+      });
+    }
+  } catch (e) {
+    return {
+      error: {
+        message: e.message,
+        status: 500,
+      },
+    };
+  }
+}
 export async function create(data) {
   try {
     return await prisma.buyer.create({
@@ -36,9 +51,8 @@ export async function create(data) {
 
 export async function update(id, data) {
   try {
-
     return await prisma.buyer.update({
-      where: { id:id },
+      where: { id: id },
       data,
     });
   } catch (e) {

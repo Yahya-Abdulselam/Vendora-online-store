@@ -1,13 +1,24 @@
-
 async function fetchUserData() {
   const response = await fetch(`/api/buyapi`, {
     method: "GET",
   });
-  const data = await response.json()
-  return data
+  const data = await response.json();
+  return data;
+}
+async function fetchLogged(username, password) {
+  const response = await fetch(
+    `/api/buyapi/buyerLoggedIn/?password=${password}&username=${username}`,
+    {
+      method: "GET",
+    }
+  );
+  if (response.ok) {
+    const data = await response.json();
+    return data;
+  }
 }
 
-localStorage.removeItem('loggeduser');
+localStorage.removeItem("loggeduser");
 
 // function to handle login of user
 function handleLogin() {
@@ -19,15 +30,11 @@ function handleLogin() {
 
   //fetch the users from users.json
   (async () => {
-    userdata = await fetchUserData();
-    var user = userdata.find(
-      (user) => user.username === username && user.password === password
-    );
-
+    let user = await fetchLogged(username, password);
     // if found user add him to localstorage under the item loggeduser
     if (user) {
       localStorage.setItem("loggeduser", JSON.stringify(user));
-      console.log(JSON.stringify(user))
+      console.log(JSON.stringify(user));
       // if user clicked on buy now on a product without being logged in redirect him to checkout page after successfull login
       if (!dal) {
         window.location.href = "/pages/main.html";

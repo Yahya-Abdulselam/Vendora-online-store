@@ -62,9 +62,8 @@ export async function get(seller, id) {
 
   try {
     if (id) {
-      verification = await sellers.get(seller);
-
       if (seller) {
+        verification = await sellers.get(seller);
         return await prisma.product.findUnique({
           where: { id, sellerId: verification.id },
         });
