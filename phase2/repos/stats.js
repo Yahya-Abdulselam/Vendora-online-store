@@ -1,17 +1,6 @@
 import prisma from "@/repos/prisma";
 
-export async function getAccountMinMax() {
-  return {
-    min: await prisma.account.findMany({
-      orderBy: [{ balance: "asc" }],
-      take: 1,
-    }),
-    max: await prisma.account.findMany({
-      orderBy: [{ balance: "desc" }],
-      take: 1,
-    }),
-  };
-}
+
 export async function getTransactionTotalByCategory(category) {
   return await prisma.transaction.aggregate({
     _sum: {
