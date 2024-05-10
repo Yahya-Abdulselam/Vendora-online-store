@@ -1,6 +1,3 @@
-import Product from "./Product.js";
-import Seller from "./seller.js";
-
 async function fetchSellerData() {
   const seller = JSON.parse(localStorage.getItem("loggedseller"))
   const response = await fetch(`/api/sellapi/${seller.id}`, {
@@ -8,6 +5,33 @@ async function fetchSellerData() {
   });
   const data = await response.json()
   return data
+}
+
+function fromJSONProduct(object) {
+  const product = {
+    "id": object.id,
+    "name": object.username,
+    "description": object.password,
+    "price": object.price,
+    "quantity": object.quantity,
+    "picture": object.picture,
+    "sellerId": object.sellerId,
+    "catId": object.catId,
+  }
+  return product;
+}
+
+function fromJSONSeller(object) {
+  const seller = {
+    "id": object.id,
+    "username": object.username,
+    "password": object.password,
+    "products": object.products
+  }
+  if (Array.isArray(object.products)) {
+    seller.products = object.products.map((prod) => fromJSONProduct(prod));
+  }
+  return seller;
 }
 
 /**
@@ -57,8 +81,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       event.preventDefault();
       const sellerData = await fetchSellerData();
       console.log(sellerData);
-      const seller = Seller.fromJSON(sellerData, sellerData.id);
-      console.log(seller)
+      const seller = fromJSONSeller(sellerData, sellerData.id);
       const pName = document.querySelector("#prod-name").value.trim();
       const pPrice = document.querySelector("#prod-price").value.trim();
       const pDetails = document.querySelector("#prod-desc").value.trim();
