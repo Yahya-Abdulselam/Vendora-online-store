@@ -1,13 +1,10 @@
-import Product from "./Product.js";
-import Seller from "./seller.js";
-
 async function fetchSellerData() {
-  const seller = JSON.parse(localStorage.getItem("loggedseller"))
+  const seller = JSON.parse(localStorage.getItem("loggedseller"));
   const response = await fetch(`/api/sellapi/${seller.id}`, {
     method: "GET",
   });
-  const data = await response.json()
-  return data
+  const data = await response.json();
+  return data;
 }
 
 /**
@@ -24,7 +21,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //prepare all vallues needed from storage
   // let products = JSON.parse(localStorage.getItem("products") ?? "[]");
-  
 
   const sizeLimit = 2 * 1024 * 1024; // max size local storage can handle
 
@@ -55,10 +51,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   uploadButton.addEventListener("click", async (event) => {
     try {
       event.preventDefault();
-      const sellerData = await fetchSellerData();
-      console.log(sellerData);
-      const seller = Seller.fromJSON(sellerData, sellerData.id);
-      console.log(seller)
+      const seller = await fetchSellerData();
+
+      console.log(seller);
       const pName = document.querySelector("#prod-name").value.trim();
       const pPrice = document.querySelector("#prod-price").value.trim();
       const pDetails = document.querySelector("#prod-desc").value.trim();
@@ -151,10 +146,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             await res.json();
           }
           if (!res.ok) {
-        
           }
         } else {
-        
           const res = await fetch(`/api/sellapi/${seller.id}`, {
             method: "POST",
             body: JSON.stringify(p),
@@ -163,7 +156,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             await res.json();
           }
           if (!res.ok) {
-         
           }
         }
         form.reset();
