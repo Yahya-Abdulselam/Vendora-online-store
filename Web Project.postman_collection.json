@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "35309a57-f332-4791-92fe-b346e02e8a9a",
+		"name": "Web Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34854871"
+	},
+	"item": [
+		{
+			"name": "api/buyapi - get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/buyapi/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"buyapi",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/buyapi/[buyer] - get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/buyapi/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"buyapi",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/buyapi/[buyer] - patch",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"zip_code\": \"12121212\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/buyapi/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"buyapi",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/buyapi/[buyer]/transaction - get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/buyapi/5/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"buyapi",
+						"5",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/buyapi/[buyer]/transaction/?transactionProduct=104 - post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amountPaid\": 200,\r\n    \"quantityBought\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/buyapi/5/transaction/?transactionProduct=104",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"buyapi",
+						"5",
+						"transaction",
+						""
+					],
+					"query": [
+						{
+							"key": "transactionProduct",
+							"value": "104"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/products - get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/products/[product] - get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products/105",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						"105"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/sellapi - get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/sellapi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"sellapi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/sellapi/[seller] - get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/sellapi/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"sellapi",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/sellapi/[seller]/[product] - get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/sellapi/1/99",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"sellapi",
+						"1",
+						"99"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/sellapi/[seller]/[product] - patch",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\": 1200\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/sellapi/1/99",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"sellapi",
+						"1",
+						"99"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/sellapi/[seller]/product - get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/sellapi/1/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"sellapi",
+						"1",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/sellapi/[seller]/transaction - get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/sellapi/1/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"sellapi",
+						"1",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/sellapi/[seller] - post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Phone\",\r\n    \"description\": \"Old Phone\",\r\n    \"picture\": \"\",\r\n    \"quantity\": 4,\r\n    \"price\": 1000,\r\n    \"category\": \"tech\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/sellapi/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"sellapi",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/sellapi/[seller]/[product] - delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/sellapi/1/clw13o9s50000pp9v0mmg417i",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"sellapi",
+						"1",
+						"clw13o9s50000pp9v0mmg417i"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
