@@ -34,6 +34,20 @@ export async function getLogged(username, password) {
     };
   }
 }
+export async function create(data) {
+  try {
+    return await prisma.buyer.create({
+      data,
+    });
+  } catch (e) {
+    return {
+      error: {
+        message: e.message,
+        status: 500,
+      },
+    };
+  }
+}
 
 export async function update(id, data) {
   try {

@@ -141,6 +141,25 @@ export async function getForBuyer(buyer, id) {
   }
 }
 
+export async function remove(seller, id) {
+  try {
+    const verification = await sellers.get(seller);
+
+    const result = await prisma.product.delete({
+      where: { sellerId: verification.id, id },
+    });
+
+    return result;
+  } catch (e) {
+    return {
+      error: {
+        message: "product not found",
+        status: 404,
+      },
+    };
+  }
+}
+
 export async function update(seller, product, data) {
   try {
     const verification = await sellers.get(seller);
