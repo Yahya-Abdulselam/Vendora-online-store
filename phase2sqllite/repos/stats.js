@@ -14,19 +14,20 @@ export async function getTransactionTotalByCategory(category) {
   });
 }
 
-export async function getTransactionTotal(from, to) {
-  return await prisma.transaction.aggregate({
-    _sum: {
-      amountPaid: true,
-    },
-    where: {
-      date: {
-        gte: from,
-        lte: to,
-      },
-    },
-  });
-}
+// Currently Unused
+// export async function getTransactionTotal(from, to) {
+//   return await prisma.transaction.aggregate({
+//     _sum: {
+//       amountPaid: true,
+//     },
+//     where: {
+//       date: {
+//         gte: from,
+//         lte: to,
+//       },
+//     },
+//   });
+// }
 export async function getTransactionTotalAllTime() {
   return await prisma.transaction.aggregate({
     _sum: {
@@ -49,20 +50,22 @@ export async function getTransactionsCount() {
   });
 }
 
-export async function getTransactionAccountTotal(id, from, to) {
-  return await prisma.transaction.aggregate({
-    _sum: {
-      amount: true,
-    },
-    where: {
-      account: id,
-      date: {
-        gte: from,
-        lte: to,
-      },
-    },
-  });
-}
+// Currently Unused
+// export async function getTransactionAccountTotal(id, from, to) {
+//   return await prisma.transaction.aggregate({
+//     _sum: {
+//       amount: true,
+//     },
+//     where: {
+//       account: id,
+//       date: {
+//         gte: from,
+//         lte: to,
+//       },
+//     },
+//   });
+// }
+
 export async function getTopProducts() {
   const topProducts = await prisma.transaction.groupBy({
     by: ["productId"],
